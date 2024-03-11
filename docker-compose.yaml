@@ -1,7 +1,7 @@
 version: '3'
 services:
   infer:
-    image: david712/infer
+    image: david712/infer:1.1.0
     container_name: infer
     build:
       context: ./infer_code
