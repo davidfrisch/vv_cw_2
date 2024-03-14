@@ -1,0 +1,13 @@
+This test does not pass, fix the solution
+public void Test0() {
+    int[] nums = { 2, 7, 11, 13 };
+    int target = 9;
+    int[] actuals = solution.twoSum(nums, target);
+    int[] expecteds = { 1, 2 };
+    assertArrayEquals(expecteds, actuals);
+}
+
+java.lang.AssertionError: actual array was null
+ at _001_TwoSum.PracticeTest.Test0(PracticeTest.java:35)
+ at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+ at java.lang.Thread.run(Thread.java:750)

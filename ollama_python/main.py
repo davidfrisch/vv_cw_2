@@ -1,32 +1,41 @@
-import ollama
-response = ollama.chat(model='llama2', messages=[
-  {
-    'role': 'user',
-    'content': """
-    /**
- ***************************************************************************
- Description:
- Given an array of integers, find two numbers such that they add up to 
- a specific target number. 
- The function twoSum should return indices of the two numbers such that 
- they add up to the target, where index1 must be less than index2. 
- Please note that your returned answers (both index1 and index2) are not 
- zero-based. 
-  ***************************************************************************
+import json
+import requests
 
-package _001_TwoSum;
+# NOTE: ollama must be running for this to work, start the ollama app or run `ollama serve`
+model = 'llama2' # TODO: update this for whatever model you wish to use
 
-/** see test {@link _001_TwoSum.PracticeTest } */
-public class Practice {
+def generate(prompt, context):
+    r = requests.post('http://127.0.0.1:11434/api/generate',
+                      json={
+                          'model': model,
+                          'prompt': prompt,
+                          'context': context,
+                      },
+                      stream=True)
+    r.raise_for_status()
 
-    public int[] twoSum(int[] nums, int target) {
-        // TODO Complete the implementation
-        return null;
-    }
+    for line in r.iter_lines():
+        body = json.loads(line)
+        response_part = body.get('response', '')
+        # the response streams one token at a time, print that as we receive it
+        print(response_part, end='', flush=True)
 
-}
+        if 'error' in body:
+            raise Exception(body['error'])
 
-    """
-  },
-])
-print(response['message']['content'])
+        if body.get('done', False):
+            return body['context']
+
+def main():
+    context = [] # the context stores a conversation history, you can use this to make the model more context aware
+    with open('prompt1.txt', 'r') as file:
+        prompt = file.read()
+        context = generate(prompt, context)
+    
+    with open('prompt2.txt', 'r') as file:
+        prompt = file.read()
+        context = generate(prompt, context)
+    
+
+if __name__ == "__main__":
+    main()
