@@ -10,6 +10,7 @@
 	<property name="lib" location="lib" />
 	<property name="report" location="report" />
   <property name="test.folder" value="" />
+  <property name="folder" value="" />
 
 
 	<property name="main-class" value="com.leetcode.Leetcode" />
@@ -81,6 +82,20 @@
 			</classpath>
 		</java>
 	</target>
+
+
+  <!-- ================================= 
+          target: compile.specific
+          e.g. ant compile.specific -Dfolder=_001_TwoSum
+    ================================= -->
+
+  <target name="compile.specific" depends="clean, init" description="Compile the project">
+    <javac encoding="UTF-8" includeantruntime="false" destdir="${bin}" classpathref="classpath" >
+      <src path="${src}/${folder}" />
+      <src path="${src}/com/leetcode" />
+    </javac>
+    <javac srcdir="${test}/${folder}" destdir="${bin}" includeantruntime="false" classpathref="classpath" />
+  </target>
 
   <!-- ================================= 
           target: test.specified

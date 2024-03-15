@@ -9,4 +9,5 @@ bin/
 report/
 infer-out/
 *.class
-leetcode-master/
+data
+.env

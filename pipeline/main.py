@@ -1,28 +1,129 @@
 from a_generate_solution import generate_solution
 from b_extract_and_insert import extract_and_insert
 from c_compile_and_verify import compile_and_verify
-# from d_feedback import a_feedback
-from e_test import test_solution
-# from pipeline.d_feedback import a_feedback
-import xmltojson
-import json
+from d_test import test_solution
+
+from constants import LEETCODE_MASTER_PATH
+import os
+from datetime import datetime
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+MAX_NUMBER_RETRIES = 3
+
+def get_folders_test_names():
+    leetcode_questions_src = f"{LEETCODE_MASTER_PATH}/src"
+    
+    # show folder names
+    questions_folders = []
+    for folder in os.listdir(leetcode_questions_src):
+        if not folder.startswith("_"):
+            continue
+        if os.path.isdir(os.path.join(leetcode_questions_src, folder)):
+            questions_folders.append(folder)
+            
+    questions_folders.sort()
+    return questions_folders
+
+
+def copy_original_code(original_leetcode_question, copy_leetcode_question):
+    with open(original_leetcode_question, 'r') as file:
+        leetcode_question = file.read()
+        with open(copy_leetcode_question, 'w') as file:
+            file.write(leetcode_question)
+            print(f"Copy: {copy_leetcode_question}")
+
+def clean_run_results(run_results_dir):
+    for file in os.listdir(run_results_dir):
+        if file.endswith(".txt"):
+            os.remove(os.path.join(run_results_dir, file))
+    print(f"Clean: {run_results_dir}")
+
 
 def main():
-    model = "gemma"
-    context = []
-    # with open('data/prompt1.txt', 'r') as file:
-    #     prompt = file.read()
-    #     context, response = generate_solution(prompt, context, model)
-    #     print(response)
-    
-    # with open('data/response1.txt', 'r') as file:
-    #     response = file.read()
-    #     extract_and_insert(response, 'data/prompt1.java', 'data/response1.java')
-    
-    
-    compile_and_verify("_001_TwoSum")
-    test_solution("_001_TwoSum")
+    #model = "gemma"
+    model = "llama2:latest"
+    # model = "gpt-3.5-turbo-0125"
+    questions_folders = get_folders_test_names()
+
+    for folder_question_name in questions_folders[:1]:
+        context = []
+        retries_counter = 0
+        error_message = ""
+        print(f"Processing: {folder_question_name}")
+        timestamp = "" # datetime.now().strftime("%Y%m%d-%H%M%S")
+        original_leetcode_question = f"{LEETCODE_MASTER_PATH}/src/{folder_question_name}/original.txt"
+        leetcode_question_path = f"{LEETCODE_MASTER_PATH}/src/{folder_question_name}/Practice.java"
+        run_results_dir = f"{dir_path}/data/{timestamp}_{folder_question_name}"
+        os.makedirs(run_results_dir, exist_ok=True)
+        clean_run_results(run_results_dir)
         
+        while retries_counter < MAX_NUMBER_RETRIES:
+            prompt_path = f"{run_results_dir}/{retries_counter}_prompt.txt"
+            response_path = f"{run_results_dir}/{retries_counter}_response.txt"
+            try:
+               
+                
+                """*** Generate Solution with LLM Algorithm ***"""
+                if retries_counter == 0:
+                    copy_original_code(original_leetcode_question, leetcode_question_path)
+                
+                with open(leetcode_question_path, 'r') as file:
+                    leetcode_question = file.read()
+                    
+                prompt = (f"Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain \n {leetcode_question}" 
+                              if retries_counter == 0 
+                              else f"Your code has the following error: {error_message}\n Retry with a fix and give the complete file. Don't explain. Only give java code \n {leetcode_question}")
+
+                with open(prompt_path, 'w') as file:
+                    file.write(prompt)
+                    print("Open: ", prompt_path)
+                    context = []
+                    context, response = generate_solution(prompt, context, model)
+                    with open(response_path, 'w') as file:
+                        file.write(response)
+                        print("Open: ", response_path)
+                    
+
+                """*** Extract and Insert ***"""
+                with open(response_path, 'r') as file:
+                    llm_algo_response = file.read()
+                    extract_and_insert(llm_algo_response, leetcode_question_path)
+            
+                # """*** Compile and Verify ***"""
+                compile_and_verify(folder_question_name, run_results_dir, retries_counter)
+                error_message = ""
+            
+            
+
+                # """*** Test Solution ***"""
+                test_solution(folder_question_name, run_results_dir, retries_counter)
+                retries_counter = MAX_NUMBER_RETRIES
+                print(f"Done: {folder_question_name}")
+                break
+            
+          
+            
+            except SyntaxError as e:
+                with open(run_results_dir + f"/{retries_counter}_infer_logs.txt", "r") as file:
+                    error_message = file.read()
+                    retries_counter += 1
+                    print(f"Retrying: {retries_counter}")
+                    print(f"Error: {error_message}")
+            except ValueError as e:
+                with open(run_results_dir + f"/{retries_counter}_tests_logs.txt", "r") as file:
+                    error_message = file.read()
+                    retries_counter += 1
+                    print(f"Retrying: {retries_counter}")
+                    print(f"Error: {error_message}")       
+            except KeyboardInterrupt:
+                os._exit(1)
+            except Exception as e:
+                error_message = str(e)
+                retries_counter += 1
+                print(f"Retrying: {retries_counter}")
+                print(f"Error: {error_message}")
+            
+       
         
 if __name__ == "__main__":
     main()
