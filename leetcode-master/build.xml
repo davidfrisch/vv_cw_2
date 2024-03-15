@@ -95,7 +95,7 @@
     </classpath>
       <formatter usefile="false" type="plain" />
       <!-- Save log in report folder -->
-      <formatter type="plain" usefile="true" />
+      <formatter type="xml" usefile="true" />
       <batchtest todir="${report}">
         <fileset dir="${bin}" includes="**/${test.folder}/PracticeTest.class" />
       </batchtest>
