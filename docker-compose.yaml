@@ -6,15 +6,10 @@ services:
     build:
       context: ./infer_code
       dockerfile: Dockerfile
+    working_dir: /app/pipeline
     volumes:
-      - ./infer_code:/app/infer_code
-    # keep the container running
+      - ./pipeline:/app/pipeline
+      - ./leetcode-master:/app/leetcode-master
     command: tail -f /dev/null
   
-  klee:
-    image: klee/klee:3.0
-    container_name: klee
-    volumes:
-      - ./klee_code:/app/klee_code
-    # keep the container running
-    command: tail -f /dev/null
+  

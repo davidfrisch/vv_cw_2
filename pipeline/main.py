@@ -1,6 +1,6 @@
 from a_generate_solution import generate_solution
 from b_extract_and_insert import extract_and_insert
-# from c_compile_and_verify import feedback
+from c_compile_and_verify import compile_and_verify
 # from d_feedback import a_feedback
 from e_test import test_solution
 # from pipeline.d_feedback import a_feedback
@@ -19,9 +19,9 @@ def main():
     #     response = file.read()
     #     extract_and_insert(response, 'data/prompt1.java', 'data/response1.java')
     
+    
+    compile_and_verify("_001_TwoSum")
     test_solution("_001_TwoSum")
-    
-    
         
         
 if __name__ == "__main__":
