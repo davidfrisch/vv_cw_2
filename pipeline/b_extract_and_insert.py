@@ -12,8 +12,12 @@ def print_code(node, code):
     print(code[node.start_byte:node.end_byte])
     
 
-def extract_and_insert(response, leetcode_question_path):
+def extract_and_insert(response, leetcode_question_path, run_results_dir, counter):
     number_of_java_code_blocks = math.floor(response.count("```")/2)
+    is_even = response.count("```") % 2 == 0
+    if not is_even:
+        raise Exception("The number of Java code blocks found is not even. You may have a missing or extra code block. Only one Java code block is expected.")
+    
     if number_of_java_code_blocks == 0:
         raise Exception("No Java code block found in the given response.")
       
@@ -28,6 +32,8 @@ def extract_and_insert(response, leetcode_question_path):
     with open(leetcode_question_path, 'w') as file:
         file.write(code)
     
+    with open(run_results_dir + f"/{str(counter)}_response_extracted_code.txt", 'w') as file:
+        file.write(code)
     
     # tree = parser.parse(bytes(code, 'utf8'))
     # class_node = extract_class(tree.root_node)

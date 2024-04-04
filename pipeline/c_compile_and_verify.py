@@ -11,8 +11,12 @@ def run_infer(folder_test_name: str) -> int:
     cmd = f"""docker exec -w /app/leetcode-master {container_name} infer run -- ant compile.specific -Dfolder={folder_test_name}"""
     print(cmd)
     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    logs = ""
+    for line in iter(process.stdout.readline, b''):
+        logs += line.decode("utf-8")
+    
     process.wait()
-    return process.returncode
+    return process.returncode, logs
 
 def run_compile(folder_test_name: str, run_results_dir, retries_counter) -> int:
     cmd_2 = f"""cd {LEETCODE_MASTER_PATH} && \
@@ -28,7 +32,6 @@ def run_compile(folder_test_name: str, run_results_dir, retries_counter) -> int:
     # only take the javac output
     javac_errors = []
     for line in logs.split("\n"):
-        
         if "javac" in line:
             print(line)
             javac_errors.append(line.replace("[javac] ", ""))
@@ -112,11 +115,17 @@ def compile_and_verify(folder_test_name: str, run_results_dir: str, retries_coun
         print("Ant Compilation failed")
         raise Exception("Ant Compilation failed")
       
-    infer_return_code = run_infer(folder_test_name)
+    infer_return_code, infer_logs = run_infer(folder_test_name)
     print(f"Infer Return code: {infer_return_code}")
 
     if infer_return_code != 0:
         infer_report_logs(run_results_dir, retries_counter)
         print()
+        
+    if infer_return_code == 0:
+        with open(f"{run_results_dir}/{retries_counter}_infer_logs.txt", "w") as file:
+            file.write(infer_logs)
+            
+
   
     infer_report(run_results_dir, retries_counter)

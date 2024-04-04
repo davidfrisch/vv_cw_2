@@ -15,9 +15,9 @@ def run_junit_test(folder_test_name: str, verbose: bool = False):
     process.wait()
     
     leetcode_master_path = dir_path + "/../leetcode-master"
-    cmd = f"cd {leetcode_master_path} && ant test.specific -Dtest.folder={folder_test_name}"
-    print(cmd)
-    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    cmd_2 = f"cd {leetcode_master_path} && ant test.specific -Dtest.folder={folder_test_name}"
+    print(cmd_2)
+    process = subprocess.Popen(cmd_2, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if verbose:
         for line in process.stdout:
             print(line)
@@ -86,15 +86,27 @@ def test_solution(folder_test_name: str, run_results_dir: str, retries_counter: 
   print(f"Number of errors: {num_errors}")
   print(f"Timestamp: {timestamp}")
   
-  file_path = f"{run_results_dir}/{retries_counter}_tests_logs.txt"
-  with open(file_path, 'w') as file:
+  file_path_logs = f"{run_results_dir}/{retries_counter}_tests_logs.txt"
+  with open(file_path_logs, 'w') as file:
       for test in test_cases[:1]:
           if not test['success']:
               file.write(f"Message: {test['message']}\n")
               file.write(f"{test['code']}\n")
           file.write("\n")
           
-      print(f"Open: {file_path}")
+      print(f"Open: {file_path_logs}")
+  
+  file_path_results = f"{run_results_dir}/{retries_counter}_tests_results.json"
+  with open(file_path_results, 'w') as file:
+      json.dump({
+          'num_tests': num_tests,
+          'num_successes': int(num_tests) - int(num_failures) - int(num_errors),
+          'num_failures': num_failures,
+          'num_errors': num_errors,
+          'timestamp': timestamp,
+          'test_cases': test_cases
+      }, file, indent=4)
+      print(f"Open: {file_path_results}")
       
   if int(num_failures) > 0 or int(num_errors) > 0:
       raise ValueError("Tests failed")

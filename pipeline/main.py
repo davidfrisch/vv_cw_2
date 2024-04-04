@@ -34,18 +34,18 @@ def copy_original_code(original_leetcode_question, copy_leetcode_question):
 
 def clean_run_results(run_results_dir):
     for file in os.listdir(run_results_dir):
-        if file.endswith(".txt"):
+        if file.endswith(".txt") or file.endswith(".json"):
             os.remove(os.path.join(run_results_dir, file))
     print(f"Clean: {run_results_dir}")
 
 
 def main():
     #model = "gemma"
-    model = "llama2:latest"
-    # model = "gpt-3.5-turbo-0125"
+    # model = "llama2:latest"
+    model = "gpt-3.5-turbo-0125"
     questions_folders = get_folders_test_names()
 
-    for folder_question_name in questions_folders[:1]:
+    for folder_question_name in questions_folders[:10]:
         context = []
         retries_counter = 0
         error_message = ""
@@ -55,46 +55,44 @@ def main():
         leetcode_question_path = f"{LEETCODE_MASTER_PATH}/src/{folder_question_name}/Practice.java"
         run_results_dir = f"{dir_path}/data/{timestamp}_{folder_question_name}"
         os.makedirs(run_results_dir, exist_ok=True)
-        clean_run_results(run_results_dir)
+        # clean_run_results(run_results_dir)
         
         while retries_counter < MAX_NUMBER_RETRIES:
             prompt_path = f"{run_results_dir}/{retries_counter}_prompt.txt"
             response_path = f"{run_results_dir}/{retries_counter}_response.txt"
             try:
-               
-                
-                """*** Generate Solution with LLM Algorithm ***"""
                 if retries_counter == 0:
                     copy_original_code(original_leetcode_question, leetcode_question_path)
                 
+                """*** Generate Solution with LLM Algorithm ***"""
                 with open(leetcode_question_path, 'r') as file:
                     leetcode_question = file.read()
                     
-                prompt = (f"Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain \n {leetcode_question}" 
-                              if retries_counter == 0 
-                              else f"Your code has the following error: {error_message}\n Retry with a fix and give the complete file. Don't explain. Only give java code \n {leetcode_question}")
+                    prompt = (f"Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain \n {leetcode_question}" 
+                                  if retries_counter == 0 
+                                  else f"Your code has the following error: {error_message}\n Retry with a fix and give the complete file. Don't explain. Only give java code \n {leetcode_question}")
 
-                with open(prompt_path, 'w') as file:
-                    file.write(prompt)
-                    print("Open: ", prompt_path)
-                    context = []
-                    context, response = generate_solution(prompt, context, model)
-                    with open(response_path, 'w') as file:
-                        file.write(response)
-                        print("Open: ", response_path)
+                    with open(prompt_path, 'w') as file:
+                        file.write(prompt)
+                        print("Open: ", prompt_path)
+                        context = []
+                        context, response = generate_solution(prompt, context, model)
+                        with open(response_path, 'w') as file:
+                            file.write(response)
+                            print("Open: ", response_path)
                     
 
                 """*** Extract and Insert ***"""
                 with open(response_path, 'r') as file:
                     llm_algo_response = file.read()
-                    extract_and_insert(llm_algo_response, leetcode_question_path)
+                    extract_and_insert(llm_algo_response, leetcode_question_path, run_results_dir, retries_counter)
+            
             
                 # """*** Compile and Verify ***"""
                 compile_and_verify(folder_question_name, run_results_dir, retries_counter)
                 error_message = ""
             
             
-
                 # """*** Test Solution ***"""
                 test_solution(folder_question_name, run_results_dir, retries_counter)
                 retries_counter = MAX_NUMBER_RETRIES
@@ -123,7 +121,7 @@ def main():
                 print(f"Retrying: {retries_counter}")
                 print(f"Error: {error_message}")
             
-       
+        copy_original_code(original_leetcode_question, leetcode_question_path)
         
 if __name__ == "__main__":
     main()
