@@ -18,7 +18,7 @@ def run_infer(folder_test_name: str) -> int:
     process.wait()
     return process.returncode, logs
 
-def run_compile(folder_test_name: str, run_results_dir, retries_counter) -> int:
+def run_compile(folder_test_name: str, run_results_dir, retries_counter, verbose=False) -> int:
     cmd_2 = f"""cd {LEETCODE_MASTER_PATH} && \
               ant compile.specific -Dfolder={folder_test_name}"""
     print(cmd_2)
@@ -27,17 +27,19 @@ def run_compile(folder_test_name: str, run_results_dir, retries_counter) -> int:
     logs = ""
     for line in iter(process.stdout.readline, b''):
         logs += line.decode("utf-8")
-        print(line.decode("utf-8"), end="")
+        if verbose:
+            print(line.decode("utf-8"), end="")
         
     # only take the javac output
     javac_errors = []
     for line in logs.split("\n"):
-        if "javac" in line:
+        javac_errors.append(line.replace("[javac] ", ""))
+        if verbose and "javac" in line:
             print(line)
-            javac_errors.append(line.replace("[javac] ", ""))
     
     javac_errors = "\n".join(javac_errors[1:-1])
     process.wait()
+    print(f"Return compilation code: {process.returncode}")
     if process.returncode != 0:
         with open(f"{run_results_dir}/{retries_counter}_infer_logs.txt", "w") as file:
             print("Writing in "+ f"{run_results_dir}/{retries_counter}_infer_logs.txt")

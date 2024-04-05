@@ -1,11 +1,7 @@
 import requests
 import json
-from constants import OLLAMA_API_URL
+from constants import OLLAMA_API_URL, OPENAI_MODELS, OLLAMA_MODELS
 
-
-
-OLLAMA_MODELS = ["llama2:latest", "gemma"]
-OPENAI_MODELS = ["gpt-3.5-turbo-0125"]
 
 def generate_solution(prompt, context, model):
     llm = None

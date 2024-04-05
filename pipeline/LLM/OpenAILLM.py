@@ -1,12 +1,11 @@
 from LLM.BaseLLM import BaseLLM
 from openai import OpenAI
 import os
-from dotenv import load_dotenv
-load_dotenv()
+from constants import OPENAI_API_KEY
 class OpenAILLM(BaseLLM):
   def __init__(self, model):
       self.openai = OpenAI(
-        api_key=os.getenv('OPENAI_API_KEY'),
+        api_key=OPENAI_API_KEY,
       )
       self.model = model
       
@@ -21,5 +20,4 @@ class OpenAILLM(BaseLLM):
                                         model=self.model)
       
       reponse = completion.choices[0].message.content
-      print(reponse)
       return reponse

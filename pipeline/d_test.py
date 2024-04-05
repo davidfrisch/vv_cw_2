@@ -88,7 +88,7 @@ def test_solution(folder_test_name: str, run_results_dir: str, retries_counter: 
   
   file_path_logs = f"{run_results_dir}/{retries_counter}_tests_logs.txt"
   with open(file_path_logs, 'w') as file:
-      for test in test_cases[:1]:
+      for test in test_cases:
           if not test['success']:
               file.write(f"Message: {test['message']}\n")
               file.write(f"{test['code']}\n")
