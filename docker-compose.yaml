@@ -1,6 +1,22 @@
 
 
 services:
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
   infer:
     image: david712/infer:latest
     container_name: infer
@@ -13,4 +29,7 @@ services:
       - ./leetcode-master:/app/leetcode-master
     command: tail -f /dev/null
   
+
+volumes:
+      ollama:
   
