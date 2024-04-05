@@ -15,7 +15,6 @@ def generate_report(run_results_dir, folder_question_name, model, passed, total_
     
     all_retries = {}
     for retries_counter in range(total_retries):
-        print(f"Generateeee: {retries_counter}")
         retry_report = {}
       
         """ Prompt """

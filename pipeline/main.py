@@ -1,4 +1,4 @@
-from constants import LEETCODE_MASTER_PATH
+from constants import LEETCODE_MASTER_PATH, OLLAMA_MODELS
 import json
 from init_pipeline import validate_args, get_folders_test_names, copy_original_code, clean_run_results, delete_bin_folder
 from a_generate_solution import generate_solution
@@ -11,13 +11,14 @@ from datetime import datetime
 import argparse
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-MAX_NUMBER_RETRIES = 2
+MAX_NUMBER_RETRIES = 5
 
 
 def main(model, number_of_questions=5, benchmark=False, verbose=False):
     questions_folders = get_folders_test_names()
     print(f"Using model: {model}")
     validate_args(model, number_of_questions, benchmark, questions_folders)
+    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S") if benchmark else "latest"
     delete_bin_folder()
     
     
@@ -28,7 +29,6 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
         retries_counter = 0
         error_message = ""
         print(f"Processing: {folder_question_name}")
-        timestamp = datetime.now().strftime("%Y%m%d-%H%M%S") if benchmark else "latest"
         original_leetcode_question = f"{LEETCODE_MASTER_PATH}/src/{folder_question_name}/original.txt"
         leetcode_question_path = f"{LEETCODE_MASTER_PATH}/src/{folder_question_name}/Practice.java"
         run_results_dir = f"{dir_path}/data/{timestamp}/{folder_question_name}"
@@ -47,9 +47,10 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
                 with open(leetcode_question_path, 'r') as file:
                     leetcode_question = file.read()
                     
-                    extra_prompt = (f"Replace  // TODO Auto-generated method stub with your solution code. Only one answer with the complete file. Don't explain:"
+                    extra_prompt = (f"Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain !"
                                   if retries_counter == 0
-                                  else f"The following code has the following error: {error_message}\n Retry with a fix complete Practice.java file. Don't explain. Only give one solution and no tests:")
+                                  else f"The following code has the following error: {error_message}\n. Retry with a fix of the complete file. Don't explain! Only give the java code")
+                    
                     with open(prompt_json_path, 'w') as file:
                         file.write(json.dumps({"extra_prompt": extra_prompt}))
                     

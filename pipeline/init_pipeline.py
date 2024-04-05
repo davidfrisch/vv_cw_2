@@ -49,8 +49,7 @@ def clean_run_results(run_results_dir):
     
 def delete_bin_folder():
     bin_folder = f"{LEETCODE_MASTER_PATH}/bin"
-    if os.path.exists(bin_folder):
-        cmd = f"docker exec -w /app/leetcode-master infer run -- rm -rf {bin_folder}"
-        process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        process.wait()
-        print(f"Delete: {bin_folder}")
+    cmd = f"docker exec -w /app/leetcode-master infer run -- rm -rf {bin_folder}"
+    process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process.wait()
+    print(f"Delete: {bin_folder}")
