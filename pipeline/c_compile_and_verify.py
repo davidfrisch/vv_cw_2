@@ -52,7 +52,8 @@ def run_compile(folder_test_name: str, run_results_dir, retries_counter, verbose
     return process.returncode
 
 def infer_report(run_results_dir: str, retries_counter: int):
-  if not os.path.exists(f"data/infer-out/report.json"):
+  infer_report_path = f"{LEETCODE_MASTER_PATH}/infer-out/report.json"
+  if not os.path.exists(infer_report_path):
     with open(f"{run_results_dir}/{retries_counter}_infer_report.txt", "w") as file:
       file.write("No report generated")
     
@@ -60,29 +61,28 @@ def infer_report(run_results_dir: str, retries_counter: int):
   
   
   
-  report = f"data/infer-out/report.json"
-  with open(report, "r") as file:
+  with open(infer_report_path, "r") as file:
     data = json.load(file)
+    num_issues = len(data)
     
-  num_issues = len(data)
-  for issue in data:
-    print(issue['bug_type'])
-  
-  print(f"Number of issues: {num_issues}")
-  
-  report_path = f"{run_results_dir}/{retries_counter}_infer_report.txt"
-  with open(report_path, "w") as file:
-    file.write(f"Number of issues: {num_issues}\n")
     for issue in data:
-      file.write(f"bug type:{issue['bug_type']}\n")
-      file.write(f"qualifier: {issue['qualifier']}\n")
-      file.write("\n")
-      
-    print(f"Open: {report_path}")
+      print(issue['bug_type'])
+    
+    print(f"Number of issues: {num_issues}")
+    
+    report_path = f"{run_results_dir}/{retries_counter}_infer_report.json"
+    with open(report_path, "w") as file:
+      issues = [{"bug_type": issue['bug_type'], "qualifier": issue['qualifier']} for issue in data]
+      file.write(json.dumps({
+          "num_issues": num_issues,
+          "issues": issues
+      }))
+        
+      print(f"Open: {report_path}")
   
 
 def infer_report_logs(run_results_dir: str, retries_counter: int):
-  logs_file = f"data/infer-out/logs"
+  logs_file = f"{LEETCODE_MASTER_PATH}/infer-out/logs"
   with open(logs_file, "r") as file:
     logs = file.read()
     compile_errors = []
@@ -107,9 +107,9 @@ def infer_report_logs(run_results_dir: str, retries_counter: int):
 
   
 
-def compile_and_verify(folder_test_name: str, run_results_dir: str, retries_counter):
+def compile_and_verify(folder_test_name: str, run_results_dir: str, retries_counter, verbose=False):
     
-    compile_return_code = run_compile(folder_test_name, run_results_dir, retries_counter)
+    compile_return_code = run_compile(folder_test_name, run_results_dir, retries_counter, verbose)
     
     print(f"Return code: {compile_return_code}")
     

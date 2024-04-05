@@ -49,8 +49,8 @@ def extract_methods_with_implementation(node, code):
     
     return methods
 
-def test_solution(folder_test_name: str, run_results_dir: str, retries_counter: int):
-  run_junit_test(folder_test_name)
+def test_solution(folder_test_name: str, run_results_dir: str, retries_counter: int, verbose: bool = False):
+  run_junit_test(folder_test_name, verbose)
   with open(f"{LEETCODE_MASTER_PATH}/test/{folder_test_name}/PracticeTest.java", 'r') as file:
     code = file.read()
   

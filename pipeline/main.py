@@ -1,9 +1,11 @@
-from constants import LEETCODE_MASTER_PATH, ALLOWED_MODELS
+from constants import LEETCODE_MASTER_PATH
+import json
 from init_pipeline import validate_args, get_folders_test_names, copy_original_code, clean_run_results, delete_bin_folder
 from a_generate_solution import generate_solution
 from b_extract_and_insert import extract_and_insert
 from c_compile_and_verify import compile_and_verify
 from d_test import test_solution
+from f_generate_report import generate_report
 import os
 from datetime import datetime
 import argparse
@@ -21,6 +23,8 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
     
     for folder_question_name in questions_folders[:number_of_questions]:
         context = []
+        passed = False
+        succeded_counter = MAX_NUMBER_RETRIES
         retries_counter = 0
         error_message = ""
         print(f"Processing: {folder_question_name}")
@@ -33,6 +37,7 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
         
         while retries_counter < MAX_NUMBER_RETRIES:
             prompt_path = f"{run_results_dir}/{retries_counter}_prompt.txt"
+            prompt_json_path = f"{run_results_dir}/{retries_counter}_prompt.json"
             response_path = f"{run_results_dir}/{retries_counter}_response.txt"
             try:
                 if retries_counter == 0:
@@ -42,9 +47,13 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
                 with open(leetcode_question_path, 'r') as file:
                     leetcode_question = file.read()
                     
-                    prompt = (f"Replace  // TODO Auto-generated method stub with your solution code. Only one answer with the complete file. Don't explain \n {leetcode_question}" 
-                                  if retries_counter == 0 
-                                  else f"Your code has the following error: {error_message}\n Retry with a fix complete Practice.java file. Don't explain. Only give one solution and no tests. \n {leetcode_question}")
+                    extra_prompt = (f"Replace  // TODO Auto-generated method stub with your solution code. Only one answer with the complete file. Don't explain:"
+                                  if retries_counter == 0
+                                  else f"The following code has the following error: {error_message}\n Retry with a fix complete Practice.java file. Don't explain. Only give one solution and no tests:")
+                    with open(prompt_json_path, 'w') as file:
+                        file.write(json.dumps({"extra_prompt": extra_prompt}))
+                    
+                    prompt = f"{extra_prompt}\n{leetcode_question}"
 
                     with open(prompt_path, 'w') as file:
                         file.write(prompt)
@@ -63,14 +72,19 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
             
             
                 # """*** Compile and Verify ***"""
-                compile_and_verify(folder_question_name, run_results_dir, retries_counter)
+                compile_and_verify(folder_question_name, run_results_dir, retries_counter, verbose)
                 error_message = ""
             
             
                 # """*** Test Solution ***"""
-                test_solution(folder_question_name, run_results_dir, retries_counter)
-                retries_counter = MAX_NUMBER_RETRIES
+                test_solution(folder_question_name, run_results_dir, retries_counter, verbose)
+                
+                
+               
                 print(f"Done: {folder_question_name}")
+                passed = True
+                succeded_counter = retries_counter + 1
+                retries_counter = MAX_NUMBER_RETRIES
                 break
             
           
@@ -98,6 +112,10 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
                 print(f"Retrying: {retries_counter}")
                 print(f"Error: {error_message}")
             
+        
+        """*** Generate Report ***"""
+        generate_report(run_results_dir, folder_question_name, model, passed, succeded_counter, verbose)
+                
         copy_original_code(original_leetcode_question, leetcode_question_path)
         
 if __name__ == "__main__":
@@ -115,6 +133,6 @@ if __name__ == "__main__":
   
   # model = "gemma"
   # model = "llama2:latest"
-  model = "mistral:instruct"
+  # model = "mistral:instruct"
   # model = "gpt-3.5-turbo-0125"
   main(model, number, benchmark, verbose)
