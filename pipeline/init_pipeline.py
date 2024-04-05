@@ -1,4 +1,4 @@
-from constants import LEETCODE_MASTER_PATH, ALLOWED_MODELS
+from constants import LEETCODE_MASTER_PATH, ALLOWED_MODELS, OLLAMA_API_URL, OPENAI_API_KEY, OLLAMA_MODELS, OPENAI_MODELS
 import subprocess
 import os
 
@@ -11,6 +11,10 @@ def validate_args(model:str, number_of_questions: int, benchmark: bool, question
         raise ValueError(f"Model is required")
     if model not in ALLOWED_MODELS:
         raise ValueError(f"Model not supported")
+    if model in OLLAMA_MODELS and OLLAMA_API_URL is None:
+        raise ValueError(f"OLLAMA_API_URL is required")
+    if model in OPENAI_MODELS and OPENAI_API_KEY is None:
+        raise ValueError(f"OPENAI_API_KEY is required")
     if benchmark:
         print("Benchmark mode enabled")
 

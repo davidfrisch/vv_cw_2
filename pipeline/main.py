@@ -14,6 +14,7 @@ MAX_NUMBER_RETRIES = 2
 
 def main(model, number_of_questions=5, benchmark=False, verbose=False):
     questions_folders = get_folders_test_names()
+    print(f"Using model: {model}")
     validate_args(model, number_of_questions, benchmark, questions_folders)
     delete_bin_folder()
     
@@ -23,10 +24,10 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
         retries_counter = 0
         error_message = ""
         print(f"Processing: {folder_question_name}")
-        timestamp = datetime.now().strftime("%Y%m%d-%H%M%S") if benchmark else ""
+        timestamp = datetime.now().strftime("%Y%m%d-%H%M%S") if benchmark else "latest"
         original_leetcode_question = f"{LEETCODE_MASTER_PATH}/src/{folder_question_name}/original.txt"
         leetcode_question_path = f"{LEETCODE_MASTER_PATH}/src/{folder_question_name}/Practice.java"
-        run_results_dir = f"{dir_path}/data/{timestamp}_{folder_question_name}"
+        run_results_dir = f"{dir_path}/data/{timestamp}/{folder_question_name}"
         os.makedirs(run_results_dir, exist_ok=True)
         clean_run_results(run_results_dir)
         
@@ -41,9 +42,9 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
                 with open(leetcode_question_path, 'r') as file:
                     leetcode_question = file.read()
                     
-                    prompt = (f"Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain \n {leetcode_question}" 
+                    prompt = (f"Replace  // TODO Auto-generated method stub with your solution code. Only one answer with the complete file. Don't explain \n {leetcode_question}" 
                                   if retries_counter == 0 
-                                  else f"Your code has the following error: {error_message}\n Retry with a fix and give the complete file. Don't explain. Only give java code \n {leetcode_question}")
+                                  else f"Your code has the following error: {error_message}\n Retry with a fix complete Practice.java file. Don't explain. Only give one solution and no tests. \n {leetcode_question}")
 
                     with open(prompt_path, 'w') as file:
                         file.write(prompt)
@@ -104,7 +105,7 @@ if __name__ == "__main__":
   parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose mode")
   parser.add_argument("-b", "--benchmark", action="store_true", help="Enable benchmark mode")
   parser.add_argument("-m", "--model", type=str, help="Model to use")
-  parser.add_argument("-n", "--number", type=int, help="Number of questions to process")
+  parser.add_argument("-n", "--number", type=int, help="Number of questions to process", default=5)
   args = parser.parse_args()
 
   verbose = args.verbose
@@ -114,5 +115,6 @@ if __name__ == "__main__":
   
   # model = "gemma"
   # model = "llama2:latest"
-  model = "gpt-3.5-turbo-0125"
+  model = "mistral:instruct"
+  # model = "gpt-3.5-turbo-0125"
   main(model, number, benchmark, verbose)
