@@ -9,6 +9,7 @@ services:
     volumes:
       - ollama:/root/.ollama
 
+    # If you want to use GPU, uncomment the following lines
     # deploy:
     #   resources:
     #     reservations:
