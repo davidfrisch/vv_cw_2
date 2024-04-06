@@ -6,18 +6,6 @@ import json
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-def run_infer(folder_test_name: str) -> int:
-    container_name = "infer"
-    cmd = f"""docker exec -w /app/leetcode-master {container_name} infer run -- ant compile.specific -Dfolder={folder_test_name}"""
-    print(cmd)
-    process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    logs = ""
-    for line in iter(process.stdout.readline, b''):
-        logs += line.decode("utf-8")
-    
-    process.wait()
-    return process.returncode, logs
-
 def run_compile(folder_test_name: str, run_results_dir, retries_counter, verbose=False) -> int:
     cmd_2 = f"""cd {LEETCODE_MASTER_PATH} && \
               ant compile.specific -Dfolder={folder_test_name}"""
@@ -46,10 +34,22 @@ def run_compile(folder_test_name: str, run_results_dir, retries_counter, verbose
             file.write(javac_errors)
         raise SyntaxError("Compilation failed")  
     
-    
-    
-    
     return process.returncode
+
+
+def run_infer(folder_test_name: str) -> int:
+    container_name = "infer"
+    cmd = f"""docker exec -w /app/leetcode-master {container_name} infer run -- ant compile.specific -Dfolder={folder_test_name}"""
+    print(cmd)
+    process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    logs = ""
+    for line in iter(process.stdout.readline, b''):
+        logs += line.decode("utf-8")
+    
+    process.wait()
+    return process.returncode, logs
+
+
 
 def infer_report(run_results_dir: str, retries_counter: int):
   infer_report_path = f"{LEETCODE_MASTER_PATH}/infer-out/report.json"
@@ -100,12 +100,7 @@ def infer_report_logs(run_results_dir: str, retries_counter: int):
       file.write("\n")
       
 
-    
-  
-  
 
-
-  
 
 def compile_and_verify(folder_test_name: str, run_results_dir: str, retries_counter, verbose=False):
     

@@ -18,7 +18,6 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
     questions_folders = get_folders_test_names()
     print(f"Using model: {model}")
     validate_args(model, number_of_questions, benchmark, questions_folders)
-    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S") if benchmark else "latest"
     delete_bin_folder()
     
     
@@ -31,7 +30,7 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
         print(f"Processing: {folder_question_name}")
         original_leetcode_question = f"{LEETCODE_MASTER_PATH}/src/{folder_question_name}/original.txt"
         leetcode_question_path = f"{LEETCODE_MASTER_PATH}/src/{folder_question_name}/Practice.java"
-        run_results_dir = f"{dir_path}/data/{timestamp}/{folder_question_name}"
+        run_results_dir = f"{dir_path}/data/{model}/{folder_question_name}"
         os.makedirs(run_results_dir, exist_ok=True)
         clean_run_results(run_results_dir)
         
@@ -43,7 +42,7 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
                 if retries_counter == 0:
                     copy_original_code(original_leetcode_question, leetcode_question_path)
                 
-                """*** Generate Solution with LLM Algorithm ***"""
+                """*** Prompt Consutrction ***"""
                 with open(leetcode_question_path, 'r') as file:
                     leetcode_question = file.read()
                     
@@ -55,7 +54,9 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
                         file.write(json.dumps({"extra_prompt": extra_prompt}))
                     
                     prompt = f"{extra_prompt}\n{leetcode_question}"
-
+                    
+                    
+                    """*** Generate Solution with LLM Algorithm ***"""
                     with open(prompt_path, 'w') as file:
                         file.write(prompt)
                         print("Open: ", prompt_path)
