@@ -35,6 +35,17 @@ docker compose pull infer
 docker compose up -d infer
 ```
 
+### Pull the Ollama models
+To pull the Ollama models, run the following command in the root directory of the project:
+
+```bash
+docker exec -it ollama ollama pull mistral:instruct
+docker exec -it ollama ollama pull deepseek-coder:6.7b-instruct
+docker exec -it ollama ollama pull gemma:7b-instruct
+docker exec -it ollama ollama pull llama2:13b
+docker exec -it ollama ollama pull codellama:13b-code
+```
+
 ## Start Ollama from a remote server
 
 ### From another machine with docker installed
@@ -49,6 +60,15 @@ docker compose up -d ollama
 Then you need to make the port 11434 accessible for external connections with port forwarding. You can do this by following the instructions on the official website: [https://code.visualstudio.com/docs/editor/port-forwarding](https://code.visualstudio.com/docs/editor/port-forwarding). 
 Make sure to forward the port 11434 and change the visiblity to `public`. To change the visibility to `public` you need to be on the PORTS tab, then right click on the current "visibility" column > ports visibility > public. The link should look like this: `https://random_strings-11434.uks1.devtunnels.ms`.
 
+Finally pull the Ollama models by running the following command:
+
+```bash
+docker exec -it ollama ollama pull mistral:instruct
+docker exec -it ollama ollama pull deepseek-coder:6.7b-instruct
+docker exec -it ollama ollama pull gemma:7b-instruct
+docker exec -it ollama ollama pull llama2:13b
+docker exec -it ollama ollama pull codellama:13b-code
+```
 
 ### From a Linux computer from the UCL Lab with singularity installed
 If your home directory has limited space in the UCL computers, you should ask a system administrator to create you a path with enough space to download the models. Then you can create a symbolic link to the Ollama default directory. You can do this by running the following command:
@@ -99,7 +119,7 @@ singularity instance stop ollama
 To create the .env file, run the following command in the root directory of the project:
 
 ```bash
-touch .env
+touch pipeline/.env
 ```
 Then add the following content to the .env file:
 

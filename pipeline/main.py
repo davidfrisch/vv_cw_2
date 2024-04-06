@@ -7,17 +7,16 @@ from c_compile_and_verify import compile_and_verify
 from d_test import test_solution
 from f_generate_report import generate_report
 import os
-from datetime import datetime
 import argparse
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 MAX_NUMBER_RETRIES = 5
 
 
-def main(model, number_of_questions=5, benchmark=False, verbose=False):
+def main(model, number_of_questions=5, verbose=False):
     questions_folders = get_folders_test_names()
     print(f"Using model: {model}")
-    validate_args(model, number_of_questions, benchmark, questions_folders)
+    validate_args(model, number_of_questions, questions_folders)
     delete_bin_folder()
     
     
@@ -122,19 +121,17 @@ def main(model, number_of_questions=5, benchmark=False, verbose=False):
         
 if __name__ == "__main__":
   parser = argparse.ArgumentParser()
-  parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose mode")
-  parser.add_argument("-b", "--benchmark", action="store_true", help="Enable benchmark mode")
   parser.add_argument("-m", "--model", type=str, help="Model to use")
   parser.add_argument("-n", "--number", type=int, help="Number of questions to process", default=5)
+  parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose mode")
   args = parser.parse_args()
 
-  verbose = args.verbose
-  benchmark = args.benchmark
   model = args.model
   number = args.number
+  verbose = args.verbose
   
   # model = "gemma"
   # model = "llama2:latest"
   # model = "mistral:instruct"
   # model = "gpt-3.5-turbo-0125"
-  main(model, number, benchmark, verbose)
+  main(model, number, verbose)
