@@ -7,4 +7,4 @@ requests==2.31.0
 tree-sitter==0.21.0
 tree-sitter-languages==1.10.2
 urllib3==2.2.1
-
+xmltojson

@@ -7,8 +7,7 @@ import json
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def run_compile(folder_test_name: str, run_results_dir, retries_counter, verbose=False) -> int:
-    cmd_2 = f"""cd {LEETCODE_MASTER_PATH} && \
-              ant compile.specific -Dfolder={folder_test_name}"""
+    cmd_2 = f"""docker exec -w /app/leetcode-master infer ant compile.specific -Dfolder={folder_test_name}"""
     print(cmd_2)
     process = subprocess.Popen(cmd_2, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     

@@ -10,7 +10,7 @@ def validate_args(model:str, number_of_questions: int, questions_folders: list):
     if model is None:
         raise ValueError(f"Model is required")
     if model not in ALLOWED_MODELS:
-        raise ValueError(f"Model not supported")
+        raise ValueError(f"Model not supported {model}. Supported models: {ALLOWED_MODELS}")
     if model in OLLAMA_MODELS and OLLAMA_API_URL is None:
         raise ValueError(f"OLLAMA_API_URL is required")
     if model in OPENAI_MODELS and OPENAI_API_KEY is None:

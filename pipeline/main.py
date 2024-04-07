@@ -130,8 +130,9 @@ if __name__ == "__main__":
   number = args.number
   verbose = args.verbose
   
+  # model = "deepseek-coder:6.7b-instruct"
   # model = "gemma"
   # model = "llama2:latest"
   # model = "mistral:instruct"
-  # model = "gpt-3.5-turbo-0125"
+  model = "gpt-3.5-turbo-0125"
   main(model, number, verbose)

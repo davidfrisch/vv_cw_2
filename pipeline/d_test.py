@@ -14,8 +14,7 @@ def run_junit_test(folder_test_name: str, verbose: bool = False):
     process = subprocess.Popen(cmd_1, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     process.wait()
     
-    leetcode_master_path = dir_path + "/../leetcode-master"
-    cmd_2 = f"cd {leetcode_master_path} && ant test.specific -Dtest.folder={folder_test_name}"
+    cmd_2 = f"""docker exec -w /app/leetcode-master infer ant test.specific -Dtest.folder={folder_test_name}"""
     print(cmd_2)
     process = subprocess.Popen(cmd_2, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if verbose:
