@@ -11,8 +11,6 @@ import argparse
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-
-
 def main(model, number_of_questions=5, max_retries = 5, verbose=False):
     questions_folders = get_folders_test_names()
     print(f"Using model: {model}")
@@ -60,11 +58,12 @@ def main(model, number_of_questions=5, max_retries = 5, verbose=False):
                     with open(prompt_path, 'w') as file:
                         file.write(prompt)
                         print("Open: ", prompt_path)
-                        context = []
-                        context, response = generate_solution(prompt, context, model)
-                        with open(response_path, 'w') as file:
-                            file.write(response)
-                            print("Open: ", response_path)
+                    
+                    context = []
+                    context, response = generate_solution(prompt, context, model)
+                    with open(response_path, 'w') as file:
+                        file.write(response)
+                        print("Open: ", response_path)
                     
 
                 """*** Extract and Insert ***"""
@@ -137,7 +136,7 @@ if __name__ == "__main__":
   # model = "gemma"
   # model = "llama2:latest"
   # model = "mistral:instruct"
-  model = "gpt-3.5-turbo-0125"
-  number = 1
-  max_retries = 3
+  # model = "gpt-3.5-turbo-0125"
+  # number = 20
+  # max_retries = 10
   main(model, number, max_retries, verbose)

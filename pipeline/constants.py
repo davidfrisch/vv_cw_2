@@ -10,6 +10,6 @@ if CONTAINERS_TYPE is None:
   
   
 LEETCODE_MASTER_PATH = "../leetcode-master"
-OLLAMA_MODELS = ["llama2:13b", "gemma:insutrct", "mistral:instruct", "codellama:13b-code", "deepseek-coder:6.7b-instruct", "llama2:latest"]
+OLLAMA_MODELS = ["llama2:13b", "gemma:insutrct", "mistral:instruct", "deepseek-coder:6.7b-instruct"]
 OPENAI_MODELS = ["gpt-3.5-turbo-0125"]
 ALLOWED_MODELS = OLLAMA_MODELS + OPENAI_MODELS

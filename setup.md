@@ -43,7 +43,6 @@ docker exec -it ollama ollama pull mistral:instruct
 docker exec -it ollama ollama pull deepseek-coder:6.7b-instruct
 docker exec -it ollama ollama pull gemma:7b-instruct
 docker exec -it ollama ollama pull llama2:13b
-docker exec -it ollama ollama pull codellama:13b-code
 ```
 
 ## Start Ollama from a remote server
@@ -67,7 +66,6 @@ docker exec -it ollama ollama pull mistral:instruct
 docker exec -it ollama ollama pull deepseek-coder:6.7b-instruct
 docker exec -it ollama ollama pull gemma:7b-instruct
 docker exec -it ollama ollama pull llama2:13b
-docker exec -it ollama ollama pull codellama:13b-code
 ```
 
 ### From a Linux computer from the UCL Lab with singularity installed
@@ -98,7 +96,6 @@ singularity exec instance://ollama ollama pull mistral:instruct
 singularity exec instance://ollama ollama pull deepseek-coder:6.7b-instruct
 singularity exec instance://ollama ollama pull gemma:7b-instruct
 singularity exec instance://ollama ollama pull llama2:13b
-singularity exec instance://ollama ollama pull codellama:13b-code
 ```
 
 Finally open the port 11434 for external connections with port forwarding. You can do this by following the instructions on the official website: [https://code.visualstudio.com/docs/editor/port-forwarding](https://code.visualstudio.com/docs/editor/port-forwarding). 
