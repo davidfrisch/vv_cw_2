@@ -14,7 +14,8 @@ class OllamaAI(BaseLLM):
     print(f'Performing health check on {self.ollama_api_url}')
     r = self.session.get(f'{self.ollama_api_url}')
     if r.status_code != 200:
-        raise Exception(f'Health check failed: {r.text}')
+        print(f'Health check failed: {r.text}')
+        exit(1)
 
     print(r.text)
     print('Health check passed')

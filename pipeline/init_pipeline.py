@@ -1,4 +1,4 @@
-from constants import LEETCODE_MASTER_PATH, ALLOWED_MODELS, OLLAMA_API_URL, OPENAI_API_KEY, OLLAMA_MODELS, OPENAI_MODELS
+from constants import LEETCODE_MASTER_PATH, ALLOWED_MODELS, OLLAMA_API_URL, OPENAI_API_KEY, OLLAMA_MODELS, OPENAI_MODELS, CONTAINERS_TYPE
 import subprocess
 import os
 
@@ -48,7 +48,9 @@ def clean_run_results(run_results_dir):
     
 def delete_bin_folder():
     bin_folder = f"{LEETCODE_MASTER_PATH}/bin"
-    cmd = f"docker exec -w /app/leetcode-master infer run -- rm -rf {bin_folder}"
+    cmd = (f"docker exec -w /app/leetcode-master infer rm -rf {bin_folder}"
+            if CONTAINERS_TYPE == "docker"
+            else f"singularity exec instance://infer infer rm -rf {bin_folder}")
     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     process.wait()
     print(f"Delete: {bin_folder}")

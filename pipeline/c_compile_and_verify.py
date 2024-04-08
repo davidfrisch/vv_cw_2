@@ -1,13 +1,16 @@
 
 import subprocess
-from constants import LEETCODE_MASTER_PATH
+from constants import LEETCODE_MASTER_PATH, CONTAINERS_TYPE
 import os
 import json
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def run_compile(folder_test_name: str, run_results_dir, retries_counter, verbose=False) -> int:
-    cmd_2 = f"""docker exec -w /app/leetcode-master infer ant compile.specific -Dfolder={folder_test_name}"""
+    cmd_2 = (f"""docker exec -w /app/leetcode-master infer ant compile.specific -Dfolder={folder_test_name}""" 
+            if CONTAINERS_TYPE == "docker" 
+            else  f"""singularity exec instance://infer ant -f /app/leetcode-master compile.specific -Dfolder={folder_test_name}""")
+        
     print(cmd_2)
     process = subprocess.Popen(cmd_2, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     
@@ -38,7 +41,10 @@ def run_compile(folder_test_name: str, run_results_dir, retries_counter, verbose
 
 def run_infer(folder_test_name: str) -> int:
     container_name = "infer"
-    cmd = f"""docker exec -w /app/leetcode-master {container_name} infer run -- ant compile.specific -Dfolder={folder_test_name}"""
+    cmd = (f"""docker exec -w /app/leetcode-master {container_name} infer run -- ant compile.specific -Dfolder={folder_test_name}""" 
+            if CONTAINERS_TYPE == "docker"
+            else f"""singularity exec instance://{container_name} sh -c "cd /app/leetcode-master && infer run -- ant compile.specific -Dfolder={folder_test_name}" """)
+    
     print(cmd)
     process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     logs = ""

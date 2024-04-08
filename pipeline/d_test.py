@@ -1,7 +1,7 @@
 import xmltojson
 import json
 from tree_sitter_languages import get_parser
-from constants import LEETCODE_MASTER_PATH
+from constants import LEETCODE_MASTER_PATH, CONTAINERS_TYPE
 import subprocess
 import os
 
@@ -9,12 +9,18 @@ parser = get_parser('java')
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 def run_junit_test(folder_test_name: str, verbose: bool = False):
-    cmd_1 = f"""docker exec infer rm -rf /app/leetcode-master/bin"""
+    cmd_1 = (f"""docker exec infer rm -rf /app/leetcode-master/bin"""
+            if CONTAINERS_TYPE == "docker"
+            else f"""singularity exec instance://infer rm -rf /app/leetcode-master/bin""")
+    
     print(cmd_1)
     process = subprocess.Popen(cmd_1, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     process.wait()
     
-    cmd_2 = f"""docker exec -w /app/leetcode-master infer ant test.specific -Dtest.folder={folder_test_name}"""
+    cmd_2 = (f"""docker exec -w /app/leetcode-master infer ant test.specific -Dtest.folder={folder_test_name}"""
+            if CONTAINERS_TYPE == "docker"
+            else f"""singularity exec instance://infer ant -f /app/leetcode-master test.specific -Dtest.folder={folder_test_name}""")
+    
     print(cmd_2)
     process = subprocess.Popen(cmd_2, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     if verbose:

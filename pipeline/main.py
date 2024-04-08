@@ -10,10 +10,10 @@ import os
 import argparse
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-MAX_NUMBER_RETRIES = 5
 
 
-def main(model, number_of_questions=5, verbose=False):
+
+def main(model, number_of_questions=5, max_retries = 5, verbose=False):
     questions_folders = get_folders_test_names()
     print(f"Using model: {model}")
     validate_args(model, number_of_questions, questions_folders)
@@ -23,17 +23,18 @@ def main(model, number_of_questions=5, verbose=False):
     for folder_question_name in questions_folders[:number_of_questions]:
         context = []
         passed = False
-        succeded_counter = MAX_NUMBER_RETRIES
+        succeded_counter = max_retries
         retries_counter = 0
         error_message = ""
         print(f"Processing: {folder_question_name}")
         original_leetcode_question = f"{LEETCODE_MASTER_PATH}/src/{folder_question_name}/original.txt"
         leetcode_question_path = f"{LEETCODE_MASTER_PATH}/src/{folder_question_name}/Practice.java"
-        run_results_dir = f"{dir_path}/data/{model}/{folder_question_name}"
+        folder_model = model.replace(":", "_")
+        run_results_dir = f"{dir_path}/data/{folder_model}/{folder_question_name}"
         os.makedirs(run_results_dir, exist_ok=True)
         clean_run_results(run_results_dir)
         
-        while retries_counter < MAX_NUMBER_RETRIES:
+        while retries_counter < max_retries:
             prompt_path = f"{run_results_dir}/{retries_counter}_prompt.txt"
             prompt_json_path = f"{run_results_dir}/{retries_counter}_prompt.json"
             response_path = f"{run_results_dir}/{retries_counter}_response.txt"
@@ -85,7 +86,7 @@ def main(model, number_of_questions=5, verbose=False):
                 print(f"Done: {folder_question_name}")
                 passed = True
                 succeded_counter = retries_counter + 1
-                retries_counter = MAX_NUMBER_RETRIES
+                retries_counter = max_retries
                 break
             
           
@@ -123,11 +124,13 @@ if __name__ == "__main__":
   parser = argparse.ArgumentParser()
   parser.add_argument("-m", "--model", type=str, help="Model to use")
   parser.add_argument("-n", "--number", type=int, help="Number of questions to process", default=5)
+  parser.add_argument("-r", "--retries", type=int, help="Number of retries", default=5)
   parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose mode")
   args = parser.parse_args()
 
   model = args.model
   number = args.number
+  max_retries = args.retries
   verbose = args.verbose
   
   # model = "deepseek-coder:6.7b-instruct"
@@ -135,4 +138,6 @@ if __name__ == "__main__":
   # model = "llama2:latest"
   # model = "mistral:instruct"
   model = "gpt-3.5-turbo-0125"
-  main(model, number, verbose)
+  number = 1
+  max_retries = 3
+  main(model, number, max_retries, verbose)

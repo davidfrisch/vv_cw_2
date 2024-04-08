@@ -71,6 +71,8 @@ docker exec -it ollama ollama pull codellama:13b-code
 ```
 
 ### From a Linux computer from the UCL Lab with singularity installed
+
+#### Start Ollama
 If your home directory has limited space in the UCL computers, you should ask a system administrator to create you a directory project with enough space to download the models. Then you can create a symbolic link to the Ollama default directory. You can do this by running the following command:
 
 ```bash
@@ -80,7 +82,7 @@ ln -s /your/path/with/enough/space  ~/.ollama
 Then you can start the Ollama container by running the following command:
 
 ```bash
-singularity instance start --nv docker://ollama/ollama ollama
+singularity instance start --nv -B ../ollama:/root/.ollama docker://ollama/ollama ollama
 ```
 The --nv flag is optional and is used to enable GPU acceleration. 
 
@@ -115,6 +117,18 @@ To stop the Ollama container, run the following command:
 singularity instance stop ollama
 ```
 
+#### Start infer
+
+Start the infer container by running the following command:
+
+```bash
+singularity instance start --bind ./pipeline:/app/pipeline --bind ./leetcode-master:/app/leetcode-master docker://david712/infer:latest infer
+```
+
+Check that the compilation with ant will work
+```
+singularity exec instance://infer ant -f /app/leetcode-master compile
+```
 
 ## Create the .env file
 To create the .env file, run the following command in the root directory of the project:
@@ -128,6 +142,7 @@ Then add the following content to the .env file:
 ```bash
 OLLAMA_API_URL=https://random_strings-11434.uks1.devtunnels.ms
 OPENAI_API_KEY=sk-1234567890
+CONTAINERS_TYPE=docker # or singularity
 ```
 
 Make sure to replace the `OLLAMA_API_URL` with the URL (without the trailing slash) you got from the port forwarding and the `OPENAI_API` with your OpenAI API key.
