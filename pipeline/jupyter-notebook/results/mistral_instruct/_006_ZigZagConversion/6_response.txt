@@ -1,0 +1,12 @@
+ The error is caused by a missing semicolon (;\) at the end of method declaration `public void Test3() {` in your Java code. To fix the issue, add a semicolon at the end of the method declaration as follows:
+
+```java
+@Test
+public void Test3() {
+    String A = "AB";
+    int B = 2;
+    String actual = solution.convert(A, B);
+    String expected = "AB";
+    assertEquals(expected, actual);
+}
+```

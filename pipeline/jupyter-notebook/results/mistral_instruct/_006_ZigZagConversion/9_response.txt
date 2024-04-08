@@ -1,0 +1,38 @@
+ It looks like you have a naming conflict between two classes named `Test` in different packages. In your code snippet, it seems that there's a class named `Test` inside the package `com.leetcode.Test`, and another one with the same name inside the package `src/_006_ZigZagConversion`.
+
+To fix this issue, you can either rename one of the classes or adjust the imports so that they don't conflict with each other. Here's an example of how you might rename the class inside the package `src/_006_ZigZagConversion`:
+
+```java
+public class TestCase { // Rename the class to TestCase
+
+    @Test
+    public void Test3() {
+        String A = "AB";
+        int B = 2;
+        String actual = solution.zigZagConversion(A, B);
+        String expected = "ZB"; // Adjust as needed based on the expected output for given input A and B
+        assertEquals(expected, actual);
+    }
+}
+```
+
+Alternatively, you could adjust the imports to avoid naming conflicts:
+
+```java
+import static org.junit.Assert.*;
+import com.leetcode.Test; // Import the Test class from its package
+
+public class Practice {
+
+    @Test
+    public void Test3() {
+        String A = "AB";
+        int B = 2;
+        String actual = Test.zigZagConversion(A, B); // Call the zigZagConversion method directly on the Test class
+        String expected = "ZB"; // Adjust as needed based on the expected output for given input A and B
+        assertEquals(expected, actual);
+    }
+}
+```
+
+Either way should help you resolve the naming conflict. Good luck with your code!

@@ -1,0 +1,32 @@
+
+package _016_3SumClosest;
+
+import java.util.Arrays;
+
+/** see test {@link _016_3SumClosest.PracticeTest } */
+public class Practice {
+
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums); // Sort the array in ascending order
+        int smallestDifference = Integer.MAX_VALUE;
+        int sum;
+
+        for (int i = 0; i < nums.length - 2; i++) { // First element as i
+            int left = i + 1, right = nums.length - 1;
+            while (left < right) {
+                sum = nums[i] + nums[left] + nums[right];
+                if (Math.abs(sum - target) < Math.abs(smallestDifference)) { // New closest pair found, update smallest difference
+                    smallestDifference = sum - target;
+                    // System.out.println("New closest pair: " + nums[i] + ", " + nums[left] + ", " + nums[right] + " with a difference of " + smallestDifference);
+                }
+                if (sum > target) { // Move right pointer to the left
+                    right--;
+                } else { // Move left pointer to the right
+                    left++;
+                }
+            }
+        }
+
+        return target + smallestDifference; // Return the sum of the three integers closest to the target
+    }
+}

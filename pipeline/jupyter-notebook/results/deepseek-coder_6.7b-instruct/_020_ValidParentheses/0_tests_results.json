@@ -1,0 +1,97 @@
+{
+    "num_tests": "11",
+    "num_successes": 11,
+    "num_failures": "0",
+    "num_errors": "0",
+    "timestamp": "2024-04-08T14:15:29",
+    "test_cases": [
+        {
+            "name": "Test10",
+            "time": "0.007",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test10() {\n        String s = \"({}]\";\n        boolean actual = solution.isValid(s);\n        assertTrue(s, !actual);\n    }"
+        },
+        {
+            "name": "Test0",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test0() {\n        String s = \"[]\";\n        boolean actual = solution.isValid(s);\n        assertTrue(\"[]\", actual);\n    }"
+        },
+        {
+            "name": "Test1",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        String s = \"{}\";\n        boolean actual = solution.isValid(s);\n        assertTrue(\"{}\", actual);\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test2() {\n        String s = \"()\";\n        boolean actual = solution.isValid(s);\n        assertTrue(\"()\", actual);\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test3() {\n        String s = \"\";\n        boolean actual = solution.isValid(s);\n        assertTrue(\"empty string\", actual);\n    }"
+        },
+        {
+            "name": "Test4",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test4() {\n        String s = \")\";\n        boolean actual = solution.isValid(s);\n        assertTrue(\"only right\", !actual);\n    }"
+        },
+        {
+            "name": "Test5",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test5() {\n        String s = \"([{}])\";\n        boolean actual = solution.isValid(s);\n        assertTrue(\"nested string\", actual);\n    }"
+        },
+        {
+            "name": "Test6",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test6() {\n        String s = \"([{(}])\";\n        boolean actual = solution.isValid(s);\n        assertTrue(\"wrong nested string\", !actual);\n    }"
+        },
+        {
+            "name": "Test7",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test7() {\n        String s = \"([{}](){[]})\";\n        boolean actual = solution.isValid(s);\n        assertTrue(s, actual);\n    }"
+        },
+        {
+            "name": "Test8",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test8() {\n        String s = \"([{})\";\n        boolean actual = solution.isValid(s);\n        assertTrue(s, !actual);\n    }"
+        },
+        {
+            "name": "Test9",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test9() {\n        String s = \"(}\";\n        boolean actual = solution.isValid(s);\n        assertTrue(s, !actual);\n    }"
+        }
+    ]
+}

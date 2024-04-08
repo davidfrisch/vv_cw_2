@@ -1,0 +1,35 @@
+ Sure! Here is the complete Java code for the `mergeTwoLists` method:
+
+package _021_MergeTwoSortedLists;
+
+import com.leetcode.ListNode;
+
+public class Practice {
+    public ListNode mergeTwoLists(ListNode node1, ListNode node2) {
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+        while (node1 != null && node2 != null) {
+            if (node1.val <= node2.val) {
+                current.next = node1;
+                node1 = node1.next;
+            } else {
+                current.next = node2;
+                node2 = node2.next;
+            }
+            current = current.next;
+        }
+        while (node1 != null) {
+            current.next = node1;
+            node1 = node1.next;
+        }
+        while (node2 != null) {
+            current.next = node2;
+            node2 = node2.next;
+        }
+        return dummy.next;
+    }
+}
+
+This code defines a `mergeTwoLists` method that takes two `ListNode` arguments, and returns a new list by splicing together the nodes of the two input lists. The method uses a "dummy" node to keep track of the current list being built, and iterates through both input lists, adding nodes to the dummy list as appropriate. Once both input lists have been processed, the method returns the head of the resulting list.
+
+Note that this code assumes that the input lists are sorted in ascending order. If the lists may be unsorted or contain duplicates, additional logic may be needed to ensure correct merging.

@@ -1,0 +1,49 @@
+{
+    "num_tests": "5",
+    "num_successes": 5,
+    "num_failures": "0",
+    "num_errors": "0",
+    "timestamp": "2024-04-08T14:36:12",
+    "test_cases": [
+        {
+            "name": "Test1",
+            "time": "0.009",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        int A = 1000000003;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test2() {\n        int A = 10000;\n        int actual = solution.reverse(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test3() {\n        int A = Integer.MAX_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test4",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test5",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }"
+        }
+    ]
+}

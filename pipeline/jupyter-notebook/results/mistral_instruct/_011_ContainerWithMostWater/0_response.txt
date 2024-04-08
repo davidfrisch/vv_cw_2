@@ -1,0 +1,31 @@
+ Here's the solution for the given problem:
+
+```java
+package _011_ContainerWithMostWater;
+
+/** see test {@link _011_ContainerWithMostWater.PracticeTest} */
+public class Practice {
+
+    public int maxArea(int[] height) {
+        int left = 0, right = height.length - 1;
+        int maxArea = Math.min(height[left], height[right]) * (right - left);
+
+        while (left < right) {
+            int currentArea = Math.min(height[left], height[right]) * (right - left);
+            if (currentArea > maxArea) {
+                maxArea = currentArea;
+            }
+
+            if (height[left] < height[right]) {
+                ++left;
+            } else {
+                --right;
+            }
+        }
+
+        return maxArea;
+    }
+}
+```
+
+This solution uses two pointers, one at the beginning of the array (left) and another at the end of the array (right). It initializes `maxArea` with the minimum height of the first and last elements. Then it enters a while loop that calculates the area of the container formed by the current pair of lines and updates `maxArea` if it's greater than the current one. The pointers move accordingly to keep increasing the container's area as much as possible.

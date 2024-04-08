@@ -1,0 +1,77 @@
+{
+    "num_tests": "6",
+    "num_successes": 1,
+    "num_failures": "5",
+    "num_errors": "0",
+    "timestamp": "2024-04-08T14:39:14",
+    "test_cases": [
+        {
+            "name": "Test1",
+            "time": "0.007",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        String A = \"I\";\n        int actual = solution.romanToInt(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.002",
+            "success": false,
+            "failure": {
+                "@message": "expected:<4> but was:<6>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<4> but was:<6>\n\tat _013_RomanToInteger.PracticeTest.Test2(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<4> but was:<6>",
+            "code": "@Test\n    public void Test2() {\n        String A = \"IV\";\n        int actual = solution.romanToInt(A);\n        int expected = 4;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@message": "expected:<9> but was:<11>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<9> but was:<11>\n\tat _013_RomanToInteger.PracticeTest.Test3(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<9> but was:<11>",
+            "code": "@Test\n    public void Test3() {\n        String A = \"IX\";\n        int actual = solution.romanToInt(A);\n        int expected = 9;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test4",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@message": "expected:<207> but was:<195>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<207> but was:<195>\n\tat _013_RomanToInteger.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<207> but was:<195>",
+            "code": "@Test\n    public void Test4() {\n        String A = \"CCVII\";\n        int actual = solution.romanToInt(A);\n        int expected = 207;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test5",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@message": "expected:<1066> but was:<934>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<1066> but was:<934>\n\tat _013_RomanToInteger.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<1066> but was:<934>",
+            "code": "@Test\n    public void Test5() {\n        String A = \"MLXVI\";\n        int actual = solution.romanToInt(A);\n        int expected = 1066;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test6",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@message": "expected:<1954> but was:<1854>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<1954> but was:<1854>\n\tat _013_RomanToInteger.PracticeTest.Test6(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<1954> but was:<1854>",
+            "code": "@Test\n    public void Test6() {\n        String A = \"MCMLIV\";\n        int actual = solution.romanToInt(A);\n        int expected = 1954;\n        assertEquals(expected, actual);\n    }"
+        }
+    ]
+}

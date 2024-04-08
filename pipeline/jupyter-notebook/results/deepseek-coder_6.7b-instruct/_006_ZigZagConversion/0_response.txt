@@ -1,0 +1,26 @@
+package _006_ZigZagConversion;
+
+/** see test {@link _006PracticeTest﻿ } */
+public class Practice {
+
+    public String convert(String a, int b) {
+        if (b <= 1 || a == null || a.length() <= b) return a; // base cases: 
+
+        int len = a.length();
+        char[] result = new char[len];
+        int i = 0, j = 0;
+        while(i < len){
+            int gap1 = 2 * (b - 1); // first downward line
+            int gap2 = b > 2 ? 2 : 0; // second upward line (only if there are more than two rows)
+            
+            for (int k = 0; i < len && j < result.length; ++k,++j){
+                result[j] = a.charAt(i);
+                
+                int gap = k < b - 1 ? gap1 : gap2; // set the correct gap size
+                if (gap > 0) { i += gap; j+= gap;} else ++i;
+            }
+        }
+        
+        return new String(result);
+    }
+}

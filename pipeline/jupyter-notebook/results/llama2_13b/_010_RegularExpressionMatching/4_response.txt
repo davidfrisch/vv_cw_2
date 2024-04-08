@@ -1,0 +1,13 @@
+ The error message indicates that the Java compiler is expecting a class, interface, or enum, but it is not finding one in the code. Specifically, it is looking for a class or interface called "Practice" in the file `/app/leetcode-master/src/_010_RegularExpressionMatching/Practice.java`.
+
+The code provided does not define any classes or interfaces, so the compiler is throwing an error. To fix the issue, you need to define a class or interface called "Practice" in the file `/app/leetcode-master/src/_010_RegularExpressionMatching/Practice.java`.
+
+Here is an example of how you can define a class called "Practice" in the file `/app/leetcode-master/src/_010_RegularExpressionMatching/Practice.java`:
+```
+public class Practice {
+    public boolean isMatch(String s, String p) {
+        // Implement the regular expression matching logic here
+        return true; // or false if the match fails
+    }
+}
+```

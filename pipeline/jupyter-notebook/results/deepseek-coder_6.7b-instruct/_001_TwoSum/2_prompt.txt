@@ -1,0 +1,39 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:15: error: illegal start of expression
+          return new int[] {0, 0}; // no solution found
+          ^
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:14: error: not a statement
+         		}      ! 
+         		       ^
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:18: error: reached end of file while parsing
+    }
+     ^
+    3 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _001_TwoSum;
+
+import java.util.HashMap;
+
+public class Practice {
+  public int[] twoSum(int[] nums, int target) {
+    HashMap<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+      if (map.containsKey(target - nums[i])) { // complement found in hash table
+        return new int[] { map.get(target - nums[i]) + 1, i + 1 }; // indices are 1-based
+      } else {
+        map.put(nums[i], i); // store the number and its index
+     		}      ! 
+      return new int[] {0, 0}; // no solution found
+    }
+  
+}

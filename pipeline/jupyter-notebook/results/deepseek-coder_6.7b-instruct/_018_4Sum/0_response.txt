@@ -1,0 +1,43 @@
+package _018_4Sum;
+
+import java.util.*;
+
+public class Practice {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        Arrays.sort(nums);
+        return kSum(nums, 4, 0, target);
+    }
+    
+    private List<List<Integer>> kSum(int[] nums, int k, int start, long target) {
+        List<List<Integer>> res = new ArrayList<>();
+        
+        // If we have reached the desired sum then no need to continue the recursion
+        if (k == 2) return twoSum(nums, start, (int)target);
+        
+        for (int i = start; i < nums.length - k + 1; ++i) {
+            // Skip duplicates
+            if (i > start && nums[i] == nums[i-1]) continue;
+            
+            // Use recursion to reduce the problem规模
+            for (List<Integer> subset : kSum(nums, k - 1, i + 1, target - nums[i])) {
+                res.add(new ArrayList<>(Arrays.asList(nums[i])));
+                res.get(res.size()-1).addAll(subset);
+            }
+        }
+        
+        return res;
+    }
+    
+    private List<List<Integer>> twoSum(int[] nums, int start, long target) {
+        List<List<Integer>> res = new ArrayList<>();
+        Set<Long> seen = new HashSet<>();
+        for (int i = start; i < nums.length; ++i) {
+            if (nums[i] > target || seen.contains(target - nums[i])) continue;
+            
+            res.add(Arrays.asList((int)target - nums[i], nums[i]));
+            seen.add(nums[i]);
+        }
+        
+        return res;
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "num_tests": "4",
+    "num_successes": 0,
+    "num_failures": "0",
+    "num_errors": "4",
+    "timestamp": "2024-04-08T15:48:56",
+    "test_cases": [
+        {
+            "name": "Test0",
+            "time": "0.013",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test0() {\n        String digits = \"23\";\n        List<String> actuals = solution.letterCombinations(digits);\n        List<String> expecteds = Arrays.asList(\"ad\", \"ae\", \"af\", \"bd\", \"be\",\n                \"bf\", \"cd\", \"ce\", \"cf\");\n        assertEqualsIgnoreOrder(expecteds, actuals);\n    }"
+        },
+        {
+            "name": "Test1",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        String digits = \"\";\n        List<String> actuals = solution.letterCombinations(digits);\n        List<String> expecteds = new ArrayList<>();\n        assertEqualsIgnoreOrder(expecteds, actuals);\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.014",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test2() {\n        String digits = \"9\";\n        List<String> actuals = solution.letterCombinations(digits);\n        List<String> expecteds = new ArrayList<>(Arrays.asList(\"w\", \"x\", \"y\", \"z\"));\n        assertEqualsIgnoreOrder(expecteds, actuals);\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test3() {\n        String digits = \"234\";\n        List<String> actuals = solution.letterCombinations(digits);\n        List<String> expecteds = Arrays.asList(\"adg\", \"adh\", \"adi\", \"aeg\",\n                \"aeh\", \"aei\", \"afg\", \"afh\", \"afi\", \"bdg\", \"bdh\", \"bdi\", \"beg\",\n                \"beh\", \"bei\", \"bfg\", \"bfh\", \"bfi\", \"cdg\", \"cdh\", \"cdi\", \"ceg\",\n                \"ceh\", \"cei\", \"cfg\", \"cfh\", \"cfi\");\n        assertEqualsIgnoreOrder(expecteds, actuals);\n    }"
+        }
+    ]
+}

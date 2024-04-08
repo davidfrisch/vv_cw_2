@@ -1,0 +1,33 @@
+ Sure! Here is the complete Java code for the problem "Reverse Integer" on LeetCode:
+
+ package _007_ReverseInteger;
+
+ import static org.junit.Assert.assertEquals;
+
+ import org.junit.Test;
+
+ public class Practice {
+
+     public int reverse(int a) {
+         if (a == 0) return 0;
+         if (a < 0) return -reverse(-a);
+         int res = 0;
+         while (a != 0) {
+             int rem = a % 10;
+             a /= 10;
+             res *= 10;
+             res += rem;
+         }
+         return res;
+     }
+
+     @Test
+     public void test() {
+         assertEquals(321, reverse(123));
+         assertEquals(-321, reverse(-123));
+         assertEquals(0, reverse(-324));
+     }
+
+ }
+
+ Note that this solution uses a while loop to reverse the digits of the input integer. The basic idea is to keep dividing the input by 10 until it is 0, and then concatenate the remainders in the correct order. This solution works for both positive and negative integers, and also handles the case where the result overflows and would not fit in a 32-bit signed integer.

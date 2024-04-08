@@ -1,0 +1,19 @@
+ The error message you're seeing is caused by a duplicate class definition in your code. Specifically, there is a file called `ListNode.java` in your source directory that contains a class with the same name as the inner class of the `Practice` class. This is not allowed in Java, as classes can only extend other classes, not define the same name.
+
+To fix this error, you will need to remove the `ListNode.java` file from your source directory or rename it to a different name. Additionally, you will need to update the `Practice.java` file to reflect the changed name of the inner class.
+
+Here is an example of how you can fix the error:
+
+1. Remove the `ListNode.java` file from your source directory.
+2. Rename the inner class of the `Practice` class to a different name, such as `MyListNode`.
+3. Update the `Practice.java` file to reflect the changed name of the inner class:
+```
+public class Practice {
+    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {
+        // ...
+    }
+}
+```
+4. Compile the code again to ensure that there are no more errors.
+
+I hope this helps! Let me know if you have any other questions.

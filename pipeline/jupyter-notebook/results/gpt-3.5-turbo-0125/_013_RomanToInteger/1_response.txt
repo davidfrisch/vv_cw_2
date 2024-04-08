@@ -1,0 +1,62 @@
+/**
+ *******************************************************************************
+ * Description: 
+ * 
+ * Given a roman numeral, convert it to an integer. 
+ * Input is guaranteed to be within the range from 1 to 3999.
+ * 
+ *******************************************************************************
+ * @tag : Math; String
+ * {@link https://leetcode.com/problems/roman-to-integer/ }
+ */
+package _013_RomanToInteger;
+
+public class Practice {
+
+    public int romanToInt(String a) {
+        // Add your solution code here
+        if (a.length() == 0) {
+            return 0;
+        }
+
+        int result = 0;
+        int prevValue = getValue(a.charAt(0));
+
+        for (int i = 1; i < a.length(); i++) {
+            int curValue = getValue(a.charAt(i));
+            if (prevValue < curValue) {
+                result += curValue - prevValue;
+                if (i + 1 < a.length()) {
+                    prevValue = getValue(a.charAt(i + 1));
+                    i++;
+                }
+            } else {
+                result += prevValue;
+                prevValue = curValue;
+            }
+        }
+        result += prevValue;
+        return result;
+    }
+
+    private int getValue(char c) {
+        switch (c) {
+            case 'I':
+                return 1;
+            case 'V':
+                return 5;
+            case 'X':
+                return 10;
+            case 'L':
+                return 50;
+            case 'C':
+                return 100;
+            case 'D':
+                return 500;
+            case 'M':
+                return 1000;
+            default:
+                return 0;
+        }
+    }
+}

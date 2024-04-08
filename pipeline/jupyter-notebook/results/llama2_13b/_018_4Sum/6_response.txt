@@ -1,0 +1,8 @@
+The error is that the class "FourSum" is already defined in the file "Practice.java", and it should be declared in a separate file named "FourSum.java". Here is the corrected version of the code:
+```
+public class FourSum {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        // ...
+    }
+}
+```

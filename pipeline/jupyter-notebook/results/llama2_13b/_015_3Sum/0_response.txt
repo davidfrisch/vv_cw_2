@@ -1,0 +1,55 @@
+
+Here is the complete solution code for the 3Sum problem:
+
+package _015_3Sum;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Practice {
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (nums == null || nums.length <= 2) {
+            return res;
+        }
+
+        int left = 0;
+        int right = nums.length - 1;
+        int mid = (left + right) / 2;
+
+        while (left < right) {
+            if (nums[mid] == 0) {
+                List<Integer> triplet = new ArrayList<>();
+                triplet.add(nums[left]);
+                triplet.add(nums[mid]);
+                triplet.add(nums[right]);
+                res.add(triplet);
+
+                while (left < right && nums[left] == nums[right]) {
+                    left++;
+                    right--;
+                }
+
+                if (left < right) {
+                    swap(nums, left, mid);
+                    swap(nums, right, mid);
+                }
+            } else {
+                if (nums[mid] > 0) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+
+        return res;
+    }
+
+    private void swap(int[] nums, int left, int right) {
+        int temp = nums[left];
+        nums[left] = nums[right];
+        nums[right] = temp;
+    }
+}

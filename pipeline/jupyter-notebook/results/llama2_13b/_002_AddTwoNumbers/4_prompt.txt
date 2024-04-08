@@ -1,0 +1,45 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    Compiling 2 source files to /app/leetcode-master/bin
+    /app/leetcode-master/test/_002_AddTwoNumbers/PracticeTest.java:16: error: cannot find symbol
+        Practice solution;
+        ^
+      symbol:   class Practice
+      location: class PracticeTest
+    /app/leetcode-master/test/_002_AddTwoNumbers/PracticeTest.java:23: error: cannot find symbol
+            solution = new Practice();
+                           ^
+      symbol:   class Practice
+      location: class PracticeTest
+    2 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import com.leetcode.ListNode;
+
+public class Practice {
+    public ListNode addTwoNumbers(ListNode a, ListNode b) {
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+
+        while (a != null && b != null) {
+            int sum = a.val + b.val;
+            ListNode temp = new ListNode(sum % 10);
+            temp.next = current;
+            current = temp;
+
+            a = a.next;
+            b = b.next;
+        }
+
+        return dummy.next;
+    }
+}

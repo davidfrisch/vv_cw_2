@@ -1,0 +1,20 @@
+ Sure! Here is the corrected version of the Java code for the `TwoSum` class:
+```
+public class TwoSum {
+    public int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target) {
+                result[0] = nums[i];
+                break;
+            }
+            if (nums[i] + target == 0) {
+                result[1] = nums[i];
+                break;
+            }
+        }
+        return result;
+    }
+}
+```
+This code should now compile without any errors. Let me know if you have any questions or need further assistance!

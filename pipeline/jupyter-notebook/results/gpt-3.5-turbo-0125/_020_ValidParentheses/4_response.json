@@ -1,0 +1,1 @@
+{"is_extracted": true, "number_of_code_blocks": 1, "extra_information_num_words": 1, "response": "```\nimport java.util.Stack;\n\nimport org.junit.Test;\nimport static org.junit.Assert.*;\n\npublic class Practice {\n\n    public boolean isValid(String s) {\n        // implementation of isValid method\n        return false;\n    }\n}\n\n```"}

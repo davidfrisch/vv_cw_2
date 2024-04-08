@@ -1,0 +1,17 @@
+The error message indicates two problems in your Makefile. First, it seems like the clean and init rules are expecting a tab character instead of spaces at the beginning of their lines. Second, the compilation line is incorrectly indented. 
+
+Here's the corrected version of your makefile:
+
+```makefile
+clean:
+    [delete] Deleting directory /app/leetcode-master/bin
+    [delete] Deleting directory /app/leetcode-master/report
+
+init:
+     [mkdir] Created dir: /app/leetcode-master/bin
+     [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    javac /app/leetcode-master/src/_006_ZigZagConversion/*.java -d /app/leetcode-master/bin
+```
+This should resolve the issues with your makefile and allow it to compile your Java source files correctly. Please replace "/app/leetcode-master" with the correct path in your system if necessary.

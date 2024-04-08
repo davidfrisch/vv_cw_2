@@ -1,0 +1,14 @@
+The following code has the following error: No Java code block found in the given response.
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class PracticeTest {
+    @Test
+    public void testLongestPalindrome() {
+        Practice solution = new Practice();
+        assertEquals("racecar", solution.longestPalindrome("racecar"));
+        // Add more test cases here
+    }
+}

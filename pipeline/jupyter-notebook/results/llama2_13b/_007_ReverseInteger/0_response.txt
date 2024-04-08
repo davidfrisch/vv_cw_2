@@ -1,0 +1,24 @@
+ Here is the complete solution code for the "Reverse Integer" problem on LeetCode:
+
+package _007_ReverseInteger;
+
+import static java.lang.Math.abs;
+
+public class Practice {
+
+    public int reverse(int a) {
+        int sign = (a > 0) ? 1 : -1;
+        long temp = abs(a);
+        long rev = 0;
+
+        while (temp != 0) {
+            rev = (rev * 10) + (temp % 10);
+            temp /= 10;
+        }
+
+        return (int) rev * sign;
+    }
+
+}
+
+Note that this solution uses long variables to store the reversed integer, as it can overflow a 32-bit signed integer. The sign of the input is also handled correctly.

@@ -1,0 +1,29 @@
+ Sure, here is the complete Java code for the `mergeTwoLists` method:
+```
+public class Practice {
+    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {
+        ListNode current = null;
+        ListNode previous = null;
+        while (node11 != null && node21 != null) {
+            if (node11.val <= node21.val) {
+                current = node11;
+                node11 = node11.next;
+            } else {
+                current = node21;
+                node21 = node21.next;
+            }
+        }
+        while (node11 != null) {
+            previous = current;
+            current = node11;
+            node11 = node11.next;
+        }
+        while (node21 != null) {
+            previous = current;
+            current = node21;
+            node21 = node21.next;
+        }
+        return previous;
+    }
+}
+```

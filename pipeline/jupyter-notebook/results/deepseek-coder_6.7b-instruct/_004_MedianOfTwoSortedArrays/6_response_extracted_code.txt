@@ -1,0 +1,7 @@
+
+public class PracticeTest {
+    public static void main(String[] args) {
+        Practice solution = new Practice(); // Now this line is legal.
+        // The rest of your code...
+    }
+}

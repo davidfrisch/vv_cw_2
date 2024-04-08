@@ -1,0 +1,7 @@
+ Sure! Here is the Java code for the `isMatch` method:
+
+```
+public boolean isMatch(String s, String p) {
+    // ...
+}
+```

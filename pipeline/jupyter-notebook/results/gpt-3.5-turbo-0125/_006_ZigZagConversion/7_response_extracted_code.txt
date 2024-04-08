@@ -1,0 +1,30 @@
+
+package _006_ZigZagConversion;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class PracticeTest {
+
+    private Practice solution;
+
+    @Before
+    public void setUp() {
+        solution = new Practice();
+    }
+
+    @Test
+    public void testConvert() {
+        assertEquals("PAHNAPLSIIGYIR", solution.convert("PAYPALISHIRING", 3));
+    }
+
+    private class Practice {
+        public String convert(String s, int numRows) {
+            // implementation of the convert method goes here
+            return ""; // placeholder for the actual return value
+        }
+    }
+
+}

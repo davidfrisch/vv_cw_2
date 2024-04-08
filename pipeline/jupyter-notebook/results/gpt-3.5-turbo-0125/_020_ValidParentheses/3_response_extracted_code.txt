@@ -1,0 +1,22 @@
+
+import java.util.Stack;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class Practice {
+
+}
+
+public class PracticeTest {
+
+    @Test
+    public void testIsValid() {
+        Practice practice = new Practice();
+        assertTrue(practice.isValid("()"));
+        assertTrue(practice.isValid("()[]{}"));
+        assertFalse(practice.isValid("(]"));
+        assertFalse(practice.isValid("([)]"));
+        assertTrue(practice.isValid("{[]}"));
+    }
+}

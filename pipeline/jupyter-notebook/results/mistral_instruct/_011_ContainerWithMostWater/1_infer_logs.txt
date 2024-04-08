@@ -1,0 +1,36 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:2: error: class, interface, or enum expected
+    public int maxArea(int[] height) {
+           ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:4: error: class, interface, or enum expected
+        int maxArea = Math.min(height[left], height[right]) * (right - left);
+        ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:6: error: class, interface, or enum expected
+        while (left < right) {
+        ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:8: error: class, interface, or enum expected
+            if (currentArea > maxArea) {
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:10: error: class, interface, or enum expected
+            }
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:15: error: class, interface, or enum expected
+            } else {
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:17: error: class, interface, or enum expected
+            }
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:21: error: class, interface, or enum expected
+    }
+    ^
+    8 errors

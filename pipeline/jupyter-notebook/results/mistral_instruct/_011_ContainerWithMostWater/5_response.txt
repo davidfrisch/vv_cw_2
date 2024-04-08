@@ -1,0 +1,29 @@
+ Here is the corrected Java code:
+
+```java
+public int maxArea(int[] height) {
+    int left = 0, right = height.length - 1;
+    int maxArea = Math.min(height[left], height[right]) * (right - left);
+
+    while (left < right) {
+        int currentHeightLeft = height[left];
+        int currentHeightRight = height[right];
+
+        if (currentHeightLeft > currentHeightRight) {
+            int temp = left;
+            left = right;
+            right = temp;
+        }
+
+        int currentDifference = right - left;
+        int newMaxArea = Math.min(height[left], currentDifference) * height[left];
+
+        maxArea = Math.max(newMaxArea, maxArea);
+        left++;
+    }
+
+    return maxArea;
+}
+```
+
+I swapped the pointers when `currentHeightLeft` is less than or equal to `currentHeightRight`, and also calculated the new maximum area in each iteration instead of just updating `maxArea` if it's greater.

@@ -1,0 +1,17 @@
+ Sure! Here is the corrected code:
+
+import java.util.List;
+
+public class Practice {
+    public List<Integer> practice(int... numbers) {
+        // Implement the practice method here
+    }
+}
+
+public class PracticeTest {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3};
+        List<Integer> result = Practice.practice(numbers);
+        System.out.println(result);
+    }
+}

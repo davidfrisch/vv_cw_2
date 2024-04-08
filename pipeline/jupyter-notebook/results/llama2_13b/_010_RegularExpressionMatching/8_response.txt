@@ -1,0 +1,22 @@
+ The error message you provided is not very helpful, but I can try to help you understand what's going on.
+
+It looks like the problem is with the `Pattern` and `Matcher` classes, which are part of the Java Standard Library. These classes are used for working with regular expressions, and it seems that the code is trying to use them in a way that is not allowed.
+
+Here's the relevant code from the error message:
+```
+    Pattern pattern = Pattern.compile(p);
+    Matcher matcher = pattern.matcher(s);
+```
+The first line compiles a `Pattern` object from the string `p`, but the second line tries to use the `Matcher` class on a `String` object called `s`. This is not allowed, because `Matcher` is a class that is meant to be used with `Pattern` objects, not with strings.
+
+To fix this error, you need to change the code so that it uses `Pattern` and `Matcher` correctly. Here's an example of how you could do this:
+```
+public class Practice {
+    public boolean isMatch(String s, String p) {
+        Pattern pattern = Pattern.compile(p);
+        Matcher matcher = pattern.matcher(s);
+        return matcher.find();
+    }
+}
+```
+In this example, we compile the `Pattern` object from the string `p`, and then use the `Matcher` object to search for matches in the string `s`. This should fix the error you're seeing.

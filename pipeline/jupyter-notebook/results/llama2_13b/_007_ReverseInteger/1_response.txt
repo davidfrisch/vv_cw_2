@@ -1,0 +1,18 @@
+ Sure! Here is the corrected Java code for the reverse integer problem:
+
+package _007_ReverseInteger;
+
+public class Practice {
+
+    public int reverse(int a) {
+        if (a == 0) return 0;
+        int rev = 0;
+        while (a != 0) {
+            rev = (rev * 10) + (a % 10);
+            a /= 10;
+        }
+        return rev;
+    }
+}
+
+Note that the corrected code uses a while loop to reverse the digits of the input integer, and it uses the modulo operator to extract the individual digits from the input. The result is then returned as an integer.

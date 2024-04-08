@@ -1,0 +1,15 @@
+```java
+public class PracticeTest {
+
+    Practice solution;
+
+    public void setUp() {
+        solution = new Practice();
+    }
+
+    @Test
+    public void testIsValid() {
+        // Test cases for isValid method
+    }
+}
+```

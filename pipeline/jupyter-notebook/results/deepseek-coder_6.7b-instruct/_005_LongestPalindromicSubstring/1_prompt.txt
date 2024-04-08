@@ -1,0 +1,56 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:20: error: illegal start of expression
+    !.  
+     ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:20: error: not a statement
+    !.  
+    ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:21: error: illegal start of type
+                 </s>
+                  ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:23: error: illegal start of expression
+            return s.substring(start, start + maxLength); 
+            ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:21: error: not a statement
+                 </s>
+                    ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:25: error: reached end of file while parsing
+    }
+     ^
+    6 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _005_LongestPalindromicSubstring;
+
+public class Practice {
+    public String longestPalindrome(String s) {
+        int n = s.length(); 
+        boolean table[][] = new boolean[n][n]; 
+        int maxLength = 1; 
+      
+        for(int i = 0; i < n; ++i) 
+            table[i][i] = true; 
+          
+        int start = 0; 
+        for(int i = 0; i < n - 1; ++i){ 
+            if (s.charAt(i) == s.charAt(i+1)){ 
+                table[i][i+1] = true; 
+                start = i; 
+                maxLength = 2; 
+           
+!.  
+             </s>
+              
+        return s.substring(start, start + maxLength); 
+    }
+}

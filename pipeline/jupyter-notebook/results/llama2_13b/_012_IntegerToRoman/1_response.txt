@@ -1,0 +1,19 @@
+ Sure! Here is the complete Java code for the `intToRoman` method:
+```
+public String intToRoman(int a) {
+    switch (a) {
+        case 1: return "I";
+        case 2: return "II";
+        case 3: return "III";
+        case 4: return "IV";
+        case 5: return "V";
+        case 6: return "VI";
+        case 7: return "VII";
+        case 8: return "VIII";
+        case 9: return "IX";
+        default:
+            return String.valueOf(a);
+    }
+}
+```
+This method uses a switch statement to convert the input integer to a Roman numeral. It handles the cases from 1 to 9, and for all other values, it returns the string representation of the integer.

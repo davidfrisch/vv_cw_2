@@ -1,0 +1,41 @@
+Here is the complete solution code for the "Two Sum" problem:
+
+package _001_TwoSum;
+
+import java.util.HashMap;
+
+public class Practice {
+
+  public int[] twoSum(int[] nums, int target) {
+    // Create a hash map to store the pairs of numbers and their indices
+    HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+    for (int i = 0; i < nums.length; i++) {
+      // If the current number is not already paired with an index, pair it with -1
+      if (!hashMap.containsKey(nums[i])) {
+        hashMap.put(nums[i], -1);
+      }
+
+      // If the current number is already paired with an index, increment the index
+      else {
+        int index = hashMap.get(nums[i]);
+        hashMap.put(nums[i], index + 1);
+      }
+    }
+
+    // Find the first pair of numbers that add up to the target
+    for (int i = 0; i < nums.length; i++) {
+      if (hashMap.get(nums[i]) == -1) {
+        int index1 = i;
+        int index2 = hashMap.get(nums[i]);
+        return new int[] {index1, index2};
+      }
+    }
+
+    // If no pair of numbers was found, return null
+    return null;
+  }
+
+}
+
+Note that the solution uses a hash map to keep track of the pairs of numbers and their indices. The hash map is initialized with all integers as keys and -1 as values. Then, it iterates through the array of integers and updates the hash map with the current number and its index. Finally, it searches for the first pair of numbers that add up to the target and returns their indices.

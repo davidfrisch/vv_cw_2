@@ -1,0 +1,21 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:16: error: ')' expected
+                int newMaxArea = Math.min(height[left], currentDifference) < height[left] ? (newMaxArea = height[left] * currentDifference, newMaxArea) : newMaxArea;
+                                                                                                                                          ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:16: error: ';' expected
+                int newMaxArea = Math.min(height[left], currentDifference) < height[left] ? (newMaxArea = height[left] * currentDifference, newMaxArea) : newMaxArea;
+                                                                                                                                                      ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:16: error: not a statement
+                int newMaxArea = Math.min(height[left], currentDifference) < height[left] ? (newMaxArea = height[left] * currentDifference, newMaxArea) : newMaxArea;
+                                                                                                                                                          ^
+    3 errors

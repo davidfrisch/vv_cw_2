@@ -1,0 +1,51 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_015_3Sum/Practice.java:9: error: cannot find symbol
+            List<List<Integer>> res = new ArrayList<>();
+                                          ^
+      symbol:   class ArrayList
+      location: class Practice
+    /app/leetcode-master/src/_015_3Sum/Practice.java:14: error: cannot find symbol
+                    List<Integer> triplet = new ArrayList<>();
+                                                ^
+      symbol:   class ArrayList
+      location: class Practice
+    2 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.util.List;
+
+public class Practice {
+    public List<List<Integer>> threeSum(int[] nums) {
+        // Use two pointers approach
+        int left = 0;
+        int right = nums.length - 1;
+        List<List<Integer>> res = new ArrayList<>();
+
+        while (left < right) {
+            int sum = nums[left] + nums[right] + nums[left + 1];
+            if (sum == 0) {
+                List<Integer> triplet = new ArrayList<>();
+                triplet.add(nums[left]);
+                triplet.add(nums[right]);
+                triplet.add(nums[left + 1]);
+                res.add(triplet);
+                while (left < right && nums[left] <= nums[right]) {
+                    left++;
+                }
+                right -= left;
+            }
+            left++;
+        }
+        return res;
+    }
+}

@@ -1,0 +1,14 @@
+ The error message you provided is not a complete error message, but I can see that there are two errors in the code:
+
+1. Duplicate class: com.leetcode.ListNode
+2. Cannot access ListNode
+
+Based on the code you provided, it seems that the error is caused by the fact that there is a file named "ListNode.java" in the source directory, which is causing the compiler to compile the same class twice. To fix this error, you should remove the duplicate file or move it to a different subdirectory of the source path.
+
+Here is the complete Java code for the Practice class:
+
+public class Practice {
+    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {
+        // ...
+    }
+}

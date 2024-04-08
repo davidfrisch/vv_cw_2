@@ -1,0 +1,14 @@
+
+public String longestCommonPrefix(String[] strs) {
+    int n = strs.length;
+    if (n == 0) {
+        return "";
+    }
+
+    String prefix = strs[0];
+    for (int i = 1; i < n; i++) {
+        prefix = prefix.commonPrefix(strs[i]);
+    }
+
+    return prefix;
+}

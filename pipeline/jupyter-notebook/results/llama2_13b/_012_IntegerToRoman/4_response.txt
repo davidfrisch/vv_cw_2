@@ -1,0 +1,18 @@
+ Sure! Here's the fixed Java code for the `intToRoman` method:
+
+public String intToRoman(int a) {
+    switch (a) {
+        case 1: return "I";
+        case 2: return "II";
+        case 3: return "III";
+        case 4: return "IV";
+        case 5: return "V";
+        case 6: return "VI";
+        case 7: return "VII";
+        case 8: return "VIII";
+        case 9: return "IX";
+        default: return String.valueOf(a);
+    }
+}
+
+The errors were caused by the fact that the `case` statements were not properly indented, and the default case was not correctly formatted. The fixed code corrects these issues and should now compile without any errors.

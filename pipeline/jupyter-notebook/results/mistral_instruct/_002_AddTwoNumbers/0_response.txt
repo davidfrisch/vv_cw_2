@@ -1,0 +1,33 @@
+ Here's the implementation of adding two linked lists in Java:
+
+```java
+public class Practice {
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carry = 0; // Initialize carry as 0
+        ListNode prev = null; // Initialize previous node as null
+        ListNode current = new ListNode(-1); // Initialize current node with a dummy node (-1)
+        prev = current;
+
+        while (l1 != null || l2 != null || carry > 0) {
+            int sum = carry;
+            if (l1 != null) {
+                sum += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                sum += l2.val;
+                l2 = l2.next;
+            }
+            carry = sum / 10; // Get the carry value for next iteration
+            int digit = sum % 10; // Get the remaining digits for current node
+            ListNode newNode = new ListNode(digit); // Create a new node with current digit
+            prev.next = newNode; // Link the current node to previous node
+            prev = newNode; // Move the pointer to the newly created node
+        }
+        return current.next; // Finally, return the head of the linked list
+    }
+}
+```
+
+In this implementation, we initialize three pointers: `l1`, `l2`, and `prev`. We also create a dummy node `current` with a value of -1 to avoid having an empty linked list as the final result. The while loop runs until both lists are exhausted or there's a carry over. Inside the loop, we calculate the sum of the current digits and the carry, if any. Then, we update the carry and create a new node with the digit value (sum % 10). We link this node to the previous node, and move both pointers ahead. Finally, we return the head of the linked list which is currently stored in the `current` pointer.

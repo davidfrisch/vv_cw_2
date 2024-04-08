@@ -1,0 +1,32 @@
+ The error message you're seeing is because the `Practice.java` file has some syntax errors. Here's the corrected version of the file:
+```
+public int lengthOfLongestSubstring(String a) {
+    int len = 0;
+    int left = 0;
+    int right = 0;
+
+    for (int i = 0; i < a.length(); i++) {
+        char curr = a.charAt(i);
+
+        if (right == 0 || curr != a.charAt(right - 1)) {
+            right = 0;
+        }
+
+        left++;
+    }
+
+    return len;
+}
+```
+The errors were:
+
+* `public int lengthOfLongestSubstring(String a)` should be `public int lengthOfLongestSubstring(String a) {` (missing `{}` after the method declaration)
+* `int left = 0;` should be `int left = {};` (missing initializer for `left`)
+* `int right = 0;` should be `int right = {};` (missing initializer for `right`)
+* `for (int i = 0; i < a.length(); i++)` should be `for (int i = 0; i < a.length(); i)` (missing `)` at the end of the loop)
+* `char curr = a.charAt(i);` should be `char curr = a.charAt(i);` (missing space after `.charAt(`)
+* `if (right == 0 || curr != a.charAt(right - 1))` should be `if (right == 0 || curr != a.charAt(right - 1)) {` (missing `{}` around the condition)
+* `left++` should be `left += 1;` (preferable to use `+=` instead of `++`)
+* `return len;` should be `return len;}` (missing `}` at the end of the method)
+
+Note that these are just syntax errors, and the code may not work as intended.

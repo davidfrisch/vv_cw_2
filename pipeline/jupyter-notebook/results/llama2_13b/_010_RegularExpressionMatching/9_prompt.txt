@@ -1,0 +1,10 @@
+The following code has the following error: More than one Java code block found in the response, Only one Java code block is expected.
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public class Practice {
+    public boolean isMatch(String s, String p) {
+        Pattern pattern = Pattern.compile(p);
+        Matcher matcher = pattern.matcher(s);
+        return matcher.find();
+    }
+}

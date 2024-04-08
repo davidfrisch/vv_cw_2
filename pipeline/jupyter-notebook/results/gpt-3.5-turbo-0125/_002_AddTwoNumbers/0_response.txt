@@ -1,0 +1,45 @@
+/**
+ *******************************************************************************
+ * Description: 
+ * 
+ * You are given two linked lists representing two non-negative numbers. 
+ * The digits are stored in reverse order and each of their nodes contain 
+ * a single digit. Add the two numbers and return it as a linked list. 
+ * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4) 
+ * Output: 7 -> 0 -> 8
+ * 
+ *******************************************************************************
+ * @tag : Linked List; Math
+ * {@link https://leetcode.com/problems/add-two-numbers/ }
+ */
+package _002_AddTwoNumbers;
+
+import com.leetcode.ListNode;
+
+/** see test {@link _002_AddTwoNumbers.PracticeTest } */
+public class Practice {
+
+    public ListNode addTwoNumbers(ListNode a, ListNode b) {
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+        int carry = 0;
+
+        while (a != null || b != null) {
+            int x = (a != null) ? a.val : 0;
+            int y = (b != null) ? b.val : 0;
+            int sum = carry + x + y;
+            carry = sum / 10;
+            current.next = new ListNode(sum % 10);
+            current = current.next;
+            if (a != null) a = a.next;
+            if (b != null) b = b.next;
+        }
+
+        if (carry > 0) {
+            current.next = new ListNode(carry);
+        }
+
+        return dummy.next;
+    }
+
+}

@@ -1,0 +1,30 @@
+ Sure! Here is the Java code for the "Container with Most Water" problem:
+
+```
+import java.util.*;
+
+public class ContainerWithMostWater {
+    public int maxArea(int[] height) {
+        int left = 0, right = height.length - 1;
+        int maxArea = 0;
+
+        while (left < right) {
+            int area = Math.min(height[right], height[left]) * (right - left);
+            if (area > maxArea) {
+                maxArea = area;
+            }
+
+            if (height[left] <= height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+
+        return maxArea;
+    }
+}
+```
+This solution uses two pointers to find the maximum area of water that can be contained in a container. The left pointer moves towards the right pointer, and the right pointer moves towards the left pointer, until they meet at the midpoint of the array. Then, they move backwards, comparing the heights of the elements at each position, and updating the maxArea variable accordingly.
+
+Please note that this is just one possible solution to this problem, and there may be other ways to solve it as well.

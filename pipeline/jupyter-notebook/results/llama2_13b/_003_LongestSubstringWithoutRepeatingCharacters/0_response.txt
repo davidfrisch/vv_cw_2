@@ -1,0 +1,45 @@
+ Sure! Here is the complete solution code for the problem "Longest Substring Without Repeating Characters" on LeetCode:
+
+package _003_LongestSubstringWithoutRepeatingCharacters;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Practice {
+    
+    public int lengthOfLongestSubstring(String a) {
+        // Initialize a hash set to keep track of the characters in the string
+        HashSet<Character> seen = new HashSet<>();
+        
+        // Initialize two pointers, one pointing to the beginning of the string and the other
+        // pointing to the end of the string
+        int left = 0;
+        int right = a.length() - 1;
+        
+        // Loop until the right pointer reaches the end of the string
+        while (right >= 0) {
+            // If the character at the current position is not in the seen set,
+            // mark it as seen and increase the left pointer
+            if (!seen.contains(a.charAt(right))) {
+                seen.add(a.charAt(right));
+                left++;
+            }
+            
+            // Move both pointers by one position
+            right--;
+        }
+        
+        // Return the length of the longest substring without repeating characters
+        return left;
+    }
+}
+
+Here's an explanation of the solution:
+
+1. We initialize a hash set to keep track of the characters in the string. This allows us to quickly check if a character has already been seen.
+2. We initialize two pointers, one pointing to the beginning of the string and the other pointing to the end of the string.
+3. We loop until the right pointer reaches the end of the string.
+4. For each character, we check if it is in the seen set. If it is not, we mark it as seen and increase the left pointer. This allows us to find the longest substring without repeating characters.
+5. After looping through the entire string, we return the length of the longest substring without repeating characters, which is the distance between the beginning and end pointers.
+
+I hope this helps! Let me know if you have any questions or need further clarification.

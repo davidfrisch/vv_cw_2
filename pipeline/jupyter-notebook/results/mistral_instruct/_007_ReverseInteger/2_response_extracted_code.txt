@@ -1,0 +1,24 @@
+
+package _007_ReverseInteger;
+
+/** see test {@link _007_ReverseInteger.PracticeTest } */
+public class Practice {
+    static long reverseLong(long num) {
+        long reversedNum = 0;
+        while (num != 0) {
+            long digit = num % 10;
+            num /= 10;
+            reversedNum = reversedNum * 10 + digit;
+        }
+        return reversedNum;
+    }
+
+    public int reverse(int a) {
+        long reversedNum = reverseLong((long)a);
+        if (reversedNum > Integer.MAX_VALUE || reversedNum < Integer.MIN_VALUE) {
+            return 0;
+        } else {
+            return (int)reversedNum;
+        }
+    }
+}

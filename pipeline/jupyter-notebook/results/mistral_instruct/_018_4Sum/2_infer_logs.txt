@@ -1,0 +1,17 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_018_4Sum/Practice.java:36: error: cannot find symbol
+                            List<Integer> list = Arrays.stream(map.get(sum)).mapToList().orElseGet(ArrayList::new); // Get the indices of the two numbers that sum up to 'sum'
+                                                                            ^
+      symbol:   method mapToList()
+      location: interface Stream<Integer>
+    1 error

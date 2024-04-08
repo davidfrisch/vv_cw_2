@@ -1,0 +1,15 @@
+```java
+import java.util.Stack;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class Practice {
+
+    public boolean isValid(String s) {
+        // implementation of isValid method
+        return false;
+    }
+}
+
+```

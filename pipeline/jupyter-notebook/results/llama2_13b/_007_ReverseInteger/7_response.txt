@@ -1,0 +1,17 @@
+Here is the fixed Java code:
+
+public class Practice {
+    public int reverse(int a) {
+        if (a == 0) {
+            return 0;
+        }
+        int rev = a;
+        while (a > 0) {
+            int rem = a % 10;
+            rev *= 10;
+            rev += rem;
+            a /= 10;
+        }
+        return rev;
+    }
+}

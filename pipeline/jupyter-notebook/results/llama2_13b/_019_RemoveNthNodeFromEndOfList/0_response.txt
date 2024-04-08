@@ -1,0 +1,32 @@
+Here is the complete solution code for the "Remove Nth Node from End of List" problem:
+
+package _019_RemoveNthNodeFromEndOfList;
+
+import com.leetcode.ListNode;
+
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        if (n == 0) {
+            return head;
+        }
+        ListNode slow = head;
+        ListNode fast = head;
+        int count = 1;
+        while (fast.next != null && count < n) {
+            slow = slow.next;
+            count++;
+        }
+        if (count == n) {
+            slow.next = fast.next;
+            return head;
+        } else {
+            slow.next = fast.next;
+            fast = slow.next;
+        }
+        return head;
+    }
+}
+
+This solution uses two pointers, a "slow" pointer and a "fast" pointer, to traverse the linked list. The "slow" pointer moves one node at a time, while the "fast" pointer moves n nodes at a time. When the "fast" pointer reaches the end of the list, it jumps back to the beginning of the list and starts moving one node at a time again. This continues until the "count" variable equals "n", at which point the "slow" pointer is positioned at the node that should be removed, and the "fast" pointer is positioned at the next node after the one that should be removed. The "slow" pointer is then assigned to the "fast" pointer's next node, effectively removing the nth node from the end of the list.
+
+Note that this solution assumes that the input linked list is not null and has at least one node. Also, the solution does not check for errors such as trying to remove a node that does not exist in the list.

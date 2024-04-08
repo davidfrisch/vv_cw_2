@@ -1,0 +1,64 @@
+{
+    "num_tests": "5",
+    "num_successes": 0,
+    "num_failures": "5",
+    "num_errors": "0",
+    "timestamp": "2024-04-08T15:40:21",
+    "test_cases": [
+        {
+            "name": "Test1",
+            "time": "0.012",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _002_AddTwoNumbers.PracticeTest.Test1(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test1() {\n        int[] nums1 = { 2, 4, 3 };\n        int[] nums2 = { 5, 6, 4 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 7, 0, 8 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _002_AddTwoNumbers.PracticeTest.Test2(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test2() {\n        int[] nums1 = { 2 };\n        int[] nums2 = { 9, 9, 4 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 1, 0, 5 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _002_AddTwoNumbers.PracticeTest.Test3(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test3() {\n        int[] nums1 = { 2 };\n        int[] nums2 = { 8 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 0, 1 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        },
+        {
+            "name": "Test4",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _002_AddTwoNumbers.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test4() {\n        int[] nums1 = { 9, 9, 4 };\n        int[] nums2 = { 3 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 2, 0, 5 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        },
+        {
+            "name": "Test5",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _002_AddTwoNumbers.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test5() {\n        int[] nums1 = { 0 };\n        int[] nums2 = { 0, 2 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 0, 2 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        }
+    ]
+}

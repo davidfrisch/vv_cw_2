@@ -1,0 +1,27 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:6: error: class PracticeTest is public, should be declared in a file named PracticeTest.java
+    public class PracticeTest {
+           ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public class Practice {
+    // Some methods and properties...
+}
+
+public class PracticeTest {
+    public static void main(String[] args) {
+        Practice practice = new Practice();
+        // Use the practice object to test your solution...
+    }
+}

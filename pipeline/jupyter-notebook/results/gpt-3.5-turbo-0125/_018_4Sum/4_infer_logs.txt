@@ -1,0 +1,47 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_018_4Sum/Practice.java:3: error: cannot find symbol
+        public List<List<Integer>> fourSum(int[] nums, int target) {
+               ^
+      symbol:   class List
+      location: class Solution
+    /app/leetcode-master/src/_018_4Sum/Practice.java:3: error: cannot find symbol
+        public List<List<Integer>> fourSum(int[] nums, int target) {
+                    ^
+      symbol:   class List
+      location: class Solution
+    /app/leetcode-master/src/_018_4Sum/Practice.java:4: error: cannot find symbol
+            List<List<Integer>> result = new ArrayList<>();
+            ^
+      symbol:   class List
+      location: class Solution
+    /app/leetcode-master/src/_018_4Sum/Practice.java:4: error: cannot find symbol
+            List<List<Integer>> result = new ArrayList<>();
+                 ^
+      symbol:   class List
+      location: class Solution
+    /app/leetcode-master/src/_018_4Sum/Practice.java:4: error: cannot find symbol
+            List<List<Integer>> result = new ArrayList<>();
+                                             ^
+      symbol:   class ArrayList
+      location: class Solution
+    /app/leetcode-master/src/_018_4Sum/Practice.java:10: error: cannot find symbol
+            Arrays.sort(nums);
+            ^
+      symbol:   variable Arrays
+      location: class Solution
+    /app/leetcode-master/src/_018_4Sum/Practice.java:29: error: cannot find symbol
+                            result.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                                       ^
+      symbol:   variable Arrays
+      location: class Solution
+    7 errors

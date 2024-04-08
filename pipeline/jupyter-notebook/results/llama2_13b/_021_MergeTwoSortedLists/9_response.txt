@@ -1,0 +1,13 @@
+ The error message you're seeing is caused by the fact that the `ListNode` class is defined twice in your codebase, once in the `com/leetcode/ListNode.java` file and again in the `src/_021_MergeTwoSortedLists/Practice.java` file. This is causing the compiler to get confused and throw an error.
+
+To fix this issue, you should remove the definition of `ListNode` from the `src/_021_MergeTwoSortedLists/Practice.java` file, as it is already defined in the `com/leetcode/ListNode.java` file.
+
+Here's the corrected version of the `Practice` class:
+```
+public class Practice {
+    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {
+        // ...
+    }
+}
+```
+This should fix the error and allow you to compile your code without any issues.

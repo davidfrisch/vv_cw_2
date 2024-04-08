@@ -1,0 +1,8 @@
+```java
+public class Practice {
+    public String longestPalindrome(String s) {
+        // TODO: Implement your solution here
+        return null;
+    }
+}
+```

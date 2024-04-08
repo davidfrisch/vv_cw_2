@@ -1,0 +1,30 @@
+
+Message: expected:<4> but was:<5>
+@Test
+    public void Test2() {
+        String A = "IV";
+        int actual = solution.romanToInt(A);
+        int expected = 4;
+        assertEquals(expected, actual);
+    }
+
+Message: expected:<9> but was:<10>
+@Test
+    public void Test3() {
+        String A = "IX";
+        int actual = solution.romanToInt(A);
+        int expected = 9;
+        assertEquals(expected, actual);
+    }
+
+
+
+Message: expected:<1954> but was:<2156>
+@Test
+    public void Test6() {
+        String A = "MCMLIV";
+        int actual = solution.romanToInt(A);
+        int expected = 1954;
+        assertEquals(expected, actual);
+    }
+

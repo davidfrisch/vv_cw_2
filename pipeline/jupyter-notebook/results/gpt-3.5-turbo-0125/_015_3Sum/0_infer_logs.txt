@@ -1,0 +1,37 @@
+
+test/_015_3Sum/PracticeTest.java:41: error: Null Dereference
+  `actual` could be null (from the call to `Practice.threeSum(...)` on line 36) and is dereferenced in the call to `Test.assertEqualsIgnoreOrder(...)`. 
+  39.           expected.add(Arrays.asList(-1, 0, 1));
+  40.           // compare 2d list ignoring order
+  41. >         assertEqualsIgnoreOrder(expected, actual);
+  42.       }
+  43.   
+
+test/_015_3Sum/PracticeTest.java:53: error: Null Dereference
+  `actual` could be null (from the call to `Practice.threeSum(...)` on line 47) and is dereferenced in the call to `Test.assertEqualsIgnoreOrder(...)`. 
+  51.           expected.add(Arrays.asList(-6, -3, 9));
+  52.           expected.add(Arrays.asList(-3, 0, 3));
+  53. >         assertEqualsIgnoreOrder(expected, actual);
+  54.       }
+  55.   
+
+test/_015_3Sum/PracticeTest.java:182: error: Null Dereference
+  `actual` could be null (from the call to `Practice.threeSum(...)` on line 65) and is dereferenced in the call to `Test.assertEqualsIgnoreOrder(...)`. 
+  180.           expected.add(Arrays.asList(0, 0, 0));
+  181.   
+  182. >         assertEqualsIgnoreOrder(expected, actual);
+  183.       }
+  184.   
+
+test/_015_3Sum/PracticeTest.java:331: error: Null Dereference
+  `actual` could be null (from the call to `Practice.threeSum(...)` on line 194) and is dereferenced in the call to `Test.assertEqualsIgnoreOrder(...)`. 
+  329.           expected.add(Arrays.asList(0, 0, 0));
+  330.   
+  331. >         assertEqualsIgnoreOrder(expected, actual);
+  332.       }
+  333.   
+
+
+Found 4 issues
+             Issue Type(ISSUED_TYPE_ID): #
+  Null Dereference(NULLPTR_DEREFERENCE): 4

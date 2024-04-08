@@ -1,0 +1,22 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_004_MedianOfTwoSortedArrays/Practice.java:57: error: cannot find symbol
+                return rangeClosed(start1, end1).mapToInt(i -> nums1[i]).sum() > rangeClosed(start2, end2).mapToInt(j -> nums2[j]).sum() ? nums1[start1] : nums2[start2];
+                                                ^
+      symbol:   method mapToInt((i)->nums1[i])
+      location: interface IntStream
+    /app/leetcode-master/src/_004_MedianOfTwoSortedArrays/Practice.java:57: error: cannot find symbol
+                return rangeClosed(start1, end1).mapToInt(i -> nums1[i]).sum() > rangeClosed(start2, end2).mapToInt(j -> nums2[j]).sum() ? nums1[start1] : nums2[start2];
+                                                                                                          ^
+      symbol:   method mapToInt((j)->nums2[j])
+      location: interface IntStream
+    2 errors

@@ -1,0 +1,41 @@
+The java code for the problem is as follows:
+
+```java
+import java.util.*;
+public class Practice {
+    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+        if (k==0 || s.length() == 0) return 0;
+        
+        HashMap<Character, Integer> map = new HashMap<>();
+        int maxLength = 1;
+        int left = 0;
+      
+        for (int i=0; i<s.length(); ++i){  
+            char c = s.charAt(i); 
+            
+            if(!map.containsKey(c)){  
+                map.put(c,1);
+                
+                while (map.size() > k) {  
+                    char leftChar = s.charAt(left);
+                    if(map.get(leftChar) == 1){
+                        map.remove(leftChar);
+                    } else {
+                        map.put(leftChar, map.get(leftChar)-1);
+                    }
+                    
+                    left++;
+                }
+            } else {
+                map.put(c,map.get(c)+1);  
+            }
+            
+            maxLength = Math.max(maxLength, i - left + 1); 
+        }
+        
+        return maxLength;  
+    }
+}
+```
+This Java code contains a method `lengthOfLongestSubstringKDistinct` which takes a string s and an integer k as input parameters. It finds the length of longest substring with at most k distinct characters in it. The sliding window is used to traverse through the whole string from left to right. If a character is not present in the hashmap, then it's added into the map. If size exceeds k, we start removing elements from the left until the size becomes equal to k and again add current element at right end of substring. At each point of time we calculate maxLength as maximum length so far with number of unique characters equals to `k`. 
+Finally this value is returned as longest possible string's length which contains exactly k distinct characters. If there are no more than k distinct characters in the input string, then method returns zero because it means that such substring doesn't exist.

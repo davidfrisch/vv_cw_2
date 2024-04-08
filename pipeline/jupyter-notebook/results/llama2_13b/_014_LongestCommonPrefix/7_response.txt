@@ -1,0 +1,19 @@
+ Sure! Here is the complete Java code:
+
+public class Practice {
+    public static String longestCommonPrefix(String[] strs) {
+        int n = strs.length;
+        if (n == 0) {
+            return "";
+        }
+
+        String prefix = strs[0];
+        for (int i = 1; i < n; i++) {
+            prefix = prefix.commonPrefix(strs[i]);
+        }
+
+        return prefix;
+    }
+}
+
+The error you were seeing was because there was no Java code block in the given response. This complete code should fix the issue.

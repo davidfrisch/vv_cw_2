@@ -1,0 +1,36 @@
+
+package _020_ValidParentheses;
+
+import java.util.EmptyStackException;
+import java.util.Stack;
+
+/** see test {@link _020_ValidParentheses.PracticeTest } */
+public class Practice {
+
+    public boolean isValid(String s) {
+        if (s == null || s.length() % 2 != 0) {
+            return false;
+        }
+
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            switch (c) {
+                case '(':
+                    stack.push(')');
+                    break;
+                case '{':
+                    stack.push('}');
+                    break;
+                case '[':
+                    stack.push(']');
+                    break;
+                default:
+                    if (stack.isEmpty() || stack.pop() != c) {
+                        return false;
+                    }
+            }
+        }
+
+        return stack.isEmpty();
+    }
+}

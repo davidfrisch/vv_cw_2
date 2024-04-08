@@ -1,0 +1,49 @@
+The following code has the following error: Message: expected:<0> but was:<-1294967295>
+@Test
+    public void Test1() {
+        int A = 1000000003;
+        int actual = solution.reverse(A);
+        int expected = 0;
+        assertEquals(expected, actual);
+    }
+
+
+Message: expected:<0> but was:<-1126087180>
+@Test
+    public void Test3() {
+        int A = Integer.MAX_VALUE;
+        int actual = solution.reverse(A);
+        int expected = 0;
+        assertEquals(expected, actual);
+    }
+
+Message: expected:<0> but was:<126087180>
+@Test
+    public void Test4() {
+        int A = Integer.MIN_VALUE;
+        int actual = solution.reverse(A);
+        int expected = 0;
+        assertEquals(expected, actual);
+    }
+
+
+
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _007_ReverseInteger;
+
+public class Practice {
+    public int reverse(int a) {
+        if (a == 0) {
+            return 0;
+        }
+        int rev = 0;
+        while (a != 0) {
+            int rem = a % 10;
+            rev *= 10;
+            rev += rem;
+            a /= 10;
+        }
+        return rev;
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "num_tests": "4",
+    "num_successes": 1,
+    "num_failures": "3",
+    "num_errors": "0",
+    "timestamp": "2024-04-08T14:43:05",
+    "test_cases": [
+        {
+            "name": "Test0",
+            "time": "0.022",
+            "success": false,
+            "failure": {
+                "@message": "expected:<[ad, ae, af, bd, be, bf, cd, ce, cf]> but was:<[222, 222, 222, 222, 322, 322, 322, 322]>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<[ad, ae, af, bd, be, bf, cd, ce, cf]> but was:<[222, 222, 222, 222, 322, 322, 322, 322]>\n\tat com.leetcode.Test.assertEqualsIgnoreOrder(Unknown Source)\n\tat _017_LetterCombinationsOfAPhoneNumber.PracticeTest.Test0(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<[ad, ae, af, bd, be, bf, cd, ce, cf]> but was:<[222, 222, 222, 222, 322, 322, 322, 322]>",
+            "code": "@Test\n    public void Test0() {\n        String digits = \"23\";\n        List<String> actuals = solution.letterCombinations(digits);\n        List<String> expecteds = Arrays.asList(\"ad\", \"ae\", \"af\", \"bd\", \"be\",\n                \"bf\", \"cd\", \"ce\", \"cf\");\n        assertEqualsIgnoreOrder(expecteds, actuals);\n    }"
+        },
+        {
+            "name": "Test1",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        String digits = \"\";\n        List<String> actuals = solution.letterCombinations(digits);\n        List<String> expecteds = new ArrayList<>();\n        assertEqualsIgnoreOrder(expecteds, actuals);\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@message": "expected:<[w, x, y, z]> but was:<[22, 22, 22, 22]>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<[w, x, y, z]> but was:<[22, 22, 22, 22]>\n\tat com.leetcode.Test.assertEqualsIgnoreOrder(Unknown Source)\n\tat _017_LetterCombinationsOfAPhoneNumber.PracticeTest.Test2(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<[w, x, y, z]> but was:<[22, 22, 22, 22]>",
+            "code": "@Test\n    public void Test2() {\n        String digits = \"9\";\n        List<String> actuals = solution.letterCombinations(digits);\n        List<String> expecteds = new ArrayList<>(Arrays.asList(\"w\", \"x\", \"y\", \"z\"));\n        assertEqualsIgnoreOrder(expecteds, actuals);\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@message": "expected:<[adg, adh, adi, aeg, aeh, aei, afg, afh, afi, bdg, bdh, bdi, beg, beh, bei, bfg, bfh, bfi, cdg, cdh, cdi, ceg, ceh, cei, cfg, cfh, cfi]> but was:<[3222, 3222, 3222, 3222, 3222, 3222, 3222, 3222, 3322, 3322, 3322, 3322, 3322, 3322, 3322, 3322]>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<[adg, adh, adi, aeg, aeh, aei, afg, afh, afi, bdg, bdh, bdi, beg, beh, bei, bfg, bfh, bfi, cdg, cdh, cdi, ceg, ceh, cei, cfg, cfh, cfi]> but was:<[3222, 3222, 3222, 3222, 3222, 3222, 3222, 3222, 3322, 3322, 3322, 3322, 3322, 3322, 3322, 3322]>\n\tat com.leetcode.Test.assertEqualsIgnoreOrder(Unknown Source)\n\tat _017_LetterCombinationsOfAPhoneNumber.PracticeTest.Test3(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<[adg, adh, adi, aeg, aeh, aei, afg, afh, afi, bdg, bdh, bdi, beg, beh, bei, bfg, bfh, bfi, cdg, cdh, cdi, ceg, ceh, cei, cfg, cfh, cfi]> but was:<[3222, 3222, 3222, 3222, 3222, 3222, 3222, 3222, 3322, 3322, 3322, 3322, 3322, 3322, 3322, 3322]>",
+            "code": "@Test\n    public void Test3() {\n        String digits = \"234\";\n        List<String> actuals = solution.letterCombinations(digits);\n        List<String> expecteds = Arrays.asList(\"adg\", \"adh\", \"adi\", \"aeg\",\n                \"aeh\", \"aei\", \"afg\", \"afh\", \"afi\", \"bdg\", \"bdh\", \"bdi\", \"beg\",\n                \"beh\", \"bei\", \"bfg\", \"bfh\", \"bfi\", \"cdg\", \"cdh\", \"cdi\", \"ceg\",\n                \"ceh\", \"cei\", \"cfg\", \"cfh\", \"cfi\");\n        assertEqualsIgnoreOrder(expecteds, actuals);\n    }"
+        }
+    ]
+}

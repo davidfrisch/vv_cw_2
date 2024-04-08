@@ -1,0 +1,4 @@
+makefile
+    compile.specific:
+        javac /app/leetcode-master/src/_006_ZigZagConversion/*.java -d /app/leetcode-master/bin
+    

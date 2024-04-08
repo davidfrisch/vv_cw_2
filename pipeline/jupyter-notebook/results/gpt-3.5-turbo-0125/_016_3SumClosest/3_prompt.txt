@@ -1,0 +1,63 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_016_3SumClosest/Practice.java:19: error: class, interface, or enum expected
+    package _016_3SumClosest;
+    ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.util.Arrays;
+
+/**
+ *************************************************************************
+ * Description: 
+ * 
+ * Given an array S of n integers, find three integers in S such that the 
+ * sum is closest to a given number, target. Return the sum of the three 
+ * integers. You may assume that each input would have exactly one solution. 
+ * 
+ * For example, given array S = {-1 2 1 -4}, and target = 1. 
+ * The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+ * 
+ *************************************************************************
+ * @tag : Array; Two Pointers
+ * {@link https://leetcode.com/problems/3sum-closest/ }
+ */
+package _016_3SumClosest;
+
+import java.util.Arrays;
+
+/** see test {@link _016_3SumClosest.PracticeTest } */
+public class Practice {
+
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        int closestSum = nums[0] + nums[1] + nums[2];
+        for (int i = 0; i < nums.length - 2; i++) {
+            int left = i + 1;
+            int right = nums.length - 1;
+            while (left < right) {
+                int currentSum = nums[i] + nums[left] + nums[right];
+                if (Math.abs(currentSum - target) < Math.abs(closestSum - target)) {
+                    closestSum = currentSum;
+                }
+                if (currentSum < target) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+        return closestSum;
+    }
+
+}

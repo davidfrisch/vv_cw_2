@@ -1,0 +1,18 @@
+
+class Practice {
+    
+}
+
+class PracticeTest {
+    Practice solution;
+    
+    @Before
+    public void setUp() {
+        solution = new Practice();
+    }
+    
+    @Test
+    public void testExample() {
+        // Test code here
+    }
+}

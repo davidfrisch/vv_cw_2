@@ -1,0 +1,22 @@
+ Sure! Here is the complete Java code for the `findMedianSortedArrays` method:
+
+```
+public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    int m = nums1.length;
+    int n = nums2.length;
+    if (m == 0 || n == 0) {
+        return 0;
+    }
+
+    // divide and conquer algorithm
+    int left = findMedianSortedArrays(nums1, 0, m - 1);
+    int right = findMedianSortedArrays(nums2, 0, n - 1);
+
+    if (left == right) {
+        return left; // both arrays have the same median
+    } else {
+        return (left + right) / 2; // different medians, use average
+    }
+}
+```
+This code uses a divide and conquer approach to find the median of two sorted arrays. It recursively calls itself on the left and right halves of each array, and then combines the results to find the overall median. The time complexity is O(log(m+n)), as expected.

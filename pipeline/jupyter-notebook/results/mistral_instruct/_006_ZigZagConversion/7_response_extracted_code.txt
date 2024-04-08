@@ -1,0 +1,9 @@
+
+@Test
+public void Test3() {
+    String A = "AB";
+    int B = 2;
+    String actual = solution.zigZagConversion(A, B); // Assuming your class name is "solution" and the method name is "zigZagConversion"
+    String expected = "ZB"; // Adjust as needed based on the expected output for given input A and B
+    assertEquals(expected, actual);
+}

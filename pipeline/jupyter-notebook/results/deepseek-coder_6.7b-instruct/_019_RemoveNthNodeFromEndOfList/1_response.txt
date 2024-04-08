@@ -1,0 +1,33 @@
+```java
+package _019_RemoveNthNodeFromEndOfList;
+
+import com.leetcode.ListNode;
+
+/** see test {@link _019_RemoveNthNodeFromEndOfList.PracticeTest } */
+public class Practice {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        // Create a dummy node to handle edge case where the head is removed
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        
+        // Initialize two pointers at the dummy node
+        ListNode first = dummy, second = dummy;
+        
+        // Move the first pointer n nodes ahead of the second one
+        for (int i = 1; i <= n + 1; i++) {
+            first = first.next;
+        }
+        
+        // Move both pointers until the first reaches the end
+        while(first != null){
+            first = first.next;
+            second = second.next;
+        }
+        
+        // Remove nth node from end by skipping over it
+        second.next = second.next.next;
+        
+        return dummy.next;
+    }
+}
+```

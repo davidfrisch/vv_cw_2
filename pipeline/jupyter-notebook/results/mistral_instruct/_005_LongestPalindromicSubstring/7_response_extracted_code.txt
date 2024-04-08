@@ -1,0 +1,12 @@
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class PracticeTest {
+    @Test
+    public void testLongestPalindrome() {
+        Practice solution = new Practice();
+        assertEquals("racecar", solution.longestPalindrome("racecar"));
+        // Add more test cases here
+    }
+}

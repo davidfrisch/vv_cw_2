@@ -1,0 +1,5 @@
+ It looks like you have provided a Java solution for the problem "Longest Substring Without Repeating Characters". The solution makes use of a HashMap to store the last occurrence index of each character in the string, and two pointers (start and i) to slide the window and find the longest substring without repeating characters.
+
+Your code seems fine, but it might be helpful to add some comments explaining what each part of the code does, as well as some unit tests for various edge cases. This will make your solution easier to understand and maintain for yourself and others in the future.
+
+Regarding the test file you provided, there is a mistake: The test case "abcabcbb" should have an expected output of 3 instead of 4. It's good that you are testing with different edge cases, but make sure the tests cover all possible scenarios, including empty strings and strings with only one character.

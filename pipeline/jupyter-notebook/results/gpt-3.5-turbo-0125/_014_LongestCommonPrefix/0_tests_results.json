@@ -1,0 +1,41 @@
+{
+    "num_tests": "4",
+    "num_successes": 4,
+    "num_failures": "0",
+    "num_errors": "0",
+    "timestamp": "2024-04-08T15:47:22",
+    "test_cases": [
+        {
+            "name": "Test1",
+            "time": "0.01",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        String[] strs = {\"aa\", \"a\"};\n        String actual = solution.longestCommonPrefix(strs);\n        String expected = \"a\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test2() {\n        String[] strs = {\"abcdefgh\", \"aefghijk\", \"abcefgh\"};\n        String actual = solution.longestCommonPrefix(strs);\n        String expected = \"a\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test3() {\n        String[] strs = {\"\", \"aefghijk\", \"abcefgh\"};\n        String actual = solution.longestCommonPrefix(strs);\n        String expected = \"\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test4",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test4() {\n        String[] strs = {\"bcdefgh\", \"befghijk\", \"bcefgh\"};\n        String actual = solution.longestCommonPrefix(strs);\n        String expected = \"b\";\n        assertEquals(expected, actual);\n    }"
+        }
+    ]
+}

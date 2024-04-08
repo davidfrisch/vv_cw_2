@@ -1,0 +1,11 @@
+The error is because you are trying to compile a Java file with the name "Main.java". However, the filename should be the same as your public class name in that file which is also "Main". This mismatch causes the compilation error. 
+
+So if you have another file named "Main.java" in the same directory then it will cause a conflict and this kind of errors can happen. So ensure the names match for both files, compile with the correct filename. Here's how your "Main.java" should look:
+
+```java
+import java.util.*; // This line imports ArrayList class and other utility classes used in this script
+
+public class Main {  
+    public static void main(String[] args) {  }  // Empty main method
+}
+```

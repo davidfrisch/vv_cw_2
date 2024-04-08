@@ -1,0 +1,18 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:24: error: constructor ListNode in class ListNode cannot be applied to given types;
+                    return new ListNode(prev.val, current);
+                           ^
+      required: int
+      found: int,ListNode
+      reason: actual and formal argument lists differ in length
+    1 error

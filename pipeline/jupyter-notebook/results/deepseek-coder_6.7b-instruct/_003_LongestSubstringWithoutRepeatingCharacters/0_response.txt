@@ -1,0 +1,26 @@
+package _003_LongestSubstringWithoutRepeatingCharacters;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Practice {
+    public int lengthOfLongestSubstring(String s) {
+        if (s == null || s.length() == 0) return 0;
+        
+        Set<Character> set = new HashSet<>();
+        int maxLen = 0, i = 0, j = 0;
+        
+        while (i < s.length()) {
+            if (!set.contains(s.charAt(i))) {
+                set.add(s.charAt(i));
+                i++;
+                maxLen = Math.max(maxLen, set.size());
+            } else {
+                set.remove(s.charAt(j));
+                j++;
+            }
+        }
+        
+        return maxLen;
+    }
+}

@@ -1,0 +1,62 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 14 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:2: error: class, interface, or enum expected
+    public boolean isValid(String s) {
+           ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:4: error: class, interface, or enum expected
+        for (int i = 0; i < s.length(); i++) {
+        ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:4: error: class, interface, or enum expected
+        for (int i = 0; i < s.length(); i++) {
+                        ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:4: error: class, interface, or enum expected
+        for (int i = 0; i < s.length(); i++) {
+                                        ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:6: error: class, interface, or enum expected
+            if (c == '(' || c == '[') {
+            ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:8: error: class, interface, or enum expected
+            } else if (c == ')' || c == ']') {
+            ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:11: error: class, interface, or enum expected
+                }
+                ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:13: error: class, interface, or enum expected
+                if (last != '(' && last != '[') {
+                ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:15: error: class, interface, or enum expected
+                }
+                ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:19: error: class, interface, or enum expected
+    }
+    ^
+    10 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public boolean isValid(String s) {
+    Stack<Character> stack = new Stack<>();
+    for (int i = 0; i < s.length(); i++) {
+        char c = s.charAt(i);
+        if (c == '(' || c == '[') {
+            stack.push(c);
+        } else if (c == ')' || c == ']') {
+            if (stack.isEmpty()) {
+                return false;
+            }
+            char last = stack.pop();
+            if (last != '(' && last != '[') {
+                return false;
+            }
+        }
+    }
+    return stack.isEmpty();
+}

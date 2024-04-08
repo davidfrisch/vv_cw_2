@@ -1,0 +1,81 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:2: error: class, interface, or enum expected
+    private static String intToRoman(int num) {
+                   ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:4: error: class, interface, or enum expected
+        BigDecimal bd;
+        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:5: error: class, interface, or enum expected
+        int divisor = 1;
+        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:6: error: class, interface, or enum expected
+         int thousands = num / 1000;
+         ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:7: error: class, interface, or enum expected
+         num %= 1000;
+         ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:9: error: class, interface, or enum expected
+        if (thousands > 0) {
+        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:11: error: class, interface, or enum expected
+            num += thousands * 1000;
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:12: error: class, interface, or enum expected
+            thousands = 0;
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:13: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:17: error: class, interface, or enum expected
+            int quo = bd.intValue();
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:18: error: class, interface, or enum expected
+            num -= quo * divisor;
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:20: error: class, interface, or enum expected
+            if (quo > 0) {
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:23: error: class, interface, or enum expected
+                    quo /= 10;
+                    ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:24: error: class, interface, or enum expected
+                }
+                ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:30: error: class, interface, or enum expected
+                    num = 0;
+                    ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:31: error: class, interface, or enum expected
+                }
+                ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:35: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:38: error: class, interface, or enum expected
+    }
+    ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:42: error: class, interface, or enum expected
+        for (int i = 0; i < count; i++) {
+        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:42: error: class, interface, or enum expected
+        for (int i = 0; i < count; i++) {
+                        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:42: error: class, interface, or enum expected
+        for (int i = 0; i < count; i++) {
+                                   ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:44: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:46: error: class, interface, or enum expected
+    }
+    ^
+    23 errors

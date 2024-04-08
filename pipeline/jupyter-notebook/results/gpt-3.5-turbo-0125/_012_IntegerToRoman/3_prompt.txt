@@ -1,0 +1,55 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:2: error: class, interface, or enum expected
+    public String intToRoman(int num) {
+           ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:4: error: class, interface, or enum expected
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:5: error: class, interface, or enum expected
+        String[] romans = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:7: error: class, interface, or enum expected
+        for (int i = 0; i < values.length; i++) {
+        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:7: error: class, interface, or enum expected
+        for (int i = 0; i < values.length; i++) {
+                        ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:7: error: class, interface, or enum expected
+        for (int i = 0; i < values.length; i++) {
+                                           ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:10: error: class, interface, or enum expected
+                num -= values[i];
+                ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:11: error: class, interface, or enum expected
+            }
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:15: error: class, interface, or enum expected
+    }
+    ^
+    9 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public String intToRoman(int num) {
+    StringBuilder sb = new StringBuilder();
+    int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    String[] romans = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+    for (int i = 0; i < values.length; i++) {
+        while (num >= values[i]) {
+            sb.append(romans[i]);
+            num -= values[i];
+        }
+    }
+
+    return sb.toString();
+}

@@ -1,0 +1,21 @@
+Here is the corrected code for your problem. The error in your original code was due to missing logic inside the `twoSum` function. In this solution, I used a HashMap to store the number and its index as we iterate over the input array. For each element, we check if there is another element that adds up to target - current element. If so, we return their indices in the order they appear in the input array (1-indexed).
+
+```java
+package _001_TwoSum;
+
+import java.util.HashMap;
+
+public class Practice {
+  public int[] twoSum(int[] nums, int target) {
+    HashMap<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+      if (map.containsKey(target - nums[i])) { // complement found in hash table
+        return new int[] { map.get(target - nums[i]) + 1, i + 1 }; // indices are 1-based
+      } else {
+        map.put(nums[i], i); // store the number and its index
+     		}      ! 
+      return new int[] {0, 0}; // no solution found
+    }
+  
+}
+```

@@ -1,0 +1,21 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:1: error: class, interface, or enum expected
+    bash
+    ^
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:2: error: unclosed comment
+    javac /app/leetcode-master/src/_006_ZigZagConversion/*.java -d /app/leetcode-master/bin
+                                                        ^
+    2 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+bash
+javac /app/leetcode-master/src/_006_ZigZagConversion/*.java -d /app/leetcode-master/bin

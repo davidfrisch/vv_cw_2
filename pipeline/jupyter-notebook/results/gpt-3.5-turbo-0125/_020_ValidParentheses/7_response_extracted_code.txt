@@ -1,0 +1,8 @@
+
+public class Practice {
+
+    public boolean isValid(String s) {
+        // Implementation of isValid method
+    }
+
+}

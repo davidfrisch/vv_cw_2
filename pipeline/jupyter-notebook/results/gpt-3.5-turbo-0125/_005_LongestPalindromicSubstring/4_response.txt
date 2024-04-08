@@ -1,0 +1,5 @@
+```java
+public class Practice {
+    // Add implementation here
+}
+```

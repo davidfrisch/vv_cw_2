@@ -1,0 +1,24 @@
+ Sure! Here is the corrected Java code for the `FourSum` class:
+```
+public class FourSum {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    List<Integer> list = new ArrayList<>();
+                    list.add(nums[i]);
+                    list.add(nums[j]);
+                    result.add(list);
+                }
+            }
+        }
+        return result;
+    }
+}
+```
+The errors you were seeing were due to the fact that the `List` class is not a valid type in Java. Instead, you need to use the `ArrayList` class, which is a collection of integers that can be added to and manipulated.
+
+Additionally, I've added a `return result;` statement at the end of the method to return the resulting list of lists.
+
+I hope this helps! Let me know if you have any questions or need further assistance.

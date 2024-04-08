@@ -1,0 +1,31 @@
+ Sure! Here is the complete Java code for the `mergeTwoLists` method:
+```
+public class Practice {
+    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {
+        ListNode current1 = node11;
+        ListNode current2 = node21;
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+        
+        while (current1 != null && current2 != null) {
+            if (current1.val <= current2.val) {
+                current.next = current1;
+                current1 = current1.next;
+            } else {
+                current.next = current2;
+                current2 = current2.next;
+            }
+            current = current.next;
+        }
+        
+        if (current1 != null) {
+            current.next = current1;
+        } else {
+            current.next = current2;
+        }
+        
+        return dummy.next;
+    }
+}
+```
+This code should pass the LeetCode test cases for the `mergeTwoLists` method.

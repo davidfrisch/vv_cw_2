@@ -1,0 +1,29 @@
+ Here is the complete Java code:
+
+public class Practice {
+    public String longestPalindrome(String s) {
+        int maxLen = 0;
+        int curLen = 0;
+        int start = 0;
+        int end = 0;
+
+        while (end < s.length()) {
+            int j = end;
+            while (j > start && s.charAt(j) == s.charAt(start)) {
+                j--;
+            }
+
+            if (j > start) {
+                curLen = j - start;
+                if (curLen > maxLen) {
+                    maxLen = curLen;
+                    start = j;
+                }
+            }
+
+            end++;
+        }
+
+        return s.substring(start, start + maxLen);
+    }
+}

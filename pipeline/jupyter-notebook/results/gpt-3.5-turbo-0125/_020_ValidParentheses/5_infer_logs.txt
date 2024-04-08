@@ -1,0 +1,30 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 14 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:2: error: class PracticeTest is public, should be declared in a file named PracticeTest.java
+    public class PracticeTest {
+           ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:4: error: cannot access Practice
+        Practice solution;
+        ^
+      bad source file: /app/leetcode-master/src/_020_ValidParentheses/Practice.java
+        file does not contain class Practice
+        Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+    /app/leetcode-master/src/com/leetcode/Test.java:17: error: duplicate class: com.leetcode.Test
+    public class Test {
+           ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:10: error: cannot access Test
+        @Test
+         ^
+      bad source file: /app/leetcode-master/src/com/leetcode/Test.java
+        file does not contain class Test
+        Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+    4 errors

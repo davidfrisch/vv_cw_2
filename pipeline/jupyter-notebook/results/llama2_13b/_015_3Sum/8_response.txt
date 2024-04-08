@@ -1,0 +1,29 @@
+ Sure! Here is the Java code for the "threeSum" method:
+
+import java.util.List;
+
+public class Practice {
+    public List<List<Integer>> threeSum(int[] nums) {
+        // Use two pointers approach
+        int left = 0;
+        int right = nums.length - 1;
+        List<List<Integer>> res = new ArrayList<>();
+
+        while (left < right) {
+            int sum = nums[left] + nums[right] + nums[left + 1];
+            if (sum == 0) {
+                List<Integer> triplet = new ArrayList<>();
+                triplet.add(nums[left]);
+                triplet.add(nums[right]);
+                triplet.add(nums[left + 1]);
+                res.add(triplet);
+                while (left < right && nums[left] <= nums[right]) {
+                    left++;
+                }
+                right -= left;
+            }
+            left++;
+        }
+        return res;
+    }
+}

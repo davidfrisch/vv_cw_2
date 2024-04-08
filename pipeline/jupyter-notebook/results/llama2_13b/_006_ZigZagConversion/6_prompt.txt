@@ -1,0 +1,17 @@
+The following code has the following error: No Java code block found in the given response.
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public String convert(String a, int b) {
+    StringBuilder result = new StringBuilder();
+    int row = 0;
+    for (char c : a.toCharArray()) {
+        if (row % 2 == 0 && row / 2 == b - 1) {
+            result.append(c);
+        } else {
+            result.append(" ");
+            result.append(c);
+        }
+        row++;
+    }
+    return result.toString();
+}

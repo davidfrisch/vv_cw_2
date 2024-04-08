@@ -1,0 +1,24 @@
+
+public int maxArea(int[] height) {
+    int left = 0, right = height.length - 1;
+    int maxArea = Math.min(height[left], height[right]) * (right - left);
+
+    while (left < right) {
+        int currentHeightLeft = height[left];
+        int currentHeightRight = height[right];
+
+        if (currentHeightLeft > currentHeightRight) {
+            int temp = left;
+            left = right;
+            right = temp;
+        }
+
+        int currentDifference = right - left;
+        int newMaxArea = Math.min(height[left], currentDifference) * height[left];
+
+        maxArea = Math.max(newMaxArea, maxArea);
+        left++;
+    }
+
+    return maxArea;
+}

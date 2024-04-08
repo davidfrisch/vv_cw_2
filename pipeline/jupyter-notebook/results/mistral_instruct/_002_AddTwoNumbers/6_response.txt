@@ -1,0 +1,30 @@
+ It looks like there are illegal characters present in your Java source files. The errors message suggests that there are unrecognized characters such as "?" and "\u2500" in the file paths and imports. These characters might have been accidentally included when copying or pasting the code.
+
+To fix this issue, you need to remove these illegal characters from your Java source files. Here's the corrected version of `Practice.java`:
+
+```java
+package com.leetcode;
+
+import com.leetcode.ListNode;
+
+public class Practice {
+    // Your code here
+}
+```
+
+And the corrected `ListNode.java` file:
+
+```java
+package com.leetcode;
+
+public class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int x) {
+        val = x;
+    }
+}
+```
+
+Make sure to save the files without any unintended characters and rebuild your project. This should resolve the compilation error you encountered.

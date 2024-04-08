@@ -1,0 +1,24 @@
+The following code has the following error: write() argument must be str, not None
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _016_3SumClosest;
+
+import java.util.Arrays;
+
+public class Practice {
+    public int threeSumClosest(int[] nums, int target) {
+        // sort the array
+        Arrays.sort(nums);
+        
+        // find the difference between the target and the sum of the first three elements
+        int diff = target - (nums[0] + nums[1] + nums[2]);
+        
+        // check if the difference is negative, in which case we need to find the closest sum that is less than the target
+        if (diff < 0) {
+            return threeSumClosest(nums, target - diff);
+        }
+        
+        // otherwise, we can simply return the sum of the first three elements
+        return nums[0] + nums[1] + nums[2];
+    }
+}

@@ -1,0 +1,9 @@
+ Sure! Here's the corrected code:
+
+public class Practice {
+    public boolean isMatch(String s, String p) {
+        Pattern pattern = Pattern.compile(p);
+        Matcher matcher = pattern.matcher(s);
+        return matcher.find();
+    }
+}

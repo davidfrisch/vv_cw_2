@@ -1,0 +1,61 @@
+The error message is indicating that there are some missing import statements for classes like `ArrayList` and `Arrays`, which are used in your code. You need to add these at the beginning of your Java file:
+
+```java
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+```
+
+So your final code should be like this:
+
+```java
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public List<List<Integer>> fourSum(int[] nums, int target) {
+    // Sorting the array
+    Arrays.sort(nums);
+    
+    List<List<Integer>> result = new ArrayList<>();
+    
+    for (int i = 0; i < nums.length - 3; i++) {
+        if (i > 0 && nums[i] == nums[i-1]) continue; // Skip duplicates
+        
+        for (int j = i + 1; j < nums.length - 2; j++) {
+            if (j > i+1 && nums[j] == nums[j-1]) continue; // Skip duplicates
+            
+            int left = j + 1, right = nums.length - 1;
+            
+            while (left < right) {
+                int sum = nums[i] + nums[j] + nums[left] + nums[right];
+                
+                if (sum == target) {
+                    // Found a quadruplet, add it to the result and move the pointers
+                    result.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                    
+                    while (left < right && nums[left] == nums[left+1]) left++; // Skip duplicates on the left
+                    while (left < right && nums[right] == nums[right-1]) right--; // Skip duplicates on the right
+                    
+                    left++;
+                    right--;
+                } else if (sum < target) {
+                    // Increase the sum by moving the left pointer to the right
+                    left++;
+                } else {
+                    // Decrease the sum by moving the right pointer to the left
+                    right--;
+                }
+            }
+        }
+    }
+    
+    return result;
+}
+```
+
+This code should now compile without errors. The method `fourSum` finds all quadruplets (4 numbers) in an array that sum up to a given target number, by using two pointers technique (like Two Sum problem). It first sorts the input array and then iterates through it with three nested loops: one for each of four numbers in the quadruplet. The two inner loops skip over duplicates within each triplet of numbers (by checking `nums[i] == nums[i-1]`, etc.)
+
+The outer loop continues until there are fewer than 4 integers left to form a quadruplet, and the third inner loop moves the "left" pointer rightward through the sorted array, and similarly for the "right" pointer. If the current sum of numbers equals the target, it's found a valid quadruplet; otherwise, if the sum is less than the target, increase the sum by moving the left pointer to the right (and vice versa).
+
+The four-number quadruplets are stored in `result` list which is returned at the end.

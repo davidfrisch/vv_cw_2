@@ -1,0 +1,48 @@
+The following code has the following error: 
+
+
+Message: expected:<0> but was:<126087180>
+@Test
+    public void Test4() {
+        int A = Integer.MIN_VALUE;
+        int actual = solution.reverse(A);
+        int expected = 0;
+        assertEquals(expected, actual);
+    }
+
+
+
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+/**
+ * Description:
+ * 
+ * Reverse digits of an integer. 
+ * 
+ * Example1: x = 123, return 321
+ * Example2: x = -123, return -321 
+ * 
+ * Return 0 if the result overflows and does not fit in a 32 bit signed integer
+ *
+ * @tag : Math
+ * {@link https://leetcode.com/problems/reverse-integer/ }
+ */
+package _007_ReverseInteger;
+
+/** see test {@link _007_ReverseInteger.PracticeTest } */
+public class Practice {
+
+    public int reverse(int a) {
+        int rev = 0;
+        while (a != 0) {
+            int pop = a % 10;
+            a /= 10;
+            if ((rev > Integer.MAX_VALUE / 10) || (rev == Integer.MAX_VALUE / 10 && pop > -Integer.MIN_VALUE)) {
+                return 0;
+            }
+            rev = rev * 10 + pop;
+        }
+        return rev;
+    }
+
+}

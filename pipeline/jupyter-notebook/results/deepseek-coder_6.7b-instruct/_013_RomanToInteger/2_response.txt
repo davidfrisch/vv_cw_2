@@ -1,0 +1,57 @@
+The error seems to be due to the usage of switch expressions in your Java code, which is a feature only available from Java 12 onwards. Your project's build.gradle file might not have been set up to compile using Java 12 or later as default.
+
+Here is the corrected version of the java code where we use if-else statements instead of switch expressions:
+
+```java
+package _013_RomanToInteger;
+
+public class Practice {
+    public static void main(String[] args) {
+        System.out.println(romanToInt("III")); // 3
+        System.out.println(romanToInt("IV")); // 4
+        System.out.println(romanToInt("IX")); // 9
+        System.out.println(romanToInt("LVIII")); // 58
+        System.out.println(romanToInt("MCMXCIV")); // 1994
+    }
+    
+    public static int romanToInt(String s) {
+        int result = 0;
+        int prevValue = 0;
+        
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char currChar = s.charAt(i);
+            int currVal;
+            
+            if (currChar == 'I') {
+                currVal = 1;
+            } else if (currChar == 'V') {
+                currVal = 5;
+            } else if (currChar == 'X') {
+                currVal = 10;
+            } else if (currChar == 'L') {
+                currVal = 50;
+            } else if (currChar == 'C') {
+                currVal = 100;
+            } else if (currChar == 'D') {
+                currVal = 500;
+            } else if (currChar == 'M') {
+                currVal = 1000;
+            } else {
+                throw new IllegalStateException("Unexpected value: " + currChar);
+            }
+            
+            if (currVal >= prevValue) {
+                result += currVal;
+            } else {
+                result -= currVal;
+            }
+            
+            prevValue = currVal;
+         }
+        
+        return result;
+    }
+}
+```
+
+This will compile without errors in Java 8 or later. If you need to use switch expressions, you would have to update your build environment (like using a newer version of Gradle).

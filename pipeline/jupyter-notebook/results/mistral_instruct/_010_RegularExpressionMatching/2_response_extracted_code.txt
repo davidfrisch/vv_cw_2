@@ -1,0 +1,42 @@
+
+package _010_RegularExpressionMatching;
+
+/** see test {@link _010_RegularExpressionMatching.PracticeTest } */
+public class Practice {
+
+    public boolean isMatch(String s, String p) {
+        int m = s.length();
+        int n = p.length();
+        
+        // Create a 2D boolean dp array to store the results of subproblems
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        
+        // Base case: empty pattern matches empty string
+        dp[0][0] = true;
+
+        for (int i = 0; i <= m; i++) {
+            for (int j = 0; j <= n; j++) {
+                if (j > 0) {
+                    dp[i][j] = dp[i][j - 1]; // The empty string matches the current pattern character only if there is no previous character in the pattern
+                }
+
+                if ((p.charAt(j - 1) == '.' || s.charAt(i - 1) == p.charAt(j - 1)) && (i > 0)) {
+                    dp[i][j] = dp[i - 1][j - 1]; // If the current character in pattern matches the corresponding character in string and there is a previous character, then dp[i][j] can be true
+                }
+
+                if (p.charAt(j - 1) == '*') {
+                    dp[i][j] = (dp[i][j - 1]) || (i > 0 && dp[i - 1][j]); // Greedy approach: The current character in string matches with the pattern, and there are zero or more characters in the string after it that also match the pattern
+                    if (i < m && (p.charAt(j - 1) == s.charAt(i) || p.charAt(j - 1) == '.')) { // Lazy approach: If the current character in string matches with the starred character in pattern or the starred character is a dot, then dp[i][j] can be true and we don't need to check further
+                        int k = i;
+                        while (k < m && (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(k))) {
+                            k++;
+                        }
+                        dp[i][j] = dp[i][j] || (k < m && dp[k + 1][j]); // Combine the results of both approaches
+                    }
+                }
+            }
+        }
+        
+        return dp[m][n];
+    }
+}

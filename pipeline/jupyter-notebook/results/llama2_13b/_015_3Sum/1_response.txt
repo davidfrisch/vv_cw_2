@@ -1,0 +1,32 @@
+Here is the Java code for the 3Sum problem:
+
+```
+import java.util.List;
+
+public class Practice {
+    public List<List<Integer>> threeSum(int[] nums) {
+        // Use two pointers approach
+        int left = 0;
+        int right = nums.length - 1;
+        List<List<Integer>> res = new ArrayList<>();
+
+        while (left < right) {
+            int sum = nums[left] + nums[right] + nums[left + 1];
+            if (sum == 0) {
+                List<Integer> triplet = new ArrayList<>();
+                triplet.add(nums[left]);
+                triplet.add(nums[right]);
+                triplet.add(nums[left + 1]);
+                res.add(triplet);
+                while (left < right && nums[left] <= nums[right]) {
+                    left++;
+                }
+                right -= left;
+            }
+            left++;
+        }
+        return res;
+    }
+}
+```
+This solution uses the two pointers approach to find all unique triplets in the array that sum to 0. The left pointer starts at 0 and moves towards the end of the array, while the right pointer starts at the end of the array and moves towards the beginning. As we move both pointers, we check if the sum of the three elements is equal to 0, and if it is, we add the triplet to the result list and move both pointers accordingly.

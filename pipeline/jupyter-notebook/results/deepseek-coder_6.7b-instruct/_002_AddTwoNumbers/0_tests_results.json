@@ -1,0 +1,49 @@
+{
+    "num_tests": "5",
+    "num_successes": 5,
+    "num_failures": "0",
+    "num_errors": "0",
+    "timestamp": "2024-04-08T14:10:17",
+    "test_cases": [
+        {
+            "name": "Test1",
+            "time": "0.013",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        int[] nums1 = { 2, 4, 3 };\n        int[] nums2 = { 5, 6, 4 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 7, 0, 8 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.002",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test2() {\n        int[] nums1 = { 2 };\n        int[] nums2 = { 9, 9, 4 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 1, 0, 5 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test3() {\n        int[] nums1 = { 2 };\n        int[] nums2 = { 8 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 0, 1 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        },
+        {
+            "name": "Test4",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test4() {\n        int[] nums1 = { 9, 9, 4 };\n        int[] nums2 = { 3 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 2, 0, 5 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        },
+        {
+            "name": "Test5",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test5() {\n        int[] nums1 = { 0 };\n        int[] nums2 = { 0, 2 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 0, 2 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+Your tests are failing because the `mergeTwoLists` method in your `Practice` class seems to be returning a different result than what you expect. The issue could be that the method is not being implemented correctly, or there might be some logical error causing unexpected behavior. 
+
+Without seeing the implementation of `ListNode` and `isSameList` methods used for testing, it's hard to pinpoint the exact problem. However, based on your code, here are a few things you can check:
+
+1. Make sure that both linked lists (l1 and l2) are sorted in ascending order before they pass into the `mergeTwoLists` method. 
+2. Check if the `ListNode` class's constructor is working as expected, especially its `val` field.
+3. The `isSameList` method you mentioned might have some issues with comparison of linked lists. Make sure it works correctly for your use case.
+4. Lastly, check that both `mergeTwoLists` and `isSameList` are implemented properly to match the expected behavior as per LeetCode problem description. 
+
+If you still can't find a solution, please provide more details about these methods or if any error messages were received while running your tests.

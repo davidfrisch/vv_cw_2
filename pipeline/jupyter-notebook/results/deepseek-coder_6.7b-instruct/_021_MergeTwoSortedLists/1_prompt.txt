@@ -1,0 +1,49 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 14 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_021_MergeTwoSortedLists/Practice.java:33: error: reached end of file while parsing
+               } 
+                ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+/**
+ *************************************************************************
+ * Description: 
+ * 
+ * Merge two sorted linked lists and return it as a new list. The new list 
+ * should be made by splicing together the nodes of the first two lists.
+ * 
+ *************************************************************************
+ * 
+ */
+package _021_MergeTwoSortedLists;
+
+import com.leetcode.ListNode;
+
+/** see test {@link _021_MergeTwoSortedLists.PracticeTest } */
+public class Practice {
+
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        // Create a new list node that will be the head of our merged list
+        ListNode dummy = new ListNode(-1);
+        
+        // Keep track of current position in the final merged list
+        ListNode prev = dummy;
+        
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                prev.next = l1;
+                l1 = l1.next;
+            } else {
+                prev.next = l2;
+                l2 = l2.next;
+           } 

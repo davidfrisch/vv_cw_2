@@ -1,0 +1,62 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    Compiling 2 source files to /app/leetcode-master/bin
+    /app/leetcode-master/test/_005_LongestPalindromicSubstring/PracticeTest.java:14: error: cannot find symbol
+        Practice solution;
+        ^
+      symbol:   class Practice
+      location: class PracticeTest
+    /app/leetcode-master/test/_005_LongestPalindromicSubstring/PracticeTest.java:21: error: cannot find symbol
+            solution = new Practice();
+                           ^
+      symbol:   class Practice
+      location: class PracticeTest
+    2 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public class Practice {
+    public String longestPalindrome(String s) {
+        if (s == null || s.length() < 1) return "";
+
+        int maxLength = 1;
+        String longestPalindrome = s.substring(0, 1);
+
+        for (int start = 0; start < s.length(); start++) {
+            int rightBound = expandAroundCenter(s, start);
+            if (rightBound > maxLength) {
+                maxLength = rightBound;
+                longestPalindrome = s.substring(start - (maxLength >> 1), start + (maxLength >> 1) + 1);
+            }
+        }
+
+        return longestPalindrome;
+    }
+
+    private int expandAroundCenter(String s, int center) {
+        int left = center, right = center;
+        while (right < s.length() && s.charAt(right) == s.charAt(right + 1)) {
+            right++;
+        }
+
+        int expansionLength = right - center + 1;
+        if (expansionLength > 2) {
+            left = center - 1;
+            while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+                left--;
+                right++;
+            }
+            expansionLength = right - left + 1;
+        }
+
+        return expansionLength;
+    }
+}

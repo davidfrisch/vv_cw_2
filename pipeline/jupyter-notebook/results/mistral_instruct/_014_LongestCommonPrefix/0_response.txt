@@ -1,0 +1,35 @@
+ Here's a solution for the Longest Common Prefix problem in Java:
+
+```java
+package _014_LongestCommonPrefix;
+
+import java.util. Arrays;
+
+/** see test {@link _014_LongestCommonPrefix.PracticeTest} */
+public class Practice {
+
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) {
+            return "";
+        }
+
+        String prefix = strs[0];
+        
+        for (int i = 1; i < strs.length; i++) {
+            while (!strs[i].startsWith(prefix)) {
+                if (prefix.isEmpty()) {
+                    return "";
+                }
+                prefix = prefix.substring(0, prefix.length() - 1);
+            }
+        }
+        
+        return prefix;
+    }
+
+}
+```
+
+This solution uses a simple approach where it initializes the `prefix` variable with the first string in the input array, and then checks each subsequent string to see if it starts with the current prefix. If any string doesn't start with the prefix, the prefix is updated by removing the last character until it matches the common prefix of all strings in the array.
+
+The time complexity of this solution is O(N), where N is the length of the input array, since we need to check each string once and possibly remove one character from the prefix for each string. The space complexity is also O(N), as we store the entire input array in memory and the prefix variable, which can be up to N characters long.

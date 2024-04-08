@@ -1,0 +1,26 @@
+ Here's the corrected Java code for the `maxArea` method in the given `Practice` class:
+
+```java
+public int maxArea(int[] height) {
+    int left = 0, right = height.length - 1;
+    int maxArea = Math.min(height[left], height[right]) * (right - left);
+
+    while (left < right) {
+        int currentArea = Math.min(height[left], height[right]) * (right - left);
+        if (currentArea > maxArea) {
+            maxArea = currentArea;
+        }
+
+        // Update pointers based on the shorter height to avoid array index out of bounds exception
+        if (height[left] <= height[right]) {
+            ++left;
+        } else {
+            --right;
+        }
+    }
+
+    return maxArea;
+}
+```
+
+The issue with the original code was that when `height[left]` became greater than `height[right]`, the program tried to decrement the index of the array (`--right`) which would result in an ArrayIndexOutOfBoundsException. To avoid this, the pointers should be updated based on the shorter height value instead.

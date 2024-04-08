@@ -1,0 +1,16 @@
+```java
+public class Practice {
+    // Add implementation here
+}
+
+class PracticeTest {
+    Practice solution;
+
+    @org.junit.Before
+    public void setUp() {
+        solution = new Practice();
+    }
+
+    // Add test cases here
+}
+```

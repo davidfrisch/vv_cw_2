@@ -1,0 +1,33 @@
+
+/**
+ *************************************************************************
+ * Description: 
+ * 
+ * Merge two sorted linked lists and return it as a new list. The new list 
+ * should be made by splicing together the nodes of the first two lists.
+ * 
+ *************************************************************************
+ * 
+ */
+package _021_MergeTwoSortedLists;
+
+import com.leetcode.ListNode;
+
+/** see test {@link _021_MergeTwoSortedLists.PracticeTest } */
+public class Practice {
+
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        // Create a new list node that will be the head of our merged list
+        ListNode dummy = new ListNode(-1);
+        
+        // Keep track of current position in the final merged list
+        ListNode prev = dummy;
+        
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                prev.next = l1;
+                l1 = l1.next;
+            } else {
+                prev.next = l2;
+                l2 = l2.next;
+           } 

@@ -1,0 +1,61 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:29: error: illegal start of expression
+                        result.append(romanDigits[Math.min(4 + (divisor < 10 ? 0 : 5) *)]); // And this one
+                                                                                       ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+import java.util.Arrays;
+
+public class Practice {
+
+    private static final String[] romanDigits = {"I", "V", "X", "L", "XL", "XC", "D", "IX", "IV", "VII"};
+
+    public static void main(String[] args) {
+        int number = Integer.parseInt(args[0]);
+        System.out.println(intToRoman(number).toUpperCase());
+    }
+
+    private static String intToRoman(int num) {
+        StringBuilder result = new StringBuilder();
+        BigDecimal bd;
+        int divisor = 1;
+
+        while (num > 0) {
+            bd = BigDecimal.valueOf(num).divide(BigDecimal.valueOf(divisor), new MathContext(2, RoundingMode.DOWN));
+            int quo = bd.intValue();
+            num -= quo * divisor;
+
+            while (quo > 0) {
+                result.append(romanDigits[Math.min(4, quo % 5)]); // Change this line
+                if (quo >= 5) {
+                    result.append(romanDigits[Math.min(4 + (divisor < 10 ? 0 : 5) *)]); // And this one
+                    quo -= 5;
+                }
+                quo /= 10;
+            }
+
+            if (divisor == 10 && num > 0) {
+                result.append(romanDigits[num % 10]);
+                num = 0;
+            }
+
+            divisor *= 10;
+        }
+
+        return result.reverse().toString();
+    }
+}

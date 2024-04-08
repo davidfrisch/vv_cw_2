@@ -1,0 +1,27 @@
+kotlin
+
+data class Roman numeral(IIIIIIIIXLIV) : String() {
+
+   private val romanDigits = arrayOf("I", "V", "V", "X", "XL", "XLII", "XC", "IX", "IV", "VIII")
+
+    fun intToRoman(num: Int): String {
+        var result = ""
+        for ((multiplier in 1..7) {
+            val currentMultiplierIndex = if (num >= 10 * (multiplier.toInt() * 10 ^ 2)) / (10.pow(multiplier.toInt() * 10).toDouble()) else multiplier
+            when (currentMultiplier) {
+                when (currentMultiplier in 1..3) {
+                    result += romanDigits[Math.min(num, currentMultiplier * 10) / currentMultiplier]
+                }
+                num %= Math.floor(num / currentMultiplier * 10.toDouble()).toInt()
+            }
+        }
+
+        return result.reversed()
+    }
+
+}
+
+fun main(args: Array<String> args: Array<String>) {
+    val number = args[0].toIntOrNull()!!.toInt()
+    println(intToRoman(number).uppercase())
+}

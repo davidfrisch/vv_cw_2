@@ -1,0 +1,18 @@
+ Sure! Here is the Java code for the `Practice` and `PracticeTest` classes:
+
+import java.util.List;
+
+public class Practice {
+    public static List<String> letterCombinations(String phoneNumber) {
+        // TO DO: Implement the practice method here
+        return null;
+    }
+}
+
+public class PracticeTest {
+    public static void main(String[] args) {
+        String phoneNumber = "123456";
+        List<String> letterCombinations = Practice.letterCombinations(phoneNumber);
+        System.out.println(letterCombinations);
+    }
+}

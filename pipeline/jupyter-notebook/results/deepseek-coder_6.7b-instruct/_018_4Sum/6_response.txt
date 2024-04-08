@@ -1,0 +1,10 @@
+Based on the error message, it appears that Java cannot find the `Practice` class which is required for creating an instance of it (`new Practice()`). 
+
+Here are a few things you can check to resolve this issue:
+
+1. Make sure that the `Practice` class exists and is in the same directory as `PracticeTest` or import it using the appropriate package statement if it's in another location.
+2. Ensure all your classes have correct file names, i.e., the filename must match the name of the public class inside that file (excluding .java extension). 
+3. If you are using an IDE, ensure that the source folder is correctly set up and synced with the build path.
+4. Clean and rebuild your project.
+
+If none of these suggestions solve your problem, please provide more context or further information about your code to help diagnose the issue better.

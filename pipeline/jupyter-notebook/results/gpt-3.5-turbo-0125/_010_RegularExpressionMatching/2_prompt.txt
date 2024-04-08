@@ -1,0 +1,69 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 15 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_010_RegularExpressionMatching/Practice.java:39: error: method isMatch(String,String) is already defined in class Practice
+        public boolean isMatch(String s, String p) {
+                       ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+/**
+ *******************************************************************************
+ * Description: 
+ * 
+ * Implement regular expression matching with support for '.' and '*'. 
+ * '.' Matches any single character. 
+ * '*' Matches zero or more of the preceding element. 
+ * The matching should cover the entire input string (not partial). 
+ * 
+ * The function prototype should be: 
+ * 
+ * bool isMatch(const char *s, const char *p) 
+ * 
+ * Some examples: 
+ * 
+ * isMatch("aa","a") → false 
+ * isMatch("aa","aa") → true 
+ * isMatch("aaa","aa") → false 
+ * isMatch("aa", "a*") → true 
+ * isMatch("aa", ".*") → true 
+ * isMatch("ab", ".*") → true 
+ * isMatch("aab", "c*a*b") → true
+ * 
+ *******************************************************************************
+ * @tag : Dynamic Programming; Backtracking; String
+ * {@link https://leetcode.com/problems/regular-expression-matching/ }
+ */
+package _010_RegularExpressionMatching;
+
+/** see test {@link _010_RegularExpressionMatching.PracticeTest } */
+public class Practice {
+
+    public boolean isMatch(String s, String p) {
+        // Your solution code here
+        return false;
+    }
+
+    public boolean isMatch(String s, String p) {
+        if (p.isEmpty()) {
+            return s.isEmpty();
+        }
+
+        boolean firstMatch = !s.isEmpty() && (p.charAt(0) == s.charAt(0) || p.charAt(0) == '.');
+
+        if (p.length() >= 2 && p.charAt(1) == '*') {
+            return (isMatch(s, p.substring(2)) || (firstMatch && isMatch(s.substring(1), p)));
+        } else {
+            return firstMatch && isMatch(s.substring(1), p.substring(1));
+        }
+    }
+
+}

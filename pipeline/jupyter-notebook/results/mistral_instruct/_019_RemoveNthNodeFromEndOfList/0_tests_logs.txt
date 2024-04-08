@@ -1,0 +1,27 @@
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test2() {
+        int n = 5;
+        int[] nums = {1, 2, 3, 4, 5};
+        ListNode head = ListNode.constructLinkedList(nums);
+        ListNode actual = solution.removeNthFromEnd(head, n);
+        // 2->3->4->5
+        int[] exps = {2, 3, 4, 5};
+        ListNode expect = ListNode.constructLinkedList(exps);
+        assertTrue(ListNode.isSameList(actual, expect));
+    }
+
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test5() {
+        int n = 1;
+        int[] nums = {1};
+        ListNode head = ListNode.constructLinkedList(nums);
+        ListNode actual = solution.removeNthFromEnd(head, n);
+        int[] exps = {};
+        ListNode expect = ListNode.constructLinkedList(exps);
+        assertTrue(ListNode.isSameList(actual, expect));
+    }
+

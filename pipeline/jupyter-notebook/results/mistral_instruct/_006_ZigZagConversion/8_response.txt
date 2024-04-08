@@ -1,0 +1,17 @@
+ It looks like there are some issues with your Java file named `Practice.java`. The errors suggest that you're missing a class or interface declaration at the beginning of the file. Here is how the corrected `Practice.java` should look:
+
+```java
+public class Practice {
+
+    @Test
+    public void Test3() {
+        String A = "AB";
+        int B = 2;
+        String actual = solution.zigZagConversion(A, B); // Assuming your class name is "solution" and the method name is "zigZagConversion"
+        String expected = "ZB"; // Adjust as needed based on the expected output for given input A and B
+        assertEquals(expected, actual);
+    }
+}
+```
+
+Make sure your `Practice.java` file starts with a class declaration (`public class Practice { ... }`) instead of just defining methods in the global scope.

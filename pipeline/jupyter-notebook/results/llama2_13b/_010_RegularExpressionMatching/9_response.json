@@ -1,0 +1,1 @@
+{"is_extracted": false, "number_of_code_blocks": 0, "extra_information_num_words": null, "response": " Sure! Here's the corrected code:\n\npublic class Practice {\n    public boolean isMatch(String s, String p) {\n        Pattern pattern = Pattern.compile(p);\n        Matcher matcher = pattern.matcher(s);\n        return matcher.find();\n    }\n}"}

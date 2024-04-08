@@ -1,0 +1,24 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_018_4Sum/Practice.java:4: error: class FourSum is public, should be declared in a file named FourSum.java
+    public class FourSum {
+           ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.util.List;
+
+public class FourSum {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        // ...
+    }
+}

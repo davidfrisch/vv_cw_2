@@ -1,0 +1,21 @@
+Here is the corrected Java code:
+
+package _016_3SumClosest;
+
+import java.util.Arrays;
+
+public class Practice {
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        
+        int diff = target - (nums[0] + nums[1] + nums[2]);
+        
+        if (diff < 0) {
+            return threeSumClosest(nums, target - diff);
+        }
+        
+        return nums[0] + nums[1] + nums[2];
+    }
+}
+
+Note: The only change made was adding a closing brace '}' at the end of the method.

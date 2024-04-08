@@ -1,0 +1,30 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_007_ReverseInteger/Practice.java:4: error: class App is public, should be declared in a file named App.java
+    public class App {
+           ^
+    /app/leetcode-master/src/_007_ReverseInteger/Practice.java:7: error: cannot find symbol
+            System.out.println((new Practice()).reverse(-123));
+                                    ^
+      symbol:   class Practice
+      location: class App
+    2 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _007_ReverseInteger;
+
+public class App {
+    public static void main(String[] args) {
+        // Testing your reverse function here. For example, you can call it like this:
+        System.out.println((new Practice()).reverse(-123));
+    }
+}

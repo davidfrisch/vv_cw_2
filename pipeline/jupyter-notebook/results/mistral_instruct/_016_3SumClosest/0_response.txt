@@ -1,0 +1,37 @@
+ Here's the complete file with the solution for the given problem using a Two Pointers approach:
+
+```java
+package _016_3SumClosest;
+
+import java.util.Arrays;
+
+/** see test {@link _016_3SumClosest.PracticeTest } */
+public class Practice {
+
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums); // Sort the array in ascending order
+        int smallestDifference = Integer.MAX_VALUE;
+        int sum;
+
+        for (int i = 0; i < nums.length - 2; i++) { // First element as i
+            int left = i + 1, right = nums.length - 1;
+            while (left < right) {
+                sum = nums[i] + nums[left] + nums[right];
+                if (Math.abs(sum - target) < Math.abs(smallestDifference)) { // New closest pair found, update smallest difference
+                    smallestDifference = sum - target;
+                    // System.out.println("New closest pair: " + nums[i] + ", " + nums[left] + ", " + nums[right] + " with a difference of " + smallestDifference);
+                }
+                if (sum > target) { // Move right pointer to the left
+                    right--;
+                } else { // Move left pointer to the right
+                    left++;
+                }
+            }
+        }
+
+        return target + smallestDifference; // Return the sum of the three integers closest to the target
+    }
+}
+```
+
+This solution sorts the input array `nums` in ascending order and then uses two pointers, `left` and `right`, to iterate through the remaining pairs while searching for a triplet that sums up close to the target value. The difference between the sum of the current triplet and the target is stored in a variable named `smallestDifference`. When a new closest pair is found, its difference from the target is updated and checked against the previous smallest difference. Finally, the function returns the sum of the three integers closest to the target.

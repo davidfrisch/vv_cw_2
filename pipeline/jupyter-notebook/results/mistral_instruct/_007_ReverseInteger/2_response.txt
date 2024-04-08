@@ -1,0 +1,29 @@
+ Here is the fixed Java code:
+
+```java
+package _007_ReverseInteger;
+
+/** see test {@link _007_ReverseInteger.PracticeTest } */
+public class Practice {
+    static long reverseLong(long num) {
+        long reversedNum = 0;
+        while (num != 0) {
+            long digit = num % 10;
+            num /= 10;
+            reversedNum = reversedNum * 10 + digit;
+        }
+        return reversedNum;
+    }
+
+    public int reverse(int a) {
+        long reversedNum = reverseLong((long)a);
+        if (reversedNum > Integer.MAX_VALUE || reversedNum < Integer.MIN_VALUE) {
+            return 0;
+        } else {
+            return (int)reversedNum;
+        }
+    }
+}
+```
+
+The main change is to check if the result is negative as well in addition to checking for positive overflow. This should fix the test case with `Integer.MIN_VALUE`.

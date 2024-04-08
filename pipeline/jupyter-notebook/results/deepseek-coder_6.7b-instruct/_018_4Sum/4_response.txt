@@ -1,0 +1,50 @@
+The given code is a Java method that solves the 4Sum problem in O(n^3) time complexity. However, there are some issues with your copy-pasted code snippet as it contains typographical errors which prevent the program from running correctly:
+
+1. In the while loop checking for duplicate elements after the two nested loops, you've used `left < right` instead of `nums[left] == nums[left + 1]` and `right > left` instead of `nums[right] == numsrRight-1`.
+2. You've used `numsrRight-1` instead of `nums[right - 1]` in the right while loop.
+
+Here is the corrected code:
+
+```java
+public List<List<Integer>> fourSum(int[] nums, int target) {
+    // Sorting the array
+    Arrays.sort(nums);
+    
+    List<List<Integer>> result = new ArrayList<>();
+    
+    for (int i = 0; i < nums.length - 3; i++) {
+        if (i > 0 && nums[i] == nums[i-1]) continue; // Skip duplicates
+        
+        for (int j = i + 1; j < nums.length - 2; j++) {
+            if (j > i+1 && nums[j] == nums[j-1]) continue; // Skip duplicates
+            
+            int left = j + 1, right = nums.length - 1;
+            
+            while (left < right) {
+                int sum = nums[i] + nums[j] + nums[left] + nums[right];
+                
+                if (sum == target) {
+                    // Found a quadruplet, add it to the result and move the pointers
+                    result.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                    
+                    while (left < right && nums[left] == nums[left+1]) left++; // Skip duplicates on the left
+                    while (left < right && nums[right] == nums[right-1]) right--; // Skip duplicates on the right
+                    
+                    left++;
+                    right--;
+                } else if (sum < target) {
+                    // Increase the sum by moving the left pointer to the right
+                    left++;
+                } else {
+                    // Decrease the sum by moving the right pointer to the left
+                    right--;
+                }
+            }
+        }
+    }
+    
+    return result;
+}
+```
+
+This code should now correctly implement a 4Sum problem solution. It sorts an input array, then iterates over it with three nested loops and one while loop within the last two loops to find quadruplets that add up to the target value. This is done by maintaining two pointers at different ends of the remaining part of the array on each iteration, moving them inward if they sum to less than or greater than the target. If a quadruplet is found that adds up to the target, it's added to the result list and its elements are checked for possible duplicate values on their own iterations to avoid adding duplicates to the final results.

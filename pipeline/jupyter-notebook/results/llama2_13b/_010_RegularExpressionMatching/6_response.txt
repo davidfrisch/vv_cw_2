@@ -1,0 +1,7 @@
+ Sure! Here's the corrected code:
+
+public class Practice {
+    public boolean isMatch(String s, String p) {
+        return s.matches(p);
+    }
+}

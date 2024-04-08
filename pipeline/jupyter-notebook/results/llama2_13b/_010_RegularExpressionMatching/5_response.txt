@@ -1,0 +1,28 @@
+ Sure, I can help you with that! The error message you're seeing is because the `Practice` class is not defined in the file `PracticeTest.java`. To fix this, you need to define the `Practice` class in a separate file, and then import it into the `PracticeTest` class. Here's an example of how you can do this:
+
+1. Create a new file called `Practice.java` in the same directory as your other source files.
+2. Define the `Practice` class in this file, like this:
+```
+public class Practice {
+    public boolean isMatch(String s, String p) {
+        // Implement the regular expression matching logic here
+        return true; // or false if the match fails
+    }
+}
+```
+3. In your `PracticeTest` class, import the `Practice` class like this:
+```
+import static com.leetcode.Practice.isMatch;
+```
+4. Use the `Practice` class in your test methods like this:
+```
+public class PracticeTest {
+    @Test
+    public void testIsMatch() {
+        String s = "hello";
+        String p = "h*ello";
+        assertTrue(isMatch(s, p));
+    }
+}
+```
+With these changes, the compiler should be able to find the `Practice` class and you should no longer see any errors.

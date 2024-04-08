@@ -1,0 +1,42 @@
+The error in your code is due to incorrect usage of `return` statement and missing variables for comparison. Here is the corrected Java code:
+
+```java
+import java.util.*;
+public class Practice {
+    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+        if (k==0 || s.length() == 0) return 0;
+        
+        HashMap<Character, Integer> map = new HashMap<>();
+        int maxLength = 0;
+        int left = 0;
+      
+        for (int i=0; i<s.length(); ++i){  
+            char c = s.charAt(i); 
+            
+            if(!map.containsKey(c)){  
+                map.put(c,1);
+                
+                while (map.size() > k) {  
+                    char leftChar = s.charAt(left);
+                    
+                    if(map.get(leftChar) == 1){
+                        map.remove(leftChar);
+                    } else {
+                        map.put(leftChar, map.get(leftChar)-1);
+                    }
+                    
+                    left++;
+                }
+            } else {
+                map.put(c,map.get(c)+1);  
+            }
+            
+            if (map.size() <= k) maxLength = Math.max(maxLength, i - left + 1); 
+        
+        }
+        
+        return maxLength;  
+    }
+}
+```
+This code will now compile and run without errors. It maintains a sliding window of distinct characters up to `k` using a HashMap. The size of the map determines if more than `k` unique characters are in the current window, which triggers moving the left boundary (deleting characters from the window) until only `k` unique chars remain. As it goes through each character in the string, it updates the maximum length of the substring when a valid window size is reached.

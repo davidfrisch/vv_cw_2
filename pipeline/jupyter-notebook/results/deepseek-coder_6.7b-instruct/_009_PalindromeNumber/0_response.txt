@@ -1,0 +1,22 @@
+```java
+package _009_PalindromeNumber;
+
+/** see test {@link _009_009_PalindromeNumber.PracticeTest} } */
+public class Practice {
+
+    public boolean isPalindrome(int x) {
+        // Negative numbers and positive even number not considered palindromic
+        if (x < 0 || (x % 10 == 0 && x != 0)) return false;
+        
+        int revertedNumber = 0;
+        while (x > revertedNumber) {
+            revertedNumber = revertedNumber * 10 + x % 10;
+            x /= 10;
+        }
+        
+        // If the length is odd, we can get rid of the middle digit by revertedNumber/10
+        // Since the middle digit doesn't matter in palindrome(it won't be equal to itself)
+        return x == revertedNumber || x == revertedNumber / 10;
+    }
+}
+```

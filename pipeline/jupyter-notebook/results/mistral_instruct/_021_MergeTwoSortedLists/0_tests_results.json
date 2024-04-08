@@ -1,0 +1,49 @@
+{
+    "num_tests": "5",
+    "num_successes": 5,
+    "num_failures": "0",
+    "num_errors": "0",
+    "timestamp": "2024-04-08T14:47:39",
+    "test_cases": [
+        {
+            "name": "Test0",
+            "time": "0.008",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test0() {\n        ListNode node11 = null;\n        ListNode node21 = null;\n        ListNode actual = solution.mergeTwoLists(node11, node21);\n        ListNode expect = null;\n        assertTrue(ListNode.isSameList(actual, expect));\n    }"
+        },
+        {
+            "name": "Test1",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        ListNode node11 = new ListNode(1);\n        ListNode node21 = new ListNode(2);\n        ListNode actual = solution.mergeTwoLists(node11, node21);\n        ListNode node1 = new ListNode(1);\n        ListNode node2 = new ListNode(2);\n        node1.next = node2;\n        ListNode expect = node1;\n        assertTrue(ListNode.isSameList(actual, expect));\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test2() {\n        int[] nums1 = {1, 3, 5};\n        ListNode l1 = ListNode.constructLinkedList(nums1);\n        int[] nums2 = {2, 4, 6};\n        ListNode l2 = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.mergeTwoLists(l1, l2);\n\n        int[] exps = {1, 2, 3, 4, 5, 6};\n        ListNode expected = ListNode.constructLinkedList(exps);\n\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test3() {\n        int[] nums1 = {1, 5};\n        ListNode l1 = ListNode.constructLinkedList(nums1);\n        int[] nums2 = {2, 4, 6};\n        ListNode l2 = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.mergeTwoLists(l1, l2);\n        int[] exps = {1, 2, 4, 5, 6};\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        },
+        {
+            "name": "Test4",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test4() {\n        int[] nums1 = {1, 3, 5};\n        ListNode l1 = ListNode.constructLinkedList(nums1);\n        int[] nums2 = {2, 4};\n        ListNode l2 = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.mergeTwoLists(l1, l2);\n        int[] exps = {1, 2, 3, 4, 5};\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+        }
+    ]
+}

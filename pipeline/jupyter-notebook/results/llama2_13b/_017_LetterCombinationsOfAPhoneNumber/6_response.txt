@@ -1,0 +1,15 @@
+ Sure, I can help you with that! The error message you're seeing is because the `Practice` class is not defined in the file `PracticeTest.java`. To fix this, you need to add the definition of the `Practice` class above the `PracticeTest` class. Here's the corrected version of the file:
+```
+import java.util.List;
+
+public class Practice {
+    // Define the practice method here
+}
+
+public class PracticeTest {
+    public static void main(String[] args) {
+        // Test the practice method here
+    }
+}
+```
+With this correction, you should be able to compile the code without any errors.

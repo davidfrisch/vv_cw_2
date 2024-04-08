@@ -1,0 +1,37 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_018_4Sum/Practice.java:50: error: incompatible types: List<List<Integer>> cannot be converted to Integer
+                    map.put(nums[i], quadruplets);
+                                     ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:52: error: incompatible types: cannot infer type arguments for ArrayList<>
+                    map.put(nums[i], new ArrayList<>());
+                                                  ^
+        reason: no instance(s) of type variable(s) E exist so that ArrayList<E> conforms to Integer
+      where E is a type-variable:
+        E extends Object declared in class ArrayList
+    /app/leetcode-master/src/_018_4Sum/Practice.java:55: error: cannot find symbol
+            return map.getOrDefault(target - nums[nums.length - 1], Collections.emptyList()).stream().flatMap(Collection::stream).collect(Collectors.toList());
+                                                                    ^
+      symbol:   variable Collections
+      location: class Practice
+    /app/leetcode-master/src/_018_4Sum/Practice.java:55: error: cannot find symbol
+            return map.getOrDefault(target - nums[nums.length - 1], Collections.emptyList()).stream().flatMap(Collection::stream).collect(Collectors.toList());
+                                                                                                              ^
+      symbol:   variable Collection
+      location: class Practice
+    /app/leetcode-master/src/_018_4Sum/Practice.java:55: error: cannot find symbol
+            return map.getOrDefault(target - nums[nums.length - 1], Collections.emptyList()).stream().flatMap(Collection::stream).collect(Collectors.toList());
+                                                                                                                                          ^
+      symbol:   variable Collectors
+      location: class Practice
+    Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+    5 errors

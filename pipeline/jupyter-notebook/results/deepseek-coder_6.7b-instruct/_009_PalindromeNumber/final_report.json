@@ -1,0 +1,88 @@
+{
+    "total_retries": 1,
+    "model": "deepseek-coder:6.7b-instruct",
+    "leetcode_question": "_009_PalindromeNumber",
+    "passed": true,
+    "tries": {
+        "0": {
+            "extra_prompt": "Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain !",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _009_PalindromeNumber;\n\n/** see test {@link _009_009_PalindromeNumber.PracticeTest} } */\npublic class Practice {\n\n    public boolean isPalindrome(int x) {\n        // Negative numbers and positive even number not considered palindromic\n        if (x < 0 || (x % 10 == 0 && x != 0)) return false;\n        \n        int revertedNumber = 0;\n        while (x > revertedNumber) {\n            revertedNumber = revertedNumber * 10 + x % 10;\n            x /= 10;\n        }\n        \n        // If the length is odd, we can get rid of the middle digit by revertedNumber/10\n        // Since the middle digit doesn't matter in palindrome(it won't be equal to itself)\n        return x == revertedNumber || x == revertedNumber / 10;\n    }\n}\n```\n",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "8",
+            "num_successes": 8,
+            "num_failures": "0",
+            "num_errors": "0",
+            "timestamp": "2024-04-08T14:12:39",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.01",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int x = -2;\n        assertTrue(!solution.isPalindrome(x));\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int x = -101;\n        assertTrue(!solution.isPalindrome(x));\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int x = 2;\n        assertTrue(solution.isPalindrome(x));\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test4() {\n        int x = 202;\n        assertTrue(solution.isPalindrome(x));\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test5() {\n        int x = 2021;\n        assertTrue(!solution.isPalindrome(x));\n    }"
+                },
+                {
+                    "name": "Test6",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test6() {\n        int x = 2147483647;\n        assertTrue(!solution.isPalindrome(x));\n    }"
+                },
+                {
+                    "name": "Test7",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test7() {\n        int x = 21477412;\n        assertTrue(solution.isPalindrome(x));\n    }"
+                },
+                {
+                    "name": "Test8",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test8() {\n        int x = 0;\n        assertTrue(solution.isPalindrome(x));\n    }"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,21 @@
+ It looks like the code you've provided is for a Java class named "Practice" that contains a method named "maxArea". The error messages indicate that there are issues with the syntax of this class. In particular, it seems that Java is expecting a class declaration at the beginning of the file, but instead it finds the method definition without a containing class.
+
+To fix this issue, you need to define a Java class before defining any methods or variables within it. Here's an example of how your code should look:
+
+```java
+public class Practice {
+    public int maxArea(int[] height) {
+        // Your implementation here
+    }
+}
+```
+
+You may also want to make sure that the package declaration (if any) at the beginning of the file is correct. For example, if your file is named "Practice.java" and you have a package declaration, it should look like this:
+
+```java
+package com.example.leetcode; // Replace with your actual package name
+
+public class Practice {
+    // Your implementation here
+}
+```

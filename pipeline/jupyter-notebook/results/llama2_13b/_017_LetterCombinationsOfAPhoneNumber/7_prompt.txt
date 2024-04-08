@@ -1,0 +1,28 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 14 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_017_LetterCombinationsOfAPhoneNumber/Practice.java:8: error: class PracticeTest is public, should be declared in a file named PracticeTest.java
+    public class PracticeTest {
+           ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.util.List;
+
+public class Practice {
+    // Define the practice method here
+}
+
+public class PracticeTest {
+    public static void main(String[] args) {
+        // Test the practice method here
+    }
+}

@@ -1,0 +1,37 @@
+
+test/_017_LetterCombinationsOfAPhoneNumber/PracticeTest.java:39: error: Null Dereference
+  `actuals` could be null (from the call to `Practice.letterCombinations(...)` on line 36) and is dereferenced in the call to `Test.assertEqualsIgnoreOrder(...)`. 
+  37.           List<String> expecteds = Arrays.asList("ad", "ae", "af", "bd", "be",
+  38.                   "bf", "cd", "ce", "cf");
+  39. >         assertEqualsIgnoreOrder(expecteds, actuals);
+  40.       }
+  41.   
+
+test/_017_LetterCombinationsOfAPhoneNumber/PracticeTest.java:47: error: Null Dereference
+  `actuals` could be null (from the call to `Practice.letterCombinations(...)` on line 45) and is dereferenced in the call to `Test.assertEqualsIgnoreOrder(...)`. 
+  45.           List<String> actuals = solution.letterCombinations(digits);
+  46.           List<String> expecteds = new ArrayList<>();
+  47. >         assertEqualsIgnoreOrder(expecteds, actuals);
+  48.       }
+  49.   
+
+test/_017_LetterCombinationsOfAPhoneNumber/PracticeTest.java:55: error: Null Dereference
+  `actuals` could be null (from the call to `Practice.letterCombinations(...)` on line 53) and is dereferenced in the call to `Test.assertEqualsIgnoreOrder(...)`. 
+  53.           List<String> actuals = solution.letterCombinations(digits);
+  54.           List<String> expecteds = new ArrayList<>(Arrays.asList("w", "x", "y", "z"));
+  55. >         assertEqualsIgnoreOrder(expecteds, actuals);
+  56.       }
+  57.   
+
+test/_017_LetterCombinationsOfAPhoneNumber/PracticeTest.java:66: error: Null Dereference
+  `actuals` could be null (from the call to `Practice.letterCombinations(...)` on line 61) and is dereferenced in the call to `Test.assertEqualsIgnoreOrder(...)`. 
+  64.                   "beh", "bei", "bfg", "bfh", "bfi", "cdg", "cdh", "cdi", "ceg",
+  65.                   "ceh", "cei", "cfg", "cfh", "cfi");
+  66. >         assertEqualsIgnoreOrder(expecteds, actuals);
+  67.       }
+  68.   
+
+
+Found 4 issues
+             Issue Type(ISSUED_TYPE_ID): #
+  Null Dereference(NULLPTR_DEREFERENCE): 4

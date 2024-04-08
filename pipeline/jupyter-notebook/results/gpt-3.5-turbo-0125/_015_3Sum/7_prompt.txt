@@ -1,0 +1,39 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    Compiling 2 source files to /app/leetcode-master/bin
+    /app/leetcode-master/test/_015_3Sum/PracticeTest.java:18: error: cannot find symbol
+        Practice solution;
+        ^
+      symbol:   class Practice
+      location: class PracticeTest
+    /app/leetcode-master/test/_015_3Sum/PracticeTest.java:25: error: cannot find symbol
+            solution = new Practice();
+                           ^
+      symbol:   class Practice
+      location: class PracticeTest
+    2 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Practice {
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+
+        // Solution code here
+
+        return result;
+    }
+}
+

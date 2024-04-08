@@ -1,0 +1,64 @@
+Sure! Here is the complete solution code for the Longest Palindromic Substring problem:
+
+package _005_LongestPalindromicSubstring;
+
+import java.util.Stack;
+
+public class Practice {
+    public String longestPalindrome(String s) {
+        // Create a stack to store the palindromic substring
+        Stack<Character> stack = new Stack<>();
+        
+        // Initialize the start and end indices of the palindromic substring
+        int start = 0;
+        int end = 0;
+        
+        // Loop through each character in the input string
+        for (int i = 0; i < s.length(); i++) {
+            // If the current character is the same as the previous character,
+            // then we have found a palindromic substring
+            if (s.charAt(i) == s.charAt(start)) {
+                // Add the current character to the stack
+                stack.push(s.charAt(i));
+                
+                // If the stack is not empty and the top element of the stack is the same as the current character,
+                // then we have found a palindromic substring
+                if (!stack.isEmpty() && stack.peek() == s.charAt(i)) {
+                    // Add the start and end indices of the palindromic substring to the result string
+                    String result = "" + start + "-" + end;
+                    
+                    // Pop the current character from the stack
+                    stack.pop();
+                    
+                    // Update the start and end indices of the palindromic substring
+                    start = i;
+                    end = i;
+                    
+                    // If the current character is not the same as the previous character,
+                    // then we have left the palindromic substring
+                    else {
+                        // Pop the previous character from the stack
+                        stack.pop();
+                        
+                        // Update the start and end indices of the palindromic substring
+                        start = i;
+                        end = i - 1;
+                    }
+                }
+            }
+            
+            // If we have reached the end of the input string,
+            // then we have found the longest palindromic substring
+            else if (i == s.length()) {
+                String result = "" + start + "-" + end;
+                return result;
+            }
+        }
+        
+        // If we have not found any palindromic substring,
+        // then return an empty string
+        return "";
+    }
+}
+
+I hope this helps! Let me know if you have any questions.

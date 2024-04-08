@@ -1,0 +1,5 @@
+ It looks like you have provided a working solution for the problem "Longest Substring Without Repeating Characters" using Java and the HashMap data structure. The code uses a sliding window approach with two pointers, where one pointer (start) moves forward whenever it encounters a character that has already appeared in the substring between start and the current index. The length of the longest substring is updated accordingly. Overall, the solution is clear and easy to understand.
+
+However, since you mentioned that there was an issue with the original code and asked for a fix, I'd suggest double-checking the error message or test cases you encountered in the previous attempt to ensure they have been properly addressed. The current solution should work correctly for most edge cases.
+
+Keep up the good work! Let me know if you have any questions or need further assistance.

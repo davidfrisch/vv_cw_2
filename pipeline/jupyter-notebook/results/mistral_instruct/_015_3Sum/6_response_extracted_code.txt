@@ -1,0 +1,39 @@
+
+package _015_3Sum;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Practice {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums); // Sort the array in ascending order
+
+        List<List<Integer>> result = new ArrayList<>(); // Initialize an empty list to store the results
+
+        for (int i = 0; i < nums.length - 2; i++) { // Iterate through the array, starting from the first element
+            int targetSum = 0;
+            int left = i + 1;
+            int right = nums.length - 1;
+
+            while (left < right) {
+                if (nums[i] + nums[left] + nums[right] == targetSum) {
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    
+                    int prevIndex = result.lastIndexOf(Arrays.asList(nums[left], nums[right], nums[i]));
+                    if (prevIndex != -1 && Arrays.equals(result.get(prevIndex).toArray(), new int[]{nums[i], nums[left], nums[right]})) { // check if the sub-arrays are equal
+                        break;
+                    }
+
+                    left++;
+                    right--;
+                } else if (nums[i] + nums[left] + nums[right] < targetSum) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+
+        return result;
+    }
+}

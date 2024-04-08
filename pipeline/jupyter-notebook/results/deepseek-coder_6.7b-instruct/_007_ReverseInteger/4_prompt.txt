@@ -1,0 +1,37 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_007_ReverseInteger/Practice.java:4: error: class App is public, should be declared in a file named App.java
+    public class App {
+           ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _007_ReverseInteger;
+
+public class App {
+    public int reverse(int a) {
+        long res = 0;
+        
+        while (a != 0) {
+            res = res*10 + a % 10;
+            
+            if (res > Integer.MAX_VALUE || res < Integer.MIN_VALUE){
+                return 0;
+            }
+                
+            a = a / 10;
+        
+        }
+        
+        return (int)res;
+    }
+}

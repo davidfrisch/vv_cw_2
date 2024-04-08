@@ -1,0 +1,39 @@
+ Here's the complete file with the solution for determining whether an integer is a palindrome without using extra space:
+
+```java
+/**
+ *************************************************************************
+ * Description: 
+ * 
+ * Determine whether an integer is a palindrome. Do this without extra space.
+ * 
+ * For this problem, negative numbers are considered not palindrome number.
+ * 
+ *************************************************************************
+ * @tag : Math
+ * {@link https://leetcode.com/problems/palindrome-number/ }
+ */
+package _009_PalindromeNumber;
+
+/** see test {@link _009_PalindromeNumber.PracticeTest } */
+public class Practice {
+
+    public boolean isPalindrome(int x) {
+        // if negative numbers or less than zero, not palindromes
+        if (x < 0) return false;
+        
+        int originalNum = x;
+        int reversedNum = 0;
+        
+        while (originalNum > 0) {
+            int lastDigit = originalNum % 10; // get the last digit
+            reversedNum *= 10; // prepare for adding new digit
+            reversedNum += lastDigit; // add new digit to reversed number
+            originalNum /= 10; // remove the last digit from the number
+        }
+        
+        return x == reversedNum; // check if the numbers are equal
+    }
+
+}
+```

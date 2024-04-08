@@ -1,0 +1,77 @@
+The following code has the following error: 
+Message: expected:<4> but was:<5>
+@Test
+    public void Test2() {
+        String A = "IV";
+        int actual = solution.romanToInt(A);
+        int expected = 4;
+        assertEquals(expected, actual);
+    }
+
+Message: expected:<9> but was:<10>
+@Test
+    public void Test3() {
+        String A = "IX";
+        int actual = solution.romanToInt(A);
+        int expected = 9;
+        assertEquals(expected, actual);
+    }
+
+
+
+Message: expected:<1954> but was:<2156>
+@Test
+    public void Test6() {
+        String A = "MCMLIV";
+        int actual = solution.romanToInt(A);
+        int expected = 1954;
+        assertEquals(expected, actual);
+    }
+
+
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _013_RomanToInteger;
+
+public class Practice {
+
+    public int romanToInt(String s) {
+        int result = 0;
+        int previousValue = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char currentSymbol = s.charAt(i);
+            int currentValue = getValueFromRomanSymbol(currentSymbol);
+
+            if (currentValue > previousValue) {
+                result += currentValue - previousValue;
+                previousValue = currentValue;
+            } else {
+                result += currentValue;
+            }
+        }
+
+        return result;
+    }
+
+    private int getValueFromRomanSymbol(char symbol) {
+        switch (symbol) {
+            case 'I':
+                return 1;
+            case 'V':
+                return 5;
+            case 'X':
+                return 10;
+            case 'L':
+                return 50;
+            case 'C':
+                return 100;
+            case 'D':
+                return 500;
+            case 'M':
+                return 1000;
+            default:
+                throw new IllegalArgumentException("Invalid Roman symbol: " + symbol);
+        }
+    }
+}

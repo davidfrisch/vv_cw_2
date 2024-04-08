@@ -1,0 +1,18 @@
+ Sure! Here is the corrected code:
+
+public class TwoSum {
+    public int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] + target == 0) {
+                result[1] = nums[i];
+                break;
+            }
+            if (nums[i] == target) {
+                result[0] = nums[i];
+                break;
+            }
+        }
+        return result;
+    }
+}

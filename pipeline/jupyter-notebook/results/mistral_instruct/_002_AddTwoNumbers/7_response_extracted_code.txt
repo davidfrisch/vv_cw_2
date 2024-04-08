@@ -1,0 +1,26 @@
+
+package com.leetcode;
+
+import com.leetcode.ListNode;
+
+public class Practice {
+    public static void main(String[] args) {
+        // Your code here to test your solutions against different test cases
+    }
+
+    // Solution for problem #1: Two Sum
+    public ListNode twoSum(ListNode head, int target) {
+        ListNode prev = null;
+        ListNode current = head;
+
+        while (current != null) {
+            if (current.next == null && prev != null && prev.val + current.val == target) {
+                return new ListNode(target, prev);
+            }
+            prev = current;
+            current = current.next;
+        }
+
+        return null;
+    }
+}

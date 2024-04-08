@@ -1,0 +1,7 @@
+ Sure, here is the corrected Java code:
+
+public class Practice {
+    public ListNode mergeTwoLists(ListNode node1, ListNode node2) {
+        // ...
+    }
+}

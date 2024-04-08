@@ -1,0 +1,60 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_015_3Sum/Practice.java:28: error: no suitable method found for equals(Object[],int[])
+                            if (Arrays.equals(Arrays.copyOfRange(result.get(prevIndex).toArray(), 0, 3), new int[]{nums[i], nums[left], nums[right]})) { // check if the sub-arrays are equal
+                                      ^
+        method Arrays.equals(long[],long[]) is not applicable
+          (argument mismatch; inference variable T#1 has incompatible bounds
+              lower bounds: long,Object
+              lower bounds: Object)
+        method Arrays.equals(int[],int[]) is not applicable
+          (argument mismatch; inference variable T#1 has incompatible bounds
+              lower bounds: int,Object
+              lower bounds: Object)
+        method Arrays.equals(short[],short[]) is not applicable
+          (argument mismatch; inference variable T#1 has incompatible bounds
+              lower bounds: short,Object
+              lower bounds: Object)
+        method Arrays.equals(char[],char[]) is not applicable
+          (argument mismatch; inference variable T#1 has incompatible bounds
+              lower bounds: char,Object
+              lower bounds: Object)
+        method Arrays.equals(byte[],byte[]) is not applicable
+          (argument mismatch; inference variable T#1 has incompatible bounds
+              lower bounds: byte,Object
+              lower bounds: Object)
+        method Arrays.equals(boolean[],boolean[]) is not applicable
+          (argument mismatch; inference variable T#1 has incompatible bounds
+              lower bounds: boolean,Object
+              lower bounds: Object)
+        method Arrays.equals(double[],double[]) is not applicable
+          (argument mismatch; inference variable T#1 has incompatible bounds
+              lower bounds: double,Object
+              lower bounds: Object)
+        method Arrays.equals(float[],float[]) is not applicable
+          (argument mismatch; inference variable T#1 has incompatible bounds
+              lower bounds: float,Object
+              lower bounds: Object)
+        method Arrays.equals(Object[],Object[]) is not applicable
+          (argument mismatch; int[] cannot be converted to Object[])
+        method Arrays.<T#2>equals(T#2[],T#2[],Comparator<? super T#2>) is not applicable
+          (cannot infer type-variable(s) T#2
+            (actual and formal argument lists differ in length))
+        method Arrays.<T#3>equals(T#3[],int,int,T#3[],int,int,Comparator<? super T#3>) is not applicable
+          (cannot infer type-variable(s) T#3
+            (actual and formal argument lists differ in length))
+      where T#1,T#2,T#3 are type-variables:
+        T#1 extends Object declared in method <T#1>copyOfRange(T#1[],int,int)
+        T#2 extends Object declared in method <T#2>equals(T#2[],T#2[],Comparator<? super T#2>)
+        T#3 extends Object declared in method <T#3>equals(T#3[],int,int,T#3[],int,int,Comparator<? super T#3>)
+    Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+    1 error

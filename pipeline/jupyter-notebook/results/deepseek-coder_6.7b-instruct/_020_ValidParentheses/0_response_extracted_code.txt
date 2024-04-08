@@ -1,0 +1,33 @@
+
+package _020_ValidParentheses;
+
+import java.util.Stack;
+
+public class Practice {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                // Push the corresponding closing bracket onto the stack.
+                switch(c) {
+                    case '(':
+                        stack.push(')');
+                        break;
+                    case '{':
+                        stack.push('}');
+                        break;
+                    case '[':
+                        stack.push(']');
+                        break;
+                }
+            } else if (stack.isEmpty() || stack.pop() != c) { 
+                // If the current character is not an opening bracket or its closing counterpart doesn't match with what we have in our stack, return false.
+                return false;
+           }
+        }
+        
+        // After scanning all characters, if there are still elements left on the stack, that means the string is invalid (ex: "(()"))
+        return stack.isEmpty();
+    }
+}

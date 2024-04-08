@@ -1,0 +1,64 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:2: error: class, interface, or enum expected
+    public int lengthOfLongestSubstring(String a) {
+           ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:4: error: class, interface, or enum expected
+        int left = 0;
+        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:5: error: class, interface, or enum expected
+        int right = 0;
+        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:7: error: class, interface, or enum expected
+        for (int i = 0; i < a.length(); i++) {
+        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:7: error: class, interface, or enum expected
+        for (int i = 0; i < a.length(); i++) {
+                        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:7: error: class, interface, or enum expected
+        for (int i = 0; i < a.length(); i++) {
+                                        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:10: error: class, interface, or enum expected
+            if (right == 0 || curr != a.charAt(right - 1)) {
+            ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:14: error: class, interface, or enum expected
+            }
+            ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:18: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:21: error: class, interface, or enum expected
+    }
+    ^
+    10 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public int lengthOfLongestSubstring(String a) {
+    int len = 0;
+    int left = 0;
+    int right = 0;
+
+    for (int i = 0; i < a.length(); i++) {
+        char curr = a.charAt(i);
+
+        if (right == 0 || curr != a.charAt(right - 1)) {
+            // If the current character is not the same as the last character in the substring,
+            // or if the right pointer is at 0, then we need to reset the right pointer to 0.
+            right = 0;
+        }
+
+        // Update the left pointer to move to the next character in the string.
+        left++;
+    }
+
+    return len;
+}

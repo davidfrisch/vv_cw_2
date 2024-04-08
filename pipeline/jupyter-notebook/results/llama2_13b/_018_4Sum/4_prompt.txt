@@ -1,0 +1,32 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_018_4Sum/Practice.java:2: error: class FourSum is public, should be declared in a file named FourSum.java
+    public class FourSum {
+           ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:3: error: cannot find symbol
+        public List<List<Integer>> fourSum(int[] nums, int target) {
+               ^
+      symbol:   class List
+      location: class FourSum
+    /app/leetcode-master/src/_018_4Sum/Practice.java:3: error: cannot find symbol
+        public List<List<Integer>> fourSum(int[] nums, int target) {
+                    ^
+      symbol:   class List
+      location: class FourSum
+    3 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public class FourSum {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        // ...
+    }
+}

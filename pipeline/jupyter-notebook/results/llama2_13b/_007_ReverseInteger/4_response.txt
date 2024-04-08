@@ -1,0 +1,15 @@
+ package _007_ReverseInteger;
+
+public class Practice {
+    public int reverse(int a) {
+        if (a == 0) {
+            return 0;
+        }
+        int rev = (-1)*(a);
+        return rev;
+    }
+}
+
+Note:
+
+The issue was that the method was returning a positive number instead of a negative number when the input was a large positive number. To fix this, we changed the return type to int and returned the negative value of the input instead of the positive value. This ensures that the method returns a negative number for all inputs, including large positive numbers.

@@ -1,0 +1,36 @@
+
+/**
+ ***************************************************************************
+ * Description:
+ * 
+ * There are two sorted arrays nums1 and nums2 of size m and n respectively. 
+ * Find the median of the two sorted arrays. The overall run time complexity 
+ * should be O(log (m+n)). 
+ * 
+ ***************************************************************************
+ * @tag : Divide and Conquer; Array; Binary Search
+ * {@link https://leetcode.com/problems/median-of-two-sorted-arrays/ }
+ */
+package _004_MedianOfTwoSortedArrays;
+
+/** see test {@link _004_MedianOfTwoSortedArrays.PracticeTest } */
+public class Practice {
+
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        // Add your solution code here
+        int m = nums1.length;
+        int n = nums2.length;
+        
+        // Base case handling if one array is empty
+        if (m == 0 && n == 1) {
+            return nums2[0];
+        } else if (m == 1 && n == 0) {
+            return nums1[0];
+        }
+        
+        // Merge the two arrays and find the median
+        
+        return 0;
+    }
+
+}

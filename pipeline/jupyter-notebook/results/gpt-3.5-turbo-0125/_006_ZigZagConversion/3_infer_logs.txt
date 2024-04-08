@@ -1,0 +1,25 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:9: error: class PracticeTest is public, should be declared in a file named PracticeTest.java
+    public class PracticeTest {
+           ^
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:11: error: cannot find symbol
+        private Practice solution;
+                ^
+      symbol:   class Practice
+      location: class PracticeTest
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:15: error: cannot find symbol
+            solution = new Practice();
+                           ^
+      symbol:   class Practice
+      location: class PracticeTest
+    3 errors

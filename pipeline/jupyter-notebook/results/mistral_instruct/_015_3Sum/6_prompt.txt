@@ -1,0 +1,47 @@
+The following code has the following error: More than one Java code block found in the response, Only one Java code block is expected.
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _015_3Sum;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/** see test {@link _015_3Sum.PracticeTest} */
+public class Practice {
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums); // Sort the array in ascending order
+
+        List<List<Integer>> result = new ArrayList<>(); // Initialize an empty list to store the results
+
+        for (int i = 0; i < nums.length - 2; i++) { // Iterate through the array, starting from the first element
+            int targetSum = 0; // Set the target sum to zero
+            int left = i + 1; // Initialize two pointers, one to the right of the current element
+            int right = nums.length - 1;
+
+            while (left < right) { // While the left pointer is less than the right pointer
+                if (nums[i] + nums[left] + nums[right] == targetSum) { // Check if the current triplet satisfies the condition
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right])); // If yes, add it to the result list
+                    
+                    // To avoid adding duplicate triplets, we can break out of the loop if the current triplets are equal to a previous one in reverse order or have duplicate elements
+                    int prevIndex = result.lastIndexOf(Arrays.asList(nums[left], nums[right], nums[i]));
+                    if (prevIndex != -1) {
+                        if (Arrays.equals(result.get(prevIndex).toArray(), new int[]{nums[i], nums[left], nums[right]})) { // check if the sub-arrays are equal
+                            break;
+                        }
+                    }
+                    
+                    left++; // Move the left pointer to the right of the current element
+                    right--; // Move the right pointer to the left of the current element
+                } else if (nums[i] + nums[left] + nums[right] < targetSum) { // If the sum is less than the target, move the left pointer to the right
+                    left++;
+                } else { // If the sum is greater than the target, move the right pointer to the left
+                    right--;
+                }
+            }
+        }
+
+        return result; // Return the list of unique triplets that satisfy the condition
+    }
+}

@@ -1,0 +1,15 @@
+The error is caused by the `TODO` comment in your code. This prevents Java compiler from executing any code as result of a missing implementation for the method findMedianSortedArrays(). You should delete this comment or provide an actual implementation. 
+
+Here's the corrected version:
+
+```java
+package _004_MedianOfTwoSortedArrays;
+
+public class Practice {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        // Your implementation goes here.
+    }
+}
+``` 
+
+If you need an example of how to implement this function, it can be complex due to the time complexity requirement and it'll also require understanding about binary search and divide-and-conquer methodologies. This is a complex problem which involves knowledge in advanced data structures and algorithms.

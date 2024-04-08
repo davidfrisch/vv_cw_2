@@ -1,0 +1,37 @@
+ Here is the complete Java code for the Roman to Integer problem:
+
+package _013_RomanToInteger;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Practice {
+
+    public int romanToInt(String a) {
+        // Initialize a map of Roman numerals and their integer values
+        Map<String, Integer> romanMap = new HashMap<>();
+        romanMap.put("I", 1);
+        romanMap.put("V", 5);
+        romanMap.put("X", 10);
+        romanMap.put("L", 50);
+        romanMap.put("C", 100);
+        romanMap.put("D", 500);
+        romanMap.put("M", 1000);
+
+        // Convert the Roman numeral to an integer
+        String[] parts = a.split("");
+        int result = 0;
+        for (int i = 0; i < parts.length; i++) {
+            String part = parts[i];
+            if (romanMap.containsKey(part)) {
+                result += romanMap.get(part);
+            } else {
+                // Unknown Roman numeral, return 0
+                return 0;
+            }
+        }
+        return result;
+    }
+}
+
+This code defines a `Practice` class with a `romanToInt()` method that takes a string of Roman numerals as input and returns the integer value of the Roman numeral. The method first initializes a map of Roman numerals and their integer values, and then splits the input string into individual parts. It then iterates over each part and adds the corresponding integer value to the result, using the map to look up the value of each part. If an unknown Roman numeral is encountered, the method returns 0.

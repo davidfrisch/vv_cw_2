@@ -1,0 +1,17 @@
+
+import org.junit.jupiter.api.BeforeEach;
+
+public class Practice {
+    // Add implementation here
+}
+
+class PracticeTest {
+    Practice solution;
+
+    @BeforeEach
+    public void setUp() {
+        solution = new Practice();
+    }
+
+    // Add test cases here
+}

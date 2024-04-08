@@ -1,0 +1,60 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    Compiling 2 source files to /app/leetcode-master/bin
+    /app/leetcode-master/test/_012_IntegerToRoman/PracticeTest.java:14: error: cannot find symbol
+        Practice solution;
+        ^
+      symbol:   class Practice
+      location: class PracticeTest
+    /app/leetcode-master/test/_012_IntegerToRoman/PracticeTest.java:21: error: cannot find symbol
+            solution = new Practice();
+                           ^
+      symbol:   class Practice
+      location: class PracticeTest
+    2 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+import java.util.Arrays;
+
+public class Practice {
+
+    private static final String[] romanDigits = {"I", "V", "X", "L", "XL", "XC", "D", "IX", "IV", "VII"};
+
+    public static void main(String[] args) {
+        int number = Integer.parseInt(args[0]);
+        System.out.println(intToRoman(number).toUpperCase());
+    }
+
+    private static String intToRoman(int num) {
+        StringBuilder result = new StringBuilder();
+        BigDecimal bd;
+        int divisor = 1;
+
+        while (num > 0) {
+            bd = BigDecimal.valueOf(num).divide(BigDecimal.valueOf(divisor), new MathContext(2, RoundingMode.DOWN));
+            int quo = bd.intValue();
+            num -= quo * divisor;
+
+            while (quo > 0) {
+                result.append(romanDigits[Math.min(quo, romanDigits.length - 1)]);
+                quo -= Math.floorDiv(quo, divisor);
+            }
+
+            divisor *= 10;
+        }
+
+        return result.reverse().toString();
+    }
+}

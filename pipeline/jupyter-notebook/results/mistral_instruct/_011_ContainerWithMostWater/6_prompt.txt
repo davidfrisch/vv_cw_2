@@ -1,0 +1,76 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:2: error: class, interface, or enum expected
+    public int maxArea(int[] height) {
+           ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:4: error: class, interface, or enum expected
+        int maxArea = Math.min(height[left], height[right]) * (right - left);
+        ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:6: error: class, interface, or enum expected
+        while (left < right) {
+        ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:8: error: class, interface, or enum expected
+            int currentHeightRight = height[right];
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:10: error: class, interface, or enum expected
+            if (currentHeightLeft > currentHeightRight) {
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:12: error: class, interface, or enum expected
+                left = right;
+                ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:13: error: class, interface, or enum expected
+                right = temp;
+                ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:14: error: class, interface, or enum expected
+            }
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:17: error: class, interface, or enum expected
+            int newMaxArea = Math.min(height[left], currentDifference) * height[left];
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:19: error: class, interface, or enum expected
+            maxArea = Math.max(newMaxArea, maxArea);
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:20: error: class, interface, or enum expected
+            left++;
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:21: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:24: error: class, interface, or enum expected
+    }
+    ^
+    13 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public int maxArea(int[] height) {
+    int left = 0, right = height.length - 1;
+    int maxArea = Math.min(height[left], height[right]) * (right - left);
+
+    while (left < right) {
+        int currentHeightLeft = height[left];
+        int currentHeightRight = height[right];
+
+        if (currentHeightLeft > currentHeightRight) {
+            int temp = left;
+            left = right;
+            right = temp;
+        }
+
+        int currentDifference = right - left;
+        int newMaxArea = Math.min(height[left], currentDifference) * height[left];
+
+        maxArea = Math.max(newMaxArea, maxArea);
+        left++;
+    }
+
+    return maxArea;
+}

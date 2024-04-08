@@ -1,0 +1,10 @@
+
+package _009_PalindromeNumber;
+
+public class Practice {
+
+    public boolean isPalindrome(int x) {
+        return false;
+    }
+
+}

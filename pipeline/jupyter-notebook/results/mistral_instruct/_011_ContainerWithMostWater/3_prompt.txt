@@ -1,0 +1,23 @@
+The following code has the following error: More than one Java code block found in the response, Only one Java code block is expected.
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public int maxArea(int[] height) {
+    int left = 0, right = height.length - 1;
+    int maxArea = Math.min(height[left], height[right]) * (right - left);
+
+    while (left < right) {
+        int currentArea = Math.min(height[left], height[right]) * (right - left);
+        if (currentArea > maxArea) {
+            maxArea = currentArea;
+        }
+
+        // Update pointers based on the shorter height to avoid array index out of bounds exception
+        if (height[left] <= height[right]) {
+            ++left;
+        } else {
+            --right;
+        }
+    }
+
+    return maxArea;
+}

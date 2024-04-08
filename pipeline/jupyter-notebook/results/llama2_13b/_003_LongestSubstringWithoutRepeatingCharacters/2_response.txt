@@ -1,0 +1,29 @@
+ Sure, here is the complete Java code for the `lengthOfLongestSubstring` method:
+
+```
+public int lengthOfLongestSubstring(String a) {
+    int len = 0;
+    int left = 0;
+    int right = 0;
+
+    for (int i = 0; i < a.length(); i++) {
+        char curr = a.charAt(i);
+
+        if (left == right) {
+            // If the current character is the same as the last character in the substring,
+            // then we can move the right pointer forward.
+            right++;
+        } else {
+            // Otherwise, we need to check if the current character is the same as the last character
+            // in the substring. If it is not, then we need to reset the right pointer to 0.
+            right = 0;
+        }
+
+        // Update the left pointer to move to the next character in the string.
+        left++;
+    }
+
+    return len;
+}
+```
+This method uses two pointers, `left` and `right`, to keep track of the positions of the substring. The `left` pointer moves forward as we iterate through the string, and the `right` pointer moves forward only when we encounter a character that is not the same as the last character in the substring. At the end of the loop, the `right` pointer will be at the position of the longest substring without repeating characters.

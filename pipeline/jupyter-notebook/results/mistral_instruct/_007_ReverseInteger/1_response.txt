@@ -1,0 +1,42 @@
+ Here's the fixed Java code:
+
+```java
+/**
+ * Description:
+ * 
+ * Reverse digits of an integer. 
+ * 
+ * Example1: x = 123, return 321
+ * Example2: x = -123, return -321 
+ * 
+ * Return 0 if the result overflows and does not fit in a 32 bit signed integer
+ *
+ * @tag : Math
+ * {@link https://leetcode.com/problems/reverse-integer/ }
+ */
+package _007_ReverseInteger;
+
+/** see test {@link _007_ReverseInteger.PracticeTest } */
+public class Practice {
+    static long reverseLong(long num) {
+        long reversedNum = 0;
+        while (num != 0) {
+            long digit = num % 10;
+            num /= 10;
+            reversedNum = reversedNum * 10 + digit;
+        }
+        return reversedNum;
+    }
+
+    public int reverse(int a) {
+        long reversedNum = reverseLong((long)a);
+        if (reversedNum > Integer.MAX_VALUE) {
+            return 0;
+        } else {
+            return (int)reversedNum;
+        }
+    }
+}
+```
+
+I've changed the `reverse` method to use a helper `reverseLong` method that works with longs instead of ints. This way, we can reverse larger numbers without worrying about integer overflows. After reversing the number, we check if the result fits within an int before returning it.

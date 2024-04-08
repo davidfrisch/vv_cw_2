@@ -1,0 +1,20 @@
+The error is caused by the fact that the class "TwoSum" is already defined in another file (Practice.java) and it should be declared in a separate file named TwoSum.java.
+
+Here is the corrected version of the code:
+
+public class TwoSum {
+    public int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target) {
+                result[0] = nums[i];
+                break;
+            }
+            if (nums[i] + target == 0) {
+                result[1] = nums[i];
+                break;
+            }
+        }
+        return result;
+    }
+}

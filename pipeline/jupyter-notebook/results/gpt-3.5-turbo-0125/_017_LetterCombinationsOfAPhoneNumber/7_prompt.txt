@@ -1,0 +1,18 @@
+The following code has the following error: [Errno 2] No such file or directory: '../leetcode-master/report/TEST-_017_LetterCombinationsOfAPhoneNumber.PracticeTest.xml'
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.util.List;
+
+public class Practice {
+    public List<String> letterCombinations(String digits) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+}
+
+class PracticeTest {
+    Practice solution;
+    PracticeTest() {
+        solution = new Practice();
+    }
+}

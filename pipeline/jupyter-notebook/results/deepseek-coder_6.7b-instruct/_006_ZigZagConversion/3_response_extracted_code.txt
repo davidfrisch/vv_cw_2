@@ -1,0 +1,11 @@
+
+public class Practice {
+    // Some methods and properties...
+}
+
+public class PracticeTest {
+    public static void main(String[] args) {
+        Practice practice = new Practice();
+        // Use the practice object to test your solution...
+    }
+}

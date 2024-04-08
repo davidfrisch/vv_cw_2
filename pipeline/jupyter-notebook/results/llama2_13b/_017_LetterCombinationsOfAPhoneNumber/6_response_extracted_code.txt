@@ -1,0 +1,12 @@
+
+import java.util.List;
+
+public class Practice {
+    // Define the practice method here
+}
+
+public class PracticeTest {
+    public static void main(String[] args) {
+        // Test the practice method here
+    }
+}

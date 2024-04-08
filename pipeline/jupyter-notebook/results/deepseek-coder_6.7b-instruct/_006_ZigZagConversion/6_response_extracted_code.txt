@@ -1,0 +1,11 @@
+makefile
+clean:
+    [delete] Deleting directory /app/leetcode-master/bin
+    [delete] Deleting directory /app/leetcode-master/report
+
+init:
+     [mkdir] Created dir: /app/leetcode-master/bin
+     [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    javac /app/leetcode-master/src/_006_ZigZagConversion/*.java -d /app/leetcode-master/bin

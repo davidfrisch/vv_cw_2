@@ -1,0 +1,72 @@
+{
+    "total_retries": 1,
+    "model": "gpt-3.5-turbo-0125",
+    "leetcode_question": "_001_TwoSum",
+    "passed": true,
+    "tries": {
+        "0": {
+            "extra_prompt": "Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain !",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\n/**\n ***************************************************************************\n * Description:\n * Given an array of integers, find two numbers such that they add up to \n * a specific target number. \n * The function twoSum should return indices of the two numbers such that \n * they add up to the target, where index1 must be less than index2. \n * Please note that your returned answers (both index1 and index2) are not \n * zero-based. \n * \n * You may assume that each input would have exactly one solution. \n * Input: numbers={2, 7, 11, 15}, target=9 \n * Output: index1=1, index2=2\n * \n ***************************************************************************\n * @tag : Array; Hash Table\n * {@link https://leetcode.com/problems/two-sum/ }\n */\npackage _001_TwoSum;\n\n/** see test {@link _001_TwoSum.PracticeTest } */\nimport java.util.HashMap;\n\npublic class Practice {\n\n  public int[] twoSum(int[] nums, int target) {\n      HashMap<Integer, Integer> map = new HashMap<>();\n      for (int i = 0; i < nums.length; i++) {\n          int complement = target - nums[i];\n          if (map.containsKey(complement)) {\n              return new int[] { map.get(complement), i + 1 };\n          }\n          map.put(nums[i], i + 1);\n      }\n      throw new IllegalArgumentException(\"No two sum solution\");\n  }\n\n}\n```  ",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "6",
+            "num_successes": 6,
+            "num_failures": "0",
+            "num_errors": "0",
+            "timestamp": "2024-04-08T15:40:01",
+            "test_cases": [
+                {
+                    "name": "Test0",
+                    "time": "0.009",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test0() {\n        int[] nums = { 2, 7, 11, 13 };\n        int target = 9;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 1, 2 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+                },
+                {
+                    "name": "Test1",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int[] nums = { 13, 7, 11, 2 };\n        int target = 9;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 2, 4 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test4() {\n        int[] nums = { 13, 11, 7, 2 };\n        int target = 9;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 3, 4 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test5() {\n        int[] nums = { 13, 11, 7, 2 };\n        int target = 24;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 1, 2 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+                },
+                {
+                    "name": "Test6",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test6() {\n        int[] nums = { 13, 11, 7, 2 };\n        int target = 15;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 1, 4 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+                },
+                {
+                    "name": "Test7",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test7() {\n        int[] nums = { 4, 7, -4, 2, 2, 2, 3, -5, -3, 9, -4, 9, -7, 7, -1, 9, 9,\n                4, 1, -4, -2, 3, -3, -5, 4, -7, 7, 9, -4, 4, -8 };\n        int target = -3;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 6, 8 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+                }
+            ]
+        }
+    }
+}

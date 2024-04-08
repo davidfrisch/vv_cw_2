@@ -1,0 +1,9 @@
+ The error message you're seeing is because the Java compiler is expecting a class, interface, or enum definition, but instead it finds a method definition. To fix this issue, you need to wrap the method definition in a class, like this:
+```
+public class TwoSum {
+    public int[] twoSum(int[] nums, int target) {
+        // Your method implementation here
+    }
+}
+```
+This will tell the Java compiler that the `twoSum` method is part of a class, and it will be able to compile correctly.

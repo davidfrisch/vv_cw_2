@@ -1,0 +1,67 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:2: error: class, interface, or enum expected
+    public int maxArea(int[] height) {
+           ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:4: error: class, interface, or enum expected
+        int maxArea = Math.min(height[left], height[right]) * (right - left);
+        ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:6: error: class, interface, or enum expected
+        while (left < right) {
+        ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:8: error: class, interface, or enum expected
+            int currentHeightRight = height[right];
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:10: error: class, interface, or enum expected
+            int currentArea = Math.min(currentHeightLeft, currentHeightRight) * (right - left);
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:12: error: class, interface, or enum expected
+            if (currentArea > maxArea) {
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:14: error: class, interface, or enum expected
+            }
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:18: error: class, interface, or enum expected
+            } else {
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:20: error: class, interface, or enum expected
+            }
+            ^
+    /app/leetcode-master/src/_011_ContainerWithMostWater/Practice.java:24: error: class, interface, or enum expected
+    }
+    ^
+    10 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public int maxArea(int[] height) {
+    int left = 0, right = height.length - 1;
+    int maxArea = Math.min(height[left], height[right]) * (right - left);
+
+    while (left < right) {
+        int currentHeightLeft = height[left];
+        int currentHeightRight = height[right];
+
+        int currentArea = Math.min(currentHeightLeft, currentHeightRight) * (right - left);
+
+        if (currentArea > maxArea) {
+            maxArea = currentArea;
+        }
+
+        if (currentHeightLeft <= currentHeightRight) {
+            ++left;
+        } else {
+            --right;
+        }
+    }
+
+    return maxArea;
+}

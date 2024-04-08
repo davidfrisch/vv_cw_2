@@ -1,0 +1,6 @@
+
+import java.util.*; // This line imports ArrayList class and other utility classes used in this script
+
+public class Main {  
+    public static void main(String[] args) {  }  // Empty main method
+}

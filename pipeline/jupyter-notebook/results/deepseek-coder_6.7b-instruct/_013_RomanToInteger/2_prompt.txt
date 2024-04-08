@@ -1,0 +1,105 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:19: error: illegal start of expression
+                int currVal = switch (currChar) {
+                              ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:20: error: : expected
+                    case 'I' -> 1;
+                            ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:20: error: illegal start of expression
+                    case 'I' -> 1;
+                             ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:21: error: : expected
+                    case 'V' -> 5;
+                            ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:21: error: illegal start of expression
+                    case 'V' -> 5;
+                             ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:22: error: : expected
+                    case 'X' -> 10;
+                            ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:22: error: illegal start of expression
+                    case 'X' -> 10;
+                             ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:23: error: : expected
+                    case 'L' -> 50;
+                            ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:23: error: illegal start of expression
+                    case 'L' -> 50;
+                             ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:24: error: : expected
+                    case 'C' -> 100;
+                            ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:24: error: illegal start of expression
+                    case 'C' -> 100;
+                             ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:25: error: : expected
+                    case 'D' -> 500;
+                            ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:25: error: illegal start of expression
+                    case 'D' -> 500;
+                             ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:26: error: : expected
+                    case 'M' -> 1000;
+                            ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:26: error: illegal start of expression
+                    case 'M' -> 1000;
+                             ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:27: error: : expected
+                    default -> throw new IllegalStateException("Unexpected value: " + currChar);
+                           ^
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:27: error: illegal start of expression
+                    default -> throw new IllegalStateException("Unexpected value: " + currChar);
+                            ^
+    17 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _013_RomanToInteger;
+
+public class Practice {
+    public static void main(String[] args) {
+        System.out.println(romanToInt("III")); // 3
+        System.out.println(romanToInt("IV")); // 4
+        System.out.println(romanToInt("IX")); // 9
+        System.out.println(romanToInt("LVIII")); // 58
+        System.out.println(romanToInt("MCMXCIV")); // 1994
+    }
+    
+    public static int romanToInt(String s) {
+        int result = 0;
+        int prevValue = 0;
+        
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char currChar = s.charAt(i);
+            int currVal = switch (currChar) {
+                case 'I' -> 1;
+                case 'V' -> 5;
+                case 'X' -> 10;
+                case 'L' -> 50;
+                case 'C' -> 100;
+                case 'D' -> 500;
+                case 'M' -> 1000;
+                default -> throw new IllegalStateException("Unexpected value: " + currChar);
+            };
+            
+            if (currVal >= prevValue) {
+                result += currVal;
+            } else {
+                result -= currVal;
+            }
+            
+            prevValue = currVal;
+        }
+        
+        return result;
+    }
+}

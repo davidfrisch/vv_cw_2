@@ -1,0 +1,20 @@
+The following code has the following error: No Java code block found in the given response.
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public int lengthOfLongestSubstring(String a) {
+    int len = 0;
+    int left = 0;
+    int right = 0;
+
+    for (int i = 0; i < a.length(); i++) {
+        char curr = a.charAt(i);
+
+        if (right == 0 || curr != a.charAt(right - 1)) {
+            right = 0;
+        }
+
+        left++;
+    }
+
+    return len;
+}

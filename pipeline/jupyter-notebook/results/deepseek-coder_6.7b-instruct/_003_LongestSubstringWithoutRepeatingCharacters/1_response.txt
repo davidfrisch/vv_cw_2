@@ -1,0 +1,49 @@
+Here is the corrected Java code to solve this problem using sliding window and hashmap:
+
+```java
+public class Practice {
+    public int lengthOfLongestSubstring(String s) {
+        if (s.length() == 0) return 0;
+        
+        HashMap<Character, Integer> map = new HashMap<>();
+        int maxLength = 0;
+        for (int i=0, j=0; j<s.length(); ++j){
+            if(map.containsKey(s.charAt(j))){
+                i = Math.max(i, map.get(s.charAt(j)));
+           from collections import deque 
+# Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+def longest_substring(s: str, k: int) -> int:
+    n = len(s) 
+    
+    if (k==0 or n==0): 
+        return 0
+  
+    left = 0
+    hashmap={} 
+      
+    maxLength = 1
+    uniqueCount = 0
+
+    for right in range(n): 
+          
+         # add the new character in the hashmap and increase the count of distinct characters by one.
+        if (s[right] not in hashmap):  
+            hashmap[s[right]]=1
+            uniqueCount += 1
+            
+        else: 
+            hashmap[s[right]]+=1
+              
+         # Shrink the sliding window from the left, until we have k distinct characters.
+        while (uniqueCount > k):  
+                  
+                  if (hashmap[s[left]] == 1):
+                      uniqueCount -= 1 
+                      
+                  hashmap[s[left]]-=1
+                  
+                  left+=1
+              
+        maxLength = max(maxLength, right-left + 1)  
+    return maxLength 
+```

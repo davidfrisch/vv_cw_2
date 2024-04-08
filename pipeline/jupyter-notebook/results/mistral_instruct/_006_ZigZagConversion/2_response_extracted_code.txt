@@ -1,0 +1,40 @@
+
+package _006_ZigZagConversion;
+
+/** see test {@link _006_ZigZagConversion.PracticeTest} */
+public class Practice {
+
+    public String convert(String text, int numRows) {
+        if (numRows <= 0 || text == null || text.isEmpty()) {
+            return text;
+        }
+
+        int stringLength = text.length();
+        int rowSize = (stringLength + numRows - 1) / numRows;
+
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < numRows; i++) {
+            int startIndex = i;
+            int endIndex = Math.min(rowSize, i + numRows - 1);
+            if (i == numRows - 1) {
+                // last row, process remaining characters
+                endIndex = stringLength;
+            }
+            result.append(text.substring(startIndex, endIndex));
+            if (i < numRows - 1) {
+                int step = i == 0 ? 1 : i;
+                result.append(System.lineSeparator());
+                for (int j = startIndex + step; j <= endIndex; j += 2 * numRows - 1) {
+                    if (j < text.length()) {
+                        result.append(" ");
+                        result.append(text.charAt(j));
+                    }
+                }
+            }
+        }
+
+        return result.toString();
+    }
+
+}

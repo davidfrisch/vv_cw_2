@@ -1,0 +1,52 @@
+ Sure! Here's the complete solution code for the 4Sum problem:
+
+package _018_4Sum;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Practice {
+
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        // Initialize a hash table to store the quadruplets
+        List<List<Integer>> result = new ArrayList<>();
+        int[][] hash = new int[target][4];
+
+        // Iterate through the input array
+        for (int i = 0; i < nums.length; i++) {
+            // Initialize two pointers, one starting from the beginning and one from the end
+            int left = 0;
+            int right = nums.length - 1;
+
+            // Iterate through the array, looking for quadruplets
+            while (left < right) {
+                int a = nums[left];
+                int b = nums[right];
+                int c = nums[left + 1];
+                int d = nums[right - 1];
+
+                // Check if the quadruplet sums to target
+                if (a + b + c + d == target) {
+                    // Add the quadruplet to the result list
+                    List<Integer> quad = new ArrayList<>();
+                    quad.add(a);
+                    quad.add(b);
+                    quad.add(c);
+                    quad.add(d);
+                    result.add(quad);
+                }
+
+                // Move the pointers accordingly
+                if (a + b + c < target) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+
+        return result;
+    }
+}
+
+Note that this solution uses a hash table to keep track of the quadruplets, and two pointers to iterate through the input array. The time complexity is O(n^2) and the space complexity is O(n^2) as well.

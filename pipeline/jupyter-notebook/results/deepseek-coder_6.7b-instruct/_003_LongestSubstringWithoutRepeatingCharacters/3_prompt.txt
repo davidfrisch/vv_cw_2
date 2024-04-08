@@ -1,0 +1,60 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    Compiling 2 source files to /app/leetcode-master/bin
+    /app/leetcode-master/test/_003_LongestSubstringWithoutRepeatingCharacters/PracticeTest.java:14: error: cannot find symbol
+        Practice solution;
+        ^
+      symbol:   class Practice
+      location: class PracticeTest
+    /app/leetcode-master/test/_003_LongestSubstringWithoutRepeatingCharacters/PracticeTest.java:21: error: cannot find symbol
+            solution = new Practice();
+                           ^
+      symbol:   class Practice
+      location: class PracticeTest
+    2 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.util.*;
+public class Practice {
+    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+        if (k==0 || s.length() == 0) return 0;
+        
+        HashMap<Character, Integer> map = new HashMap<>();
+        int maxLength = 1;
+        int left = 0;
+      
+        for (int i=0; i<s.length(); ++i){  
+            char c = s.charAt(i); 
+            
+            if(!map.containsKey(c)){  
+                map.put(c,1);
+                
+                while (map.size() > k) {  
+                    char leftChar = s.charAt(left);
+                    if(map.get(leftChar) == 1){
+                        map.remove(leftChar);
+                    } else {
+                        map.put(leftChar, map.get(leftChar)-1);
+                    }
+                    
+                    left++;
+                }
+            } else {
+                map.put(c,map.get(c)+1);  
+            }
+            
+            maxLength = Math.max(maxLength, i - left + 1); 
+        }
+        
+        return maxLength;  
+    }
+}

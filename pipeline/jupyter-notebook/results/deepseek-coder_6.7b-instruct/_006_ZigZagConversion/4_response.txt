@@ -1,0 +1,9 @@
+Your Java code is fine. It defines two classes, `Practice` and `PracticeTest`. The problem might be due to how you are compiling these files or running them. Here's a sample command that may help in your case:
+
+```bash
+javac /app/leetcode-master/src/_006_ZigZagConversion/*.java -d /app/leetcode-master/bin
+```
+
+This will compile all the Java files under `/app/leetcode-master/src/_006_ZigZagConversion` directory to the bin directory, which should resolve your error. Remember that you have to run this command every time when there are any changes in your source files. 
+
+If you still face issues, please provide more context or details about how these files are being compiled and executed.

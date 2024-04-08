@@ -1,0 +1,19 @@
+ It looks like you have a compilation error due to having a duplicate definition of the `ListNode` class in your project. In your code snippet above, there is no issue with the `Practice` class, but you should ensure that the `ListNode` class definition exists only in one location within your project directory.
+
+Make sure that the `ListNode` class is located in a proper package under the `src` directory to avoid conflicts, such as placing it under `src/com/leetcode/ListNode.java`. Additionally, you can rename the class definition if you have multiple files with the same name and move the respective file(s) to a different location within your project directory.
+
+Here's an example of how you can structure your package:
+
+```markdown
+src/
+├── com/
+│   └── leetcode/
+│       ├── ListNode.java
+│       └── Practice.java
+└── bin/
+    └── com/
+        └── leetcode/
+            └── Practice.class
+```
+
+Make sure that all your `.java` files are compiled and placed in the appropriate directories for proper compilation of your project.

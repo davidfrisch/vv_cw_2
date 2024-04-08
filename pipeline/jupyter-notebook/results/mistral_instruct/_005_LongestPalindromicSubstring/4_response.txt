@@ -1,0 +1,42 @@
+ It looks like there is a problem with the import statement or the class name in your Java file. Here is the corrected version of the code:
+
+```java
+public class Practice {
+    public String longestPalindrome(String s) {
+        if (s == null || s.length() < 1) return "";
+
+        int maxLength = 1;
+        String longestPalindrome = s.substring(0, 1);
+
+        for (int start = 0; start < s.length(); start++) {
+            int rightBound = expandAroundCenter(s, start);
+            if (rightBound > maxLength) {
+                maxLength = rightBound;
+                longestPalindrome = s.substring(start - (maxLength >> 1), start + (maxLength >> 1) + 1);
+            }
+        }
+
+        return longestPalindrome;
+    }
+
+    private int expandAroundCenter(String s, int center) {
+        int left = center, right = center;
+        while (right < s.length() && s.charAt(right) == s.charAt(right + 1)) {
+            right++;
+        }
+
+        int expansionLength = right - center + 1;
+        if (expansionLength > 2) {
+            while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+                left--;
+                right++;
+            }
+            expansionLength = right - left + 1;
+        }
+
+        return expansionLength;
+    }
+}
+```
+
+Make sure you have the correct import statements if any are missing. This code snippet does not contain any imports, so there is no need to add them here.

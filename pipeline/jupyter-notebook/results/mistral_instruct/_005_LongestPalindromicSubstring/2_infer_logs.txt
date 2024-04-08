@@ -1,0 +1,63 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:2: error: class, interface, or enum expected
+    public String longestPalindrome(String s) {
+           ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:5: error: class, interface, or enum expected
+        int maxLength = 1;
+        ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:6: error: class, interface, or enum expected
+        String longestPalindrome = s.substring(0, 1);
+        ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:8: error: class, interface, or enum expected
+        for (int start = 0; start < s.length(); start++) {
+        ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:8: error: class, interface, or enum expected
+        for (int start = 0; start < s.length(); start++) {
+                            ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:8: error: class, interface, or enum expected
+        for (int start = 0; start < s.length(); start++) {
+                                                ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:10: error: class, interface, or enum expected
+            if (rightBound > maxLength) {
+            ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:12: error: class, interface, or enum expected
+                longestPalindrome = s.substring(start - (maxLength >> 1), start + (maxLength >> 1) + 1);
+                ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:13: error: class, interface, or enum expected
+            }
+            ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:17: error: class, interface, or enum expected
+    }
+    ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:21: error: class, interface, or enum expected
+        while (right < s.length() && s.charAt(right) == s.charAt(right + 1)) {
+        ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:23: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:26: error: class, interface, or enum expected
+        if (expansionLength > 2) {
+        ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:29: error: class, interface, or enum expected
+                right++;
+                ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:30: error: class, interface, or enum expected
+            }
+            ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:32: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:35: error: class, interface, or enum expected
+    }
+    ^
+    17 errors

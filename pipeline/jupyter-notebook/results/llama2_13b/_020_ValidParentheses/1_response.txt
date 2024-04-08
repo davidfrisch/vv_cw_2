@@ -1,0 +1,23 @@
+ Sure! Here's the complete Java code for the `isValid` method:
+
+```
+public boolean isValid(String s) {
+    Stack<Character> stack = new Stack<>();
+    for (int i = 0; i < s.length(); i++) {
+        char c = s.charAt(i);
+        if (c == '(' || c == '[') {
+            stack.push(c);
+        } else if (c == ')' || c == ']') {
+            if (stack.isEmpty()) {
+                return false;
+            }
+            char last = stack.pop();
+            if (last != '(' && last != '[') {
+                return false;
+            }
+        }
+    }
+    return stack.isEmpty();
+}
+```
+This method uses a `Stack` to track the open parentheses and brackets. It iterates through the input string, and for each character, it checks if it is a opening parenthesis or bracket (`('` or `[`)). If it is, it pushes it onto the stack. If it is a closing parenthesis or bracket (`)` or `]`)), it pops the corresponding opening character from the stack and checks if it matches. If there is no matching opening character, the method returns `false`. Finally, it checks if the stack is empty after iterating through the entire input string, and returns `true` if it is empty, indicating that the input string is valid.

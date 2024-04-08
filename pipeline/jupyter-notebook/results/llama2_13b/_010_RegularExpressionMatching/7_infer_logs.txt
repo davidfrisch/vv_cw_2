@@ -1,0 +1,27 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 15 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_010_RegularExpressionMatching/Practice.java:4: error: cannot find symbol
+            Pattern pattern = Pattern.compile(p);
+            ^
+      symbol:   class Pattern
+      location: class Practice
+    /app/leetcode-master/src/_010_RegularExpressionMatching/Practice.java:4: error: cannot find symbol
+            Pattern pattern = Pattern.compile(p);
+                              ^
+      symbol:   variable Pattern
+      location: class Practice
+    /app/leetcode-master/src/_010_RegularExpressionMatching/Practice.java:5: error: cannot find symbol
+            Matcher matcher = pattern.matcher(s);
+            ^
+      symbol:   class Matcher
+      location: class Practice
+    3 errors

@@ -1,0 +1,27 @@
+The provided Java code seems to be correct for reversing an integer, including the check of overflow. However, you have mentioned that there's no "Java code block found in the given response." This could mean that there was a problem with copying and pasting the code into the system you are using or it might not actually contain any Java code.
+
+Here is the provided java code:
+
+```java
+package _007_ReverseInteger;
+
+public class App {
+    public int reverse(int a) {
+        long res = 0;
+        
+        while (a != 0) {
+            res = res*10 + a % 10;
+            
+            if (res > Integer.MAX_VALUE || res < Integer.MIN_VALUE){
+                return 0;
+            }
+                
+            a = a / 10;
+        
+        }
+        
+        return (int)res;
+    }
+}
+```
+This code should reverse an integer correctly and handle cases where the reversed number would exceed the maximum or minimum value of an `int`. It does this by multiplying the current result by 10 to shift all digits one place to the left, then adding the last digit of 'a'. If at any point the result is larger than `Integer.MAX_VALUE` or smaller than `Integer.MIN_VALUE`, it immediately returns 0. Finally, after we've processed all digits in 'a', we convert the result back to an int and return it.

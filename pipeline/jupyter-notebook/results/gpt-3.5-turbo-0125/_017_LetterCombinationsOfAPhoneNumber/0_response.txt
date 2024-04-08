@@ -1,0 +1,58 @@
+/**
+ *************************************************************************
+ * Description: 
+ * 
+ * Given a digit string, return all possible letter combinations that the 
+ * number could represent. 
+ * A mapping of digit to letters (just like on the telephone buttons) 
+ * is given below.
+ * 
+ * Input:Digit string "23" 
+ * Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]. 
+ * 
+ * Note: 
+ * Although the above answer is in lexicographical order, your answer 
+ * could be in any order you want.
+ * 
+ *************************************************************************
+ * @tag : Backtracking; String
+ * {@link https://leetcode.com/problems/letter-combinations-of-a-phone-number/ }
+ */
+package _017_LetterCombinationsOfAPhoneNumber;
+
+import java.util.List;
+
+/** see test {@link _017_LetterCombinationsOfAPhoneNumber.PracticeTest } */
+public class Practice {
+
+    public List<String> letterCombinations(String digits) {
+        List<String> result = new ArrayList<>();
+        if (digits == null || digits.length() == 0) {
+            return result;
+        }
+        Map<Character, String> map = new HashMap<>();
+        map.put('2', "abc");
+        map.put('3', "def");
+        map.put('4', "ghi");
+        map.put('5', "jkl");
+        map.put('6', "mno");
+        map.put('7', "pqrs");
+        map.put('8', "tuv");
+        map.put('9', "wxyz");
+        backtrack(result, map, digits, "", 0);
+        return result;
+    }
+
+    private void backtrack(List<String> result, Map<Character, String> map, String digits, String combination, int index) {
+        if (index == digits.length()) {
+            result.add(combination);
+            return;
+        }
+        char digit = digits.charAt(index);
+        String letters = map.get(digit);
+        for (int i = 0; i < letters.length(); i++) {
+            backtrack(result, map, digits, combination + letters.charAt(i), index + 1);
+        }
+    }
+
+}

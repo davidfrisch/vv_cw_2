@@ -1,0 +1,101 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_018_4Sum/Practice.java:2: error: class, interface, or enum expected
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+           ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:4: error: class, interface, or enum expected
+        if (nums.length < 4) {
+        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:6: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:8: error: class, interface, or enum expected
+        int right = nums.length - 1;
+        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:9: error: class, interface, or enum expected
+        while (left < right) {
+        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:11: error: class, interface, or enum expected
+            if (sum == target) {
+            ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:13: error: class, interface, or enum expected
+                quad.add(nums[left]);
+                ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:14: error: class, interface, or enum expected
+                quad.add(nums[right]);
+                ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:15: error: class, interface, or enum expected
+                res.add(quad);
+                ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:16: error: class, interface, or enum expected
+                while (left < right && nums[left] + nums[right] <= target) {
+                ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:18: error: class, interface, or enum expected
+                    right--;
+                    ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:19: error: class, interface, or enum expected
+                    sum = nums[left] + nums[right];
+                    ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:20: error: class, interface, or enum expected
+                }
+                ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:23: error: class, interface, or enum expected
+                    quad.add(nums[right]);
+                    ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:24: error: class, interface, or enum expected
+                    res.add(quad);
+                    ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:25: error: class, interface, or enum expected
+                }
+                ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:28: error: class, interface, or enum expected
+            right--;
+            ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:29: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:31: error: class, interface, or enum expected
+    }
+    ^
+    19 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public List<List<Integer>> fourSum(int[] nums, int target) {
+    List<List<Integer>> res = new ArrayList<>();
+    if (nums.length < 4) {
+        return res;
+    }
+    int left = 0;
+    int right = nums.length - 1;
+    while (left < right) {
+        int sum = nums[left] + nums[right];
+        if (sum == target) {
+            List<Integer> quad = new ArrayList<>();
+            quad.add(nums[left]);
+            quad.add(nums[right]);
+            res.add(quad);
+            while (left < right && nums[left] + nums[right] <= target) {
+                left++;
+                right--;
+                sum = nums[left] + nums[right];
+            }
+            if (sum == target) {
+                quad.add(nums[left]);
+                quad.add(nums[right]);
+                res.add(quad);
+            }
+        }
+        left++;
+        right--;
+    }
+    return res;
+}

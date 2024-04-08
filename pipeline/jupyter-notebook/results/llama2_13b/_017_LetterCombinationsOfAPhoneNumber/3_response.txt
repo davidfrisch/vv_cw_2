@@ -1,0 +1,63 @@
+ Sure, here is the Java code for the problem "Letter Combinations of a Phone Number" from LeetCode:
+
+```
+import java.util.List;
+
+public class Practice {
+
+    public List<String> letterCombinations(String digits) {
+        // Use backtracking to generate all possible combinations
+        List<String> res = new ArrayList<>();
+        dfs(digits, res);
+        return res;
+    }
+
+    private void dfs(String digits, List<String> res) {
+        if (digits.length() == 0) {
+            res.add(""); // empty string
+            return;
+        }
+
+        for (int i = 0; i < digits.length(); i++) {
+            char c = digits.charAt(i);
+            switch (c) {
+                case '2':
+                    dfs(digits.substring(0, i) + "a", res);
+                    dfs(digits.substring(i + 1), res);
+                    break;
+                case '3':
+                    dfs(digits.substring(0, i) + "b", res);
+                    dfs(digits.substring(i + 1), res);
+                    break;
+                case '4':
+                    dfs(digits.substring(0, i) + "c", res);
+                    dfs(digits.substring(i + 1), res);
+                    break;
+                case '5':
+                    dfs(digits.substring(0, i) + "d", res);
+                    dfs(digits.substring(i + 1), res);
+                    break;
+                case '6':
+                    dfs(digits.substring(0, i) + "e", res);
+                    dfs(digits.substring(i + 1), res);
+                    break;
+                case '7':
+                    dfs(digits.substring(0, i) + "f", res);
+                    dfs(digits.substring(i + 1), res);
+                    break;
+                case '8':
+                    dfs(digits.substring(0, i) + "g", res);
+                    dfs(digits.substring(i + 1), res);
+                    break;
+                case '9':
+                    dfs(digits.substring(0, i) + "h", res);
+                    dfs(digits.substring(i + 1), res);
+                    break;
+            }
+        }
+    }
+}
+```
+This code implements the `dfs` function which uses backtracking to generate all possible combinations of letters for a given phone number. The `letterCombinations` function simply calls `dfs` with the input phone number and an empty list of results.
+
+Note that this code assumes that the input phone number is a string of digits, and it does not handle invalid inputs (e.g. a phone number with more than 10 digits). Also, the output list of combinations is not sorted or filtered in any way, so you may need to add additional logic to get the desired output format.

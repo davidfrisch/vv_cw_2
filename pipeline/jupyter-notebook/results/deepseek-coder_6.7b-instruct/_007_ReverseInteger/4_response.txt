@@ -1,0 +1,16 @@
+Your code is fine as it is, the problem lies in the way you're trying to run your Java application. It seems like you're using some makefile or build tool that needs a main class to start your program. 
+
+If this is what causes the error you mentioned, then you need to create a new file named `App.java` with the following content:
+
+```java
+package _007_ReverseInteger;
+
+public class App {
+    public static void main(String[] args) {
+        // Testing your reverse function here. For example, you can call it like this:
+        System.out.println((new Practice()).reverse(-123));
+    }
+}
+```
+
+Then compile and run the `App` class to see if that fixes your problem. If not, please provide more information about how you're building/compiling/running your project so we can help better.

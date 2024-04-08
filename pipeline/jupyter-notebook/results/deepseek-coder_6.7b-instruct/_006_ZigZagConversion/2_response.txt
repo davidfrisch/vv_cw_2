@@ -1,0 +1,6 @@
+The error is occurring because you're trying to use Java's List and ArrayList classes, but they are not being imported in your code. You need to add the following lines at the start of your file to import these two classes:
+
+```java
+import java.util.List;
+import java.util.ArrayList;
+```

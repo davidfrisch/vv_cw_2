@@ -1,0 +1,1 @@
+{"is_extracted": false, "number_of_code_blocks": 0, "extra_information_num_words": null, "response": " Here is the corrected Java code:\n\nboolean[][] dp; // Declare without initializing\n\n// ... other code ...\n\nif (m > 0 && n > 0) {\n    dp = new boolean[m + 1][n + 1]; // Initialize with correct dimensions\n}"}

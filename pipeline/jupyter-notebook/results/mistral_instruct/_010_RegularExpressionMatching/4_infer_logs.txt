@@ -1,0 +1,21 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 15 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_010_RegularExpressionMatching/Practice.java:2: error: class, interface, or enum expected
+    boolean[][] dp; // Declare without initializing
+    ^
+    /app/leetcode-master/src/_010_RegularExpressionMatching/Practice.java:6: error: class, interface, or enum expected
+    if (m > 0 && n > 0) {
+    ^
+    /app/leetcode-master/src/_010_RegularExpressionMatching/Practice.java:8: error: class, interface, or enum expected
+    }
+    ^
+    3 errors

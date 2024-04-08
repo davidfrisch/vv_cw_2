@@ -1,0 +1,35 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:2: error: class, interface, or enum expected
+    public int[] twoSum(int[] nums, int target) {
+           ^
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:4: error: class, interface, or enum expected
+      for (int i = 0; i < nums.length; i++) {
+      ^
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:4: error: class, interface, or enum expected
+      for (int i = 0; i < nums.length; i++) {
+                      ^
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:4: error: class, interface, or enum expected
+      for (int i = 0; i < nums.length; i++) {
+                                       ^
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:6: error: class, interface, or enum expected
+        if (map.containsKey(remainingTarget)) {
+        ^
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:8: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:10: error: class, interface, or enum expected
+      }
+      ^
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:12: error: class, interface, or enum expected
+    }
+    ^
+    8 errors

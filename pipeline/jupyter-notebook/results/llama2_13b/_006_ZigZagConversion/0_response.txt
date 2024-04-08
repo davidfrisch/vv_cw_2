@@ -1,0 +1,36 @@
+ Sure! Here's the complete solution code:
+
+package _006_ZigZagConversion;
+
+import java.util.Stack;
+
+public class Practice {
+
+    public String convert(String a, int b) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < a.length(); i++) {
+            char c = a.charAt(i);
+            if (i % 2 == 0) {
+                stack.push(c);
+            } else {
+                stack.push(c);
+                stack.pop();
+            }
+        }
+        String result = "";
+        while (!stack.isEmpty()) {
+            result += stack.pop();
+        }
+        return result;
+    }
+
+}
+
+Here's an explanation of the solution:
+
+1. We use a Stack to store the characters of the input string.
+2. We iterate through the input string, and for each character, we check if the current index is even or odd.
+3. If the index is even, we push the character onto the stack.
+4. If the index is odd, we pop the top character from the stack, and then push the current character onto the stack.
+5. After iterating through the entire input string, we use the stack to construct the zigzag pattern. We do this by taking the characters off the stack and concatenating them into a new string.
+6. Finally, we return the zigzag pattern as the result of the function.

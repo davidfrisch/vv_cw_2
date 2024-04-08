@@ -1,0 +1,64 @@
+{
+    "total_retries": 1,
+    "model": "gpt-3.5-turbo-0125",
+    "leetcode_question": "_021_MergeTwoSortedLists",
+    "passed": true,
+    "tries": {
+        "0": {
+            "extra_prompt": "Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain !",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\n/**\n *************************************************************************\n * Description: \n * \n * Merge two sorted linked lists and return it as a new list. The new list \n * should be made by splicing together the nodes of the first two lists.\n * \n *************************************************************************\n * @tag : Linked List\n * {@link https://leetcode.com/problems/merge-two-sorted-lists/  }\n */\npackage _021_MergeTwoSortedLists;\n\nimport com.leetcode.ListNode;\n\n/** see test {@link _021_MergeTwoSortedLists.PracticeTest } */\npublic class Practice {\n\n    public ListNode mergeTwoLists(ListNode node1, ListNode node2) {\n        if (node1 == null) {\n            return node2;\n        }\n        if (node2 == null) {\n            return node1;\n        }\n        \n        ListNode result;\n        if (node1.val < node2.val) {\n            result = node1;\n            result.next = mergeTwoLists(node1.next, node2);\n        } else {\n            result = node2;\n            result.next = mergeTwoLists(node1, node2.next);\n        }\n        \n        return result;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 5,
+            "num_failures": "0",
+            "num_errors": "0",
+            "timestamp": "2024-04-08T15:52:11",
+            "test_cases": [
+                {
+                    "name": "Test0",
+                    "time": "0.008",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test0() {\n        ListNode node11 = null;\n        ListNode node21 = null;\n        ListNode actual = solution.mergeTwoLists(node11, node21);\n        ListNode expect = null;\n        assertTrue(ListNode.isSameList(actual, expect));\n    }"
+                },
+                {
+                    "name": "Test1",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        ListNode node11 = new ListNode(1);\n        ListNode node21 = new ListNode(2);\n        ListNode actual = solution.mergeTwoLists(node11, node21);\n        ListNode node1 = new ListNode(1);\n        ListNode node2 = new ListNode(2);\n        node1.next = node2;\n        ListNode expect = node1;\n        assertTrue(ListNode.isSameList(actual, expect));\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int[] nums1 = {1, 3, 5};\n        ListNode l1 = ListNode.constructLinkedList(nums1);\n        int[] nums2 = {2, 4, 6};\n        ListNode l2 = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.mergeTwoLists(l1, l2);\n\n        int[] exps = {1, 2, 3, 4, 5, 6};\n        ListNode expected = ListNode.constructLinkedList(exps);\n\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int[] nums1 = {1, 5};\n        ListNode l1 = ListNode.constructLinkedList(nums1);\n        int[] nums2 = {2, 4, 6};\n        ListNode l2 = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.mergeTwoLists(l1, l2);\n        int[] exps = {1, 2, 4, 5, 6};\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test4() {\n        int[] nums1 = {1, 3, 5};\n        ListNode l1 = ListNode.constructLinkedList(nums1);\n        int[] nums2 = {2, 4};\n        ListNode l2 = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.mergeTwoLists(l1, l2);\n        int[] exps = {1, 2, 3, 4, 5};\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                }
+            ]
+        }
+    }
+}

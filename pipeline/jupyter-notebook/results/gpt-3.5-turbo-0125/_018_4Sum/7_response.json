@@ -1,0 +1,1 @@
+{"is_extracted": true, "number_of_code_blocks": 1, "extra_information_num_words": 1, "response": "```\nclass Practice {\n    \n}\n\nclass PracticeTest {\n    Practice solution;\n    \n    @Before\n    public void setUp() {\n        solution = new Practice();\n    }\n    \n    @Test\n    public void testExample() {\n        // Test code here\n    }\n}\n```"}

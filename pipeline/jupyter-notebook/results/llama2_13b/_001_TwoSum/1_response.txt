@@ -1,0 +1,15 @@
+ Sure! Here is the Java code for the `twoSum` function:
+```
+public int[] twoSum(int[] nums, int target) {
+  HashMap<Integer, Integer> map = new HashMap<>();
+  for (int i = 0; i < nums.length; i++) {
+    int remainingTarget = target - nums[i];
+    if (map.containsKey(remainingTarget)) {
+      return new int[] {map.get(remainingTarget) + i, i};
+    }
+    map.put(nums[i], i);
+  }
+  return null;
+}
+```
+This code uses a hash map to keep track of the indices of the numbers that have already been used, and it iterates through the input array twice: once to find the first number that sums up to the target, and once to find the second number. The `HashMap<Integer, Integer>` keeps track of the indices of the numbers that have already been used, and the `containsKey()` method is used to check if a given number has already been used. If a number has already been used, the function returns its index and the index of the current number. If no numbers have been used yet, the function adds the current number to the hash map and continues iterating until it finds two numbers that sum up to the target.

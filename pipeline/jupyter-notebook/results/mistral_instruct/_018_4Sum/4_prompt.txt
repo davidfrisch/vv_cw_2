@@ -1,0 +1,53 @@
+The following code has the following error: More than one Java code block found in the response, Only one Java code block is expected.
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
+
+public class Practice {
+
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        Arrays.sort(nums);
+        Map<Integer, Integer[]> map = new TreeMap<>(); // Store the indices of each number and its previous index in the given array instead of creating a new list for quadruplets
+        
+        List<List<Integer>> result = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            int remainingSum = target - nums[i];
+            if (map.containsKey(remainingSum)) {
+                Integer[] pair = map.get(remainingSum); // Get the indices of the two numbers that sum up to 'remainingSum'
+                int j = i + 1;
+                int k = nums.length - 1;
+                while (j < k) {
+                    if (nums[i] + nums[j] + nums[k] == target) {
+                        result.add(Arrays.asList(nums[i], nums[j], nums[k], nums[k--]));
+                        j++; // Move the index 'j' to the next number to avoid duplicate quadruplets
+                    } else if (nums[j] + nums[k] < remainingSum) {
+                        j++; // Move the index 'j' to the next number as the current pair of numbers does not sum up to 'target'
+                    } else {
+                        k--; // Move the index 'k' to the previous number as we have checked all possible combinations from 'j' to 'nums.length - 1'
+                    }
+                }
+            } else {
+                for (int j = i + 1; j < nums.length; j++) {
+                    int sum = remainingSum - (nums[j] - nums[i]);
+                    if (map.containsKey(sum)) {
+                        List<Integer> list = Arrays.stream(map.get(sum)).mapToList().orElseGet(ArrayList::new); // Get the indices of the two numbers that sum up to 'sum'
+                        int kIndex = Arrays.binarySearch(nums, target - nums[i] - nums[j]); // Find the index of the number that sums up with 'remainingSum - (nums[i] + nums[j])'
+                        if (kIndex >= 0) {
+                            result.add(Arrays.asList(nums[i], nums[j], nums[kIndex], nums[kIndex--]));
+                            map.put(nums[j], new Integer[] { i, j }); // Store the indices of the second number and update its previous index if needed to avoid duplicates in the map
+                        }
+                    } else {
+                        map.put(nums[j], new Integer[] { i, j }); // Store the indices of the second number and initialize its previous index to 'i'
+                    }
+                }
+            }
+            map.put(nums[i], new Integer[] { i, i }); // Update the map with the current number's index and its previous index
+        }
+        return result;
+    }
+}

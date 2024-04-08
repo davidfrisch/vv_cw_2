@@ -1,0 +1,60 @@
+ Here's a corrected version of your code. The issue was with the comparison in the if statement inside the threeSum() method. You were trying to compare an Object[] (the sub-array) with an int[]. Instead, you should have compared each integer in the sub-array with the integers in the nums array using Arrays.equals().
+
+```java
+package _015_3Sum;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/** see test {@link _015_3Sum.PracticeTest} */
+public class Practice {
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums); // Sort the array in ascending order
+
+        List<List<Integer>> result = new ArrayList<>(); // Initialize an empty list to store the results
+
+        for (int i = 0; i < nums.length - 2; i++) { // Iterate through the array, starting from the first element
+            int targetSum = 0; // Set the target sum to zero
+            int left = i + 1; // Initialize two pointers, one to the right of the current element
+            int right = nums.length - 1;
+
+            while (left < right) { // While the left pointer is less than the right pointer
+                if (nums[i] + nums[left] + nums[right] == targetSum) { // Check if the current triplet satisfies the condition
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right])); // If yes, add it to the result list
+
+                    // To avoid adding duplicate triplets, we can break out of the loop if the current triplets are equal to a previous one in reverse order or have duplicate elements
+                    int[] prevTriplet = result.get(result.size() - 1).stream().mapToInt(i1 -> i1).toArray();
+                    if (Arrays.equals(new int[]{nums[left], nums[right]}, Arrays.copyOfRange(prevTriplet, 1, 3)) || Arrays.binarySearch(nums, nums[left]) >= 0 && Arrays.binarySearch(nums, nums[right]) >= 0) {
+                        break;
+                    }
+                    
+                    left++; // Move the left pointer to the right of the current element
+                    right--; // Move the right pointer to the left of the current element
+                } else if (nums[i] + nums[left] + nums[right] < targetSum) { // If the sum is less than the target, move the left pointer to the right
+                    left++;
+                } else { // If the sum is greater than the target, move the right pointer to the left
+                    right--;
+                }
+            }
+        }
+
+        return result; // Return the list of unique triplets that satisfy the condition
+    }
+}
+```
+
+The corrected comparison inside the if statement:
+
+```java
+if (Arrays.equals(new int[]{nums[left], nums[right]}, Arrays.copyOfRange(prevTriplet, 1, 3))) {
+```
+
+This checks whether the sub-array (nums[left], nums[right]) is equal to any of the last added triplets in reverse order. You can also add a check for duplicate integers as shown below:
+
+```java
+if (Arrays.equals(new int[]{nums[left], nums[right]}, Arrays.copyOfRange(prevTriplet, 1, 3)) || Arrays.binarySearch(nums, nums[left]) >= 0 && Arrays.binarySearch(nums, nums[right]) >= 0) {
+```
+
+This checks if either nums[left] or nums[right] already exists in the nums array to avoid adding duplicate triplets.

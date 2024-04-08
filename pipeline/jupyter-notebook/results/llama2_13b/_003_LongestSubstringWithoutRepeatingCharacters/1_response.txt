@@ -1,0 +1,28 @@
+ Sure! Here is the complete Java code for the `lengthOfLongestSubstring` method:
+
+public int lengthOfLongestSubstring(String a) {
+    int maxLen = 0;
+    int currLen = 0;
+    char[] arr = a.toCharArray();
+    int i = 0;
+    int j = 0;
+
+    while (i < arr.length && j < arr.length) {
+        if (arr[i] == arr[j]) {
+            currLen++;
+            i++;
+            j++;
+        } else {
+            if (currLen > maxLen) {
+                maxLen = currLen;
+            }
+            currLen = 0;
+            i++;
+            j++;
+        }
+    }
+
+    return maxLen;
+}
+
+Note that this code assumes that the input string is non-empty. If the input string is empty, the method should return 0.

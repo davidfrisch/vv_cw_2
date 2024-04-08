@@ -1,0 +1,31 @@
+ Here's your corrected Java code:
+
+```java
+public class Practice {
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carry = 0; // Initialize carry as 0
+        ListNode prev = null; // Initialize previous node as null
+        ListNode current = new ListNode(0); // Initialize current node with a dummy node (val = 0)
+        prev = current;
+
+        while (l1 != null || l2 != null || carry > 0) {
+            int sum = carry > 0 ? carry : 0; // Handle the case when carry is non-zero
+            if (l1 != null) {
+                sum += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                sum += l2.val;
+                l2 = l2.next;
+            }
+            carry = sum / 10; // Get the carry value for next iteration
+            int digit = sum % 10; // Get the remaining digits for current node
+            ListNode newNode = new ListNode(digit); // Create a new node with current digit
+            prev.next = newNode; // Link the current node to previous node
+            prev = newNode; // Move the pointer to the newly created node
+        }
+        return current.next; // Finally, return the head of the linked list
+    }
+}
+```

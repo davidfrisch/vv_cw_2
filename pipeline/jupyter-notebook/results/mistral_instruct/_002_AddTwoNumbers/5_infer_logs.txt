@@ -1,0 +1,99 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:1: error: class, interface, or enum expected
+    markdown
+    ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:3: error: illegal character: '\u251c'
+    ??? com/
+    ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:3: error: illegal character: '\u2500'
+    ??? com/
+     ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:3: error: illegal character: '\u2500'
+    ??? com/
+      ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:4: error: illegal character: '\u2502'
+    ?   ??? leetcode/
+    ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:4: error: illegal character: '\u2514'
+    ?   ??? leetcode/
+        ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:4: error: illegal character: '\u2500'
+    ?   ??? leetcode/
+         ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:4: error: illegal character: '\u2500'
+    ?   ??? leetcode/
+          ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:5: error: illegal character: '\u2502'
+    ?       ??? ListNode.java
+    ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:5: error: illegal character: '\u251c'
+    ?       ??? ListNode.java
+            ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:5: error: illegal character: '\u2500'
+    ?       ??? ListNode.java
+             ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:5: error: illegal character: '\u2500'
+    ?       ??? ListNode.java
+              ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:6: error: illegal character: '\u2502'
+    ?       ??? Practice.java
+    ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:6: error: illegal character: '\u2514'
+    ?       ??? Practice.java
+            ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:6: error: illegal character: '\u2500'
+    ?       ??? Practice.java
+             ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:6: error: illegal character: '\u2500'
+    ?       ??? Practice.java
+              ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:7: error: illegal character: '\u2514'
+    ??? bin/
+    ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:7: error: illegal character: '\u2500'
+    ??? bin/
+     ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:7: error: illegal character: '\u2500'
+    ??? bin/
+      ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:8: error: illegal character: '\u2514'
+        ??? com/
+        ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:8: error: illegal character: '\u2500'
+        ??? com/
+         ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:8: error: illegal character: '\u2500'
+        ??? com/
+          ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:9: error: illegal character: '\u2514'
+            ??? leetcode/
+            ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:9: error: illegal character: '\u2500'
+            ??? leetcode/
+             ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:9: error: illegal character: '\u2500'
+            ??? leetcode/
+              ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:10: error: illegal character: '\u2514'
+                ??? Practice.class
+                ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:10: error: illegal character: '\u2500'
+                ??? Practice.class
+                 ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:10: error: illegal character: '\u2500'
+                ??? Practice.class
+                  ^
+    /app/leetcode-master/src/_002_AddTwoNumbers/Practice.java:10: error: reached end of file while parsing
+                ??? Practice.class
+                                  ^
+    29 errors

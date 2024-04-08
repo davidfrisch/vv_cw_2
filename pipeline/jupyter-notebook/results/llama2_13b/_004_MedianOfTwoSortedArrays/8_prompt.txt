@@ -1,0 +1,20 @@
+The following code has the following error: No Java code block found in the given response.
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    int m = nums1.length;
+    int n = nums2.length;
+    if (m == 0 || n == 0) {
+        return 0;
+    }
+
+    // divide and conquer algorithm
+    int left = findMedianSortedArrays(nums1, 0, m - 1);
+    int right = findMedianSortedArrays(nums2, 0, n - 1);
+
+    if (left == right) {
+        return left; // both arrays have the same median
+    } else {
+        return (left + right) / 2; // different medians, use average
+    }
+}

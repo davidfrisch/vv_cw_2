@@ -1,0 +1,10 @@
+The following code has the following error: No Java code block found in the given response.
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+boolean[][] dp; // Declare without initializing
+
+// ... other code ...
+
+if (m > 0 && n > 0) {
+    dp = new boolean[m + 1][n + 1]; // Initialize with correct dimensions
+}

@@ -1,0 +1,18 @@
+ Sure, here is the Java code for the function `longestCommonPrefix()`:
+
+```
+public String longestCommonPrefix(String[] strs) {
+    int n = strs.length;
+    if (n == 0) {
+        return "";
+    }
+
+    String prefix = strs[0];
+    for (int i = 1; i < n; i++) {
+        prefix = prefix.commonPrefix(strs[i]);
+    }
+
+    return prefix;
+}
+```
+Note that this code assumes that the input array of strings is not empty. If the input array is empty, the function returns an empty string. Also, the function uses the `commonPrefix()` method to find the longest common prefix between two strings. This method is not defined in the given code snippet, so you will need to define it or use a different approach to find the common prefix.

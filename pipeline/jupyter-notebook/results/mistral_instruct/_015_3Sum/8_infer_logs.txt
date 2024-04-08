@@ -1,0 +1,16 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_015_3Sum/Practice.java:56: error: incompatible types: int[] cannot be converted to Object[]
+                if (Arrays.deepEquals(existingSubArray.stream().mapToInt(i -> i).toArray(), subArray.stream().mapToInt(i -> i).toArray())) {
+                                                                                        ^
+    Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+    1 error

@@ -1,0 +1,25 @@
+
+public int lengthOfLongestSubstring(String a) {
+    int len = 0;
+    int left = 0;
+    int right = 0;
+
+    for (int i = 0; i < a.length(); i++) {
+        char curr = a.charAt(i);
+
+        if (left == right) {
+            // If the current character is the same as the last character in the substring,
+            // then we can move the right pointer forward.
+            right++;
+        } else {
+            // Otherwise, we need to check if the current character is the same as the last character
+            // in the substring. If it is not, then we need to reset the right pointer to 0.
+            right = 0;
+        }
+
+        // Update the left pointer to move to the next character in the string.
+        left++;
+    }
+
+    return len;
+}

@@ -1,0 +1,14 @@
+
+import java.util.List;
+
+public class Practice {
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        
+        // Solution code here
+        
+        return result;
+    }
+
+}

@@ -1,0 +1,27 @@
+ Sure! Here is the complete Java code with the fix:
+
+import java.util.*;
+
+public class ContainerWithMostWater {
+    public int maxArea(int[] height) {
+        int left = 0, right = height.length - 1;
+        int maxArea = 0;
+
+        while (left < right) {
+            int area = Math.min(height[right], height[left]) * (right - left);
+            if (area > maxArea) {
+                maxArea = area;
+            }
+
+            if (height[left] <= height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+
+        return maxArea;
+    }
+}
+
+The fix was to add a closing `}` brace at the end of the `while` loop.

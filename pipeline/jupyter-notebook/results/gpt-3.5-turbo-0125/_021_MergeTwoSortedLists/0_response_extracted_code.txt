@@ -1,0 +1,40 @@
+
+/**
+ *************************************************************************
+ * Description: 
+ * 
+ * Merge two sorted linked lists and return it as a new list. The new list 
+ * should be made by splicing together the nodes of the first two lists.
+ * 
+ *************************************************************************
+ * @tag : Linked List
+ * {@link https://leetcode.com/problems/merge-two-sorted-lists/  }
+ */
+package _021_MergeTwoSortedLists;
+
+import com.leetcode.ListNode;
+
+/** see test {@link _021_MergeTwoSortedLists.PracticeTest } */
+public class Practice {
+
+    public ListNode mergeTwoLists(ListNode node1, ListNode node2) {
+        if (node1 == null) {
+            return node2;
+        }
+        if (node2 == null) {
+            return node1;
+        }
+        
+        ListNode result;
+        if (node1.val < node2.val) {
+            result = node1;
+            result.next = mergeTwoLists(node1.next, node2);
+        } else {
+            result = node2;
+            result.next = mergeTwoLists(node1, node2.next);
+        }
+        
+        return result;
+    }
+
+}

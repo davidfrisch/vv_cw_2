@@ -1,0 +1,40 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:3: error: class, interface, or enum expected
+    public void Test3() {
+           ^
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:5: error: class, interface, or enum expected
+        int B = 2;
+        ^
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:6: error: class, interface, or enum expected
+        String actual = solution.convert(A, B);
+        ^
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:7: error: class, interface, or enum expected
+        String expected = "AB";
+        ^
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:8: error: class, interface, or enum expected
+        assertEquals(expected, actual);
+        ^
+    /app/leetcode-master/src/_006_ZigZagConversion/Practice.java:9: error: class, interface, or enum expected
+    }
+    ^
+    6 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+@Test
+public void Test3() {
+    String A = "AB";
+    int B = 2;
+    String actual = solution.convert(A, B);
+    String expected = "AB";
+    assertEquals(expected, actual);
+}

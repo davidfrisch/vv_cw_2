@@ -1,0 +1,8 @@
+
+package _004_MedianOfTwoSortedArrays;
+
+public class Practice {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        // Your implementation goes here.
+    }
+}

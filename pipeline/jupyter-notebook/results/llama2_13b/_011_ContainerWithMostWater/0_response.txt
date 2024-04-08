@@ -1,0 +1,35 @@
+ Sure! Here's the complete solution code for the "Container With Most Water" problem:
+
+package _011_ContainerWithMostWater;
+
+import java.util.Arrays;
+
+public class Practice {
+
+    public int maxArea(int[] height) {
+        // Sort the array in descending order
+        Arrays.sort(height, Collections.reverseOrder());
+
+        int left = 0, right = height.length - 1;
+        int maxArea = 0;
+
+        while (left < right) {
+            int currentArea = Math.min(height[right], height[left]) * (right - left);
+            maxArea = Math.max(currentArea, maxArea);
+
+            // Move the left pointer to the next point where the current area is maximized
+            while (height[left] <= height[right]) {
+                left++;
+            }
+
+            // Move the right pointer to the next point where the current area is maximized
+            while (height[right] <= height[left]) {
+                right--;
+            }
+        }
+
+        return maxArea;
+    }
+}
+
+Note that this solution uses two pointers approach to find the maximum area. The left pointer moves towards the right until it reaches a point where the current area is maximized, and then it moves back to the previous point. Similarly, the right pointer moves towards the left until it reaches a point where the current area is maximized, and then it moves back to the previous point. The maximum area is found by comparing the minimum height of the two pointers with the height of the points between them.

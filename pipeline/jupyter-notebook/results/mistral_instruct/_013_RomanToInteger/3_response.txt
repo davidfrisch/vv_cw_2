@@ -1,0 +1,51 @@
+ Here's the corrected Java code for your issue:
+
+```java
+package _013_RomanToInteger;
+
+public class Practice {
+
+    public int romanToInt(String s) {
+        int result = 0;
+        int previousValue = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char currentSymbol = s.charAt(i);
+            int currentValue = getValueFromRomanSymbol(currentSymbol);
+
+            if (currentValue > previousValue) {
+                result += currentValue - (previousValue * 2); // subtract the previous value
+                previousValue = currentValue;
+            } else {
+                result += currentValue;
+                previousValue = currentValue; // update previous value to current value
+            }
+        }
+
+        return result;
+    }
+
+    private int getValueFromRomanSymbol(char symbol) {
+        switch (symbol) {
+            case 'I':
+                return 1;
+            case 'V':
+                return 5;
+            case 'X':
+                return 10;
+            case 'L':
+                return 50;
+            case 'C':
+                return 100;
+            case 'D':
+                return 500;
+            case 'M':
+                return 1000;
+            default:
+                throw new IllegalArgumentException("Invalid Roman symbol: " + symbol);
+        }
+    }
+}
+```
+
+This code fixes the error by subtracting the previous value when encountering a larger value to calculate the correct result.

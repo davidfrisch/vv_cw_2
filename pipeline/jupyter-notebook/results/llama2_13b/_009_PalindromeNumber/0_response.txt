@@ -1,0 +1,27 @@
+Sure! Here's the complete solution file:
+
+package _009_PalindromeNumber;
+
+import org.junit.Test;
+
+public class Practice {
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+        int rev = 0;
+        while (x != 0) {
+            rev = (rev * 10) + (x % 10);
+            x /= 10;
+        }
+        return rev == x;
+    }
+
+    @Test
+    public void test() {
+        assert isPalindrome(123) == true;
+        assert isPalindrome(-123) == false;
+        assert isPalindrome(123456789) == true;
+        assert isPalindrome(-123456789) == false;
+    }
+}

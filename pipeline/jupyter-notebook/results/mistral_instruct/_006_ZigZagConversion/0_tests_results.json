@@ -1,0 +1,33 @@
+{
+    "num_tests": "2",
+    "num_successes": 0,
+    "num_failures": "2",
+    "num_errors": "0",
+    "timestamp": "2024-04-08T14:34:31",
+    "test_cases": [
+        {
+            "name": "Test1",
+            "time": "0.022",
+            "success": false,
+            "failure": {
+                "@message": "expected:<PA[HNAPLSIIGYIR]> but was:<PA[\n AAY\n YYPALISHIRING]>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<PA[HNAPLSIIGYIR]> but was:<PA[\n AAY\n YYPALISHIRING]>\n\tat _006_ZigZagConversion.PracticeTest.Test1(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<PA[HNAPLSIIGYIR]> but was:<PA[\n AAY\n YYPALISHIRING]>",
+            "code": "@Test\n    public void Test1() {\n        String A = \"PAYPALISHIRING\";\n        int B = 3;\n        String actual = solution.convert(A, B);\n        String expected = \"PAHNAPLSIIGYIR\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@message": "expected:<A[CB]D> but was:<A[\nBC]D>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<A[CB]D> but was:<A[\nBC]D>\n\tat _006_ZigZagConversion.PracticeTest.Test2(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<A[CB]D> but was:<A[\nBC]D>",
+            "code": "@Test\n    public void Test2() {\n        String A = \"ABCD\";\n        int B = 2;\n        String actual = solution.convert(A, B);\n        String expected = \"ACBD\";\n        assertEquals(expected, actual);\n    }"
+        }
+    ]
+}

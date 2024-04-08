@@ -1,0 +1,213 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:11: error: ';' expected
+               from collections import deque 
+                               ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: illegal character: '#'
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+    ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:11: error: not a statement
+               from collections import deque 
+                                       ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: ';' expected
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+             ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: ';' expected
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+                      ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: ';' expected
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+                             ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: <identifier> expected
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+                                        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: ';' expected
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+                                                   ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: ';' expected
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+                                                             ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: ';' expected
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+                                                                         ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: ';' expected
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+                                                                                        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: ';' expected
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+                                                                                                    ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: ';' expected
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+                                                                                                           ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:12: error: ';' expected
+    # Given a string s and an integer k, return the length of the longest substring that contains at most k distinct characters.
+                                                                                                                               ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:13: error: ';' expected
+    def longest_substring(s: str, k: int) -> int:
+                         ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:13: error: not a statement
+    def longest_substring(s: str, k: int) -> int:
+                             ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:13: error: ';' expected
+    def longest_substring(s: str, k: int) -> int:
+                                ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:13: error: not a statement
+    def longest_substring(s: str, k: int) -> int:
+                                     ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:13: error: ';' expected
+    def longest_substring(s: str, k: int) -> int:
+                                        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:13: error: not a statement
+    def longest_substring(s: str, k: int) -> int:
+                                             ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:13: error: ';' expected
+    def longest_substring(s: str, k: int) -> int:
+                                                ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:14: error: ';' expected
+        n = len(s) 
+                  ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:16: error: ')' expected
+        if (k==0 or n==0): 
+                ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:16: error: ';' expected
+        if (k==0 or n==0): 
+                     ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:16: error: variable declaration not allowed here
+        if (k==0 or n==0): 
+                    ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:17: error: ';' expected
+            return 0
+                    ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:19: error: ';' expected
+        left = 0
+                ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:20: error: illegal start of expression
+        hashmap={} 
+                ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:22: error: ';' expected
+        maxLength = 1
+                     ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:23: error: ';' expected
+        uniqueCount = 0
+                       ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:25: error: '(' expected
+        for right in range(n): 
+           ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:25: error: ';' expected
+        for right in range(n): 
+                    ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:25: error: ';' expected
+        for right in range(n): 
+                             ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:27: error: illegal character: '#'
+             # add the new character in the hashmap and increase the count of distinct characters by one.
+             ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:27: error: ';' expected
+             # add the new character in the hashmap and increase the count of distinct characters by one.
+                      ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:27: error: '(' or '[' expected
+             # add the new character in the hashmap and increase the count of distinct characters by one.
+                                     ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:27: error: ';' expected
+             # add the new character in the hashmap and increase the count of distinct characters by one.
+                                           ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:27: error: ';' expected
+             # add the new character in the hashmap and increase the count of distinct characters by one.
+                                                       ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:27: error: ';' expected
+             # add the new character in the hashmap and increase the count of distinct characters by one.
+                                                                    ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:27: error: ';' expected
+             # add the new character in the hashmap and increase the count of distinct characters by one.
+                                                                             ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:27: error: ';' expected
+             # add the new character in the hashmap and increase the count of distinct characters by one.
+                                                                                                 ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:27: error: ';' expected
+             # add the new character in the hashmap and increase the count of distinct characters by one.
+                                                                                                        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:28: error: ')' expected
+            if (s[right] not in hashmap):  
+                        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:28: error: ';' expected
+            if (s[right] not in hashmap):  
+                               ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:28: error: variable declaration not allowed here
+            if (s[right] not in hashmap):  
+                             ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:28: error: not a statement
+            if (s[right] not in hashmap):  
+                                ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:28: error: ';' expected
+            if (s[right] not in hashmap):  
+                                       ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:29: error: ';' expected
+                hashmap[s[right]]=1
+                                   ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:30: error: ';' expected
+                uniqueCount += 1
+                                ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:32: error: illegal start of expression
+            else: 
+                ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:32: error: 'else' without 'if'
+            else: 
+            ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:35: error: illegal character: '#'
+             # Shrink the sliding window from the left, until we have k distinct characters.
+             ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:35: error: ';' expected
+             # Shrink the sliding window from the left, until we have k distinct characters.
+                         ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:35: error: ';' expected
+             # Shrink the sliding window from the left, until we have k distinct characters.
+                                        ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:35: error: ';' expected
+             # Shrink the sliding window from the left, until we have k distinct characters.
+                                                 ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:35: error: not a statement
+             # Shrink the sliding window from the left, until we have k distinct characters.
+                                                  ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:35: error: ';' expected
+             # Shrink the sliding window from the left, until we have k distinct characters.
+                                                      ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:35: error: ';' expected
+             # Shrink the sliding window from the left, until we have k distinct characters.
+                                                                ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:35: error: ';' expected
+             # Shrink the sliding window from the left, until we have k distinct characters.
+                                                                       ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:35: error: ';' expected
+             # Shrink the sliding window from the left, until we have k distinct characters.
+                                                                                           ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:36: error: illegal start of expression
+            while (uniqueCount > k):  
+                                   ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:38: error: illegal start of expression
+                      if (hashmap[s[left]] == 1):
+                                                ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:39: error: ';' expected
+                          uniqueCount -= 1 
+                                          ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:41: error: ';' expected
+                      hashmap[s[left]]-=1
+                                         ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:43: error: ';' expected
+                      left+=1
+                             ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:45: error: ';' expected
+            maxLength = max(maxLength, right-left + 1)  
+                                                      ^
+    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:46: error: reached end of file while parsing
+        return maxLength 
+                        ^
+    67 errors

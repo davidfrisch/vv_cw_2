@@ -1,0 +1,24 @@
+ Sure! Here is the Java code for the `removeNthFromEnd` method:
+
+```
+public ListNode removeNthFromEnd(ListNode head, int n) {
+    if (head == null || n < 1) {
+        return null;
+    }
+
+    ListNode current = head;
+    int i = 1;
+
+    while (i < n && current != null) {
+        current = current.next;
+        i++;
+    }
+
+    if (current != null) {
+        current.next = current.next.next;
+    }
+
+    return head;
+}
+```
+This method uses two pointers to find the nth node from the end of the list and remove it. The `current` pointer points to the current node, and the `i` variable keeps track of the index of the current node. The method checks for the edge cases of `head` being null or `n` being less than 1, and returns `null` in those cases. Otherwise, it loops through the list until it finds the `n`th node from the end, and then updates the link between the `n`th node and its successor to remove the `n`th node from the list. Finally, the method returns the head of the updated list.

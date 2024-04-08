@@ -1,0 +1,63 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 14 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:11: error: class PracticeTest is public, should be declared in a file named PracticeTest.java
+    public class PracticeTest {
+           ^
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:16: error: cannot find symbol
+            assertTrue(practice.isValid("()"));
+                               ^
+      symbol:   method isValid(String)
+      location: variable practice of type Practice
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:17: error: cannot find symbol
+            assertTrue(practice.isValid("()[]{}"));
+                               ^
+      symbol:   method isValid(String)
+      location: variable practice of type Practice
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:18: error: cannot find symbol
+            assertFalse(practice.isValid("(]"));
+                                ^
+      symbol:   method isValid(String)
+      location: variable practice of type Practice
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:19: error: cannot find symbol
+            assertFalse(practice.isValid("([)]"));
+                                ^
+      symbol:   method isValid(String)
+      location: variable practice of type Practice
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:20: error: cannot find symbol
+            assertTrue(practice.isValid("{[]}"));
+                               ^
+      symbol:   method isValid(String)
+      location: variable practice of type Practice
+    6 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.util.Stack;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class Practice {
+
+}
+
+public class PracticeTest {
+
+    @Test
+    public void testIsValid() {
+        Practice practice = new Practice();
+        assertTrue(practice.isValid("()"));
+        assertTrue(practice.isValid("()[]{}"));
+        assertFalse(practice.isValid("(]"));
+        assertFalse(practice.isValid("([)]"));
+        assertTrue(practice.isValid("{[]}"));
+    }
+}

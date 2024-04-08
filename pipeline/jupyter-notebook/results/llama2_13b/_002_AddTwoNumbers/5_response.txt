@@ -1,0 +1,24 @@
+ Sure! Here is the complete Java code with the fix:
+
+import com.leetcode.ListNode;
+
+public class Practice {
+    public ListNode addTwoNumbers(ListNode a, ListNode b) {
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+
+        while (a != null && b != null) {
+            int sum = a.val + b.val;
+            ListNode temp = new ListNode(sum % 10);
+            temp.next = current;
+            current = temp;
+
+            a = a.next;
+            b = b.next;
+        }
+
+        return dummy.next;
+    }
+}
+
+The fix is to add the "% 10" in the constructor of the ListNode, so that the result of the addition is guaranteed to be within the range of the integers that can be represented by a ListNode.

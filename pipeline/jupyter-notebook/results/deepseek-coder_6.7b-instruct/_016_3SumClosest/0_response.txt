@@ -1,0 +1,35 @@
+Here is the complete solution code in Java:
+
+```java
+package _016_3SumClosest;
+
+import java.util.Arrays;
+
+public class Practice {
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums); // Sort the array to utilize Two Pointers technique
+        
+        int closestSum = nums[0] + nums[1] + nums[2];  // Initialize with first three numbers
+            
+        for (int i = 0; i < nums.length - 2; i++) {   // Iterate through the array
+            int start = i + 1, end = nums.length - 1;  // Set two pointers
+                
+            while (start < end) {
+                int sum = nums[i] + nums[start] + nums[end];   // Calculate current three number's sum
+                    
+                if (Math.abs(target - sum) < Math.abs(target - closestSum))    // Check if it is closer than previous result
+                    closestSum = sum; 
+                        
+                if (sum < target)      // If sum is less, increment start pointer
+                    start++;
+                else if (sum > target)   // If sum is greater, decrement end pointer
+                    end--;
+                else    // If equal to target, return directly as it's the closest 3 sum possible
+                    return target;
+            }
+        }
+        
+        return closestSum;
+    }
+}
+```

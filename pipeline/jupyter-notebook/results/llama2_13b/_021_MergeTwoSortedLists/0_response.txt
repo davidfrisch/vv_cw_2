@@ -1,0 +1,43 @@
+ Sure! Here is the complete solution code for the "Merge Two Sorted Lists" problem:
+
+package _021_MergeTwoSortedLists;
+
+import com.leetcode.ListNode;
+
+public class Practice {
+    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {
+        ListNode dummy = new ListNode(0); // create a dummy node to merge the two lists
+        ListNode current = dummy;
+        
+        while (node11 != null && node21 != null) {
+            if (node11.val <= node21.val) {
+                current.next = node11;
+                node11 = node11.next;
+            } else {
+                current.next = node21;
+                node21 = node21.next;
+            }
+            current = current.next;
+        }
+        
+        // add remaining nodes from the first list (if any)
+        while (node11 != null) {
+            current.next = node11;
+            node11 = node11.next;
+            current = current.next;
+        }
+        
+        // add remaining nodes from the second list (if any)
+        while (node21 != null) {
+            current.next = node21;
+            node21 = node21.next;
+            current = current.next;
+        }
+        
+        return dummy.next;
+    }
+}
+
+This solution uses a combination of pointers and a "dummy" node to merge the two lists in-place. The basic idea is to create a dummy node, and then iterate through both lists, comparing the values and adding them to the correct location in the merged list. When one list runs out of nodes, we simply add the remaining nodes from the other list to the end of the merged list.
+
+Note that this solution assumes that the input lists are already sorted in ascending order. If the lists can be sorted in descending order instead, you can modify the comparison in the while loop accordingly.

@@ -1,0 +1,20 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 15 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_010_RegularExpressionMatching/Practice.java:2: error: class, interface, or enum expected
+    public boolean isMatch(String s, String p) {
+           ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public boolean isMatch(String s, String p) {
+    // ...
+}

@@ -1,0 +1,17 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_015_3Sum/Practice.java:7: error: cannot find symbol
+            List<List<Integer>> result = new ArrayList<>();
+                                             ^
+      symbol:   class ArrayList
+      location: class Practice
+    1 error

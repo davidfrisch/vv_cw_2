@@ -1,0 +1,46 @@
+ Here is the corrected Java code:
+
+```java
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+import java.util.Arrays;
+
+public class Practice {
+
+    private static final String[] romanDigits = {"I", "V", "X", "L", "XL", "XC", "D", "IX", "IV", "VII"};
+
+    public static void main(String[] args) {
+        int number = Integer.parseInt(args[0]);
+        System.out.println(intToRoman(number).toUpperCase());
+    }
+
+    private static String intToRoman(int num) {
+        StringBuilder result = new StringBuilder();
+        BigDecimal bd;
+        int divisor = 1;
+
+        while (num > 0) {
+            bd = BigDecimal.valueOf(num).divide(BigDecimal.valueOf(divisor), new MathContext(2, RoundingMode.DOWN));
+            int quo = bd.intValue();
+            num -= quo * divisor;
+
+            while (quo > 0) {
+                result.append(romanDigits[Math.min(quo % 5, 9)]);
+                if (quo >= 5 && divisor < 10) {
+                    result.append(romanDigits[Math.min(divisor, 5)]);
+                    quo -= divisor;
+                    divisor = 10;
+                }
+                quo /= 10;
+            }
+
+            divisor *= 10;
+        }
+
+        return result.reverse().toString();
+    }
+}
+```
+
+I corrected the issue by adding a check for subtracting the larger digit value from `num` in case of having a number greater than 5 at the current division step, and updating the divisor accordingly when necessary.

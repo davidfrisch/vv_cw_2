@@ -1,0 +1,43 @@
+ Sure! Here is the Java code for the problem "Letter Combinations of a Phone Number":
+
+package _017_LetterCombinationsOfAPhoneNumber;
+
+import java.util.List;
+
+public class Practice {
+
+    public List<String> letterCombinations(String digits) {
+        // Use a backtracking approach to generate all possible combinations
+        List<String> res = new ArrayList<>();
+        dfs(digits, res);
+        return res;
+    }
+
+    private void dfs(String digits, List<String> res) {
+        if (digits.length() == 0) {
+            res.add(""); // empty string
+            return;
+        }
+
+        for (int i = 0; i < digits.length(); i++) {
+            char c = digits.charAt(i);
+            switch (c) {
+                case '2':
+                    dfs(digits.substring(0, i) + "a", res);
+                    dfs(digits.substring(i + 1), res);
+                    break;
+                case '3':
+                    dfs(digits.substring(0, i) + "b", res);
+                    dfs(digits.substring(i + 1), res);
+                    break;
+                // ... and so on for the other digits
+            }
+        }
+    }
+}
+
+This code defines a `Practice` class with a `letterCombinations` method that takes a `String` argument representing the digit string. The method uses a recursive backtracking approach to generate all possible combinations of letters for the given digit string.
+
+The `dfs` method is called recursively for each digit in the input string, and it generates all possible combinations of letters for each digit. The combinations are then added to a list of results, which is returned by the `letterCombinations` method.
+
+Note that this code assumes that the input string consists only of digits 2-9, as there is no handling for other digits. Also, the output is in lexicographical order, but the problem statement allows any order.

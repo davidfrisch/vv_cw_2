@@ -1,0 +1,49 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 14 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/com/leetcode/ListNode.java:10: error: duplicate class: com.leetcode.ListNode
+    public class ListNode {
+           ^
+    /app/leetcode-master/src/_021_MergeTwoSortedLists/Practice.java:3: error: cannot access ListNode
+        public ListNode mergeTwoLists(ListNode node11, ListNode node21) {
+                                      ^
+      bad source file: /app/leetcode-master/src/com/leetcode/ListNode.java
+        file does not contain class ListNode
+        Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+    2 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public class Practice {
+    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {
+        ListNode current = null;
+        ListNode previous = null;
+        while (node11 != null && node21 != null) {
+            if (node11.val <= node21.val) {
+                current = node11;
+                node11 = node11.next;
+            } else {
+                current = node21;
+                node21 = node21.next;
+            }
+        }
+        while (node11 != null) {
+            previous = current;
+            current = node11;
+            node11 = node11.next;
+        }
+        while (node21 != null) {
+            previous = current;
+            current = node21;
+            node21 = node21.next;
+        }
+        return previous;
+    }
+}

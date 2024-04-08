@@ -1,0 +1,22 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_001_TwoSum/Practice.java:2: error: class TwoSum is public, should be declared in a file named TwoSum.java
+    public class TwoSum {
+           ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public class TwoSum {
+    public int[] twoSum(int[] nums, int target) {
+        // Your method implementation here
+    }
+}

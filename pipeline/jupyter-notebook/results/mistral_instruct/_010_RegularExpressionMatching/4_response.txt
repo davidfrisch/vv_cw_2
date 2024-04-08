@@ -1,0 +1,13 @@
+ It looks like there is an indentation issue in your Java code causing a syntax error. Here is the corrected version:
+
+```java
+boolean[][] dp; // Declare without initializing
+
+// ... other code ...
+
+if (m > 0 && n > 0) {
+    dp = new boolean[m + 1][n + 1]; // Initialize with correct dimensions
+}
+```
+
+Make sure that your `if` statement is only executed when `m` and `n` have been defined, otherwise you will get a compilation error.

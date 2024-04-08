@@ -1,0 +1,31 @@
+ Sure! Here's the complete solution code:
+
+ package _002_AddTwoNumbers;
+
+import com.leetcode.ListNode;
+
+public class Practice {
+
+    public ListNode addTwoNumbers(ListNode a, ListNode b) {
+        ListNode sum = null;
+        int carry = 0;
+        while (a != null || b != null) {
+            int digitA = a == null ? 0 : a.val;
+            int digitB = b == null ? 0 : b.val;
+            int sumDigit = digitA + digitB + carry;
+            carry = sumDigit / 10;
+            sum = new ListNode(sumDigit % 10);
+            a = a == null ? b : a.next;
+            b = b == null ? a : b.next;
+        }
+        if (carry > 0) {
+            sum = new ListNode(carry);
+        }
+        return sum;
+    }
+
+}
+
+This solution uses a while loop to iterate through the digits of both linked lists, adding each digit and carrying over any remaining value from the previous iteration. The carry value is used to determine whether there are any remaining values to add at the end of the loop. Finally, the sum is returned as a new linked list with the correct order of digits.
+
+I hope this helps! Let me know if you have any questions or need further clarification.

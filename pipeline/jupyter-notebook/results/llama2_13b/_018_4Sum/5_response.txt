@@ -1,0 +1,10 @@
+ The error is that the class "FourSum" should be declared in a file named "FourSum.java" instead of "Practice.java". Here is the corrected code:
+```
+import java.util.List;
+
+public class FourSum {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        // ...
+    }
+}
+```

@@ -1,0 +1,10 @@
+markdown
+src/
+├── com/
+│   └── leetcode/
+│       ├── ListNode.java
+│       └── Practice.java
+└── bin/
+    └── com/
+        └── leetcode/
+            └── Practice.class

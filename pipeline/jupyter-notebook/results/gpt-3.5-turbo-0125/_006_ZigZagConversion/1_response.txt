@@ -1,0 +1,10 @@
+```java
+public class Practice {
+
+    public String convert(String a, int b) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+}
+```

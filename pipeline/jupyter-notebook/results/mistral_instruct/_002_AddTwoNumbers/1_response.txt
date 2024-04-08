@@ -1,0 +1,25 @@
+ It looks like you have a naming conflict with the `ListNode` class being used in multiple files. In your `Practice.java` file, you're trying to use `ListNode` as a parameter and as a class name, which is causing the compilation error.
+
+To resolve this issue, you can either rename the `ListNode` class in one of the files or change the method signature in your `Practice.java` file to accept a different type for the list nodes. For example, you can use `Node` as the node type instead:
+
+```java
+public class Practice {
+    public Node addTwoNumbers(Node l1, Node l2) {
+        // Your implementation here
+    }
+}
+```
+
+Also, make sure you have defined the `ListNode` (or `Node`) class in a separate file or package. For example, you can create a new file named `ListNode.java` with the following content:
+
+```java
+public class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int val) {
+        this.val = val;
+    }
+}
+```
+
+Now, your `Practice.java` file should be able to compile without any issues.

@@ -1,0 +1,49 @@
+ It looks like the error is that there is no definition for a class, interface, or enum named "Practice" in the file "/app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java". The code you have provided only contains the definition for two methods, longestPalindrome and expandAroundCenter.
+
+To fix this error, you need to define a class or interface with the name "Practice" that includes these methods as members. Here is an example of how you can define a class named "LongestPalindrome" that contains these methods:
+
+```java
+public class LongestPalindrome {
+    public String longestPalindrome(String s) {
+        if (s == null || s.length() < 1) return "";
+
+        int maxLength = 1;
+        String longestPalindrome = s.substring(0, 1);
+
+        for (int start = 0; start < s.length(); start++) {
+            int rightBound = expandAroundCenter(s, start);
+            if (rightBound > maxLength) {
+                maxLength = rightBound;
+                longestPalindrome = s.substring(start - (maxLength >> 1), start + (maxLength >> 1) + 1);
+            }
+        }
+
+        return longestPalindrome;
+    }
+
+    private int expandAroundCenter(String s, int center) {
+        int left = center, right = center;
+        while (right < s.length() && s.charAt(right) == s.charAt(right + 1)) {
+            right++;
+        }
+
+        int expansionLength = right - center + 1;
+        if (expansionLength > 2) {
+            while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+                left--;
+                right++;
+            }
+        }
+
+        return expansionLength;
+    }
+}
+```
+
+With this definition, you can now call the longestPalindrome method on an instance of this LongestPalindrome class:
+
+```java
+LongestPalindrome lp = new LongestPalindrome();
+String result = lp.longestPalindrome("racecar");
+System.out.println(result); // Output: "racecar"
+```

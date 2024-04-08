@@ -1,0 +1,15 @@
+ Sure! Here is the Java code for the `addTwoNumbers` method:
+
+public ListNode addTwoNumbers(ListNode a, ListNode b) {
+    ListNode current = a;
+    int sum = 0;
+    while (current != null && current.next != null) {
+        int digitA = current.val;
+        int digitB = current.next.val;
+        sum += digitA + digitB;
+        current = current.next;
+    }
+    ListNode result = new ListNode(sum);
+    result.next = b;
+    return result;
+}

@@ -1,0 +1,26 @@
+ Here is the corrected Java code:
+
+import com.leetcode.ListNode;
+
+public class Practice {
+    public ListNode addTwoNumbers(ListNode a, ListNode b) {
+        ListNode current = null;
+        ListNode dummy = new ListNode(0);
+
+        while (a != null && b != null) {
+            int sum = a.val + b.val;
+            ListNode temp = new ListNode(sum % 10);
+            if (current == null) {
+                dummy.next = temp;
+            } else {
+                current.next = temp;
+            }
+            current = temp;
+
+            a = a.next;
+            b = b.next;
+        }
+
+        return dummy.next;
+    }
+}

@@ -1,0 +1,21 @@
+ Here is the Java code for the `convert` method:
+
+```
+public String convert(String a, int b) {
+    StringBuilder result = new StringBuilder();
+    int row = 0;
+    for (char c : a.toCharArray()) {
+        if (row % 2 == 0 && row / 2 == b - 1) {
+            result.append(c);
+        } else {
+            result.append(" ");
+            result.append(c);
+        }
+        row++;
+    }
+    return result.toString();
+}
+```
+This method takes a string `a` and an integer `b`, and returns the zigzag converted string. The conversion is done by iterating over the characters of the input string, and for each character, checking if it is the last character on the current row or the first character on the next row. If it is the last character on the current row, it is appended to the result string; otherwise, it is preceded by a space and appended to the result string. The rows are formed by alternating between spaces and non-spaces.
+
+Note that this implementation assumes that the input string is not empty. If the input string is empty, the method should return an empty string.

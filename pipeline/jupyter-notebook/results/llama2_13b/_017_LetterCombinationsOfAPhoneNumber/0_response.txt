@@ -1,0 +1,56 @@
+Here is the complete solution code for the "Letter Combinations of a Phone Number" problem:
+
+package _017_LetterCombinationsOfAPhoneNumber;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Practice {
+
+    public List<String> letterCombinations(String digits) {
+        // Create a mapping of digit to letters
+        String[] letterMapping = {
+            "2" => "abc",
+            "3" => "def",
+            "4" => "ghi",
+            "5" => "jkl",
+            "6" => "mno",
+            "7" => "pqrs",
+            "8" => "tuv",
+            "9" => "wxyz"
+        };
+
+        // Create a list to store all possible letter combinations
+        List<String> combinations = new ArrayList<>();
+
+        // Backtracking algorithm
+        dfs(digits, combinations, letterMapping);
+
+        return combinations;
+    }
+
+    private void dfs(String digits, List<String> combinations, String[] letterMapping) {
+        if (digits.length() == 0) {
+            // Base case: If the input string is empty, return all possible combinations
+            combinations.add("");
+            return;
+        }
+
+        for (int i = 0; i < digits.length(); i++) {
+            int digit = Integer.parseInt(digits.substring(i, i + 1));
+            String letter = letterMapping[digit];
+
+            // Recursively call the function for the remaining digits
+            dfs(digits.substring(i + 1), combinations, letterMapping);
+
+            // Combine the current digit with the letters of the previous combinations
+            for (String combination : combinations) {
+                String newCombination = combination + letter;
+                combinations.add(newCombination);
+            }
+        }
+    }
+
+}
+
+Note: The above answer is in lexicographical order, but your answer could be in any order you want.

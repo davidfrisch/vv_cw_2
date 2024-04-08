@@ -1,0 +1,39 @@
+ Here's a possible solution for the given problem using Manacher's algorithm:
+
+```java
+public String longestPalindrome(String s) {
+    if (s == null || s.length() < 1) return "";
+
+    int maxLength = 1;
+    String longestPalindrome = s.substring(0, 1);
+
+    for (int start = 0; start < s.length(); start++) {
+        int rightBound = expandAroundCenter(s, start);
+        if (rightBound > maxLength) {
+            maxLength = rightBound;
+            longestPalindrome = s.substring(start - (maxLength >> 1), start + (maxLength >> 1) + 1);
+        }
+    }
+
+    return longestPalindrome;
+}
+
+private int expandAroundCenter(String s, int center) {
+    int left = center, right = center;
+    while (right < s.length() && s.charAt(right) == s.charAt(right + 1)) {
+        right++;
+    }
+
+    int expansionLength = right - center + 1;
+    if (expansionLength > 2) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+    }
+
+    return expansionLength;
+}
+```
+
+This solution uses Manacher's algorithm to expand around the center of each character in the given string, and keeps track of the longest palindromic substring found so far. The time complexity of this solution is O(n), where n is the length of the input string, and the space complexity is O(1).

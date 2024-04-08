@@ -1,0 +1,34 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:5: error: class PracticeTest is public, should be declared in a file named PracticeTest.java
+    public class PracticeTest {
+           ^
+    /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java:8: error: cannot access Practice
+            Practice solution = new Practice();
+            ^
+      bad source file: /app/leetcode-master/src/_005_LongestPalindromicSubstring/Practice.java
+        file does not contain class Practice
+        Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+    2 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class PracticeTest {
+    @Test
+    public void testLongestPalindrome() {
+        Practice solution = new Practice();
+        assertEquals("racecar", solution.longestPalindrome("racecar"));
+        // Add more test cases here
+    }
+}

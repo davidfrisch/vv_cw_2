@@ -1,0 +1,69 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_018_4Sum/Practice.java:2: error: class, interface, or enum expected
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+           ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:6: error: class, interface, or enum expected
+        List<List<Integer>> result = new ArrayList<>();
+        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:8: error: class, interface, or enum expected
+        for (int i = 0; i < nums.length - 3; i++) {
+        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:8: error: class, interface, or enum expected
+        for (int i = 0; i < nums.length - 3; i++) {
+                        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:8: error: class, interface, or enum expected
+        for (int i = 0; i < nums.length - 3; i++) {
+                                             ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:11: error: class, interface, or enum expected
+            for (int j = i + 1; j < nums.length - 2; j++) {
+            ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:11: error: class, interface, or enum expected
+            for (int j = i + 1; j < nums.length - 2; j++) {
+                                ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:11: error: class, interface, or enum expected
+            for (int j = i + 1; j < nums.length - 2; j++) {
+                                                     ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:14: error: class, interface, or enum expected
+                int left = j + 1, right = nums.length - 1;
+                ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:16: error: class, interface, or enum expected
+                while (left < right) {
+                ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:19: error: class, interface, or enum expected
+                    if (sum == target) {
+                    ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:23: error: class, interface, or enum expected
+                        while (left < right && nums[left] == nums[left+1]) left++; // Skip duplicates on the left
+                        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:24: error: class, interface, or enum expected
+                        while (left < right && nums[right] == nums[right-1]) right--; // Skip duplicates on the right
+                        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:26: error: class, interface, or enum expected
+                        left++;
+                        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:27: error: class, interface, or enum expected
+                        right--;
+                        ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:28: error: class, interface, or enum expected
+                    } else if (sum < target) {
+                    ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:31: error: class, interface, or enum expected
+                    } else {
+                    ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:34: error: class, interface, or enum expected
+                    }
+                    ^
+    /app/leetcode-master/src/_018_4Sum/Practice.java:40: error: class, interface, or enum expected
+    }
+    ^
+    19 errors

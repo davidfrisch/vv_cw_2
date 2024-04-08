@@ -1,0 +1,46 @@
+
+package _013_RomanToInteger;
+
+public class Practice {
+
+    public int romanToInt(String s) {
+        int result = 0;
+        int previousValue = 0;
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char currentSymbol = s.charAt(i);
+            int currentValue = getValueFromRomanSymbol(currentSymbol);
+
+            if (currentValue > previousValue) {
+                result += currentValue - (2 * previousValue);
+            } else {
+                result += currentValue;
+            }
+
+            previousValue = currentValue;
+        }
+
+        return result;
+    }
+
+    private int getValueFromRomanSymbol(char symbol) {
+        switch (symbol) {
+            case 'I':
+                return 1;
+            case 'V':
+                return 5;
+            case 'X':
+                return 10;
+            case 'L':
+                return 50;
+            case 'C':
+                return 100;
+            case 'D':
+                return 500;
+            case 'M':
+                return 1000;
+            default:
+                throw new IllegalArgumentException("Invalid Roman symbol: " + symbol);
+        }
+    }
+}

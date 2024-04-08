@@ -1,0 +1,7 @@
+
+public class Practice {
+    public boolean isMatch(String s, String p) {
+        // Implement the regular expression matching logic here
+        return true; // or false if the match fails
+    }
+}

@@ -1,0 +1,3 @@
+The error seems to be related to comments and syntax in your Java files, which are being interpreted as Makefile instructions. The '#' character is used for comments in both languages but not in the context of a Makefile. 
+
+Please remove all '#' characters from your java code files that you want to compile with `javac`. If you need help with this step, I can assist you with it.

@@ -1,0 +1,43 @@
+
+package _002_AddTwoNumbers;
+
+import com.leetcode.ListNode;
+
+/** see test {@link _002_002_AddTwoNumbers.PracticeTest}*/
+public class Practice {
+    
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        // Create a new list to store the result
+        ListNode dummyHead = new ListNode(0);
+        ListNode curr = dummyHead;
+        
+        int carry = 0;  // Initialize carry as zero
+
+        while (l1 != null || l2 != null) {
+            int x = (l1 != null) ? l1.val : 0;  
+            int y = (l2 != null) ? l2.val : 0;
+            
+            // Sum up the values and carry from last step
+            int sum = carry + x + y;
+            
+            // Update the carry for next iteration
+            carry = sum / 10;  
+            
+            // Create a new node with digit value (sum%10)
+            curr.next = new ListNode(sum % 10);   
+            
+            // Move to the next nodes in both lists
+            l1 = (l1 != null) ? l1.next : null;  
+            l2 = (l2 != null) ? l2.next : null;  
+            
+            // Move forward in result list 
+            curr = curr.next;   
+        }
+        
+        if (carry > 0) {
+            curr.next = new ListNode(carry);
+       }
+        return dummyHead.next;
+    }
+    
+}

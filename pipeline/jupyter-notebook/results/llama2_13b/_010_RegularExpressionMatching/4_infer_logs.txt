@@ -1,0 +1,23 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 15 source files to /app/leetcode-master/bin
+    Compiling 4 source files to /app/leetcode-master/bin
+    /app/leetcode-master/test/_010_RegularExpressionMatching/PracticeTest.java:14: error: cannot find symbol
+        Practice solution;
+        ^
+      symbol:   class Practice
+      location: class PracticeTest
+    /app/leetcode-master/test/_010_RegularExpressionMatching/PracticeTest.java:21: error: cannot find symbol
+            solution = new Practice();
+                           ^
+      symbol:   class Practice
+      location: class PracticeTest
+    2 errors

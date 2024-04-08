@@ -1,0 +1,150 @@
+{
+    "total_retries": 3,
+    "model": "gpt-3.5-turbo-0125",
+    "leetcode_question": "_002_AddTwoNumbers",
+    "passed": true,
+    "tries": {
+        "0": {
+            "extra_prompt": "Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain !",
+            "is_extracted": false,
+            "number_of_code_blocks": 0,
+            "extra_information_num_words": null,
+            "response": "/**\n *******************************************************************************\n * Description: \n * \n * You are given two linked lists representing two non-negative numbers. \n * The digits are stored in reverse order and each of their nodes contain \n * a single digit. Add the two numbers and return it as a linked list. \n * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4) \n * Output: 7 -> 0 -> 8\n * \n *******************************************************************************\n * @tag : Linked List; Math\n * {@link https://leetcode.com/problems/add-two-numbers/ }\n */\npackage _002_AddTwoNumbers;\n\nimport com.leetcode.ListNode;\n\n/** see test {@link _002_AddTwoNumbers.PracticeTest } */\npublic class Practice {\n\n    public ListNode addTwoNumbers(ListNode a, ListNode b) {\n        ListNode dummy = new ListNode(0);\n        ListNode current = dummy;\n        int carry = 0;\n\n        while (a != null || b != null) {\n            int x = (a != null) ? a.val : 0;\n            int y = (b != null) ? b.val : 0;\n            int sum = carry + x + y;\n            carry = sum / 10;\n            current.next = new ListNode(sum % 10);\n            current = current.next;\n            if (a != null) a = a.next;\n            if (b != null) b = b.next;\n        }\n\n        if (carry > 0) {\n            current.next = new ListNode(carry);\n        }\n\n        return dummy.next;\n    }\n\n}\n",
+            "number_of_issues": null,
+            "issues": null,
+            "num_tests": null,
+            "num_successes": null,
+            "num_failures": null,
+            "num_errors": null,
+            "timestamp": null,
+            "test_cases": null
+        },
+        "1": {
+            "extra_prompt": "The following code has the following error: No Java code block found in the given response.\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\n/**\n *******************************************************************************\n * Description: \n * \n * You are given two linked lists representing two non-negative numbers. \n * The digits are stored in reverse order and each of their nodes contain \n * a single digit. Add the two numbers and return it as a linked list. \n * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4) \n * Output: 7 -> 0 -> 8\n * \n *******************************************************************************\n * @tag : Linked List; Math\n * {@link https://leetcode.com/problems/add-two-numbers/ }\n */\npackage _002_AddTwoNumbers;\n\nimport com.leetcode.ListNode;\n\n/** see test {@link _002_AddTwoNumbers.PracticeTest } */\npublic class Practice {\n\n    public ListNode addTwoNumbers(ListNode a, ListNode b) {\n        // TODO Auto-generated method stub\n        return null;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 0,
+            "num_failures": "5",
+            "num_errors": "0",
+            "timestamp": "2024-04-08T15:40:21",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.012",
+                    "success": false,
+                    "failure": {
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError\n\tat _002_AddTwoNumbers.PracticeTest.Test1(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "junit.framework.AssertionFailedError",
+                    "code": "@Test\n    public void Test1() {\n        int[] nums1 = { 2, 4, 3 };\n        int[] nums2 = { 5, 6, 4 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 7, 0, 8 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.001",
+                    "success": false,
+                    "failure": {
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError\n\tat _002_AddTwoNumbers.PracticeTest.Test2(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "junit.framework.AssertionFailedError",
+                    "code": "@Test\n    public void Test2() {\n        int[] nums1 = { 2 };\n        int[] nums2 = { 9, 9, 4 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 1, 0, 5 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.001",
+                    "success": false,
+                    "failure": {
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError\n\tat _002_AddTwoNumbers.PracticeTest.Test3(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "junit.framework.AssertionFailedError",
+                    "code": "@Test\n    public void Test3() {\n        int[] nums1 = { 2 };\n        int[] nums2 = { 8 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 0, 1 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.001",
+                    "success": false,
+                    "failure": {
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError\n\tat _002_AddTwoNumbers.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "junit.framework.AssertionFailedError",
+                    "code": "@Test\n    public void Test4() {\n        int[] nums1 = { 9, 9, 4 };\n        int[] nums2 = { 3 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 2, 0, 5 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.001",
+                    "success": false,
+                    "failure": {
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError\n\tat _002_AddTwoNumbers.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "junit.framework.AssertionFailedError",
+                    "code": "@Test\n    public void Test5() {\n        int[] nums1 = { 0 };\n        int[] nums2 = { 0, 2 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 0, 2 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                }
+            ]
+        },
+        "2": {
+            "extra_prompt": "The following code has the following error: Message: junit.framework.AssertionFailedError\n@Test\n    public void Test1() {\n        int[] nums1 = { 2, 4, 3 };\n        int[] nums2 = { 5, 6, 4 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 7, 0, 8 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }\n\nMessage: junit.framework.AssertionFailedError\n@Test\n    public void Test2() {\n        int[] nums1 = { 2 };\n        int[] nums2 = { 9, 9, 4 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 1, 0, 5 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }\n\nMessage: junit.framework.AssertionFailedError\n@Test\n    public void Test3() {\n        int[] nums1 = { 2 };\n        int[] nums2 = { 8 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 0, 1 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }\n\nMessage: junit.framework.AssertionFailedError\n@Test\n    public void Test4() {\n        int[] nums1 = { 9, 9, 4 };\n        int[] nums2 = { 3 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 2, 0, 5 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }\n\nMessage: junit.framework.AssertionFailedError\n@Test\n    public void Test5() {\n        int[] nums1 = { 0 };\n        int[] nums2 = { 0, 2 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 0, 2 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }\n\n\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\n/**\n *******************************************************************************\n * Description: \n * \n * You are given two linked lists representing two non-negative numbers. \n * The digits are stored in reverse order and each of their nodes contain \n * a single digit. Add the two numbers and return it as a linked list. \n * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4) \n * Output: 7 -> 0 -> 8\n * \n *******************************************************************************\n * @tag : Linked List; Math\n * {@link https://leetcode.com/problems/add-two-numbers/ }\n */\npackage _002_AddTwoNumbers;\n\nimport com.leetcode.ListNode;\n\n/** see test {@link _002_AddTwoNumbers.PracticeTest } */\npublic class Practice {\n\n    public ListNode addTwoNumbers(ListNode a, ListNode b) {\n        ListNode dummyHead = new ListNode(0);\n        ListNode current = dummyHead;\n        ListNode p = a;\n        ListNode q = b;\n        int carry = 0;\n        while (p != null || q != null) {\n            int x = (p != null) ? p.val : 0;\n            int y = (q != null) ? q.val : 0;\n            int sum = carry + x + y;\n            carry = sum / 10;\n            current.next = new ListNode(sum % 10);\n            current = current.next;\n            if (p != null) p = p.next;\n            if (q != null) q = q.next;\n        }\n        if (carry > 0) {\n            current.next = new ListNode(carry);\n        }\n        return dummyHead.next;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 5,
+            "num_failures": "0",
+            "num_errors": "0",
+            "timestamp": "2024-04-08T15:40:38",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.006",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int[] nums1 = { 2, 4, 3 };\n        int[] nums2 = { 5, 6, 4 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 7, 0, 8 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int[] nums1 = { 2 };\n        int[] nums2 = { 9, 9, 4 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 1, 0, 5 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int[] nums1 = { 2 };\n        int[] nums2 = { 8 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 0, 1 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test4() {\n        int[] nums1 = { 9, 9, 4 };\n        int[] nums2 = { 3 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 2, 0, 5 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test5() {\n        int[] nums1 = { 0 };\n        int[] nums2 = { 0, 2 };\n        ListNode a = ListNode.constructLinkedList(nums1);\n        ListNode b = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.addTwoNumbers(a, b);\n        int[] exps = { 0, 2 };\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                }
+            ]
+        }
+    }
+}

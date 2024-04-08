@@ -1,0 +1,32 @@
+Message: expected:<[ad, ae, af, bd, be, bf, cd, ce, cf]> but was:<[222, 222, 222, 222, 223, 223, 223, 223]>
+@Test
+    public void Test0() {
+        String digits = "23";
+        List<String> actuals = solution.letterCombinations(digits);
+        List<String> expecteds = Arrays.asList("ad", "ae", "af", "bd", "be",
+                "bf", "cd", "ce", "cf");
+        assertEqualsIgnoreOrder(expecteds, actuals);
+    }
+
+
+Message: expected:<[w, x, y, z]> but was:<[22, 22, 22, 22]>
+@Test
+    public void Test2() {
+        String digits = "9";
+        List<String> actuals = solution.letterCombinations(digits);
+        List<String> expecteds = new ArrayList<>(Arrays.asList("w", "x", "y", "z"));
+        assertEqualsIgnoreOrder(expecteds, actuals);
+    }
+
+Message: expected:<[adg, adh, adi, aeg, aeh, aei, afg, afh, afi, bdg, bdh, bdi, beg, beh, bei, bfg, bfh, bfi, cdg, cdh, cdi, ceg, ceh, cei, cfg, cfh, cfi]> but was:<[3222, 3222, 3222, 3222, 3222, 3222, 3222, 3222, 3232, 3232, 3232, 3232, 3232, 3232, 3232, 3232]>
+@Test
+    public void Test3() {
+        String digits = "234";
+        List<String> actuals = solution.letterCombinations(digits);
+        List<String> expecteds = Arrays.asList("adg", "adh", "adi", "aeg",
+                "aeh", "aei", "afg", "afh", "afi", "bdg", "bdh", "bdi", "beg",
+                "beh", "bei", "bfg", "bfh", "bfi", "cdg", "cdh", "cdi", "ceg",
+                "ceh", "cei", "cfg", "cfh", "cfi");
+        assertEqualsIgnoreOrder(expecteds, actuals);
+    }
+

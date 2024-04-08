@@ -1,0 +1,44 @@
+The following code has the following error: 
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test3() {
+        int x = 2;
+        assertTrue(solution.isPalindrome(x));
+    }
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test4() {
+        int x = 202;
+        assertTrue(solution.isPalindrome(x));
+    }
+
+
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test7() {
+        int x = 21477412;
+        assertTrue(solution.isPalindrome(x));
+    }
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test8() {
+        int x = 0;
+        assertTrue(solution.isPalindrome(x));
+    }
+
+
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _009_PalindromeNumber;
+
+public class Practice {
+
+    public boolean isPalindrome(int x) {
+        return false;
+    }
+
+}

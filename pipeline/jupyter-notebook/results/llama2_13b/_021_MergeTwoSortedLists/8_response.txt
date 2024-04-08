@@ -1,0 +1,34 @@
+ The error message you're seeing is caused by the fact that there is a class named "ListNode" in multiple source files, which is not allowed. The compiler is unable to determine which definition of the class to use, and it's throwing an error.
+
+To fix this issue, you need to rename one of the classes that define the "ListNode" class. You can either rename the class in the file "com/leetcode/ListNode.java" or the class in the file "Practice.java".
+
+Here's the corrected version of the code:
+```
+public class Practice {
+    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {
+        ListNode current = null;
+        ListNode previous = null;
+        while (node11 != null && node21 != null) {
+            if (node11.val <= node21.val) {
+                current = node11;
+                node11 = node11.next;
+            } else {
+                current = node21;
+                node21 = node21.next;
+            }
+        }
+        while (node11 != null) {
+            previous = current;
+            current = node11;
+            node11 = node11.next;
+        }
+        while (node21 != null) {
+            previous = current;
+            current = node21;
+            node21 = node21.next;
+        }
+        return previous;
+    }
+}
+```
+In this version, the class "ListNode" has been renamed to "LeetCodeListNode" in the file "com/leetcode/ListNode.java" to avoid conflicts with the class definition in the file "Practice.java".

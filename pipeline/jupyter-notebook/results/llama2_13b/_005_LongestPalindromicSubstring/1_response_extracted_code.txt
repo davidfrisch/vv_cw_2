@@ -1,0 +1,33 @@
+
+public class Practice {
+    public String longestPalindrome(String s) {
+        // Use a loop to find the longest palindromic substring
+        int maxLen = 0;
+        int curLen = 0;
+        int start = 0;
+        int end = 0;
+
+        while (end < s.length()) {
+            // Find the next palindromic substring
+            int j = end;
+            while (j > start && s.charAt(j) == s.charAt(start)) {
+                j--;
+            }
+
+            // Check if we found a longer palindromic substring
+            if (j > start) {
+                // Yes, we found a longer palindromic substring
+                curLen = j - start;
+                if (curLen > maxLen) {
+                    maxLen = curLen;
+                    start = j;
+                }
+            }
+
+            end++;
+        }
+
+        // Return the longest palindromic substring
+        return s.substring(start, start + maxLen);
+    }
+}

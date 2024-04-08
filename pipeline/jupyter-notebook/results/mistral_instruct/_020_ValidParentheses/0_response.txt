@@ -1,0 +1,41 @@
+ Here's the complete file with the solution for valid parentheses using a stack:
+
+```java
+package _020_ValidParentheses;
+
+import java.util.EmptyStackException;
+import java.util.Stack;
+
+/** see test {@link _020_ValidParentheses.PracticeTest } */
+public class Practice {
+
+    public boolean isValid(String s) {
+        if (s == null || s.length() % 2 != 0) {
+            return false;
+        }
+
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            switch (c) {
+                case '(':
+                    stack.push(')');
+                    break;
+                case '{':
+                    stack.push('}');
+                    break;
+                case '[':
+                    stack.push(']');
+                    break;
+                default:
+                    if (stack.isEmpty() || stack.pop() != c) {
+                        return false;
+                    }
+            }
+        }
+
+        return stack.isEmpty();
+    }
+}
+```
+
+This solution uses a `Stack` to keep track of the opening brackets and checks if the closing brackets are in the correct order. The function iterates through each character in the input string and pushes the corresponding closing bracket onto the stack when an opening bracket is encountered. If the stack is empty or the popped bracket doesn't match the current character, then the input string is invalid. At the end of the iteration, if the stack is empty, then all the brackets are in the correct order and the function returns true. Otherwise, it returns false.

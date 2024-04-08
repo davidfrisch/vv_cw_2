@@ -1,0 +1,16 @@
+
+public class Practice {
+    // Add implementation here
+}
+
+
+public class PracticeTest {
+    Practice solution;
+    
+    @Before
+    public void setUp() {
+        solution = new Practice();
+    }
+    
+    // Add test cases here
+}

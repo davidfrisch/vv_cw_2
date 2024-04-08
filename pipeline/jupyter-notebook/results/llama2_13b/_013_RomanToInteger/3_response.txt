@@ -1,0 +1,38 @@
+ Sure! Here is the complete Java code for the Roman to Integer problem:
+
+ package _013_RomanToInteger;
+
+ import java.util.LinkedHashMap;
+ import java.util.Map;
+
+ public class Practice {
+
+     public int romanToInt(String a) {
+         // Map of Roman numerals and their integer values
+         Map<String, Integer> romans = new LinkedHashMap<>();
+
+         // Define the Roman numeral to integer maps
+         romans.put("I", 1);
+         romans.put("V", 5);
+         romans.put("X", 10);
+         romans.put("L", 50);
+         romans.put("C", 100);
+         romans.put("D", 500);
+         romans.put("M", 1000);
+
+         // Convert the Roman numeral to an integer
+         String[] parts = a.split("");
+         int result = 0;
+         for (int i = 0; i < parts.length; i++) {
+             String part = parts[i];
+             if (romans.containsKey(part)) {
+                 result += romans.get(part);
+             }
+         }
+         return result;
+     }
+ }
+
+This code defines a `Practice` class with a `romanToInt` method that takes a Roman numeral as input and returns its integer equivalent. The method uses a `Map` data structure to define the Roman numeral to integer maps, and then iterates over the parts of the Roman numeral to accumulate the integer value.
+
+Note that this code only handles Roman numerals within the range of 1 to 3999, as specified in the problem description. If you need to handle larger or more complex Roman numerals, you may need to modify the code accordingly.

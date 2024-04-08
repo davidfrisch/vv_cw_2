@@ -1,0 +1,11 @@
+
+Here is the complete Java file with the correct implementation of the `isMatch` method:
+```
+public class Practice {
+    public boolean isMatch(String s, String p) {
+        Pattern pattern = Pattern.compile(p);
+        Matcher matcher = pattern.matcher(s);
+        return matcher.find();
+    }
+}
+```

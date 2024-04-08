@@ -1,0 +1,32 @@
+ Here is the complete solution code for the problem "Longest Common Prefix" on LeetCode:
+
+package _014_LongestCommonPrefix;
+
+public class Practice {
+
+    public String longestCommonPrefix(String[] strs) {
+        // Use a hash set to keep track of the characters that have already been seen.
+        HashSet<Character> seen = new HashSet<>();
+
+        // Initialize an empty string to store the longest common prefix.
+        String longestPrefix = "";
+
+        for (int i = 0; i < strs.length; i++) {
+            String str = strs[i];
+
+            // Iterate through each character in the string.
+            for (int j = 0; j < str.length(); j++) {
+                char c = str.charAt(j);
+
+                // If we haven't seen this character before, add it to the set of seen characters.
+                if (!seen.contains(c)) {
+                    seen.add(c);
+                }
+            }
+        }
+
+        return longestPrefix;
+    }
+}
+
+Note that this solution has a time complexity of O(N) and a space complexity of O(N), where N is the length of the input array of strings. It works by using a hash set to keep track of the characters that have already been seen, and then iterating through each string in the input array to find the longest common prefix.

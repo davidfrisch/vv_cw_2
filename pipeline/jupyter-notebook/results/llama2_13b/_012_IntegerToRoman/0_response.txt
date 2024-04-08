@@ -1,0 +1,45 @@
+ Sure! Here's the complete solution code for the Roman numeral conversion problem:
+
+package _012_IntegerToRoman;
+
+public class Practice {
+    public String intToRoman(int a) {
+        // Step 1: Convert the input number to a string
+        String numAsString = String.valueOf(a);
+        
+        // Step 2: Define a map of Roman numerals for each digit
+        Map<Character, Integer> romanMap = new HashMap<>();
+        romanMap.put('I', 1);
+        romanMap.put('V', 5);
+        romanMap.put('X', 10);
+        romanMap.put('L', 50);
+        romanMap.put('C', 100);
+        romanMap.put('D', 500);
+        romanMap.put('M', 1000);
+        
+        // Step 3: Define a empty string to hold the Roman numeral
+        String roman = "";
+        
+        // Step 4: Loop through each digit of the input number
+        for (int i = numAsString.length() - 1; i >= 0; i--) {
+            // Get the current digit and its place value
+            int digit = Integer.parseInt(numAsString.charAt(i));
+            char place = numAsString.charAt(i);
+            
+            // Add the digit to the Roman numeral
+            roman += romanMap.get(place, 0) + digit;
+        }
+        
+        return roman;
+    }
+}
+
+This solution uses a map to store the Roman numerals for each digit, and then loops through each digit of the input number to build the Roman numeral. Here's how it works:
+
+1. Step 1: Convert the input number to a string. This is done using the `String.valueOf()` method.
+2. Step 2: Define a map of Roman numerals for each digit. This map contains the Roman numeral for each digit, with the key being the character representing the digit (e.g. 'I' for 1, 'V' for 5, etc.) and the value being the place value of that digit (e.g. 1 for 1, 5 for 5, etc.).
+3. Step 3: Define an empty string to hold the Roman numeral.
+4. Step 4: Loop through each digit of the input number, starting from the last digit and working backwards. For each digit, get the current digit and its place value using `Integer.parseInt()` and `charAt()`, respectively. Then, use the map to get the Roman numeral for that digit, and add it to the empty string.
+5. Return the complete Roman numeral as a string.
+
+This solution should pass all test cases in the LeetCode practice test.

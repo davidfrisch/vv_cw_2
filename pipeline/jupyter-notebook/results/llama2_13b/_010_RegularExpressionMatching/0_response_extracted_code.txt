@@ -1,0 +1,31 @@
+
+package _010_RegularExpressionMatching;
+
+import java.util.Stack;
+
+public class Practice {
+
+    public boolean isMatch(String s, String p) {
+        // Create a stack to keep track of the current state
+        Stack<Character> stack = new Stack<>();
+
+        // Iterate over the input string (s) and check if it matches the pattern (p)
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            // If the current character is a wildcard (. or *), push it onto the stack
+            if (c == '.' || c == '*') {
+                stack.push(c);
+            } else {
+                // If the current character does not match the top element on the stack, pop the stack
+                if (!stack.isEmpty() && stack.peek() != c) {
+                    stack.pop();
+                }
+            }
+        }
+
+        // If the stack is empty after iterating over the input string, return true
+        return stack.isEmpty();
+    }
+
+}

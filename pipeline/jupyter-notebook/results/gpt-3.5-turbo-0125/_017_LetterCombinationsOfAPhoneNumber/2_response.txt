@@ -1,0 +1,12 @@
+```java
+import java.util.List;
+
+public class Practice {
+
+    public List<String> letterCombinations(String digits) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+}
+```

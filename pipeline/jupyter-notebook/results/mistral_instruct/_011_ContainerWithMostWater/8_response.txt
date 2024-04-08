@@ -1,0 +1,29 @@
+ Here is the corrected Java code:
+
+```java
+public class Practice {
+
+    public int maxArea(int[] height) {
+        int left = 0, right = height.length - 1;
+        int maxArea = Math.min(height[left], height[right]) * (right - left);
+
+        while (left < right) {
+            if (height[left] > height[right]) {
+                int temp = left;
+                left = right;
+                right = temp;
+            }
+
+            int currentDifference = right - left;
+            int newMaxArea = Math.min(height[left], currentDifference) < height[left] ? (newMaxArea = height[left] * currentDifference, newMaxArea) : newMaxArea;
+
+            maxArea = Math.max(newMaxArea, maxArea);
+            left++;
+        }
+
+        return maxArea;
+    }
+}
+```
+
+I moved the assignment of `newMaxArea` inside the conditional statement to fix the error.

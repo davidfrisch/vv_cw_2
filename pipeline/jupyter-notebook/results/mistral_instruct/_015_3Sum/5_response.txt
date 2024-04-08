@@ -1,0 +1,12 @@
+ Here's the corrected Java code for the given error:
+
+Replace this line:
+```java
+if (Arrays.equals(result.get(prevIndex).toArray(), new int[]{nums[i], nums[left], nums[right]})) {
+```
+with:
+```java
+if (Arrays.equals(result.get(prevIndex), Arrays.asList(nums[i], nums[left], nums[right]))) {
+```
+
+This change is necessary because the `threeSum()` method returns a list of lists, and the comparison should be done between two lists instead of their array representations.

@@ -1,0 +1,21 @@
+ The error is occurring because the file named "Practice.java" contains a public class named "PracticeTest" instead of "Practice". You need to rename your main class file to "Practice.java" and move all the code inside it to a new file named "PracticeTest.java". Here is the corrected Java code:
+
+// In src/_005_LongestPalindromicSubstring/Practice.java
+
+public class Practice {
+    // Write your longestPalindrome() method here
+}
+
+// In src/_005_LongestPalindromicSubstring/PracticeTest.java
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class PracticeTest {
+    @Test
+    public void testLongestPalindrome() {
+        Practice solution = new Practice();
+        assertEquals("racecar", solution.longestPalindrome("racecar"));
+        // Add more test cases here
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "total_retries": 1,
+    "model": "deepseek-coder:6.7b-instruct",
+    "leetcode_question": "_012_IntegerToRoman",
+    "passed": true,
+    "tries": {
+        "0": {
+            "extra_prompt": "Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain !",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _012_IntegerToRoman;\n\n/** see test {@link _012IntegerToRoman.PracticeTest } */\npublic class Practice {\n\n    public String intToRoman(int num) {\n        String[] symbol = {\"M\",\"CM\",\"D\",\"CD\",\"C\",\"XC\",\"L\",\"XL\",\"X\",\"IX\",\"V\",\"IV\",\"I\"}; \n        int[] value = {1000,900,500,400,100,90,50,40,10,9,5,4,1};  \n          \n        StringBuilder res = new StringBuilder();\n        \n        for(int i=0;i<value.length && num>=0;i++) { \n            while(num >= value[i]) { \n                num -= value[i];\n                res.append(symbol[i]);\n            }\n        }\n        return res.toString();\n    }\n}\n```\n",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "6",
+            "num_successes": 6,
+            "num_failures": "0",
+            "num_errors": "0",
+            "timestamp": "2024-04-08T14:13:12",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.006",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int A = 1;\n        String actual = solution.intToRoman(A);\n        String expected = \"I\";\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int A = 4;\n        String actual = solution.intToRoman(A);\n        String expected = \"IV\";\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int A = 9;\n        String actual = solution.intToRoman(A);\n        String expected = \"IX\";\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test4() {\n        int A = 207;\n        String actual = solution.intToRoman(A);\n        String expected = \"CCVII\";\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test5() {\n        int A = 1066;\n        String actual = solution.intToRoman(A);\n        String expected = \"MLXVI\";\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test6",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test6() {\n        int A = 1954;\n        String actual = solution.intToRoman(A);\n        String expected = \"MCMLIV\";\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        }
+    }
+}

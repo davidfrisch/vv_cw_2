@@ -1,0 +1,21 @@
+The following code has the following error: No Java code block found in the given response.
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+makefile
+# Define some variables that are used by targets
+SRC_DIR = /app/leetcode-master/src/_006_ZigZagConversion
+BIN_DIR = /app/leetcode-master/bin
+
+# Set the default target name
+.DEFAULT_GOAL := all
+
+# The 'clean' target deletes directories and files.
+clean:
+    rm -rf $(BIN_DIR)
+
+# The 'init' target creates necessary directories.
+init: 
+    mkdir -p $(BIN_DIR)
+
+# The 'compile.specific' target compiles the java code.
+compile.specific: init
+    javac $(SRC_DIR)/*.java -d $(BIN_DIR)

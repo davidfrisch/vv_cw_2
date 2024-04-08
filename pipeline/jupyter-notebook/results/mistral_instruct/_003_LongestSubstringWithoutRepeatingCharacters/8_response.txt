@@ -1,0 +1,40 @@
+ Here's the corrected Java code for the given problem:
+
+```java
+package _003_LongestSubstringWithoutRepeatingCharacters;
+import java.util.HashMap;
+
+/**
+ * Description:
+ * Given a string, find the length of the longest substring without repeating characters. For example, the longest substring
+ * without repeating letters for "abcabcbb" is "abc", which the length is 3. For "bbbbb" the longest substring is "b",
+ * with the length of 1.
+ *
+ * @tag : Hash Table; Two Pointers; String
+ * {@link https://leetcode.com/problems/longest-substring-without-repeating-characters/ }
+ */
+public class Practice {
+
+    public int lengthOfLongestSubstring(String s) {
+        if (s == null || s.length() <= 1) {
+            return s != null ? s.length() : 0;
+        }
+
+        HashMap<Character, Integer> charMap = new HashMap<>(); // stores the index of last occurrence of a character in the string
+        int maxLen = 0, start = 0; // the length of longest substring and its starting index
+
+        for (int i = 0; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
+            if (charMap.containsKey(currentChar) && charMap.get(currentChar) >= start) {
+                // this character has already appeared in the substring between start and i-1, so we move start forward
+                start = charMap.get(currentChar) + 1;
+            } else {
+                maxLen = Math.max(maxLen, i - start + 1); // update the longest length if needed
+                charMap.put(currentChar, i); // add this character to the map and remember its index
+            }
+        }
+
+        return maxLen;
+    }
+}
+```

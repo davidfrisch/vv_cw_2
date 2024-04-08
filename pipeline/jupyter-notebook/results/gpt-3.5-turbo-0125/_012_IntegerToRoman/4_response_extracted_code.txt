@@ -1,0 +1,8 @@
+
+public class PracticeTest {
+    public void testIntToRoman() {
+        Practice solution;
+        solution = new Practice();
+        // Add your test logic here
+    }
+}

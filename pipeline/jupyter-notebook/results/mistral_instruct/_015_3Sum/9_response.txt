@@ -1,0 +1,31 @@
+ The error is caused by the incompatible types of `int[]` and `Object[]`. In the method `threeSum`, you are trying to compare two int arrays using the `Arrays.deepEquals()` method, which actually expects an `Object[][]` as its argument instead of an `int[][]`. To fix this error, change the following line in the `threeSum` method:
+
+```java
+if (Arrays.deepEquals(existingSubArray.stream().mapToInt(i -> i).toArray(), subArray.stream().mapToInt(i -> i).toArray())) {
+```
+
+to
+
+```java
+if (Arrays.equals(existingSubArray.toArray((int[][]) null), subArray.toArray((int[][]) null))) {
+```
+
+You also need to import the following statement at the beginning of your file:
+
+```java
+import static java.util.Arrays.equals;
+```
+
+Finally, replace all occurrences of `Arrays.deepEquals()` in your code with `equals()`. The corrected method should look like this:
+
+```java
+private boolean containsDuplicateSubArray(List<List<Integer>> list, List<Integer> subArray) {
+    for (List<Integer> existingSubArray : list) {
+        if (equals(existingSubArray.toArray((Object[]) null), subArray.toArray((Object[]) null))) {
+            return true;
+        }
+    }
+
+    return false;
+}
+```

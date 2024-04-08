@@ -1,0 +1,15 @@
+ Sure! Here is the complete Java code with the fix:
+
+public String convert(String a, int b) {
+    StringBuilder result = new StringBuilder();
+    for (char c : a.toCharArray()) {
+        if (b - 1 == row / 2) {
+            result.append(c);
+        } else {
+            result.append(" ");
+            result.append(c);
+        }
+        row++;
+    }
+    return result.toString();
+}

@@ -1,0 +1,23 @@
+ The error is caused by the fact that the `Practice.java` file contains multiple class definitions, which is not allowed in Java. Each class definition should be in its own file.
+
+Here is the corrected code:
+```
+public int lengthOfLongestSubstring(String a) {
+    int len = 0;
+    int left = 0;
+    int right = 0;
+
+    for (int i = 0; i < a.length(); i++) {
+        char curr = a.charAt(i);
+
+        if (right == 0 || curr != a.charAt(right - 1)) {
+            right = 0;
+        }
+
+        left++;
+    }
+
+    return len;
+}
+```
+You should move the `Practice.java` file to a new file named `Practice.class`, and then you can compile and run the program without any errors.

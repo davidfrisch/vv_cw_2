@@ -1,0 +1,30 @@
+ Sure! Here's the complete solution code for the "Valid Parentheses" problem:
+
+package _020_ValidParentheses;
+
+import java.util.Stack;
+
+public class Practice {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(' || c == '[') {
+                stack.push(c);
+            } else if (c == ')' || c == ']') {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char pop = stack.pop();
+                if (pop != '(' && pop != '[') {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+}
+
+This solution uses a stack to keep track of the open parentheses and brackets. It iterates through the input string, and for each character, it checks if it is a opening parenthesis or bracket ('(' or '['). If it is, it pushes it onto the stack. If it's a closing parenthesis or bracket (')' or ']'), it pops the corresponding opening character from the stack and checks if it matches. If there are any mismatches or if the stack is not empty at the end of the input string, the function returns false. Otherwise, it returns true.
+
+Note that this solution uses a stack to implement the recursion, but it's not a recursive function in the classical sense.

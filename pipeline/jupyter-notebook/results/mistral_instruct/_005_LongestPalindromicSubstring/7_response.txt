@@ -1,0 +1,17 @@
+ It looks like there is a problem with the import statements in your test file, specifically the "Practice" class is not being imported. You should add an import statement at the beginning of your test file to import the Practice class. Here's how it should look:
+
+```java
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class PracticeTest {
+    @Test
+    public void testLongestPalindrome() {
+        Practice solution = new Practice();
+        assertEquals("racecar", solution.longestPalindrome("racecar"));
+        // Add more test cases here
+    }
+}
+```
+
+You should also ensure that the Practice.java file is in the same package as the PracticeTest.java file or provide the full path to the Practice.java file if it's located in a different package.

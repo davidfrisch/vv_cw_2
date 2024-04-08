@@ -1,0 +1,51 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_014_LongestCommonPrefix/Practice.java:2: error: class, interface, or enum expected
+    public String longestCommonPrefix(String[] strs) {
+           ^
+    /app/leetcode-master/src/_014_LongestCommonPrefix/Practice.java:4: error: class, interface, or enum expected
+        if (n == 0) {
+        ^
+    /app/leetcode-master/src/_014_LongestCommonPrefix/Practice.java:6: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_014_LongestCommonPrefix/Practice.java:9: error: class, interface, or enum expected
+        for (int i = 1; i < n; i++) {
+        ^
+    /app/leetcode-master/src/_014_LongestCommonPrefix/Practice.java:9: error: class, interface, or enum expected
+        for (int i = 1; i < n; i++) {
+                        ^
+    /app/leetcode-master/src/_014_LongestCommonPrefix/Practice.java:9: error: class, interface, or enum expected
+        for (int i = 1; i < n; i++) {
+                               ^
+    /app/leetcode-master/src/_014_LongestCommonPrefix/Practice.java:11: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_014_LongestCommonPrefix/Practice.java:14: error: class, interface, or enum expected
+    }
+    ^
+    8 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public String longestCommonPrefix(String[] strs) {
+    int n = strs.length;
+    if (n == 0) {
+        return "";
+    }
+
+    String prefix = strs[0];
+    for (int i = 1; i < n; i++) {
+        prefix = prefix.commonPrefix(strs[i]);
+    }
+
+    return prefix;
+}

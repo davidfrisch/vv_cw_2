@@ -1,0 +1,24 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_004_MedianOfTwoSortedArrays/Practice.java:7: error: missing return statement
+        }
+        ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _004_MedianOfTwoSortedArrays;
+
+public class Practice {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        // Your implementation goes here.
+    }
+}

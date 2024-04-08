@@ -1,0 +1,19 @@
+Here is the corrected Java code:
+
+package _007_ReverseInteger;
+
+public class Practice {
+    public int reverse(int a) {
+        if (a == 0) {
+            return 0;
+        }
+        int rev = 0;
+        while (a != 0) {
+            int rem = a % 10;
+            rev *= 10;
+            rev += rem;
+            a /= 10;
+        }
+        return rev;
+    }
+}

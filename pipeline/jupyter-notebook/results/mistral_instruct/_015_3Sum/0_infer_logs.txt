@@ -1,0 +1,43 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_015_3Sum/Practice.java:27: error: no suitable method found for equals(Object[],int[])
+                        if (prevIndex != -1 && Arrays.equals(result.get(prevIndex).toArray(), new int[] {nums[i], nums[left], nums[right]})) {
+                                                     ^
+        method Arrays.equals(long[],long[]) is not applicable
+          (argument mismatch; Object[] cannot be converted to long[])
+        method Arrays.equals(int[],int[]) is not applicable
+          (argument mismatch; Object[] cannot be converted to int[])
+        method Arrays.equals(short[],short[]) is not applicable
+          (argument mismatch; Object[] cannot be converted to short[])
+        method Arrays.equals(char[],char[]) is not applicable
+          (argument mismatch; Object[] cannot be converted to char[])
+        method Arrays.equals(byte[],byte[]) is not applicable
+          (argument mismatch; Object[] cannot be converted to byte[])
+        method Arrays.equals(boolean[],boolean[]) is not applicable
+          (argument mismatch; Object[] cannot be converted to boolean[])
+        method Arrays.equals(double[],double[]) is not applicable
+          (argument mismatch; Object[] cannot be converted to double[])
+        method Arrays.equals(float[],float[]) is not applicable
+          (argument mismatch; Object[] cannot be converted to float[])
+        method Arrays.equals(Object[],Object[]) is not applicable
+          (argument mismatch; int[] cannot be converted to Object[])
+        method Arrays.<T#1>equals(T#1[],T#1[],Comparator<? super T#1>) is not applicable
+          (cannot infer type-variable(s) T#1
+            (actual and formal argument lists differ in length))
+        method Arrays.<T#2>equals(T#2[],int,int,T#2[],int,int,Comparator<? super T#2>) is not applicable
+          (cannot infer type-variable(s) T#2
+            (actual and formal argument lists differ in length))
+      where T#1,T#2 are type-variables:
+        T#1 extends Object declared in method <T#1>equals(T#1[],T#1[],Comparator<? super T#1>)
+        T#2 extends Object declared in method <T#2>equals(T#2[],int,int,T#2[],int,int,Comparator<? super T#2>)
+    Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+    1 error

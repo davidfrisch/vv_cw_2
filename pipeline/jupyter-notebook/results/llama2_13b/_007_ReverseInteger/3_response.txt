@@ -1,0 +1,24 @@
+ Sure! Here is the complete Java code for the `reverse` method:
+
+```
+package _007_ReverseInteger;
+
+public class Practice {
+    public int reverse(int a) {
+        if (a == 0) {
+            return 0;
+        }
+        int rev = 0;
+        while (a != 0) {
+            int rem = a % 10;
+            rev *= 10;
+            rev += rem;
+            a /= 10;
+        }
+        return rev;
+    }
+}
+```
+This code uses a while loop to reverse the digits of the input integer. It first checks if the input is 0, in which case the output should also be 0. Then it uses a while loop to iterate over the digits of the input, using the modulo operator `%` to extract each digit and the multiplication operator `*` to combine the digits into a single result. Finally, it returns the resulting integer.
+
+I hope this helps! Let me know if you have any questions or need further assistance.

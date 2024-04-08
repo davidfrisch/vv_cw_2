@@ -1,0 +1,19 @@
+ Sure! Here's the corrected code:
+
+import java.util.List;
+
+public class Practice {
+    public List<Integer> practice(int num1, int num2) {
+        // Define the practice method here
+    }
+}
+
+public class PracticeTest {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        int num1 = 5;
+        int num2 = 3;
+        List<Integer> result = Practice.practice(num1, num2);
+        System.out.println(result);
+    }
+}

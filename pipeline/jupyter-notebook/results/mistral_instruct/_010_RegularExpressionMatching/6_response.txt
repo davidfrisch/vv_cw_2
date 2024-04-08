@@ -1,0 +1,9 @@
+ Here's the corrected Java code:
+
+boolean[][] dp; // Declare without initializing
+
+// ... other code ...
+
+if (m > 0 && n > 0) {
+    dp = new boolean[m + 1][n + 1]; // Initialize with correct dimensions
+}

@@ -1,0 +1,62 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:2: error: class, interface, or enum expected
+    public String intToRoman(int a) {
+           ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:5: error: class, interface, or enum expected
+            case 2: return "II";
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:6: error: class, interface, or enum expected
+            case 3: return "III";
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:7: error: class, interface, or enum expected
+            case 4: return "IV";
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:8: error: class, interface, or enum expected
+            case 5: return "V";
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:9: error: class, interface, or enum expected
+            case 6: return "VI";
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:10: error: class, interface, or enum expected
+            case 7: return "VII";
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:11: error: class, interface, or enum expected
+            case 8: return "VIII";
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:12: error: class, interface, or enum expected
+            case 9: return "IX";
+            ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:13: error: class, interface, or enum expected
+            default:
+                   ^
+    /app/leetcode-master/src/_012_IntegerToRoman/Practice.java:15: error: class, interface, or enum expected
+        }
+        ^
+    11 errors
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+public String intToRoman(int a) {
+    switch (a) {
+        case 1: return "I";
+        case 2: return "II";
+        case 3: return "III";
+        case 4: return "IV";
+        case 5: return "V";
+        case 6: return "VI";
+        case 7: return "VII";
+        case 8: return "VIII";
+        case 9: return "IX";
+        default:
+            return String.valueOf(a);
+    }
+}

@@ -1,0 +1,18 @@
+ Here is the corrected Java code for the `addTwoNumbers` method:
+
+public class Practice {
+
+    public ListNode addTwoNumbers(ListNode a, ListNode b) {
+        ListNode current = a;
+        int sum = 0;
+        while (current != null && b != null) {
+            sum = (sum << 1) + (current.val + b.val);
+            current = current.next;
+            b = b.next;
+        }
+        ListNode res = new ListNode(sum);
+        res.next = current;
+        return res;
+    }
+
+}

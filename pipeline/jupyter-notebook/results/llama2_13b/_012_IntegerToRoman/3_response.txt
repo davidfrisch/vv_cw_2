@@ -1,0 +1,21 @@
+ The error is caused by the fact that the `case` statements in the `switch` statement are not properly formatted. Each `case` statement should be on a separate line, and the `default` statement should also be on a separate line.
+
+Here is the corrected code:
+```
+public String intToRoman(int a) {
+    switch (a) {
+        case 1: return "I";
+        case 2: return "II";
+        case 3: return "III";
+        case 4: return "IV";
+        case 5: return "V";
+        case 6: return "VI";
+        case 7: return "VII";
+        case 8: return "VIII";
+        case 9: return "IX";
+        default:
+            return String.valueOf(a);
+    }
+}
+```
+This should fix the error and allow the code to compile successfully.

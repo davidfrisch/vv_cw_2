@@ -1,0 +1,52 @@
+ The error is caused by the fact that the class "Practice" is not defined in the file "PracticeTest.java". To fix this error, you need to define the class "Practice" in a separate file or import it into the "PracticeTest.java" file.
+
+Here is an example of how you can define the class "Practice" in a separate file:
+
+public class Practice {
+    public String longestPalindrome(String s) {
+        // Use a loop to find the longest palindromic substring
+        int maxLen = 0;
+        int curLen = 0;
+        int start = 0;
+        int end = 0;
+
+        while (end < s.length()) {
+            // Find the next palindromic substring
+            int j = end;
+            while (j > start && s.charAt(j) == s.charAt(start)) {
+                j--;
+            }
+
+            // Check if we found a longer palindromic substring
+            if (j > start) {
+                // Yes, we found a longer palindromic substring
+                curLen = j - start;
+                if (curLen > maxLen) {
+                    maxLen = curLen;
+                    start = j;
+                }
+            }
+
+            end++;
+        }
+
+        // Return the longest palindromic substring
+        return s.substring(start, start + maxLen);
+    }
+}
+
+You can then import this class into "PracticeTest.java" like this:
+
+import static com.example.Practice.*;
+
+and use it like this:
+
+public class PracticeTest {
+    public static void main(String[] args) {
+        String s = "hello";
+        String longestPalindrome = new Practice().longestPalindrome(s);
+        System.out.println(longestPalindrome);
+    }
+}
+
+This should fix the error and allow you to run the program without any issues.

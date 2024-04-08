@@ -1,0 +1,23 @@
+
+import java.util.Arrays;
+
+public class Practice {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        // Merging both arrays
+        int totalLength = nums1.length + nums2.length;
+        int[] mergedArray = new int[totalLength];
+        
+        System.arraycopy(nums1, 0, mergedArray, 0, nums1.length);
+        System.arraycopy(nums2, 0, mergedArray, nums1.length, nums2.length);
+    
+        // Sorting the merged array
+        Arrays.sort(mergedArray);
+        
+        // If total elements are even then median will be average of two middle numbers
+        if (totalLength % 2 == 0) {
+            return ((double) mergedArray[totalLength / 2] + (double) mergedArray[totalLength / 2 - 1]) / 2;
+        } else { // If total elements are odd then median will be middle number of sorted array
+            return (double) mergedArray[totalLength / 2];
+        }
+    }
+}

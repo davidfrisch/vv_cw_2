@@ -1,0 +1,10 @@
+The error message is indicating that Java compiler cannot find the class `Practice` in the same directory as `App`. It's because `Practice` and `App` are two separate classes, each defined in their own files (i.e., `Practice.java` and `App.java`). 
+
+In Java, you need to have all your classes in the same directory for them to be compiled together if they refer to each other. The error message also suggests that it's looking for a file named `App.java`. If this is not what you intended, then you likely need to adjust how you structure your source files and directories accordingly. 
+
+If these are separate classes that should go together (i.e., they belong together in one application), ensure the files are in the same directory, with a file for each class. For example:
+
+- `Practice.java` containing `public class Practice { ... }`
+- `App.java` containing `public class App { ... }` 
+
+These should then be compiled together to create two separate classes (`Practice` and `App`).

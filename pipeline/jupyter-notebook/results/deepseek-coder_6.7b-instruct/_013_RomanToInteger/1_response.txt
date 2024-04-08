@@ -1,0 +1,45 @@
+The error you're seeing is likely because your file contains extra code outside of the main function. In Java, all executable instructions must be within a class and inside a main method. Here's how to fix it:
+
+```java
+package _013_RomanToInteger;
+
+public class Practice {
+    public static void main(String[] args) {
+        System.out.println(romanToInt("III")); // 3
+        System.out.println(romanToInt("IV")); // 4
+        System.out.println(romanToInt("IX")); // 9
+        System.out.println(romanToInt("LVIII")); // 58
+        System.out.println(romanToInt("MCMXCIV")); // 1994
+    }
+    
+    public static int romanToInt(String s) {
+        int result = 0;
+        int prevValue = 0;
+        
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char currChar = s.charAt(i);
+            int currVal = switch (currChar) {
+                case 'I' -> 1;
+                case 'V' -> 5;
+                case 'X' -> 10;
+                case 'L' -> 50;
+                case 'C' -> 100;
+                case 'D' -> 500;
+                case 'M' -> 1000;
+                default -> throw new IllegalStateException("Unexpected value: " + currChar);
+            };
+            
+            if (currVal >= prevValue) {
+                result += currVal;
+            } else {
+                result -= currVal;
+            }
+            
+            prevValue = currVal;
+        }
+        
+        return result;
+    }
+}
+```
+This code defines a static method `romanToInt` which converts roman numerals to integers, and includes tests for this conversion in the main method. Please replace "III", "IV", etc. with your actual roman numeral values you want to convert. The function will throw an exception if it encounters any unexpected characters.
