@@ -85,11 +85,7 @@ def test_solution(folder_test_name: str, run_results_dir: str, retries_counter: 
           'code': methode_code
       })
 
-  print(f"Number of tests: {num_tests}")
-  print(f"Number of successes: {int(num_tests) - int(num_failures) - int(num_errors)}")
-  print(f"Number of failures: {num_failures}")
-  print(f"Number of errors: {num_errors}")
-  print(f"Timestamp: {timestamp}")
+ 
   
   file_path_logs = f"{run_results_dir}/{retries_counter}_tests_logs.txt"
   with open(file_path_logs, 'w') as file:
@@ -112,7 +108,12 @@ def test_solution(folder_test_name: str, run_results_dir: str, retries_counter: 
           'test_cases': test_cases
       }, file, indent=4)
       print(f"Open: {file_path_results}")
-      
+  
+  print(f"Number of tests: {num_tests}")
+  print(f"Number of successes: {int(num_tests) - int(num_failures) - int(num_errors)}")
+  print(f"Number of failures: {num_failures}")
+  print(f"Number of errors: {num_errors}")
+  print(f"Timestamp: {timestamp}")  
   if int(num_failures) > 0 or int(num_errors) > 0:
       raise ValueError("Tests failed")
     
