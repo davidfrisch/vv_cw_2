@@ -1,0 +1,33 @@
+{
+    "num_tests": "3",
+    "num_successes": 3,
+    "num_failures": "0",
+    "num_errors": "0",
+    "timestamp": "2024-04-09T13:39:14",
+    "test_cases": [
+        {
+            "name": "Test1",
+            "time": "0.016",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        String s = \"abb\";\n        String actual = solution.longestPalindrome(s);\n        String expected = \"bb\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test2() {\n        String s = \"abdbbbbdba\";\n        String actual = solution.longestPalindrome(s);\n        String expected = \"abdbbbbdba\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test3() {\n        String s = \"abdbabbdba\";\n        String actual = solution.longestPalindrome(s);\n        String expected = \"abdba\";\n        assertEquals(expected, actual);\n    }"
+        }
+    ]
+}

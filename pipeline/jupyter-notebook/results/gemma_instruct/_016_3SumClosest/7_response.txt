@@ -1,0 +1,7 @@
+The code has a compilation error because it cannot find the symbol `Arrays`. This is because the `Arrays` class is not imported in the code.
+
+```java
+import java.util.Arrays;
+
+// ... (rest of the code remains the same)
+```

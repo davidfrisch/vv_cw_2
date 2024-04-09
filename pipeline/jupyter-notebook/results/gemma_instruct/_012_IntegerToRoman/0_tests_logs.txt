@@ -1,0 +1,22 @@
+
+Message: expected:<[IV]> but was:<[VII]>
+@Test
+    public void Test2() {
+        int A = 4;
+        String actual = solution.intToRoman(A);
+        String expected = "IV";
+        assertEquals(expected, actual);
+    }
+
+
+Message: expected:<[CCVII]> but was:<[DX]>
+@Test
+    public void Test4() {
+        int A = 207;
+        String actual = solution.intToRoman(A);
+        String expected = "CCVII";
+        assertEquals(expected, actual);
+    }
+
+
+

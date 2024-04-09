@@ -1,0 +1,21 @@
+```java
+import java.util.Deque;
+
+public class Practice {
+
+    public boolean isValid(String s) {
+        Deque<Character> st = new LinkedList<>(); // Changed to use LinkedList instead of Deque
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                st.offerFirst(c);
+            } else {
+                if (st.isEmpty() || (c == ')' && st.pollFirst() != '(') || (c == '}' && st.pollFirst() != '{') || (c == ']' && st.pollFirst() != '[')) {
+                    return false;
+                }
+            }
+        }
+        return st.isEmpty() && st.size() == 0; // Added condition to check if the deque is empty after iteration
+    }
+
+}
+```

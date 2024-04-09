@@ -1,0 +1,35 @@
+```java
+package _002_AddTwoNumbers;
+
+import com.leetcode.ListNode;
+
+public class Practice {
+
+    public ListNode addTwoNumbers(ListNode a, ListNode b) {
+        ListNode dummy = new ListNode(0);
+        ListNode curr = dummy;
+
+        int carry = 0;
+
+        while (a != null || b != null) {
+            int val1 = a != null ? a.val : 0;
+            int val2 = b != null ? b.val : 0;
+
+            int sum = val1 + val2 + carry;
+            carry = sum / 10;
+            curr.next = new ListNode(sum % 10);
+            curr = curr.next;
+
+            a = a != null ? a.next : null;
+            b = b != null ? b.next : null;
+        }
+
+        if (carry != 0) {
+            curr.next = new ListNode(carry);
+        }
+
+        return dummy.next;
+    }
+
+}
+```

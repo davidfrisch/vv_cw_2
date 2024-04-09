@@ -1,0 +1,33 @@
+{
+    "num_tests": "2",
+    "num_successes": 0,
+    "num_failures": "2",
+    "num_errors": "0",
+    "timestamp": "2024-04-09T13:49:32",
+    "test_cases": [
+        {
+            "name": "Test0",
+            "time": "0.016",
+            "success": false,
+            "failure": {
+                "@message": "expected:<[[-1, 0, 0, 1], [-2, -1, 1, 2], [-2, 0, 0, 2]]> but was:<[[-2, 2, -1, 1]]>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<[[-1, 0, 0, 1], [-2, -1, 1, 2], [-2, 0, 0, 2]]> but was:<[[-2, 2, -1, 1]]>\n\tat com.leetcode.Test.assertEqualsIgnoreOrder(Unknown Source)\n\tat _018_4Sum.PracticeTest.Test0(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<[[-1, 0, 0, 1], [-2, -1, 1, 2], [-2, 0, 0, 2]]> but was:<[[-2, 2, -1, 1]]>",
+            "code": "@Test\n    public void Test0() {\n        int[] nums = { 1, 0, -1, 0, -2, 2 };\n        int target = 0;\n        List<List<Integer>> actual = solution.fourSum(nums, target);\n        List<List<Integer>> expected = new ArrayList<List<Integer>>();\n        expected.add(Arrays.asList(-2, -1, 1, 2));\n        expected.add(Arrays.asList(-2, 0, 0, 2));\n        expected.add(Arrays.asList(-1, 0, 0, 1));\n        // order of sets in expected list does not matter\n        assertEqualsIgnoreOrder(expected, actual);\n    }"
+        },
+        {
+            "name": "Test1",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@message": "expected:<[[-5, -4, -3, 1]]> but was:<[]>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<[[-5, -4, -3, 1]]> but was:<[]>\n\tat com.leetcode.Test.assertEqualsIgnoreOrder(Unknown Source)\n\tat _018_4Sum.PracticeTest.Test1(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<[[-5, -4, -3, 1]]> but was:<[]>",
+            "code": "@Test\n    public void Test1() {\n        int[] nums = { 1, -2, -5, -4, -3, 3, 3, 5 };\n        int target = -11;\n        List<List<Integer>> actual = solution.fourSum(nums, target);\n        List<List<Integer>> expected = new ArrayList<List<Integer>>();\n        expected.add(Arrays.asList(-5, -4, -3, 1));\n        assertEqualsIgnoreOrder(expected, actual);\n    }"
+        }
+    ]
+}

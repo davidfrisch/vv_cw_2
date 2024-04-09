@@ -1,0 +1,30 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 14 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_017_LetterCombinationsOfAPhoneNumber/Practice.java:2: error: class, interface, or enum expected
+    private void backtrack(String digits, int index, List<String> current, List<String> result, Map<String, String> phoneMap) {
+            ^
+    /app/leetcode-master/src/_017_LetterCombinationsOfAPhoneNumber/Practice.java:5: error: class, interface, or enum expected
+            return;
+            ^
+    /app/leetcode-master/src/_017_LetterCombinationsOfAPhoneNumber/Practice.java:6: error: class, interface, or enum expected
+        }
+        ^
+    /app/leetcode-master/src/_017_LetterCombinationsOfAPhoneNumber/Practice.java:10: error: class, interface, or enum expected
+            backtrack(digits, index + 1, current, result, phoneMap);
+            ^
+    /app/leetcode-master/src/_017_LetterCombinationsOfAPhoneNumber/Practice.java:11: error: class, interface, or enum expected
+            current.remove(current.size() - 1);
+            ^
+    /app/leetcode-master/src/_017_LetterCombinationsOfAPhoneNumber/Practice.java:12: error: class, interface, or enum expected
+        }
+        ^
+    6 errors

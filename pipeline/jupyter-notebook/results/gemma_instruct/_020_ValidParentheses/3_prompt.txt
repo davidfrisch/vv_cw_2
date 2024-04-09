@@ -1,0 +1,38 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 14 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:4: error: class, interface, or enum expected
+    package _020_ValidParentheses;
+    ^
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+import java.util.Deque;
+
+package _020_ValidParentheses;
+
+public class Practice {
+
+    public boolean isValid(String s) {
+        Deque<Character> st = new Deque<>();
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                st.offerFirst(c);
+            } else {
+                if (st.isEmpty() || (c == ')' && st.pollFirst() != '(') || (c == '}' && st.pollFirst() != '{') || (c == ']' && st.pollFirst() != '[')) {
+                    return false;
+                }
+            }
+        }
+        return st.isEmpty();
+    }
+
+}

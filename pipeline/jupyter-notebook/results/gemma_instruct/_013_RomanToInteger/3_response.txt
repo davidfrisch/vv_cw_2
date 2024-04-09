@@ -1,0 +1,6 @@
+```java
+if (a.charAt(i) == symbols[j].charAt(0)) {
+    result += values[j];
+    break;
+}
+```

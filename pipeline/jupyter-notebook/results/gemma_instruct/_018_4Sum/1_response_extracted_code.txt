@@ -1,0 +1,35 @@
+
+package _018_4Sum;
+
+import java.util.*;
+
+public class Practice {
+
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue; // skip duplicates
+
+            int needed = target - nums[i];
+            int j = nums.length - 1;
+
+            while (j > i) {
+                int current = nums[i] + nums[j];
+
+                if (current == target) {
+                    result.add(Arrays.asList(nums[i], nums[j], nums[i + 1], nums[j - 1]));
+                    j--;
+                    while (j > i && nums[j] == nums[j - 1]) j--; // skip duplicates
+                } else if (current < target) {
+                    j--;
+                } else {
+                    i++;
+                }
+            }
+        }
+
+        return result;
+    }
+}

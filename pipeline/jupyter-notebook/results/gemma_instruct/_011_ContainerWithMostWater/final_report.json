@@ -1,0 +1,72 @@
+{
+    "total_retries": 1,
+    "model": "gemma:instruct",
+    "leetcode_question": "_011_ContainerWithMostWater",
+    "passed": true,
+    "tries": {
+        "0": {
+            "extra_prompt": "Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain !",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _011_ContainerWithMostWater;\n\n/** see test {@link _011_ContainerWithMostWater.PracticeTest } */\npublic class Practice {\n\n    public int maxArea(int[] height) {\n        int left = 0;\n        int right = height.length - 1;\n        int maxArea = 0;\n\n        while (left < right) {\n            maxArea = Math.max(maxArea, (right - left) * Math.min(height[left], height[right]));\n\n            if (height[left] < height[right]) {\n                left++;\n            } else {\n                right--;\n            }\n        }\n\n        return maxArea;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "6",
+            "num_successes": 6,
+            "num_failures": "0",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:45:08",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.006",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int[] height = {};\n        int actual = solution.maxArea(height);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int[] height = { 5 };\n        int actual = solution.maxArea(height);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int[] height = { 3, 2 };\n        int actual = solution.maxArea(height);\n        int expected = 2;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test4() {\n        int[] height = { 1, 2, 3, 4, 5 };\n        int actual = solution.maxArea(height);\n        int expected = 6;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test5() {\n        int[] height = { 2, 4, 3, 5, 1 };\n        int actual = solution.maxArea(height);\n        int expected = 8;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test6",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test6() {\n        int[] height = { 8, 4, 3, 2, 1 };\n        int actual = solution.maxArea(height);\n        int expected = 6;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        }
+    }
+}

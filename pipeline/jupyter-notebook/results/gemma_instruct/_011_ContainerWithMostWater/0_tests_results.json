@@ -1,0 +1,57 @@
+{
+    "num_tests": "6",
+    "num_successes": 6,
+    "num_failures": "0",
+    "num_errors": "0",
+    "timestamp": "2024-04-09T13:45:08",
+    "test_cases": [
+        {
+            "name": "Test1",
+            "time": "0.006",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        int[] height = {};\n        int actual = solution.maxArea(height);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test2() {\n        int[] height = { 5 };\n        int actual = solution.maxArea(height);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test3() {\n        int[] height = { 3, 2 };\n        int actual = solution.maxArea(height);\n        int expected = 2;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test4",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test4() {\n        int[] height = { 1, 2, 3, 4, 5 };\n        int actual = solution.maxArea(height);\n        int expected = 6;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test5",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test5() {\n        int[] height = { 2, 4, 3, 5, 1 };\n        int actual = solution.maxArea(height);\n        int expected = 8;\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test6",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test6() {\n        int[] height = { 8, 4, 3, 2, 1 };\n        int actual = solution.maxArea(height);\n        int expected = 6;\n        assertEquals(expected, actual);\n    }"
+        }
+    ]
+}

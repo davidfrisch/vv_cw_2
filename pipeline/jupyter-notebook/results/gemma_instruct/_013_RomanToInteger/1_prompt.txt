@@ -1,0 +1,39 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 13 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_013_RomanToInteger/Practice.java:12: error: bad operand types for binary operator '=='
+                    if (a.charAt(i) == symbols[j]) {
+                                    ^
+      first type:  char
+      second type: String
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _013_RomanToInteger;
+
+public class Practice {
+
+    public int romanToInt(String a) {
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        int result = 0;
+        for (int i = 0; i < a.length(); i++) {
+            for (int j = 0; j < values.length; j++) {
+                if (a.charAt(i) == symbols[j]) {
+                    result += values[j];
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+    
+}

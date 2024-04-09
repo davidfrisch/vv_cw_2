@@ -1,0 +1,62 @@
+The following code has the following error: Message: expected:<[[-1, 0, 0, 1], [-2, -1, 1, 2], [-2, 0, 0, 2]]> but was:<[[-2, 2, -1, 1]]>
+@Test
+    public void Test0() {
+        int[] nums = { 1, 0, -1, 0, -2, 2 };
+        int target = 0;
+        List<List<Integer>> actual = solution.fourSum(nums, target);
+        List<List<Integer>> expected = new ArrayList<List<Integer>>();
+        expected.add(Arrays.asList(-2, -1, 1, 2));
+        expected.add(Arrays.asList(-2, 0, 0, 2));
+        expected.add(Arrays.asList(-1, 0, 0, 1));
+        // order of sets in expected list does not matter
+        assertEqualsIgnoreOrder(expected, actual);
+    }
+
+Message: expected:<[[-5, -4, -3, 1]]> but was:<[]>
+@Test
+    public void Test1() {
+        int[] nums = { 1, -2, -5, -4, -3, 3, 3, 5 };
+        int target = -11;
+        List<List<Integer>> actual = solution.fourSum(nums, target);
+        List<List<Integer>> expected = new ArrayList<List<Integer>>();
+        expected.add(Arrays.asList(-5, -4, -3, 1));
+        assertEqualsIgnoreOrder(expected, actual);
+    }
+
+
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _018_4Sum;
+
+import java.util.*;
+
+public class Practice {
+
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue; // skip duplicates
+
+            int needed = target - nums[i];
+            int j = nums.length - 1;
+
+            while (j > i) {
+                int current = nums[i] + nums[j];
+
+                if (current == target) {
+                    result.add(Arrays.asList(nums[i], nums[j], nums[i + 1], nums[j - 1]));
+                    j--;
+                    while (j > i && nums[j] == nums[j - 1]) j--; // skip duplicates
+                } else if (current < target) {
+                    j--;
+                } else {
+                    i++;
+                }
+            }
+        }
+
+        return result;
+    }
+}

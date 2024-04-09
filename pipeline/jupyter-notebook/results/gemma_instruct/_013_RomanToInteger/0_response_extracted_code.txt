@@ -1,0 +1,21 @@
+
+package _013_RomanToInteger;
+
+public class Practice {
+
+    public int romanToInt(String a) {
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        int result = 0;
+        for (int i = 0; i < a.length(); i++) {
+            for (int j = 0; j < values.length; j++) {
+                if (a.charAt(i) == symbols[j]) {
+                    result += values[j];
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+    
+}

@@ -1,0 +1,47 @@
+The following code has the following error: 
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 14 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_021_MergeTwoSortedLists/Practice.java:9: error: constructor ListNode in class ListNode cannot be applied to given types;
+            ListNode dummy = new ListNode();
+                             ^
+      required: int
+      found: no arguments
+      reason: actual and formal argument lists differ in length
+    1 error
+. Retry with a fix of the complete file. Don't explain! Only give the java code
+
+package _021_MergeTwoSortedLists;
+
+import com.leetcode.ListNode;
+
+public class Practice {
+
+    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {
+        ListNode dummy = new ListNode();
+        ListNode curr = dummy;
+
+        while (node11 != null && node21 != null) {
+            if (node11.val <= node21.val) {
+                curr.next = node11;
+                node11 = node11.next;
+            } else {
+                curr.next = node21;
+                node21 = node21.next;
+            }
+            curr = curr.next;
+        }
+
+        curr.next = node11 == null ? node21 : node11;
+
+        return dummy.next;
+    }
+
+}

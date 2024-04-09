@@ -1,0 +1,10 @@
+The issue with the given code is with the comparison between `a.charAt(i)` (which is a char) and `symbols[j]` (which is a String). The code should be:
+
+```java
+if (a.charAt(i) == symbols[j].charAt(0)) {
+    result += values[j];
+    break;
+}
+```
+
+Here, `symbols[j].charAt(0)` gets the first character of the String `symbols[j]`, which is then compared to the character at index `i` of the string `a`.

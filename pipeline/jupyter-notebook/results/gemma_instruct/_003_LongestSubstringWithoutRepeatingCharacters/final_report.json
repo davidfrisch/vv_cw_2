@@ -1,0 +1,71 @@
+{
+    "total_retries": 2,
+    "model": "gemma:instruct",
+    "leetcode_question": "_003_LongestSubstringWithoutRepeatingCharacters",
+    "passed": true,
+    "tries": {
+        "0": {
+            "extra_prompt": "Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain !",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _003_LongestSubstringWithoutRepeatingCharacters;\n\npublic class Practice {\n\n    public int lengthOfLongestSubstring(String a) {\n        int left = 0, right = 0, maxLen = 0;\n        HashMap<Character, Integer> charIndex = new HashMap<>();\n\n        while (right < a.length()) {\n            char rightChar = a.charAt(right);\n            charIndex.put(rightChar, charIndex.getOrDefault(rightChar, 0) + 1);\n\n            while (charIndex.get(rightChar) > 1) { // sliding window\n                char leftChar = a.charAt(left);\n                charIndex.put(leftChar, charIndex.getOrDefault(leftChar, 0) - 1);\n                left++;\n            }\n            maxLen = Math.max(maxLen, right - left + 1);\n            right++;\n        }\n\n        return maxLen;\n    }\n\n}\n```",
+            "number_of_issues": null,
+            "issues": null,
+            "num_tests": null,
+            "num_successes": null,
+            "num_failures": null,
+            "num_errors": null,
+            "timestamp": null,
+            "test_cases": null
+        },
+        "1": {
+            "extra_prompt": "The following code has the following error: \nclean:\n   [delete] Deleting directory /app/leetcode-master/bin\n   [delete] Deleting directory /app/leetcode-master/report\n\ninit:\n    [mkdir] Created dir: /app/leetcode-master/bin\n    [mkdir] Created dir: /app/leetcode-master/report\n\ncompile.specific:\n    Compiling 13 source files to /app/leetcode-master/bin\n    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:8: error: cannot find symbol\n            HashMap<Character, Integer> charIndex = new HashMap<>();\n            ^\n      symbol:   class HashMap\n      location: class Practice\n    /app/leetcode-master/src/_003_LongestSubstringWithoutRepeatingCharacters/Practice.java:8: error: cannot find symbol\n            HashMap<Character, Integer> charIndex = new HashMap<>();\n                                                        ^\n      symbol:   class HashMap\n      location: class Practice\n    2 errors\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _003_LongestSubstringWithoutRepeatingCharacters;\n\nimport java.util.HashMap;\n\npublic class Practice {\n\n    public int lengthOfLongestSubstring(String a) {\n        int left = 0, right = 0, maxLen = 0;\n        HashMap<Character, Integer> charIndex = new HashMap<>();\n\n        while (right < a.length()) {\n            char rightChar = a.charAt(right);\n            charIndex.put(rightChar, charIndex.getOrDefault(rightChar, 0) + 1);\n\n            while (charIndex.get(rightChar) > 1) { // sliding window\n                char leftChar = a.charAt(left);\n                charIndex.put(leftChar, charIndex.getOrDefault(leftChar, 0) - 1);\n                left++;\n            }\n            maxLen = Math.max(maxLen, right - left + 1);\n            right++;\n        }\n\n        return maxLen;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "4",
+            "num_successes": 4,
+            "num_failures": "0",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:36:47",
+            "test_cases": [
+                {
+                    "name": "Test0",
+                    "time": "0.006",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test0() {\n        String a = \"\";\n        int actual = solution.lengthOfLongestSubstring(a);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test1",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        String a = \"abcabcbb\";\n        int actual = solution.lengthOfLongestSubstring(a);\n        int expected = 3;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        String a = \"bbbb\";\n        int actual = solution.lengthOfLongestSubstring(a);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.002",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        String a = \"Wnb9z9dMc7E8v1RTUaZPoDNIAXRlzkqLaa97KMWLzbitaCkRpiE4J4hJ\"\n                + \"WhRcGnC8H6mwasgDfZ76VKdXhvEYmYrZY4Cfmf4HoSlchYWFEb1xllGKy\"\n                + \"EEmZOLPh1V6RuM7Mxd7xK72aNrWS4MEaUmgEn7L4rW3o14Nq9l2EN4HH6\"\n                + \"uJWljI8a5irvuODHY7A7ku4PJY2anSWnfJJE1w8p12Ks3oZRxAF3atqGB\"\n                + \"lzVQ0gltOwYmeynttUmQ4QBDLDrS4zn4VRZLosOITo4JlIqPD6t4NjhHT\"\n                + \"hOjJxpMp9fICkrgJeGiDAwsb8a3I7Txz5BBKV9bEfMsKNhCuY3W0ZHqY0\"\n                + \"MhBfz1CbYCzwZZdM4p65ppP9s5QJcfjadmMMi26JKz0TVVwvNA8LP5Vi1\"\n                + \"QsxId4SI19jfcUH97wmZu0pbw1zFtyJ8GAp5yjjQTzFIboC1iRzklnOJz\"\n                + \"Jld9TMaxqvBNBJKIyDjWrdfLOY8FGMOcPhfJ97Dph35zfxYyUf4DIqFi9\"\n                + \"4lm9J0skYqGz9JT0kiAABQZDazZcNi80dSSdveSl6h3dJjHmlK8qHIlDs\"\n                + \"qFd5FMhlEirax8WA0v3NDPT8vPhwKpxcnVeu14Gcxr3h1wAXXV0y7Xy9q\"\n                + \"qB2NQ5HQLJ7cyXAckEYHsLCPSy28xcdNJatx1KLWohOQado4WywJbGvsF\"\n                + \"R17rKmvOPABweXnFD3odrbSMD4Na4nuBBswvMmFRTUOcf7jZi4z5JnJqX\"\n                + \"z6hitaPnaEtjoSEBq82a52nvqYy7hhldBoxen2et2OMadVEHeTYLL7GLs\"\n                + \"IhTP6UizHIuzcJMljo4lFgW5AyrfUlIBPAlhwaSiJtTvcbVZynDSM6RO1\"\n                + \"PqFKWKg2MHIgNhjuzENg2oFCfW7z5KJvEL9qWqKzZNc0o3BMRjS04NCHF\"\n                + \"vhtsteQoQRgz84XZBHBJRdekCdcVVXu9c01gYRAz7oIAxN3zKZb64EFKs\"\n                + \"sfQ4HW971jv3H7x5E9dAszA0HrKTONyZDGYtHWt4QLhNsIs8mo4AIN7ec\"\n                + \"FKewyvGECAnaJpDn1MTTS4yTgZnm6N6qnmfjVt6ZU51F9BxH0jVG0kovT\"\n                + \"GSjTUkmb1mRTLQE5mTlVHcEz3yBOh4WiFFJjKJdi1HBIBaDL4r45HzaBv\"\n                + \"mYJPlWIomkqKEmQ4rLAbYG7C5rFfpMu8rHvjU7hP0JVvteGtaGn7mqeKs\"\n                + \"n7CgrJX1tb8t0ldaS3iUy8SEKAo5IZHNKOfEaij3nI4oRVzeVOZsH91pM\"\n                + \"sA4jRYgEohubPW8ciXwVrFi1qEWjvB8gfalyP60n1fHyjsiLW0T5uY1Jz\"\n                + \"QWHKCbLVh7QFoJFAEV0L516XmzIo556yRH1vhPnceOCjebqgsmO78AQ8I\"\n                + \"r2d4pHFFHAGB9lESn3OtJye1Lcyq9D6X93UakA3JKVKEt6JZDLVBMp4ms\"\n                + \"OefkPKSw59Uix9d9kOQm8WCepJTangdNSOKaxblZDNJ5eHvEroYacBhd9\"\n                + \"UdafEitdF3nfStF7AhkSfQVC61YWWkKTNdx96OoJGTnxuqt4oFZNFtO7a\"\n                + \"MuN3IJAkw3m3kgZFRGyd3D3wweagNL9XlYtvZwejbjpkDOZz33C0jbEWa\"\n                + \"MEaUPw6BG49XqyQoUwtriguO0yvWyaJqD4ye3o0E46huKYAsdKAq6MLWM\"\n                + \"xF6tfyPVaoqOGd0eOBHbAF89XXmDd4AIkoFPXkAOW8hln5nXnIWP6RBbf\"\n                + \"EkPPbxoToMbV\";\n        int actual = solution.lengthOfLongestSubstring(a);\n        int expected = 27;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        }
+    }
+}

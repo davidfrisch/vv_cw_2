@@ -1,0 +1,648 @@
+{
+    "total_retries": 10,
+    "model": "gemma:instruct",
+    "leetcode_question": "_007_ReverseInteger",
+    "passed": false,
+    "tries": {
+        "0": {
+            "extra_prompt": "Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain !",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _007_ReverseInteger;\n\npublic class Practice {\n\n    public int reverse(int a) {\n        int reversed = 0;\n        int remainder;\n\n        while (a != 0) {\n            remainder = a % 10;\n            reversed = reversed * 10 + remainder;\n            a /= 10;\n        }\n\n        if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10) {\n            return 0;\n        }\n\n        return reversed;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 3,
+            "num_failures": "2",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:39:37",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.01",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int A = 1000000003;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int A = 10000;\n        int actual = solution.reverse(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int A = Integer.MAX_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.003",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<0> but was:<126087180>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<0> but was:<126087180>\n\tat _007_ReverseInteger.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<0> but was:<126087180>",
+                    "code": "@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.001",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<-1987654321> but was:<0>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<-1987654321> but was:<0>\n\tat _007_ReverseInteger.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<-1987654321> but was:<0>",
+                    "code": "@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        },
+        "1": {
+            "extra_prompt": "The following code has the following error: \n\n\nMessage: expected:<0> but was:<126087180>\n@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }\n\nMessage: expected:<-1987654321> but was:<0>\n@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }\n\n\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _007_ReverseInteger;\n\npublic class Practice {\n\n    public int reverse(int a) {\n        int reversed = 0;\n        int remainder;\n\n        while (a != 0) {\n            remainder = a % 10;\n            reversed = reversed * 10 + remainder;\n            a /= 10;\n        }\n\n        if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10) {\n            return 0;\n        }\n\n        return reversed;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 3,
+            "num_failures": "2",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:39:48",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.01",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int A = 1000000003;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int A = 10000;\n        int actual = solution.reverse(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int A = Integer.MAX_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.002",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<0> but was:<126087180>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<0> but was:<126087180>\n\tat _007_ReverseInteger.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<0> but was:<126087180>",
+                    "code": "@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.001",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<-1987654321> but was:<0>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<-1987654321> but was:<0>\n\tat _007_ReverseInteger.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<-1987654321> but was:<0>",
+                    "code": "@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        },
+        "2": {
+            "extra_prompt": "The following code has the following error: \n\n\nMessage: expected:<0> but was:<126087180>\n@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }\n\nMessage: expected:<-1987654321> but was:<0>\n@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }\n\n\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _007_ReverseInteger;\n\npublic class Practice {\n\n    public int reverse(int a) {\n        int reversed = 0;\n        int remainder;\n\n        while (a != 0) {\n            remainder = a % 10;\n            reversed = reversed * 10 + remainder;\n            a /= 10;\n        }\n\n        if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10) {\n            return 0;\n        }\n\n        return reversed;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 3,
+            "num_failures": "2",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:39:59",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.008",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int A = 1000000003;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int A = 10000;\n        int actual = solution.reverse(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int A = Integer.MAX_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.003",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<0> but was:<126087180>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<0> but was:<126087180>\n\tat _007_ReverseInteger.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<0> but was:<126087180>",
+                    "code": "@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.002",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<-1987654321> but was:<0>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<-1987654321> but was:<0>\n\tat _007_ReverseInteger.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<-1987654321> but was:<0>",
+                    "code": "@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        },
+        "3": {
+            "extra_prompt": "The following code has the following error: \n\n\nMessage: expected:<0> but was:<126087180>\n@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }\n\nMessage: expected:<-1987654321> but was:<0>\n@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }\n\n\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _007_ReverseInteger;\n\npublic class Practice {\n\n    public int reverse(int a) {\n        int reversed = 0;\n        int remainder;\n\n        while (a != 0) {\n            remainder = a % 10;\n            reversed = reversed * 10 + remainder;\n            a /= 10;\n        }\n\n        if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10) {\n            return 0;\n        }\n\n        return reversed;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 3,
+            "num_failures": "2",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:40:10",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.005",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int A = 1000000003;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int A = 10000;\n        int actual = solution.reverse(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int A = Integer.MAX_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.015",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<0> but was:<126087180>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<0> but was:<126087180>\n\tat _007_ReverseInteger.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<0> but was:<126087180>",
+                    "code": "@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.003",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<-1987654321> but was:<0>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<-1987654321> but was:<0>\n\tat _007_ReverseInteger.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<-1987654321> but was:<0>",
+                    "code": "@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        },
+        "4": {
+            "extra_prompt": "The following code has the following error: \n\n\nMessage: expected:<0> but was:<126087180>\n@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }\n\nMessage: expected:<-1987654321> but was:<0>\n@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }\n\n\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _007_ReverseInteger;\n\npublic class Practice {\n\n    public int reverse(int a) {\n        int reversed = 0;\n        int remainder;\n\n        while (a != 0) {\n            remainder = a % 10;\n            reversed = reversed * 10 + remainder;\n            a /= 10;\n        }\n\n        if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10) {\n            return 0;\n        }\n\n        return reversed;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 3,
+            "num_failures": "2",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:40:20",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.007",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int A = 1000000003;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int A = 10000;\n        int actual = solution.reverse(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int A = Integer.MAX_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.003",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<0> but was:<126087180>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<0> but was:<126087180>\n\tat _007_ReverseInteger.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<0> but was:<126087180>",
+                    "code": "@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.001",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<-1987654321> but was:<0>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<-1987654321> but was:<0>\n\tat _007_ReverseInteger.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<-1987654321> but was:<0>",
+                    "code": "@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        },
+        "5": {
+            "extra_prompt": "The following code has the following error: \n\n\nMessage: expected:<0> but was:<126087180>\n@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }\n\nMessage: expected:<-1987654321> but was:<0>\n@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }\n\n\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _007_ReverseInteger;\n\npublic class Practice {\n\n    public int reverse(int a) {\n        int reversed = 0;\n        int remainder;\n\n        while (a != 0) {\n            remainder = a % 10;\n            reversed = reversed * 10 + remainder;\n            a /= 10;\n        }\n\n        if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10) {\n            return 0;\n        }\n\n        return reversed;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 3,
+            "num_failures": "2",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:40:31",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.009",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int A = 1000000003;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int A = 10000;\n        int actual = solution.reverse(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.004",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int A = Integer.MAX_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.002",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<0> but was:<126087180>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<0> but was:<126087180>\n\tat _007_ReverseInteger.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<0> but was:<126087180>",
+                    "code": "@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.001",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<-1987654321> but was:<0>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<-1987654321> but was:<0>\n\tat _007_ReverseInteger.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<-1987654321> but was:<0>",
+                    "code": "@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        },
+        "6": {
+            "extra_prompt": "The following code has the following error: \n\n\nMessage: expected:<0> but was:<126087180>\n@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }\n\nMessage: expected:<-1987654321> but was:<0>\n@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }\n\n\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _007_ReverseInteger;\n\npublic class Practice {\n\n    public int reverse(int a) {\n        int reversed = 0;\n        int remainder;\n\n        while (a != 0) {\n            remainder = a % 10;\n            reversed = reversed * 10 + remainder;\n            a /= 10;\n        }\n\n        if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10) {\n            return 0;\n        }\n\n        return reversed;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 3,
+            "num_failures": "2",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:40:41",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.011",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int A = 1000000003;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int A = 10000;\n        int actual = solution.reverse(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int A = Integer.MAX_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.003",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<0> but was:<126087180>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<0> but was:<126087180>\n\tat _007_ReverseInteger.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<0> but was:<126087180>",
+                    "code": "@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.001",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<-1987654321> but was:<0>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<-1987654321> but was:<0>\n\tat _007_ReverseInteger.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<-1987654321> but was:<0>",
+                    "code": "@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        },
+        "7": {
+            "extra_prompt": "The following code has the following error: \n\n\nMessage: expected:<0> but was:<126087180>\n@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }\n\nMessage: expected:<-1987654321> but was:<0>\n@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }\n\n\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _007_ReverseInteger;\n\npublic class Practice {\n\n    public int reverse(int a) {\n        int reversed = 0;\n        int remainder;\n\n        while (a != 0) {\n            remainder = a % 10;\n            reversed = reversed * 10 + remainder;\n            a /= 10;\n        }\n\n        if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10) {\n            return 0;\n        }\n\n        return reversed;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 3,
+            "num_failures": "2",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:40:52",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.007",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int A = 1000000003;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int A = 10000;\n        int actual = solution.reverse(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int A = Integer.MAX_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.003",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<0> but was:<126087180>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<0> but was:<126087180>\n\tat _007_ReverseInteger.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<0> but was:<126087180>",
+                    "code": "@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.001",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<-1987654321> but was:<0>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<-1987654321> but was:<0>\n\tat _007_ReverseInteger.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<-1987654321> but was:<0>",
+                    "code": "@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        },
+        "8": {
+            "extra_prompt": "The following code has the following error: \n\n\nMessage: expected:<0> but was:<126087180>\n@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }\n\nMessage: expected:<-1987654321> but was:<0>\n@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }\n\n\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _007_ReverseInteger;\n\npublic class Practice {\n\n    public int reverse(int a) {\n        int reversed = 0;\n        int remainder;\n\n        while (a != 0) {\n            remainder = a % 10;\n            reversed = reversed * 10 + remainder;\n            a /= 10;\n        }\n\n        if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10) {\n            return 0;\n        }\n\n        return reversed;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 3,
+            "num_failures": "2",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:41:02",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.01",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int A = 1000000003;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int A = 10000;\n        int actual = solution.reverse(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int A = Integer.MAX_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.003",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<0> but was:<126087180>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<0> but was:<126087180>\n\tat _007_ReverseInteger.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<0> but was:<126087180>",
+                    "code": "@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.0",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<-1987654321> but was:<0>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<-1987654321> but was:<0>\n\tat _007_ReverseInteger.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<-1987654321> but was:<0>",
+                    "code": "@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        },
+        "9": {
+            "extra_prompt": "The following code has the following error: \n\n\nMessage: expected:<0> but was:<126087180>\n@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }\n\nMessage: expected:<-1987654321> but was:<0>\n@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }\n\n\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _007_ReverseInteger;\n\npublic class Practice {\n\n    public int reverse(int a) {\n        int reversed = 0;\n        int remainder;\n\n        while (a != 0) {\n            remainder = a % 10;\n            reversed = reversed * 10 + remainder;\n            a /= 10;\n        }\n\n        if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10) {\n            return 0;\n        }\n\n        return reversed;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 3,
+            "num_failures": "2",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:41:13",
+            "test_cases": [
+                {
+                    "name": "Test1",
+                    "time": "0.017",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        int A = 1000000003;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int A = 10000;\n        int actual = solution.reverse(A);\n        int expected = 1;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int A = Integer.MAX_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.003",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<0> but was:<126087180>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<0> but was:<126087180>\n\tat _007_ReverseInteger.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<0> but was:<126087180>",
+                    "code": "@Test\n    public void Test4() {\n        int A = Integer.MIN_VALUE;\n        int actual = solution.reverse(A);\n        int expected = 0;\n        assertEquals(expected, actual);\n    }"
+                },
+                {
+                    "name": "Test5",
+                    "time": "0.001",
+                    "success": false,
+                    "failure": {
+                        "@message": "expected:<-1987654321> but was:<0>",
+                        "@type": "junit.framework.AssertionFailedError",
+                        "#text": "junit.framework.AssertionFailedError: expected:<-1987654321> but was:<0>\n\tat _007_ReverseInteger.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+                    },
+                    "message": "expected:<-1987654321> but was:<0>",
+                    "code": "@Test\n    public void Test5() {\n        int A = -1234567891;\n        int actual = solution.reverse(A);\n        int expected = -1987654321;\n        assertEquals(expected, actual);\n    }"
+                }
+            ]
+        }
+    }
+}

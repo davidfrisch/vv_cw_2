@@ -1,0 +1,57 @@
+{
+    "num_tests": "6",
+    "num_successes": 6,
+    "num_failures": "0",
+    "num_errors": "0",
+    "timestamp": "2024-04-09T13:36:20",
+    "test_cases": [
+        {
+            "name": "Test0",
+            "time": "0.011",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test0() {\n        int[] nums = { 2, 7, 11, 13 };\n        int target = 9;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 1, 2 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+        },
+        {
+            "name": "Test1",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        int[] nums = { 13, 7, 11, 2 };\n        int target = 9;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 2, 4 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+        },
+        {
+            "name": "Test4",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test4() {\n        int[] nums = { 13, 11, 7, 2 };\n        int target = 9;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 3, 4 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+        },
+        {
+            "name": "Test5",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test5() {\n        int[] nums = { 13, 11, 7, 2 };\n        int target = 24;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 1, 2 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+        },
+        {
+            "name": "Test6",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test6() {\n        int[] nums = { 13, 11, 7, 2 };\n        int target = 15;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 1, 4 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+        },
+        {
+            "name": "Test7",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test7() {\n        int[] nums = { 4, 7, -4, 2, 2, 2, 3, -5, -3, 9, -4, 9, -7, 7, -1, 9, 9,\n                4, 1, -4, -2, 3, -3, -5, 4, -7, 7, 9, -4, 4, -8 };\n        int target = -3;\n        int[] actuals = solution.twoSum(nums, target);\n        int[] expecteds = { 6, 8 };\n        assertArrayEquals(expecteds, actuals);\n    }"
+        }
+    ]
+}

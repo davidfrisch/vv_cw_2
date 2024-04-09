@@ -1,0 +1,39 @@
+```java
+package _017_LetterCombinationsOfAPhoneNumber;
+
+import java.util.*;
+
+public class Practice {
+
+    public List<String> letterCombinations(String digits) {
+        Map<String, String> phoneMap = new HashMap<>() {{
+            put("2", "ad");
+            put("3", "ae af");
+            put("4", "bd be");
+            put("5", "cf");
+            put("6", "dg");
+            put("7", "eh");
+            put("8", "ij");
+            put("9", "km");
+            put("0", "");
+        }};
+
+        List<String> result = new ArrayList<>();
+        backtrack(digits, 0, new ArrayList<>(), result, phoneMap);
+        return result;
+    }
+
+    private void backtrack(String digits, int index, List<String> current, List<String> result, Map<String, String> phoneMap) {
+        if (index == digits.length()) {
+            result.add(String.join("", current));
+            return;
+        }
+
+        for (String letter : phoneMap.getOrDefault(digits.charAt(index) + "", "")) {
+            current.add(letter);
+            backtrack(digits, index + 1, current, result, phoneMap);
+            current.remove(current.size() - 1);
+        }
+    }
+}
+```

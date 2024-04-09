@@ -1,0 +1,18 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 14 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_021_MergeTwoSortedLists/Practice.java:9: error: constructor ListNode in class ListNode cannot be applied to given types;
+            ListNode dummy = new ListNode();
+                             ^
+      required: int
+      found: no arguments
+      reason: actual and formal argument lists differ in length
+    1 error

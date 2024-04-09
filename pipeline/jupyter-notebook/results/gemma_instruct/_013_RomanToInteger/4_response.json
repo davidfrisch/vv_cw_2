@@ -1,0 +1,1 @@
+{"is_extracted": false, "number_of_code_blocks": 0, "extra_information_num_words": null, "response": "if (a.charAt(i) == symbols[j].charAt(0)) {\n    result += values[j];\n    break;\n}"}

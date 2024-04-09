@@ -1,0 +1,32 @@
+```java
+package _006_ZigZagConversion;
+
+/** see test {@link _006_ZigZagConversion.PracticeTest } */
+public class Practice {
+
+    public String convert(String a, int b) {
+        if (b == 1 || a.length() <= b) {
+            return a;
+        }
+        StringBuilder[] rows = new StringBuilder[b];
+        for (int i = 0; i < b; i++) {
+            rows[i] = new StringBuilder();
+        }
+        int currentRow = 0;
+        boolean goingDown = false;
+        for (char c : a.toCharArray()) {
+            rows[currentRow].append(c);
+            if (currentRow == 0 || currentRow == b - 1) {
+                goingDown = !goingDown;
+            }
+            currentRow += goingDown ? 1 : -1;
+        }
+        StringBuilder result = new StringBuilder();
+        for (StringBuilder row : rows) {
+            result.append(row);
+        }
+        return result.toString();
+    }
+
+}
+```

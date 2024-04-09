@@ -1,0 +1,28 @@
+
+package _021_MergeTwoSortedLists;
+
+import com.leetcode.ListNode;
+
+public class Practice {
+
+    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {
+        ListNode dummy = new ListNode();
+        ListNode curr = dummy;
+
+        while (node11 != null && node21 != null) {
+            if (node11.val <= node21.val) {
+                curr.next = node11;
+                node11 = node11.next;
+            } else {
+                curr.next = node21;
+                node21 = node21.next;
+            }
+            curr = curr.next;
+        }
+
+        curr.next = node11 == null ? node21 : node11;
+
+        return dummy.next;
+    }
+
+}

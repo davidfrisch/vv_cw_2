@@ -1,0 +1,24 @@
+```java
+package _007_ReverseInteger;
+
+public class Practice {
+
+    public int reverse(int a) {
+        int reversed = 0;
+        int remainder;
+
+        while (a != 0) {
+            remainder = a % 10;
+            reversed = reversed * 10 + remainder;
+            a /= 10;
+        }
+
+        if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10) {
+            return 0;
+        }
+
+        return reversed;
+    }
+
+}
+```

@@ -1,0 +1,22 @@
+
+clean:
+   [delete] Deleting directory /app/leetcode-master/bin
+   [delete] Deleting directory /app/leetcode-master/report
+
+init:
+    [mkdir] Created dir: /app/leetcode-master/bin
+    [mkdir] Created dir: /app/leetcode-master/report
+
+compile.specific:
+    Compiling 14 source files to /app/leetcode-master/bin
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:7: error: cannot find symbol
+            Stack<Character> st = new Stack<>();
+            ^
+      symbol:   class Stack
+      location: class Practice
+    /app/leetcode-master/src/_020_ValidParentheses/Practice.java:7: error: cannot find symbol
+            Stack<Character> st = new Stack<>();
+                                      ^
+      symbol:   class Stack
+      location: class Practice
+    2 errors

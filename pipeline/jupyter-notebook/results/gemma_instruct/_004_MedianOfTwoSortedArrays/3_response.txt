@@ -1,0 +1,41 @@
+```java
+package _004_MedianOfTwoSortedArrays;
+
+/** see test {@link _004_MedianOfTwoSortedArrays.PracticeTest } */
+public class Practice {
+
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int m = nums1.length;
+        int n = nums2.length;
+        int total = m + n;
+
+        if (total % 2 == 1) {
+            return findKth(nums1, nums2, total / 2, 0, m - 1, m, n);
+        } else {
+            double leftMedian = findKth(nums1, nums2, total / 2 - 1, 0, m - 1, m, n);
+            double rightMedian = findKth(nums1, nums2, total / 2, 0, m - 1, m, n);
+            return (leftMedian + rightMedian) / 2;
+        }
+    }
+
+    private double findKth(int[] nums1, int[] nums2, int k, int start1, int end1, int start2, int end2) {
+        while (start1 <= end1 && start2 <= end2) {
+            int i = start1 + (end1 - start1) / 2;
+            int j = start2 + (end2 - start2) / 2;
+
+            if (nums1[i] <= nums2[j]) {
+                end1 = i - 1;
+            } else {
+                end2 = j - 1;
+            }
+        }
+
+        if (start1 <= end1) {
+            return nums1[start1 + k];
+        } else {
+            return nums2[start2 + k];
+        }
+    }
+
+}
+```

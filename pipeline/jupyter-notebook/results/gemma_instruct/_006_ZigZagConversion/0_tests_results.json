@@ -1,0 +1,25 @@
+{
+    "num_tests": "2",
+    "num_successes": 2,
+    "num_failures": "0",
+    "num_errors": "0",
+    "timestamp": "2024-04-09T13:39:26",
+    "test_cases": [
+        {
+            "name": "Test1",
+            "time": "0.007",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        String A = \"PAYPALISHIRING\";\n        int B = 3;\n        String actual = solution.convert(A, B);\n        String expected = \"PAHNAPLSIIGYIR\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test2() {\n        String A = \"ABCD\";\n        int B = 2;\n        String actual = solution.convert(A, B);\n        String expected = \"ACBD\";\n        assertEquals(expected, actual);\n    }"
+        }
+    ]
+}

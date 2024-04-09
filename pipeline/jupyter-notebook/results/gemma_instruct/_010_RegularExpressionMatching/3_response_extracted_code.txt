@@ -1,0 +1,23 @@
+
+package _010_RegularExpressionMatching;
+
+public class Practice {
+
+    public boolean isMatch(String s, String p) {
+        int i = 0, j = 0;
+        int sl = s.length(), pl = p.length();
+
+        while (i < sl && j < pl) {
+            if (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.') {
+                i++;
+                j++;
+            } else if (p.charAt(j) == '*' && j > 0) {
+                j = j - 2; // update j to point to the first character of the repeated pattern
+            } else {
+                return false;
+            }
+        }
+
+        return j == pl && i == sl;
+    }
+}

@@ -1,0 +1,150 @@
+{
+    "num_tests": "15",
+    "num_successes": 8,
+    "num_failures": "7",
+    "num_errors": "0",
+    "timestamp": "2024-04-09T13:43:10",
+    "test_cases": [
+        {
+            "name": "Test10",
+            "time": "0.017",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test10() {\n        String s = \"aaa\";\n        String p = \"aa.a\";\n        assertTrue(!solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test11",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test11() {\n        String s = \"aaa\";\n        String p = \"ab*a\";\n        assertTrue(!solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test12",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test12() {\n        String s = \"aaa\";\n        String p = \"*a\";\n        assertTrue(!solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test13",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test13() {\n        String s = \"ab\";\n        String p = \".*c\";\n        assertTrue(!solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test14",
+            "time": "0.004",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _010_RegularExpressionMatching.PracticeTest.Test14(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test14() {\n        String s = \"\";\n        String p = \".*\";\n        assertTrue(solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test15",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _010_RegularExpressionMatching.PracticeTest.Test15(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test15() {\n        String s = \"baccbbcbcacacbbc\";\n        String p = \"c*.*b*c*ba*b*b*.a*\";\n        assertTrue(solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test1",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        String s = \"aa\";\n        String p = \"a\";\n        assertTrue(!solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.002",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test2() {\n        String s = \"aa\";\n        String p = \"aa\";\n        assertTrue(solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.001",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test3() {\n        String s = \"aaa\";\n        String p = \"aa\";\n        assertTrue(!solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test4",
+            "time": "0.002",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _010_RegularExpressionMatching.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test4() {\n        String s = \"aa\";\n        String p = \"a*\";\n        assertTrue(solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test5",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _010_RegularExpressionMatching.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test5() {\n        String s = \"aa\";\n        String p = \".*\";\n        assertTrue(solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test6",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _010_RegularExpressionMatching.PracticeTest.Test6(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test6() {\n        String s = \"ab\";\n        String p = \".*\";\n        assertTrue(solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test7",
+            "time": "0.002",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _010_RegularExpressionMatching.PracticeTest.Test7(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test7() {\n        String s = \"aab\";\n        String p = \"c*a*b\";\n        assertTrue(solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test8",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test8() {\n        String s = \"aaa\";\n        String p = \"a.a\";\n        assertTrue(solution.isMatch(s, p));\n    }"
+        },
+        {
+            "name": "Test9",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError\n\tat _010_RegularExpressionMatching.PracticeTest.Test9(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "junit.framework.AssertionFailedError",
+            "code": "@Test\n    public void Test9() {\n        String s = \"aaa\";\n        String p = \"ab*ac*a\";\n        assertTrue(solution.isMatch(s, p));\n    }"
+        }
+    ]
+}

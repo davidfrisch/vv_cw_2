@@ -1,0 +1,26 @@
+
+package _003_LongestSubstringWithoutRepeatingCharacters;
+
+public class Practice {
+
+    public int lengthOfLongestSubstring(String a) {
+        int left = 0, right = 0, maxLen = 0;
+        HashMap<Character, Integer> charIndex = new HashMap<>();
+
+        while (right < a.length()) {
+            char rightChar = a.charAt(right);
+            charIndex.put(rightChar, charIndex.getOrDefault(rightChar, 0) + 1);
+
+            while (charIndex.get(rightChar) > 1) { // sliding window
+                char leftChar = a.charAt(left);
+                charIndex.put(leftChar, charIndex.getOrDefault(leftChar, 0) - 1);
+                left++;
+            }
+            maxLen = Math.max(maxLen, right - left + 1);
+            right++;
+        }
+
+        return maxLen;
+    }
+
+}

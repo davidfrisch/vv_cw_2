@@ -1,0 +1,64 @@
+
+
+
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test14() {
+        String s = "";
+        String p = ".*";
+        assertTrue(solution.isMatch(s, p));
+    }
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test15() {
+        String s = "baccbbcbcacacbbc";
+        String p = "c*.*b*c*ba*b*b*.a*";
+        assertTrue(solution.isMatch(s, p));
+    }
+
+
+
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test4() {
+        String s = "aa";
+        String p = "a*";
+        assertTrue(solution.isMatch(s, p));
+    }
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test5() {
+        String s = "aa";
+        String p = ".*";
+        assertTrue(solution.isMatch(s, p));
+    }
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test6() {
+        String s = "ab";
+        String p = ".*";
+        assertTrue(solution.isMatch(s, p));
+    }
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test7() {
+        String s = "aab";
+        String p = "c*a*b";
+        assertTrue(solution.isMatch(s, p));
+    }
+
+
+Message: junit.framework.AssertionFailedError
+@Test
+    public void Test9() {
+        String s = "aaa";
+        String p = "ab*ac*a";
+        assertTrue(solution.isMatch(s, p));
+    }
+

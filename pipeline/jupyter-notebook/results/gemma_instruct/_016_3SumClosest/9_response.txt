@@ -1,0 +1,8 @@
+```java
+import java.util.Arrays;
+
+public class Practice {
+
+    // ... (rest of the code remains the same)
+}
+```

@@ -1,0 +1,21 @@
+```java
+package _009_PalindromeNumber;
+
+/** see test {@link _009_PalindromeNumber.PracticeTest } */
+public class Practice {
+
+    public boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+        int reversed = 0;
+        while (x > reversed) {
+            int remainder = x % 10;
+            reversed = reversed * 10 + remainder;
+            x /= 10;
+        }
+        return x == reversed || x % 10 == reversed;
+    }
+
+}
+```

@@ -1,0 +1,79 @@
+{
+    "total_retries": 2,
+    "model": "gemma:instruct",
+    "leetcode_question": "_021_MergeTwoSortedLists",
+    "passed": true,
+    "tries": {
+        "0": {
+            "extra_prompt": "Replace  // TODO Auto-generated method stub with your solution code. Only answer with the complete file. Don't explain !",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _021_MergeTwoSortedLists;\n\nimport com.leetcode.ListNode;\n\npublic class Practice {\n\n    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {\n        ListNode dummy = new ListNode();\n        ListNode curr = dummy;\n\n        while (node11 != null && node21 != null) {\n            if (node11.val <= node21.val) {\n                curr.next = node11;\n                node11 = node11.next;\n            } else {\n                curr.next = node21;\n                node21 = node21.next;\n            }\n            curr = curr.next;\n        }\n\n        curr.next = node11 == null ? node21 : node11;\n\n        return dummy.next;\n    }\n\n}\n```",
+            "number_of_issues": null,
+            "issues": null,
+            "num_tests": null,
+            "num_successes": null,
+            "num_failures": null,
+            "num_errors": null,
+            "timestamp": null,
+            "test_cases": null
+        },
+        "1": {
+            "extra_prompt": "The following code has the following error: \nclean:\n   [delete] Deleting directory /app/leetcode-master/bin\n   [delete] Deleting directory /app/leetcode-master/report\n\ninit:\n    [mkdir] Created dir: /app/leetcode-master/bin\n    [mkdir] Created dir: /app/leetcode-master/report\n\ncompile.specific:\n    Compiling 14 source files to /app/leetcode-master/bin\n    /app/leetcode-master/src/_021_MergeTwoSortedLists/Practice.java:9: error: constructor ListNode in class ListNode cannot be applied to given types;\n            ListNode dummy = new ListNode();\n                             ^\n      required: int\n      found: no arguments\n      reason: actual and formal argument lists differ in length\n    1 error\n. Retry with a fix of the complete file. Don't explain! Only give the java code",
+            "is_extracted": true,
+            "number_of_code_blocks": 1,
+            "extra_information_num_words": 1,
+            "response": "```\npackage _021_MergeTwoSortedLists;\n\nimport com.leetcode.ListNode;\n\npublic class Practice {\n\n    public ListNode mergeTwoLists(ListNode node11, ListNode node21) {\n        ListNode dummy = new ListNode(0); // added a constructor argument\n        ListNode curr = dummy;\n\n        while (node11 != null && node21 != null) {\n            if (node11.val <= node21.val) {\n                curr.next = node11;\n                node11 = node11.next;\n            } else {\n                curr.next = node21;\n                node21 = node21.next;\n            }\n            curr = curr.next;\n        }\n\n        curr.next = node11 == null ? node21 : node11;\n\n        return dummy.next;\n    }\n\n}\n```",
+            "number_of_issues": 0,
+            "issues": [],
+            "num_tests": "5",
+            "num_successes": 5,
+            "num_failures": "0",
+            "num_errors": "0",
+            "timestamp": "2024-04-09T13:53:49",
+            "test_cases": [
+                {
+                    "name": "Test0",
+                    "time": "0.006",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test0() {\n        ListNode node11 = null;\n        ListNode node21 = null;\n        ListNode actual = solution.mergeTwoLists(node11, node21);\n        ListNode expect = null;\n        assertTrue(ListNode.isSameList(actual, expect));\n    }"
+                },
+                {
+                    "name": "Test1",
+                    "time": "0.001",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test1() {\n        ListNode node11 = new ListNode(1);\n        ListNode node21 = new ListNode(2);\n        ListNode actual = solution.mergeTwoLists(node11, node21);\n        ListNode node1 = new ListNode(1);\n        ListNode node2 = new ListNode(2);\n        node1.next = node2;\n        ListNode expect = node1;\n        assertTrue(ListNode.isSameList(actual, expect));\n    }"
+                },
+                {
+                    "name": "Test2",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test2() {\n        int[] nums1 = {1, 3, 5};\n        ListNode l1 = ListNode.constructLinkedList(nums1);\n        int[] nums2 = {2, 4, 6};\n        ListNode l2 = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.mergeTwoLists(l1, l2);\n\n        int[] exps = {1, 2, 3, 4, 5, 6};\n        ListNode expected = ListNode.constructLinkedList(exps);\n\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test3",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test3() {\n        int[] nums1 = {1, 5};\n        ListNode l1 = ListNode.constructLinkedList(nums1);\n        int[] nums2 = {2, 4, 6};\n        ListNode l2 = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.mergeTwoLists(l1, l2);\n        int[] exps = {1, 2, 4, 5, 6};\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                },
+                {
+                    "name": "Test4",
+                    "time": "0.0",
+                    "success": true,
+                    "failure": null,
+                    "message": null,
+                    "code": "@Test\n    public void Test4() {\n        int[] nums1 = {1, 3, 5};\n        ListNode l1 = ListNode.constructLinkedList(nums1);\n        int[] nums2 = {2, 4};\n        ListNode l2 = ListNode.constructLinkedList(nums2);\n        ListNode actual = solution.mergeTwoLists(l1, l2);\n        int[] exps = {1, 2, 3, 4, 5};\n        ListNode expected = ListNode.constructLinkedList(exps);\n        assertTrue(ListNode.isSameList(actual, expected));\n    }"
+                }
+            ]
+        }
+    }
+}

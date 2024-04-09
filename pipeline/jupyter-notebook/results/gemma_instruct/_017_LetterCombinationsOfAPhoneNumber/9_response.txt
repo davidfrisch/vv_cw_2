@@ -1,0 +1,14 @@
+```java
+private void backtrack(String digits, int index, List<String> current, List<String> result, Map<String, String> phoneMap) {
+    if (index == digits.length()) {
+        result.add(String.join("", current));
+        return;
+    }
+
+    for (String letter : phoneMap.getOrDefault(digits.charAt(index) + "", "").split(" ")) {
+        current.add(letter);
+        backtrack(digits, index + 1, current, result, phoneMap);
+        current.remove(current.size() - 1);
+    }
+}
+```

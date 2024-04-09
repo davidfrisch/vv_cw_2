@@ -1,0 +1,46 @@
+
+package _012_IntegerToRoman;
+
+/** see test {@link _012_IntegerToRoman.PracticeTest } */
+public class Practice {
+
+    public String intToRoman(int a) {
+        String[] thousands = {"", "M", "MM", "MMM"};
+        String[] hundreds = {"", "C", "D", "CM"};
+        String[] tens = {"", "X", "L", "XL"};
+        String[] ones = {"", "I", "V", "VI", "VII", "VIII", "IX", "X"};
+
+        StringBuilder sb = new StringBuilder();
+        if (a >= 1000) {
+            sb.append(thousands[a / 1000]);
+            a %= 1000;
+        }
+        if (a >= 90) {
+            sb.append("XC");
+            a -= 90;
+        } else if (a >= 50) {
+            sb.append("L");
+            a -= 50;
+        } else if (a >= 40) {
+            sb.append("XL");
+            a -= 40;
+        } else if (a >= 10) {
+            sb.append(tens[a / 10]);
+            a %= 10;
+        }
+        if (a >= 9) {
+            sb.append("IX");
+            a -= 9;
+        } else if (a >= 5) {
+            sb.append("V");
+            a -= 5;
+        } else if (a >= 4) {
+            sb.append("IV");
+            a -= 4;
+        } else if (a >= 1) {
+            sb.append(ones[a]);
+        }
+        return sb.toString();
+    }
+
+}

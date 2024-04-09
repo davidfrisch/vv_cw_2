@@ -1,0 +1,25 @@
+Message: expected:<[[-1, 0, 0, 1], [-2, -1, 1, 2], [-2, 0, 0, 2]]> but was:<[[-2, 2, -1, 1]]>
+@Test
+    public void Test0() {
+        int[] nums = { 1, 0, -1, 0, -2, 2 };
+        int target = 0;
+        List<List<Integer>> actual = solution.fourSum(nums, target);
+        List<List<Integer>> expected = new ArrayList<List<Integer>>();
+        expected.add(Arrays.asList(-2, -1, 1, 2));
+        expected.add(Arrays.asList(-2, 0, 0, 2));
+        expected.add(Arrays.asList(-1, 0, 0, 1));
+        // order of sets in expected list does not matter
+        assertEqualsIgnoreOrder(expected, actual);
+    }
+
+Message: expected:<[[-5, -4, -3, 1]]> but was:<[]>
+@Test
+    public void Test1() {
+        int[] nums = { 1, -2, -5, -4, -3, 3, 3, 5 };
+        int target = -11;
+        List<List<Integer>> actual = solution.fourSum(nums, target);
+        List<List<Integer>> expected = new ArrayList<List<Integer>>();
+        expected.add(Arrays.asList(-5, -4, -3, 1));
+        assertEqualsIgnoreOrder(expected, actual);
+    }
+

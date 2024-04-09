@@ -1,0 +1,69 @@
+{
+    "num_tests": "6",
+    "num_successes": 3,
+    "num_failures": "3",
+    "num_errors": "0",
+    "timestamp": "2024-04-09T13:46:13",
+    "test_cases": [
+        {
+            "name": "Test1",
+            "time": "0.011",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test1() {\n        int A = 1;\n        String actual = solution.intToRoman(A);\n        String expected = \"I\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test2",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test2() {\n        int A = 4;\n        String actual = solution.intToRoman(A);\n        String expected = \"IV\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test3",
+            "time": "0.0",
+            "success": true,
+            "failure": null,
+            "message": null,
+            "code": "@Test\n    public void Test3() {\n        int A = 9;\n        String actual = solution.intToRoman(A);\n        String expected = \"IX\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test4",
+            "time": "0.003",
+            "success": false,
+            "failure": {
+                "@message": "expected:<[CCVII]> but was:<[XCIX]>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<[CCVII]> but was:<[XCIX]>\n\tat _012_IntegerToRoman.PracticeTest.Test4(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<[CCVII]> but was:<[XCIX]>",
+            "code": "@Test\n    public void Test4() {\n        int A = 207;\n        String actual = solution.intToRoman(A);\n        String expected = \"CCVII\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test5",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@message": "expected:<ML[XVI]> but was:<ML[IX]>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<ML[XVI]> but was:<ML[IX]>\n\tat _012_IntegerToRoman.PracticeTest.Test5(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<ML[XVI]> but was:<ML[IX]>",
+            "code": "@Test\n    public void Test5() {\n        int A = 1066;\n        String actual = solution.intToRoman(A);\n        String expected = \"MLXVI\";\n        assertEquals(expected, actual);\n    }"
+        },
+        {
+            "name": "Test6",
+            "time": "0.001",
+            "success": false,
+            "failure": {
+                "@message": "expected:<M[CMLIV]> but was:<M[XCIX]>",
+                "@type": "junit.framework.AssertionFailedError",
+                "#text": "junit.framework.AssertionFailedError: expected:<M[CMLIV]> but was:<M[XCIX]>\n\tat _012_IntegerToRoman.PracticeTest.Test6(Unknown Source)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)"
+            },
+            "message": "expected:<M[CMLIV]> but was:<M[XCIX]>",
+            "code": "@Test\n    public void Test6() {\n        int A = 1954;\n        String actual = solution.intToRoman(A);\n        String expected = \"MCMLIV\";\n        assertEquals(expected, actual);\n    }"
+        }
+    ]
+}
